@@ -11,9 +11,9 @@ from streamlit_option_menu import option_menu
 
 # Loading the saved models
 
-diabetes_model = pickle.load(open('G:\snaptube\Siddardhan\multiple-disease-prediction-streamlit-app-main\saved_model_new\diabetes_model.sav','rb'))
-heart_disease_model = pickle.load(open('G:\snaptube\Siddardhan\multiple-disease-prediction-streamlit-app-main\saved_model_new\heart_disease_model.sav','rb'))
-parkinsons_model= pickle.load(open('G:\snaptube\Siddardhan\multiple-disease-prediction-streamlit-app-main\saved_model_new\parkinsons_model.sav','rb'))
+diabetes_model = pickle.load(open('diabetes_model.sav','rb'))
+heart_disease_model = pickle.load(open('heart_disease_model.sav','rb'))
+parkinsons_model= pickle.load(open('parkinsons_model.sav','rb'))
 
 with st.sidebar:
     selected = option_menu('Mutiple Disease Prediction System',
@@ -232,4 +232,5 @@ if (selected == 'Parkinsons Prediction'):
             st.success("The person does not have Parkinson's disease")
 
    
+
     

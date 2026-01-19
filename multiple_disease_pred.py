@@ -27,6 +27,16 @@ with st.sidebar:
 #Diabetes Prediction Page
 
 if (selected == 'Diabetes Prediction'):
+
+    def reset_form():
+        st.session_state.Pregnancies = 0
+        st.session_state.Glucose = 0
+        st.session_state.BloodPressure = 0
+        st.session_state.SkinThickness = 0
+        st.session_state.Insulin = 0
+        st.session_state.BMI = 0.0
+        st.session_state.DPF = 0.0
+        st.session_state.Age = 1
     
     #page title
     st.title('Diabetes Prediction using ML')
@@ -82,7 +92,12 @@ if (selected == 'Diabetes Prediction'):
                 min_value=1, max_value=120, step=1
             )
 
-        submitted = st.form_submit_button("'Diabetes Test Result'")
+        col1, col2 = st.columns(2)
+        submitted = st.form_submit_button("Diabetes Test Result")
+        reset = st.form_submit_button(
+        "Reset",
+        on_click=reset_form
+        )
    
     # Code for Pediction    
    
@@ -285,6 +300,7 @@ if (selected == 'Parkinsons Prediction'):
    
 
     
+
 
 
 

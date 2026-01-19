@@ -9,6 +9,16 @@ import pickle
 import streamlit as st
 from streamlit_option_menu import option_menu
 
+def reset_form():
+    st.session_state.Pregnancies = 0
+    st.session_state.Glucose = 0
+    st.session_state.BloodPressure = 0
+    st.session_state.SkinThickness = 0
+    st.session_state.Insulin = 0
+    st.session_state.BMI = 0.0
+    st.session_state.DPF = 0.0
+    st.session_state.Age = 1
+
 # Loading the saved models
 
 diabetes_model = pickle.load(open('diabetes_model.sav','rb'))
@@ -26,17 +36,7 @@ with st.sidebar:
 
 #Diabetes Prediction Page
 
-if (selected == 'Diabetes Prediction'):
-
-    def reset_form():
-        st.session_state.Pregnancies = 0
-        st.session_state.Glucose = 0
-        st.session_state.BloodPressure = 0
-        st.session_state.SkinThickness = 0
-        st.session_state.Insulin = 0
-        st.session_state.BMI = 0.0
-        st.session_state.DPF = 0.0
-        st.session_state.Age = 1
+if (selected == 'Diabetes Prediction'):    
     
     #page title
     st.title('Diabetes Prediction using ML')
@@ -300,6 +300,7 @@ if (selected == 'Parkinsons Prediction'):
    
 
     
+
 
 
 

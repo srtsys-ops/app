@@ -9,24 +9,6 @@ import pickle
 import streamlit as st
 from streamlit_option_menu import option_menu
 
-def reset_form():
-    st.session_state.Pregnancies = 0
-    st.session_state.Glucose = 0
-    st.session_state.BloodPressure = 0
-    st.session_state.SkinThickness = 0
-    st.session_state.Insulin = 0
-    st.session_state.BMI = 0.0
-    st.session_state.DPF = 0.0
-    st.session_state.Age = 1
-
-def clear_form():
-    for key in [
-        "Pregnancies", "Glucose", "BloodPressure",
-        "SkinThickness", "Insulin", "BMI",
-        "DPF", "Age"
-    ]:
-        if key in st.session_state:
-            del st.session_state[key]
 
 # Loading the saved models
 
@@ -103,11 +85,7 @@ if (selected == 'Diabetes Prediction'):
 
         col1, col2 = st.columns(2)
         submitted = st.form_submit_button("Diabetes Test Result")
-        clear = st.form_submit_button("Clear", on_click=clear_form)
-        reset = st.form_submit_button(
-            "Reset",
-            on_click=reset_form
-        )
+        
    
     # Code for Pediction    
    
@@ -133,25 +111,15 @@ if submitted:
             st.write(err)
     else:   
         # 🔸 Process data here
-        input_data = [
-            st.session_state.Pregnancies,
-            st.session_state.Glucose,
-            st.session_state.BloodPressure,
-            st.session_state.SkinThickness,
-            st.session_state.Insulin,
-            st.session_state.BMI,
-            st.session_state.DPF,
-            st.session_state.Age,
-        ]
-    
-        diab_prediction = diabetes_model.predict([[input_data]])
+        
+        diab_prediction = diabetes_model.predict([[Pregnancies, Glucose, BloodPressure, SkinThickness, Insulin, BMI, DiabetesPedigreeFunction, Age]])
        
         if (diab_prediction[0]==1):
             st.warning('The Person is Diabetic')            
         else: 
             st.success('The Person is not Diabetic ')
 
-        clear_form()
+       
     
 
 
@@ -323,6 +291,7 @@ if (selected == 'Parkinsons Prediction'):
    
 
     
+
 
 
 

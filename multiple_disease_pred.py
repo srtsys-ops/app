@@ -30,63 +30,84 @@ if (selected == 'Diabetes Prediction'):
     
     #page title
     st.title('Diabetes Prediction using ML')
+
+    with st.form("diabetes_form"):
+        # getting the input data from the user
+         # ---------- Row 1 ----------
+        col1, col2, col3 = st.columns(3)
+        with col1:
+            Pregnancies = st.number_input(
+                "Number of Pregnancies",
+                min_value=0, max_value=20, step=1
+            )
+        with col2:
+            Glucose = st.number_input(
+                "Glucose Level (mg/dL)",
+                min_value=0, max_value=300
+            )
+        with col3:
+            BloodPressure = st.number_input(
+                "Blood Pressure (mm Hg)",
+                min_value=0, max_value=200
+            )
     
-    # getting the input data from the user
-     # ---------- Row 1 ----------
-    col1, col2, col3 = st.columns(3)
-    with col1:
-        Pregnancies = st.number_input(
-            "Number of Pregnancies",
-            min_value=0, max_value=20, step=1
-        )
-    with col2:
-        Glucose = st.number_input(
-            "Glucose Level (mg/dL)",
-            min_value=0, max_value=300
-        )
-    with col3:
-        BloodPressure = st.number_input(
-            "Blood Pressure (mm Hg)",
-            min_value=0, max_value=200
-        )
+        # ---------- Row 2 ----------
+        col1, col2, col3 = st.columns(3)
+        with col1:
+            SkinThickness = st.number_input(
+                "Skin Thickness (mm)",
+                min_value=0, max_value=100
+            )
+        with col2:
+            Insulin = st.number_input(
+                "Insulin Level (µU/mL)",
+                min_value=0, max_value=900
+            )
+        with col3:
+            BMI = st.number_input(
+                "BMI",
+                min_value=0.0, max_value=70.0, format="%.2f"
+            )
+    
+        # ---------- Row 3 ----------
+        col1, col2, col3 = st.columns(3)
+        with col1:
+            DiabetesPedigreeFunction = st.number_input(
+                "Diabetes Pedigree Function",
+                min_value=0.0, max_value=3.0, format="%.3f"
+            )
+        with col2:
+            Age = st.number_input(
+                "Age",
+                min_value=1, max_value=120, step=1
+            )
 
-    # ---------- Row 2 ----------
-    col1, col2, col3 = st.columns(3)
-    with col1:
-        SkinThickness = st.number_input(
-            "Skin Thickness (mm)",
-            min_value=0, max_value=100
-        )
-    with col2:
-        Insulin = st.number_input(
-            "Insulin Level (µU/mL)",
-            min_value=0, max_value=900
-        )
-    with col3:
-        BMI = st.number_input(
-            "BMI",
-            min_value=0.0, max_value=70.0, format="%.2f"
-        )
-
-    # ---------- Row 3 ----------
-    col1, col2, col3 = st.columns(3)
-    with col1:
-        DiabetesPedigreeFunction = st.number_input(
-            "Diabetes Pedigree Function",
-            min_value=0.0, max_value=3.0, format="%.3f"
-        )
-    with col2:
-        Age = st.number_input(
-            "Age",
-            min_value=1, max_value=120, step=1
-        )
-        
+        submitted = st.form_submit_button("'Diabetes Test Result'")
    
     # Code for Pediction    
    
     #Creating a button for Predicition
-   
-    if st.button('Diabetes Test Result'):
+
+    # ---------- Validation ----------
+if submitted:
+
+    errors = []
+
+    if Glucose < 70:
+        errors.append("⚠️ Glucose level seems too low.")
+    if BloodPressure < 40:
+        errors.append("⚠️ Blood Pressure seems too low.")
+    if BMI < 10:
+        errors.append("⚠️ BMI value seems invalid.")
+    if Age < 10:
+        errors.append("⚠️ Age must be at least 10 years.")
+
+    if errors:
+        st.error("Please correct the following:")
+        for err in errors:
+            st.write(err)
+    else:   
+    
         diab_prediction = diabetes_model.predict([[Pregnancies, Glucose, BloodPressure, SkinThickness, Insulin, BMI, DiabetesPedigreeFunction, Age]])
        
         if (diab_prediction[0]==1):
@@ -264,6 +285,7 @@ if (selected == 'Parkinsons Prediction'):
    
 
     
+
 
 
 

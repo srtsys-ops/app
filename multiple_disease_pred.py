@@ -43,6 +43,9 @@ if (selected == 'Diabetes Prediction'):
     with col3:
         BloodPressure = st.text_input('Blood Pressure value')
 
+    
+    col1, col2, col3 = st.columns(3)
+    
     with col1:
         SkinThickness = st.text_input('Skin Thickness value')
 
@@ -51,7 +54,8 @@ if (selected == 'Diabetes Prediction'):
 
     with col3:
         BMI = st.text_input('BMI value')
-
+        
+    col1, col2 = st.columns(2)
     with col1:
         DiabetesPedigreeFunction = st.text_input('Diabetes Pedigree Function value')
 
@@ -234,3 +238,4 @@ if (selected == 'Parkinsons Prediction'):
    
 
     
+

@@ -95,8 +95,8 @@ if (selected == 'Diabetes Prediction'):
         col1, col2 = st.columns(2)
         submitted = st.form_submit_button("Diabetes Test Result")
         reset = st.form_submit_button(
-        "Reset",
-        on_click=reset_form
+            "Reset",
+            on_click=reset_form()
         )
    
     # Code for Pediction    
@@ -300,6 +300,7 @@ if (selected == 'Parkinsons Prediction'):
    
 
     
+
 
 
 

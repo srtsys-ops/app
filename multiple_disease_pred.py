@@ -144,7 +144,7 @@ if submitted:
             st.session_state.Age,
         ]
     
-        diab_prediction = diabetes_model.predict([input_data])
+        diab_prediction = diabetes_model.predict([[input_data]])
        
         if (diab_prediction[0]==1):
             st.warning('The Person is Diabetic')            
@@ -323,6 +323,7 @@ if (selected == 'Parkinsons Prediction'):
    
 
     
+
 
 
 

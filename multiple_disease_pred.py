@@ -132,13 +132,26 @@ if submitted:
         for err in errors:
             st.write(err)
     else:   
+        # 🔸 Process data here
+        input_data = [
+            st.session_state.Pregnancies,
+            st.session_state.Glucose,
+            st.session_state.BloodPressure,
+            st.session_state.SkinThickness,
+            st.session_state.Insulin,
+            st.session_state.BMI,
+            st.session_state.DPF,
+            st.session_state.Age,
+        ]
     
-        diab_prediction = diabetes_model.predict([[Pregnancies, Glucose, BloodPressure, SkinThickness, Insulin, BMI, DiabetesPedigreeFunction, Age]])
+        diab_prediction = diabetes_model.predict([input_data])
        
         if (diab_prediction[0]==1):
             st.warning('The Person is Diabetic')            
         else: 
             st.success('The Person is not Diabetic ')
+
+        clear_form()
     
 
 
@@ -310,6 +323,7 @@ if (selected == 'Parkinsons Prediction'):
    
 
     
+
 
 
 

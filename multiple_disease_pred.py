@@ -30,7 +30,7 @@ with st.sidebar:
 if (selected == 'Diabetes Prediction'):    
     
     #page title
-    st.title('Diabetes Prediction using ML')
+    st.header('Diabetes Prediction using ML')
 
     with st.form("diabetes_form"):
         # getting the input data from the user

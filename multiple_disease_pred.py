@@ -55,7 +55,7 @@ if (selected == 'Diabetes Prediction'):
     with col3:
         BMI = st.text_input('BMI value')
         
-    col1, col2 = st.columns(2)
+    col1, col2, col3 = st.columns(3)
     with col1:
         DiabetesPedigreeFunction = st.text_input('Diabetes Pedigree Function value')
 
@@ -98,6 +98,7 @@ if (selected == 'Heart Disease Prediction'):
     with col3:
         cp = st.text_input('Chest Pain types')
 
+    col1, col2, col3 = st.columns(3)
     with col1:
         trestbps = st.text_input('Resting Blood Pressure')
 
@@ -107,6 +108,7 @@ if (selected == 'Heart Disease Prediction'):
     with col3:
         fbs = st.text_input('Fasting Blood Sugar > 120 mg/dl')
 
+    col1, col2, col3 = st.columns(3)
     with col1:
         restecg = st.text_input('Resting Electrocardiographic results')
 
@@ -116,6 +118,7 @@ if (selected == 'Heart Disease Prediction'):
     with col3:
         exang = st.text_input('Exercise Induced Angina')
 
+    col1, col2, col3 = st.columns(3)
     with col1:
         oldpeak = st.text_input('ST depression induced by exercise')
 
@@ -125,6 +128,7 @@ if (selected == 'Heart Disease Prediction'):
     with col3:
         ca = st.text_input('Major vessels colored by flourosopy')
 
+    col1, col2, col3 = st.columns(3)
     with col1:
         thal = st.text_input('thal: 0 = normal; 1 = fixed defect; 2 = reversable defect')
         
@@ -168,6 +172,7 @@ if (selected == 'Parkinsons Prediction'):
     with col5:
         Jitter_Abs = st.text_input('MDVP:Jitter(Abs)')
 
+    col1, col2, col3, col4, col5 = st.columns(5)
     with col1:
         RAP = st.text_input('MDVP:RAP')
 
@@ -183,6 +188,7 @@ if (selected == 'Parkinsons Prediction'):
     with col5:
         Shimmer_dB = st.text_input('MDVP:Shimmer(dB)')
 
+    col1, col2, col3, col4, col5 = st.columns(5)
     with col1:
         APQ3 = st.text_input('Shimmer:APQ3')
 
@@ -198,6 +204,7 @@ if (selected == 'Parkinsons Prediction'):
     with col5:
         NHR = st.text_input('NHR')
 
+    col1, col2, col3, col4, col5 = st.columns(5)
     with col1:
         HNR = st.text_input('HNR')
 
@@ -213,6 +220,7 @@ if (selected == 'Parkinsons Prediction'):
     with col5:
         spread2 = st.text_input('spread2')
 
+    col1, col2, col3, col4, col5 = st.columns(5)
     with col1:
         D2 = st.text_input('D2')
 
@@ -238,4 +246,5 @@ if (selected == 'Parkinsons Prediction'):
    
 
     
+
 

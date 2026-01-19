@@ -92,32 +92,32 @@ if (selected == 'Diabetes Prediction'):
     #Creating a button for Predicition
 
     # ---------- Validation ----------
-if submitted:
-
-    errors = []
-
-    if Glucose < 70:
-        errors.append("⚠️ Glucose level seems too low.")
-    if BloodPressure < 40:
-        errors.append("⚠️ Blood Pressure seems too low.")
-    if BMI < 10:
-        errors.append("⚠️ BMI value seems invalid.")
-    if Age < 10:
-        errors.append("⚠️ Age must be at least 10 years.")
-
-    if errors:
-        st.error("Please correct the following:")
-        for err in errors:
-            st.write(err)
-    else:   
-        # 🔸 Process data here
-        
-        diab_prediction = diabetes_model.predict([[Pregnancies, Glucose, BloodPressure, SkinThickness, Insulin, BMI, DiabetesPedigreeFunction, Age]])
-       
-        if (diab_prediction[0]==1):
-            st.warning('The Person is Diabetic')            
-        else: 
-            st.success('The Person is not Diabetic ')
+    if submitted:
+    
+        errors = []
+    
+        if Glucose < 70:
+            errors.append("⚠️ Glucose level seems too low.")
+        if BloodPressure < 40:
+            errors.append("⚠️ Blood Pressure seems too low.")
+        if BMI < 10:
+            errors.append("⚠️ BMI value seems invalid.")
+        if Age < 10:
+            errors.append("⚠️ Age must be at least 10 years.")
+    
+        if errors:
+            st.error("Please correct the following:")
+            for err in errors:
+                st.write(err)
+        else:   
+            # 🔸 Process data here
+            
+            diab_prediction = diabetes_model.predict([[Pregnancies, Glucose, BloodPressure, SkinThickness, Insulin, BMI, DiabetesPedigreeFunction, Age]])
+           
+            if (diab_prediction[0]==1):
+                st.warning('The Person is Diabetic')            
+            else: 
+                st.success('The Person is not Diabetic ')
 
        
     
@@ -291,6 +291,7 @@ if (selected == 'Parkinsons Prediction'):
    
 
     
+
 
 
 

@@ -19,6 +19,15 @@ def reset_form():
     st.session_state.DPF = 0.0
     st.session_state.Age = 1
 
+def clear_form():
+    for key in [
+        "Pregnancies", "Glucose", "BloodPressure",
+        "SkinThickness", "Insulin", "BMI",
+        "DPF", "Age"
+    ]:
+        if key in st.session_state:
+            del st.session_state[key]
+
 # Loading the saved models
 
 diabetes_model = pickle.load(open('diabetes_model.sav','rb'))
@@ -94,9 +103,10 @@ if (selected == 'Diabetes Prediction'):
 
         col1, col2 = st.columns(2)
         submitted = st.form_submit_button("Diabetes Test Result")
+        clear = st.form_submit_button("Clear", on_click=clear_form)
         reset = st.form_submit_button(
             "Reset",
-            on_click=reset_form()
+            on_click=reset_form
         )
    
     # Code for Pediction    
@@ -300,6 +310,7 @@ if (selected == 'Parkinsons Prediction'):
    
 
     
+
 
 
 

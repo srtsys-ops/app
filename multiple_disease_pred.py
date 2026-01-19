@@ -32,36 +32,54 @@ if (selected == 'Diabetes Prediction'):
     st.title('Diabetes Prediction using ML')
     
     # getting the input data from the user
+     # ---------- Row 1 ----------
     col1, col2, col3 = st.columns(3)
-
     with col1:
-        Pregnancies = st.text_input('Number of Pregnancies')
-
+        Pregnancies = st.number_input(
+            "Number of Pregnancies",
+            min_value=0, max_value=20, step=1
+        )
     with col2:
-        Glucose = st.text_input('Glucose Level')
-
+        Glucose = st.number_input(
+            "Glucose Level (mg/dL)",
+            min_value=0, max_value=300
+        )
     with col3:
-        BloodPressure = st.text_input('Blood Pressure value')
+        BloodPressure = st.number_input(
+            "Blood Pressure (mm Hg)",
+            min_value=0, max_value=200
+        )
 
-    
+    # ---------- Row 2 ----------
     col1, col2, col3 = st.columns(3)
-    
     with col1:
-        SkinThickness = st.text_input('Skin Thickness value')
-
+        SkinThickness = st.number_input(
+            "Skin Thickness (mm)",
+            min_value=0, max_value=100
+        )
     with col2:
-        Insulin = st.text_input('Insulin Level')
-
+        Insulin = st.number_input(
+            "Insulin Level (µU/mL)",
+            min_value=0, max_value=900
+        )
     with col3:
-        BMI = st.text_input('BMI value')
-        
+        BMI = st.number_input(
+            "BMI",
+            min_value=0.0, max_value=70.0, format="%.2f"
+        )
+
+    # ---------- Row 3 ----------
     col1, col2, col3 = st.columns(3)
     with col1:
-        DiabetesPedigreeFunction = st.text_input('Diabetes Pedigree Function value')
-
+        DiabetesPedigreeFunction = st.number_input(
+            "Diabetes Pedigree Function",
+            min_value=0.0, max_value=3.0, format="%.3f"
+        )
     with col2:
-        Age = st.text_input('Age of the Person')  
-        
+        Age = st.number_input(
+            "Age",
+            min_value=1, max_value=120, step=1
+        )
         
    
     # Code for Pediction    
@@ -246,5 +264,6 @@ if (selected == 'Parkinsons Prediction'):
    
 
     
+
 
 

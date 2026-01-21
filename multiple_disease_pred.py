@@ -39,9 +39,7 @@ if (selected == 'Diabetes Prediction'):
     
     with col_btn:
         st.markdown("<br>", unsafe_allow_html=True)  # vertical alignment
-        if st.button("🧹 Clear Form"):
-            clear_form()
-            st.experimental_rerun()
+        st.button("Clear Form", on_click=clear_form)
 
 
     # ---------- Initialize session state ----------
@@ -323,6 +321,7 @@ if (selected == 'Parkinsons Prediction'):
    
 
     
+
 
 
 

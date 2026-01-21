@@ -97,16 +97,24 @@ if (selected == 'Diabetes Prediction'):
                 "Age", 1, 120, key="Age"
             )
     
-        submitted = st.form_submit_button("Diabetes Test Result")
+        # ---------- Buttons ----------
+        col1, col2 = st.columns(2)
+        with col1:
+            predict_btn = st.form_submit_button("Diabetes Test Result")
+        with col2:
+            clear_btn = st.form_submit_button("Clear Form")
+
     
     
-    # ---------- Clear Button (OUTSIDE FORM) ----------
-    st.button("Clear Form", on_click=clear_form)
+    if clear_btn:
+        clear_form()
+        st.experimental_rerun()
+
     
     
     # ---------- Prediction ----------
-    if submitted:
-    
+    if predict_btn:
+
         errors = []
     
         if Glucose < 70:
@@ -134,6 +142,7 @@ if (selected == 'Diabetes Prediction'):
                 st.success("The Person is not Diabetic")
 
 
+
        
     
         
@@ -146,6 +155,7 @@ if (selected == 'Diabetes Prediction'):
    
 
     
+
 
 
 

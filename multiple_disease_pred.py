@@ -101,14 +101,14 @@ if (selected == 'Diabetes Prediction'):
         col1, col2 = st.columns(2)
         with col1:
             predict_btn = st.form_submit_button("Diabetes Test Result")
-        with col2:
-            clear_btn = st.form_submit_button("Clear Form")
+        
 
     
-    
-    if clear_btn:
+    if st.button("Clear Form"):
         clear_form()
         st.experimental_rerun()
+
+    
 
     
     
@@ -155,6 +155,7 @@ if (selected == 'Diabetes Prediction'):
    
 
     
+
 
 
 

@@ -155,7 +155,7 @@ if (selected == 'Diabetes Prediction'):
     if clear:
         for key, value in defaults.items():
             st.session_state[key] = value
-        st.experimental_rerun()
+        st.rerun()
 
 
             
@@ -326,6 +326,7 @@ if (selected == 'Parkinsons Prediction'):
    
 
     
+
 
 
 

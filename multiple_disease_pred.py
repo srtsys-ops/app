@@ -45,8 +45,10 @@ if (selected == 'Diabetes Prediction'):
         "Age": 1
     }
     
-    for key, value in defaults.items():
-        if key not in st.session_state:
+    
+
+    def clear_form():
+        for key, value in defaults.items():
             st.session_state[key] = value
     
     
@@ -114,7 +116,7 @@ if (selected == 'Diabetes Prediction'):
         with col1:
             submitted = st.form_submit_button("Diabetes Test Result")
         with col2:
-            clear = st.form_submit_button("Clear")
+            st.button("Clear", on_click=clear_form)
     
         
         
@@ -152,10 +154,9 @@ if (selected == 'Diabetes Prediction'):
                 st.success('The Person is not Diabetic ')
 
        
-    if clear:
-        for key, value in defaults.items():
-            st.session_state[key] = value
-        st.rerun()
+    
+        
+
 
 
             
@@ -164,6 +165,7 @@ if (selected == 'Diabetes Prediction'):
    
 
     
+
 
 
 

@@ -104,9 +104,8 @@ if (selected == 'Diabetes Prediction'):
         
 
     
-    if st.button("Clear Form"):
-        clear_form()
-        st.experimental_rerun()
+    # ---------- Clear Button (OUTSIDE FORM) ----------
+    st.button("Clear Form", on_click=clear_form)
 
     
 
@@ -155,6 +154,7 @@ if (selected == 'Diabetes Prediction'):
    
 
     
+
 
 
 

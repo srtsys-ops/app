@@ -32,6 +32,18 @@ if (selected == 'Diabetes Prediction'):
     #page title
     st.header('Diabetes Prediction using ML')
 
+    col_title, col_btn = st.columns([4, 1])
+
+    with col_title:
+        st.header("Diabetes Prediction using ML")
+    
+    with col_btn:
+        st.markdown("<br>", unsafe_allow_html=True)  # vertical alignment
+        if st.button("🧹 Clear Form"):
+            clear_form()
+            st.experimental_rerun()
+
+
     # ---------- Initialize session state ----------
     defaults = {
         "Pregnancies": 0,
@@ -311,6 +323,7 @@ if (selected == 'Parkinsons Prediction'):
    
 
     
+
 
 
 

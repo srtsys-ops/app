@@ -121,7 +121,7 @@ with st.sidebar:
 
 if (selected == 'Diabetes Prediction'):  
 
-    #set_bg("#FF0000", "#ffe0b2")
+    set_bg("#7f0000", "#b71c1c")
      # ---------- Initialize session state ----------
     defaults = {
         "Pregnancies": 0,
@@ -241,7 +241,7 @@ if (selected == 'Diabetes Prediction'):
 
 #------------Heart Disease Prediction Page-------------------------
 if (selected == 'Heart Disease Prediction'):
-    #set_bg("#FF0000", "#ffe0b2")
+    set_bg("#311b92", "#512da8")
 
     heart_defaults = {
         "age": 1,
@@ -491,6 +491,7 @@ if (selected == 'Parkinsons Prediction'):
                 st.success("🟢 No Parkinson’s Disease Detected")
 
     
+
 
 
 

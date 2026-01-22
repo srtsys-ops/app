@@ -91,12 +91,8 @@ with st.sidebar:
         """,
         unsafe_allow_html=True
     )
-    st.divider()
-
-    
-    st.markdown("## 🩺 Health Predictor")
-    st.markdown("AI-powered disease detection")
-    st.divider()
+    st.divider()    
+   
 
     selected = option_menu(
         "Select Prediction",
@@ -484,6 +480,7 @@ if (selected == 'Parkinsons Prediction'):
                 st.success("🟢 No Parkinson’s Disease Detected")
 
     
+
 
 
 

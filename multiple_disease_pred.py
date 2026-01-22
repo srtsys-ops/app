@@ -30,7 +30,7 @@ with st.sidebar:
 if (selected == 'Diabetes Prediction'):    
     
     #page title
-    st.header('Diabetes Prediction using ML')
+    #st.header('Diabetes Prediction using ML')
 
     col_title, col_btn = st.columns([4, 1])
 
@@ -38,8 +38,8 @@ if (selected == 'Diabetes Prediction'):
         st.header("Diabetes Prediction using ML")
     
     with col_btn:
-        st.markdown("<br>", unsafe_allow_html=True)  # vertical alignment
-        #st.button("Clear Form", on_click=clear_form)
+        #st.markdown("<br>", unsafe_allow_html=True)  # vertical alignment
+        st.button("Clear Form", on_click=clear_form)
 
 
     # ---------- Initialize session state ----------
@@ -321,6 +321,7 @@ if (selected == 'Parkinsons Prediction'):
    
 
     
+
 
 
 

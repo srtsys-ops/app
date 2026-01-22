@@ -24,9 +24,7 @@ st.markdown(
 st.markdown(
     """
     <style>
-    header[data-testid="stHeader"] {
-        display: none;
-    }
+   
 
     button[data-testid="stAppSettingsButton"] {
         display: none;
@@ -46,21 +44,7 @@ st.markdown(
 
 
 
-st.markdown(
-    """
-    <style>
-    header[data-testid="stHeader"] {
-        display: none;
-    }
 
-    /* Remove extra top padding */
-    .block-container {
-        padding-top: 1rem;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
 
 
 st.markdown(
@@ -569,6 +553,7 @@ if (selected == 'Parkinsons Prediction'):
                 st.success("🟢 No Parkinson’s Disease Detected")
 
     
+
 
 
 

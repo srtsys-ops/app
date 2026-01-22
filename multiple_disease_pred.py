@@ -112,7 +112,7 @@ if (selected == 'Diabetes Prediction'):
 
     
     # ---------- Clear Button (OUTSIDE FORM) ----------
-    st.button("Clear Form", on_click=clear_form)
+    #st.button("Clear Form", on_click=clear_form)
 
        
     # ---------- Prediction ----------
@@ -320,6 +320,7 @@ if (selected == 'Parkinsons Prediction'):
    
 
     
+
 
 
 

@@ -218,16 +218,56 @@ if (selected == 'Heart Disease Prediction'):
 
 
     if st.button('Heart Disease Test Result'):
-        heart_prediction = heart_disease_model.predict([[
-            age, sex, cp, trestbps, chol, fbs,
-            restecg, thalach, exang, oldpeak,
-            slope, ca, thal
-        ]])
 
-        if heart_prediction[0] == 1:
-            st.warning("⚠️ The person is likely to have heart disease")
+        errors = []
+    
+        # ---------- Input Validation ----------
+        if age < 10:
+            errors.append("⚠️ Age must be at least 10 years.")
+    
+        if trestbps < 80 or trestbps > 200:
+            errors.append("⚠️ Resting blood pressure should be between 80 and 200 mm Hg.")
+    
+        if chol < 100 or chol > 600:
+            errors.append("⚠️ Cholesterol value seems invalid (100–600).")
+    
+        if thalach < 60 or thalach > 250:
+            errors.append("⚠️ Max heart rate should be between 60 and 250.")
+    
+        if oldpeak < 0:
+            errors.append("⚠️ ST Depression cannot be negative.")
+    
+        if ca < 0 or ca > 4:
+            errors.append("⚠️ Number of major vessels must be between 0 and 4.")
+    
+        if sex not in [0, 1]:
+            errors.append("⚠️ Sex must be 0 (Female) or 1 (Male).")
+    
+        if cp not in [0, 1, 2, 3]:
+            errors.append("⚠️ Chest pain type must be between 0 and 3.")
+    
+        if fbs not in [0, 1] or exang not in [0, 1]:
+            errors.append("⚠️ Binary fields must be 0 or 1.")
+    
+        # ---------- Show Errors ----------
+        if errors:
+            st.error("Please correct the following before prediction:")
+            for err in errors:
+                st.write(err)
+    
+        # ---------- Prediction ----------
         else:
-            st.success("✅ The person is unlikely to have heart disease")
+            heart_prediction = heart_disease_model.predict([[ 
+                age, sex, cp, trestbps, chol, fbs,
+                restecg, thalach, exang, oldpeak,
+                slope, ca, thal
+            ]])
+    
+            if heart_prediction[0] == 1:
+                st.warning("⚠️ The person is likely to have heart disease")
+            else:
+                st.success("✅ The person is unlikely to have heart disease")
+
 
 
 #------------Parkinsons Prediction Page-------------------------           
@@ -352,6 +392,7 @@ if (selected == 'Parkinsons Prediction'):
                 st.success("✅ The person does not have Parkinson's disease")
 
     
+
 
 
 

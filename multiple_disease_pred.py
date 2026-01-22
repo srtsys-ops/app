@@ -78,6 +78,21 @@ with st.sidebar:
         unsafe_allow_html=True
     )
 
+    st.markdown(
+        """
+        <div style="
+            background: rgba(255,255,255,0.15);
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;">
+            <h2>🩺 Health Predictor</h2>
+            <p>AI-powered disease detection</p>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+    st.divider()
+
     
     st.markdown("## 🩺 Health Predictor")
     st.markdown("AI-powered disease detection")
@@ -469,6 +484,7 @@ if (selected == 'Parkinsons Prediction'):
                 st.success("🟢 No Parkinson’s Disease Detected")
 
     
+
 
 
 

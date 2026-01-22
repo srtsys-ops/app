@@ -27,22 +27,9 @@ with st.sidebar:
 
 #Diabetes Prediction Page
 
-if (selected == 'Diabetes Prediction'):    
-    
-    #page title
-    #st.header('Diabetes Prediction using ML')
+if (selected == 'Diabetes Prediction'):  
 
-    col_title, col_btn = st.columns([4, 1])
-
-    with col_title:
-        st.header("Diabetes Prediction using ML")
-    
-    with col_btn:
-        #st.markdown("<br>", unsafe_allow_html=True)  # vertical alignment
-        st.button("Clear Form", on_click=clear_form)
-
-
-    # ---------- Initialize session state ----------
+     # ---------- Initialize session state ----------
     defaults = {
         "Pregnancies": 0,
         "Glucose": 0,
@@ -63,6 +50,18 @@ if (selected == 'Diabetes Prediction'):
         for key, value in defaults.items():
             st.session_state[key] = value
     
+    #page title
+    #st.header('Diabetes Prediction using ML')
+
+    col_title, col_btn = st.columns([4, 1])
+
+    with col_title:
+        st.header("Diabetes Prediction using ML")
+    
+    with col_btn:
+        #st.markdown("<br>", unsafe_allow_html=True)  # vertical alignment
+        st.button("Clear Form", on_click=clear_form)
+        
     
     # ---------- Form ----------
     with st.form("diabetes_form"):
@@ -321,6 +320,7 @@ if (selected == 'Parkinsons Prediction'):
    
 
     
+
 
 
 

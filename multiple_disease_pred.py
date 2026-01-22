@@ -5,42 +5,9 @@ Created on Thu Jan 15 15:17:35 2026
 @author: Thilak
 """
 
-if "sidebar_open" not in st.session_state:
-    st.session_state.sidebar_open = True
-
-def toggle_sidebar():
-    st.session_state.sidebar_open = not st.session_state.sidebar_open
-
-st.button("☰", on_click=toggle_sidebar)
-
-
 import pickle
 import streamlit as st
 from streamlit_option_menu import option_menu
-
-st.markdown(
-    f"""
-    <style>
-    section[data-testid="stSidebar"] {{
-        transition: all 0.35s ease-in-out;
-        overflow: hidden;
-    }}
-
-    /* COLLAPSED */
-    {"section[data-testid='stSidebar'] {width: 70px !important;}" 
-      if not st.session_state.sidebar_open else ""}
-
-    /* HIDE TEXT WHEN COLLAPSED */
-    {"section[data-testid='stSidebar'] span, 
-      section[data-testid='stSidebar'] p, 
-      section[data-testid='stSidebar'] h1, 
-      section[data-testid='stSidebar'] h2, 
-      section[data-testid='stSidebar'] h3 {display:none !important;}" 
-      if not st.session_state.sidebar_open else ""}
-    </style>
-    """,
-    unsafe_allow_html=True
-)
 
 
 
@@ -523,6 +490,7 @@ if (selected == 'Parkinsons Prediction'):
                 st.success("🟢 No Parkinson’s Disease Detected")
 
     
+
 
 
 

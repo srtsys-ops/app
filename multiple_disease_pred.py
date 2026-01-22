@@ -51,7 +51,7 @@ with st.sidebar:
 
 if (selected == 'Diabetes Prediction'):  
 
-   set_bg("#fff3e0", "#ffe0b2")
+    set_bg("#fff3e0", "#ffe0b2")
      # ---------- Initialize session state ----------
     defaults = {
         "Pregnancies": 0,
@@ -420,6 +420,7 @@ if (selected == 'Parkinsons Prediction'):
                 st.success("🟢 No Parkinson’s Disease Detected")
 
     
+
 
 
 

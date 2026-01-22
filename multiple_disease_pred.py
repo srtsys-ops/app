@@ -181,7 +181,7 @@ if (selected == 'Heart Disease Prediction'):
         st.markdown("<br>", unsafe_allow_html=True)
         st.button("Clear Form", on_click=clear_heart_form)
 
-       col1, col2, col3 = st.columns(3)
+    col1, col2, col3 = st.columns(3)
     with col1:
         age = st.number_input('Age', 1, 120, key="age")
     with col2:
@@ -339,6 +339,7 @@ if (selected == 'Parkinsons Prediction'):
    
 
     
+
 
 
 

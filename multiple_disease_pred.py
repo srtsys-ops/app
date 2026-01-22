@@ -303,21 +303,56 @@ if (selected == 'Parkinsons Prediction'):
 
     # ---------- Prediction ----------
     if predict_btn:
-        input_data = [[
-            fo, fhi, flo, Jitter_percent, Jitter_Abs,
-            RAP, PPQ, DDP, Shimmer, Shimmer_dB,
-            APQ3, APQ5, APQ, DDA, NHR, HNR,
-            RPDE, DFA, spread1, spread2, D2, PPE
-        ]]
 
-        prediction = parkinsons_model.predict(input_data)
-
-        if prediction[0] == 1:
-            st.warning("⚠️ The person has Parkinson's disease")
+        errors = []
+    
+        # --------- Basic Validations ----------
+        if fo <= 0 or fhi <= 0 or flo <= 0:
+            errors.append("⚠️ Frequency values (Fo, Fhi, Flo) must be greater than 0.")
+    
+        if Jitter_percent < 0 or Shimmer < 0:
+            errors.append("⚠️ Jitter and Shimmer values cannot be negative.")
+    
+        if HNR <= 0:
+            errors.append("⚠️ HNR must be greater than 0.")
+    
+        if D2 <= 0 or PPE <= 0:
+            errors.append("⚠️ D2 and PPE must be greater than 0.")
+    
+        # Check if all inputs are zero
+        all_inputs = [
+            fo, fhi, flo, Jitter_percent, Jitter_Abs, RAP, PPQ, DDP,
+            Shimmer, Shimmer_dB, APQ3, APQ5, APQ, DDA,
+            NHR, HNR, RPDE, DFA, spread1, spread2, D2, PPE
+        ]
+    
+        if all(value == 0 for value in all_inputs):
+            errors.append("⚠️ Please enter valid data. All values cannot be zero.")
+    
+        # --------- Show Errors ----------
+        if errors:
+            st.error("Please fix the following issues before prediction:")
+            for err in errors:
+                st.write(err)
+    
+        # --------- Prediction ----------
         else:
-            st.success("✅ The person does not have Parkinson's disease")
+            input_data = [[
+                fo, fhi, flo, Jitter_percent, Jitter_Abs,
+                RAP, PPQ, DDP, Shimmer, Shimmer_dB,
+                APQ3, APQ5, APQ, DDA, NHR, HNR,
+                RPDE, DFA, spread1, spread2, D2, PPE
+            ]]
+    
+            prediction = parkinsons_model.predict(input_data)
+    
+            if prediction[0] == 1:
+                st.warning("⚠️ The person has Parkinson's disease")
+            else:
+                st.success("✅ The person does not have Parkinson's disease")
 
     
+
 
 
 

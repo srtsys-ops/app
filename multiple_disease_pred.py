@@ -59,7 +59,7 @@ if (selected == 'Diabetes Prediction'):
         st.header("Diabetes Prediction using ML")
     
     with col_btn:
-        #st.markdown("<br>", unsafe_allow_html=True)  # vertical alignment
+        st.markdown("<br>", unsafe_allow_html=True)  # vertical alignment
         st.button("Clear Form", on_click=clear_form)
         
     
@@ -320,6 +320,7 @@ if (selected == 'Parkinsons Prediction'):
    
 
     
+
 
 
 

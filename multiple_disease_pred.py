@@ -69,7 +69,7 @@ if (selected == 'Diabetes Prediction'):
     
     with col_btn:
         st.markdown("<br>", unsafe_allow_html=True)  # vertical alignment
-        st.button("🧹 Clear Form", on_click=clear_form)
+        st.button("🧹 Clear Form", type="secondary", on_click=clear_form)
         
     
     # ---------- Form ----------
@@ -116,7 +116,7 @@ if (selected == 'Diabetes Prediction'):
         # ---------- Buttons ----------
         col1, col2 = st.columns(2)
         with col1:
-            predict_btn = st.form_submit_button("Diabetes Test Result")
+            predict_btn = st.form_submit_button("🔍 Diabetes Test Result", type="primary")
         
 
     
@@ -404,6 +404,7 @@ if (selected == 'Parkinsons Prediction'):
                 st.success("🟢 No Parkinson’s Disease Detected")
 
     
+
 
 
 

@@ -134,13 +134,13 @@ with st.sidebar:
     )
 
 if selected == 'Diabetes Prediction':
-    set_bg("#020024", "#096679")
+    set_bg("#0b132b", "#1c2541")
 
 elif selected == 'Heart Disease Prediction':
-    set_bg("#2b0000", "#800020")
+    set_bg("#2c0a0a", "#7a1f1f")
 
 elif selected == 'Parkinsons Prediction':
-    set_bg("#12002f", "#4b0082")
+    set_bg("#1f1147", "#5b2c83")
 
 #Diabetes Prediction Page
 
@@ -516,6 +516,7 @@ if (selected == 'Parkinsons Prediction'):
                 st.success("🟢 No Parkinson’s Disease Detected")
 
     
+
 
 
 

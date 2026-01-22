@@ -133,11 +133,20 @@ with st.sidebar:
         unsafe_allow_html=True
     )
 
+if selected == 'Diabetes Prediction':
+    set_bg("#06161f", "#0b3c49")
+
+elif selected == 'Heart Disease Prediction':
+    set_bg("#4a0404", "#8b0000")
+
+elif selected == 'Parkinsons Prediction':
+    set_bg("#1a0f3c", "#3a1c71")
+
 #Diabetes Prediction Page
 
 if (selected == 'Diabetes Prediction'):  
 
-    set_bg("#7f0000", "#b71c1c")
+    #set_bg("#7f0000", "#b71c1c")
      # ---------- Initialize session state ----------
     defaults = {
         "Pregnancies": 0,
@@ -257,7 +266,7 @@ if (selected == 'Diabetes Prediction'):
 
 #------------Heart Disease Prediction Page-------------------------
 if (selected == 'Heart Disease Prediction'):
-    set_bg("#311b92", "#512da8")
+    #set_bg("#311b92", "#512da8")
 
     heart_defaults = {
         "age": 1,
@@ -386,7 +395,7 @@ if (selected == 'Heart Disease Prediction'):
 #------------Parkinsons Prediction Page-------------------------           
 if (selected == 'Parkinsons Prediction'):
     #set_bg("#FF0000", "#ffe0b2")
-    set_bg("#0f2027", "#2c5364")
+    #set_bg("#0f2027", "#2c5364")
 
     # ---------- Defaults ----------
     parkinsons_defaults = {
@@ -507,6 +516,7 @@ if (selected == 'Parkinsons Prediction'):
                 st.success("🟢 No Parkinson’s Disease Detected")
 
     
+
 
 
 

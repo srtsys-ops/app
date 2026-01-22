@@ -171,7 +171,7 @@ if (selected == 'Diabetes Prediction'):
 
 #------------Heart Disease Prediction Page-------------------------
 if (selected == 'Heart Disease Prediction'):
-    set_bg("#FF0000", "#ffe0b2")
+    #set_bg("#FF0000", "#ffe0b2")
 
     heart_defaults = {
         "age": 1,
@@ -299,7 +299,7 @@ if (selected == 'Heart Disease Prediction'):
 
 #------------Parkinsons Prediction Page-------------------------           
 if (selected == 'Parkinsons Prediction'):
-    #set_bg("#ede7f6", "#d1c4e9")
+    set_bg("#FF0000", "#ffe0b2")
 
     # ---------- Defaults ----------
     parkinsons_defaults = {
@@ -420,6 +420,7 @@ if (selected == 'Parkinsons Prediction'):
                 st.success("🟢 No Parkinson’s Disease Detected")
 
     
+
 
 
 

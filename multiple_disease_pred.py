@@ -107,6 +107,15 @@ with st.sidebar:
         }
     )
 
+    st.markdown(
+        """
+        <div style="position: fixed; bottom: 20px; color: #bbdefb;">
+            <small>© 2026 Health AI</small>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+
 #Diabetes Prediction Page
 
 if (selected == 'Diabetes Prediction'):  
@@ -480,6 +489,7 @@ if (selected == 'Parkinsons Prediction'):
                 st.success("🟢 No Parkinson’s Disease Detected")
 
     
+
 
 
 

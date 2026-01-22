@@ -146,70 +146,56 @@ if (selected == 'Diabetes Prediction'):
 
 
 if (selected == 'Heart Disease Prediction'):
-    
-    #page title
-    st.title('Heart Prediction using ML')
-    
-    
-    #getting the input data from the user
-   
+
+    st.header('Heart Disease Prediction using ML')
+
     col1, col2, col3 = st.columns(3)
-
     with col1:
-        age = st.text_input('Age')
-
+        age = st.number_input('Age', 1, 120)
     with col2:
-        sex = st.text_input('Sex')
-
+        sex = st.number_input('Sex (1 = Male, 0 = Female)', 0, 1)
     with col3:
-        cp = st.text_input('Chest Pain types')
+        cp = st.number_input('Chest Pain Type (0–3)', 0, 3)
 
     col1, col2, col3 = st.columns(3)
     with col1:
-        trestbps = st.text_input('Resting Blood Pressure')
-
+        trestbps = st.number_input('Resting Blood Pressure', 80, 200)
     with col2:
-        chol = st.text_input('Serum Cholestoral in mg/dl')
-
+        chol = st.number_input('Serum Cholesterol (mg/dl)', 100, 600)
     with col3:
-        fbs = st.text_input('Fasting Blood Sugar > 120 mg/dl')
+        fbs = st.number_input('Fasting Blood Sugar > 120 (1 = True, 0 = False)', 0, 1)
 
     col1, col2, col3 = st.columns(3)
     with col1:
-        restecg = st.text_input('Resting Electrocardiographic results')
-
+        restecg = st.number_input('Resting ECG results (0–2)', 0, 2)
     with col2:
-        thalach = st.text_input('Maximum Heart Rate achieved')
-
+        thalach = st.number_input('Max Heart Rate Achieved', 60, 250)
     with col3:
-        exang = st.text_input('Exercise Induced Angina')
+        exang = st.number_input('Exercise Induced Angina (1 = Yes, 0 = No)', 0, 1)
 
     col1, col2, col3 = st.columns(3)
     with col1:
-        oldpeak = st.text_input('ST depression induced by exercise')
-
+        oldpeak = st.number_input('ST Depression', 0.0, 10.0, format="%.2f")
     with col2:
-        slope = st.text_input('Slope of the peak exercise ST segment')
-
+        slope = st.number_input('Slope (0–2)', 0, 2)
     with col3:
-        ca = st.text_input('Major vessels colored by flourosopy')
+        ca = st.number_input('Major Vessels (0–4)', 0, 4)
 
-    col1, col2, col3 = st.columns(3)
-    with col1:
-        thal = st.text_input('thal: 0 = normal; 1 = fixed defect; 2 = reversable defect')
-        
-   
-    # code for Prediction
-     
-    #Creating a button for Predicition
-   
+    thal = st.number_input('Thal (0 = Normal, 1 = Fixed, 2 = Reversible)', 0, 2)
+
     if st.button('Heart Disease Test Result'):
-        heart_prediction = heart_disease_model.predict([[age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope, ca, thal]])
-       
+
+        heart_prediction = heart_disease_model.predict([[
+            age, sex, cp, trestbps, chol, fbs,
+            restecg, thalach, exang, oldpeak,
+            slope, ca, thal
+        ]])
+
         if heart_prediction[0] == 1:
-            st.warning('The person is having heart disease')  
+            st.warning('⚠️ The person is likely to have heart disease')
         else:
-            st.success('The person does not have any heart disease')
+            st.success('✅ The person is unlikely to have heart disease')
+
            
     
     
@@ -320,6 +306,7 @@ if (selected == 'Parkinsons Prediction'):
    
 
     
+
 
 
 

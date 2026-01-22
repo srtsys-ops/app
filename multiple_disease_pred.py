@@ -65,11 +65,11 @@ if (selected == 'Diabetes Prediction'):
     col_title, col_btn = st.columns([4, 1])
 
     with col_title:
-        st.header("🩸 Diabetes Prediction", type="primary", divider="blue")
+        st.header("🩸 Diabetes Prediction", divider="blue")
     
     with col_btn:
         st.markdown("<br>", unsafe_allow_html=True)  # vertical alignment
-        st.button("🧹 Clear Form", type="secondary", on_click=clear_form)
+        st.button("🧹 Clear Form", on_click=clear_form)
         
     
     # ---------- Form ----------
@@ -404,6 +404,7 @@ if (selected == 'Parkinsons Prediction'):
                 st.success("🟢 No Parkinson’s Disease Detected")
 
     
+
 
 
 

@@ -38,6 +38,14 @@ with st.sidebar:
 
 if (selected == 'Diabetes Prediction'):  
 
+    def get_risk_percentage(model, input_data):
+        
+        try:
+            return round(model.predict_proba(input_data)[0][1] * 100, 2)
+        except:
+            return None
+
+
      # ---------- Initialize session state ----------
     defaults = {
         "Pregnancies": 0,
@@ -142,16 +150,36 @@ if (selected == 'Diabetes Prediction'):
             st.error("Please correct the following:")
             for err in errors:
                 st.write(err)
+    
         else:
-            diab_prediction = diabetes_model.predict([[
+            input_data = [[
                 Pregnancies, Glucose, BloodPressure,
                 SkinThickness, Insulin, BMI, DPF, Age
-            ]])
+            ]]
     
-            if diab_prediction[0] == 1:
-                st.error("🔴 High Risk: The person is Diabetic")
+            # ---------- Risk Percentage ----------
+            risk = get_risk_percentage(diabetes_model, input_data)
+    
+            prediction = diabetes_model.predict(input_data)
+    
+            st.subheader("📊 Diabetes Risk Assessment")
+    
+            if risk is not None:
+                st.progress(int(risk))
+    
+                if risk >= 70:
+                    st.error(f"🔴 High Risk of Diabetes ({risk}%)")
+                elif risk >= 40:
+                    st.warning(f"🟠 Moderate Risk ({risk}%)")
+                else:
+                    st.success(f"🟢 Low Risk ({risk}%)")
+    
+            # ---------- Final Result ----------
+            if prediction[0] == 1:
+                st.error("🔴 The Person is Diabetic")
             else:
-                st.success("🟢 Low Risk: The person is not Diabetic")
+                st.success("🟢 The Person is not Diabetic")
+
 
                 
 
@@ -404,6 +432,7 @@ if (selected == 'Parkinsons Prediction'):
                 st.success("🟢 No Parkinson’s Disease Detected")
 
     
+
 
 
 

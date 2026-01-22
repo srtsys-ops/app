@@ -166,6 +166,7 @@ if (selected == 'Diabetes Prediction'):
     
             if risk is not None:
                 st.progress(int(risk))
+                print(risk)
     
                 if risk >= 70:
                     st.error(f"🔴 High Risk of Diabetes ({risk}%)")
@@ -432,6 +433,7 @@ if (selected == 'Parkinsons Prediction'):
                 st.success("🟢 No Parkinson’s Disease Detected")
 
     
+
 
 
 

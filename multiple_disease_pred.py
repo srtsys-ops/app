@@ -10,7 +10,23 @@ import streamlit as st
 from streamlit_option_menu import option_menu
 
 
+st.markdown(
+    """
+    <style>
+    h1, h2, h3, h4, h5, h6, p, label, span {
+        color: white !important;
+    }
 
+    div[data-testid="stForm"] {
+        background: rgba(255,255,255,0.08);
+        backdrop-filter: blur(10px);
+        border-radius: 14px;
+        padding: 20px;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 # Loading the saved models
 
 diabetes_model = pickle.load(open('diabetes_model.sav','rb'))
@@ -491,6 +507,7 @@ if (selected == 'Parkinsons Prediction'):
                 st.success("🟢 No Parkinson’s Disease Detected")
 
     
+
 
 
 

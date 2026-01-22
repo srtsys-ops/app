@@ -21,6 +21,30 @@ st.markdown(
     unsafe_allow_html=True
 )
 
+st.markdown(
+    """
+    <style>
+    header[data-testid="stHeader"] {
+        display: none;
+    }
+
+    button[data-testid="stAppSettingsButton"] {
+        display: none;
+    }
+
+    footer {
+        display: none;
+    }
+
+    .block-container {
+        padding-top: 1rem;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+
 
 st.markdown(
     """
@@ -545,6 +569,7 @@ if (selected == 'Parkinsons Prediction'):
                 st.success("🟢 No Parkinson’s Disease Detected")
 
     
+
 
 
 

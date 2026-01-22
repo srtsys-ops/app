@@ -147,44 +147,76 @@ if (selected == 'Diabetes Prediction'):
 
 if (selected == 'Heart Disease Prediction'):
 
-    st.header('Heart Disease Prediction using ML')
+    heart_defaults = {
+        "age": 1,
+        "sex": 0,
+        "cp": 0,
+        "trestbps": 80,
+        "chol": 100,
+        "fbs": 0,
+        "restecg": 0,
+        "thalach": 60,
+        "exang": 0,
+        "oldpeak": 0.0,
+        "slope": 0,
+        "ca": 0,
+        "thal": 0
+    }
+
+    for key, val in heart_defaults.items():
+        if key not in st.session_state:
+            st.session_state[key] = val
+
+    def clear_heart_form():
+        for key, val in heart_defaults.items():
+            st.session_state[key] = val
+
+
+    col_title, col_btn = st.columns([4, 1])
+
+    with col_title:
+        st.header("Heart Disease Prediction using ML")
+
+    with col_btn:
+        st.markdown("<br>", unsafe_allow_html=True)
+        st.button("Clear Form", on_click=clear_heart_form)
+
+       col1, col2, col3 = st.columns(3)
+    with col1:
+        age = st.number_input('Age', 1, 120, key="age")
+    with col2:
+        sex = st.number_input('Sex (1 = Male, 0 = Female)', 0, 1, key="sex")
+    with col3:
+        cp = st.number_input('Chest Pain Type (0–3)', 0, 3, key="cp")
 
     col1, col2, col3 = st.columns(3)
     with col1:
-        age = st.number_input('Age', 1, 120)
+        trestbps = st.number_input('Resting Blood Pressure', 80, 200, key="trestbps")
     with col2:
-        sex = st.number_input('Sex (1 = Male, 0 = Female)', 0, 1)
+        chol = st.number_input('Serum Cholesterol', 100, 600, key="chol")
     with col3:
-        cp = st.number_input('Chest Pain Type (0–3)', 0, 3)
+        fbs = st.number_input('Fasting Blood Sugar > 120', 0, 1, key="fbs")
 
     col1, col2, col3 = st.columns(3)
     with col1:
-        trestbps = st.number_input('Resting Blood Pressure', 80, 200)
+        restecg = st.number_input('Resting ECG (0–2)', 0, 2, key="restecg")
     with col2:
-        chol = st.number_input('Serum Cholesterol (mg/dl)', 100, 600)
+        thalach = st.number_input('Max Heart Rate', 60, 250, key="thalach")
     with col3:
-        fbs = st.number_input('Fasting Blood Sugar > 120 (1 = True, 0 = False)', 0, 1)
+        exang = st.number_input('Exercise Induced Angina', 0, 1, key="exang")
 
     col1, col2, col3 = st.columns(3)
     with col1:
-        restecg = st.number_input('Resting ECG results (0–2)', 0, 2)
+        oldpeak = st.number_input('ST Depression', 0.0, 10.0, key="oldpeak")
     with col2:
-        thalach = st.number_input('Max Heart Rate Achieved', 60, 250)
+        slope = st.number_input('Slope (0–2)', 0, 2, key="slope")
     with col3:
-        exang = st.number_input('Exercise Induced Angina (1 = Yes, 0 = No)', 0, 1)
+        ca = st.number_input('Major Vessels', 0, 4, key="ca")
 
-    col1, col2, col3 = st.columns(3)
-    with col1:
-        oldpeak = st.number_input('ST Depression', 0.0, 10.0, format="%.2f")
-    with col2:
-        slope = st.number_input('Slope (0–2)', 0, 2)
-    with col3:
-        ca = st.number_input('Major Vessels (0–4)', 0, 4)
+    thal = st.number_input('Thal (0–2)', 0, 2, key="thal")
 
-    thal = st.number_input('Thal (0 = Normal, 1 = Fixed, 2 = Reversible)', 0, 2)
 
     if st.button('Heart Disease Test Result'):
-
         heart_prediction = heart_disease_model.predict([[
             age, sex, cp, trestbps, chol, fbs,
             restecg, thalach, exang, oldpeak,
@@ -192,9 +224,10 @@ if (selected == 'Heart Disease Prediction'):
         ]])
 
         if heart_prediction[0] == 1:
-            st.warning('⚠️ The person is likely to have heart disease')
+            st.warning("⚠️ The person is likely to have heart disease")
         else:
-            st.success('✅ The person is unlikely to have heart disease')
+            st.success("✅ The person is unlikely to have heart disease")
+
 
            
     
@@ -306,6 +339,7 @@ if (selected == 'Parkinsons Prediction'):
    
 
     
+
 
 
 

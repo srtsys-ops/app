@@ -149,9 +149,10 @@ if (selected == 'Diabetes Prediction'):
             ]])
     
             if diab_prediction[0] == 1:
-                st.warning("The Person is Diabetic")
+                st.error("🔴 High Risk: The person is Diabetic")
             else:
-                st.success("The Person is not Diabetic")
+                st.success("🟢 Low Risk: The person is not Diabetic")
+
                 
 
 #------------Heart Disease Prediction Page-------------------------
@@ -272,10 +273,12 @@ if (selected == 'Heart Disease Prediction'):
                 slope, ca, thal
             ]])
     
+            
             if heart_prediction[0] == 1:
-                st.warning("⚠️ The person is likely to have heart disease")
+                st.error("🔴 High Risk of Heart Disease")
             else:
-                st.success("✅ The person is unlikely to have heart disease")
+                st.success("🟢 No Significant Risk Detected")
+
 
 
 
@@ -396,11 +399,12 @@ if (selected == 'Parkinsons Prediction'):
             prediction = parkinsons_model.predict(input_data)
     
             if prediction[0] == 1:
-                st.warning("⚠️ The person has Parkinson's disease")
+                st.error("🔴 Parkinson’s Disease Detected")
             else:
-                st.success("✅ The person does not have Parkinson's disease")
+                st.success("🟢 No Parkinson’s Disease Detected")
 
     
+
 
 
 

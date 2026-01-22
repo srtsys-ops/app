@@ -116,6 +116,15 @@ with st.sidebar:
         unsafe_allow_html=True
     )
 
+if selected == 'Diabetes Prediction':
+    set_bg("#0b132b", "#1c2541")
+
+elif selected == 'Heart Disease Prediction':
+    set_bg("#4a0404", "#8b0000")
+
+elif selected == 'Parkinsons Prediction':
+    set_bg("#1f1147", "#5b2c83")
+
 #Diabetes Prediction Page
 
 if (selected == 'Diabetes Prediction'):  
@@ -489,6 +498,7 @@ if (selected == 'Parkinsons Prediction'):
                 st.success("🟢 No Parkinson’s Disease Detected")
 
     
+
 
 
 

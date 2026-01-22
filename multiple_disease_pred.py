@@ -16,6 +16,19 @@ diabetes_model = pickle.load(open('diabetes_model.sav','rb'))
 heart_disease_model = pickle.load(open('heart_disease_model.sav','rb'))
 parkinsons_model= pickle.load(open('parkinsons_model.sav','rb'))
 
+def set_bg(color1, color2):
+    st.markdown(
+        f"""
+        <style>
+        .stApp {{
+            background: linear-gradient(135deg, {color1}, {color2});
+        }}
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
+
+
 with st.sidebar:
     st.markdown("## 🩺 Health Predictor")
     st.markdown("AI-powered disease detection")
@@ -38,7 +51,7 @@ with st.sidebar:
 
 if (selected == 'Diabetes Prediction'):  
 
-   
+   set_bg("#fff3e0", "#ffe0b2")
      # ---------- Initialize session state ----------
     defaults = {
         "Pregnancies": 0,
@@ -158,6 +171,7 @@ if (selected == 'Diabetes Prediction'):
 
 #------------Heart Disease Prediction Page-------------------------
 if (selected == 'Heart Disease Prediction'):
+    set_bg("#ffebee", "#ffcdd2")
 
     heart_defaults = {
         "age": 1,
@@ -285,6 +299,7 @@ if (selected == 'Heart Disease Prediction'):
 
 #------------Parkinsons Prediction Page-------------------------           
 if (selected == 'Parkinsons Prediction'):
+    set_bg("#ede7f6", "#d1c4e9")
 
     # ---------- Defaults ----------
     parkinsons_defaults = {
@@ -405,6 +420,7 @@ if (selected == 'Parkinsons Prediction'):
                 st.success("🟢 No Parkinson’s Disease Detected")
 
     
+
 
 
 

@@ -9,6 +9,22 @@ import pickle
 import streamlit as st
 from streamlit_option_menu import option_menu
 
+st.markdown(
+    """
+    <style>
+    header[data-testid="stHeader"] {
+        display: none;
+    }
+
+    /* Remove extra top padding */
+    .block-container {
+        padding-top: 1rem;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 
 # Loading the saved models
 
@@ -498,6 +514,7 @@ if (selected == 'Parkinsons Prediction'):
                 st.success("🟢 No Parkinson’s Disease Detected")
 
     
+
 
 
 

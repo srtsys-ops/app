@@ -105,7 +105,8 @@ with st.sidebar:
         <style>
         /* Sidebar container */
         section[data-testid="stSidebar"] {
-            background: linear-gradient(180deg, #0d47a1, #1976d2);
+            #background: linear-gradient(180deg, #0d47a1, #1976d2);
+            background: linear-gradient(180deg, #004d40, #00796b);
             color: white;
         }
     
@@ -569,6 +570,7 @@ if (selected == 'Parkinsons Prediction'):
                 st.success("🟢 No Parkinson’s Disease Detected")
 
     
+
 
 
 

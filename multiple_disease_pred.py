@@ -17,13 +17,22 @@ heart_disease_model = pickle.load(open('heart_disease_model.sav','rb'))
 parkinsons_model= pickle.load(open('parkinsons_model.sav','rb'))
 
 with st.sidebar:
-    selected = option_menu('Mutiple Disease Prediction System',
-                           ['Diabetes Prediction',
-                            'Heart Disease Prediction',
-                            'Parkinsons Prediction'],
-                           icons = ['activity','heart','person'],
-                           default_index = 0
-                           )
+    st.markdown("## 🩺 Health Predictor")
+    st.markdown("AI-powered disease detection")
+    st.divider()
+
+    selected = option_menu(
+        "Select Prediction",
+        ['Diabetes Prediction', 'Heart Disease Prediction', 'Parkinsons Prediction'],
+        icons=['activity', 'heart-pulse', 'person-lines-fill'],
+        default_index=0,
+        styles={
+            "container": {"padding": "5px"},
+            "icon": {"font-size": "18px"},
+            "nav-link": {"font-size": "15px", "text-align": "left"},
+            "nav-link-selected": {"background-color": "#0d6efd"}
+        }
+    )
 
 #Diabetes Prediction Page
 
@@ -392,6 +401,7 @@ if (selected == 'Parkinsons Prediction'):
                 st.success("✅ The person does not have Parkinson's disease")
 
     
+
 
 
 

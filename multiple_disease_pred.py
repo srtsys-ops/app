@@ -9,9 +9,77 @@ import pickle
 import streamlit as st
 from streamlit_option_menu import option_menu
 
+st.markdown(
+    """
+    <style>
+    /* Hide Manage app button */
+    button[data-testid="stAppSettingsButton"] {
+        display: none !important;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+st.markdown(
+    """
+    <style>
+    header[data-testid="stHeader"] {
+        display: none;
+    }
+
+    button[data-testid="stAppSettingsButton"] {
+        display: none;
+    }
+
+    footer {
+        display: none;
+    }
+
+    .block-container {
+        padding-top: 1rem;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
 
 
+st.markdown(
+    """
+    <style>
+    header[data-testid="stHeader"] {
+        display: none;
+    }
+
+    /* Remove extra top padding */
+    .block-container {
+        padding-top: 1rem;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+
+st.markdown(
+    """
+    <style>
+    h1, h2, h3, h4, h5, h6, p, label, span {
+        color: white !important;
+    }
+
+    div[data-testid="stForm"] {
+        background: rgba(255,255,255,0.08);
+        backdrop-filter: blur(10px);
+        border-radius: 14px;
+        padding: 20px;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 # Loading the saved models
 
 diabetes_model = pickle.load(open('diabetes_model.sav','rb'))
@@ -37,7 +105,7 @@ with st.sidebar:
         <style>
         /* Sidebar container */
         section[data-testid="stSidebar"] {
-            background: linear-gradient(180deg, #0d47a1, #1976d2);
+            background: linear-gradient(180deg, #0d47a1, #1976d2);            
             color: white;
         }
     
@@ -125,13 +193,13 @@ elif selected == 'Heart Disease Prediction':
     set_bg("#4a0404", "#8b0000")
 
 elif selected == 'Parkinsons Prediction':
-    set_bg("#1a0f3c", "#3a1c71")
+    set_bg("#1f1147", "#5b2c83")
 
 #Diabetes Prediction Page
 
 if (selected == 'Diabetes Prediction'):  
 
-    #set_bg("#FF0000", "#ffe0b2")
+    #set_bg("#7f0000", "#b71c1c")
      # ---------- Initialize session state ----------
     defaults = {
         "Pregnancies": 0,
@@ -251,7 +319,7 @@ if (selected == 'Diabetes Prediction'):
 
 #------------Heart Disease Prediction Page-------------------------
 if (selected == 'Heart Disease Prediction'):
-    #set_bg("#FF0000", "#ffe0b2")
+    #set_bg("#311b92", "#512da8")
 
     heart_defaults = {
         "age": 1,
@@ -380,6 +448,7 @@ if (selected == 'Heart Disease Prediction'):
 #------------Parkinsons Prediction Page-------------------------           
 if (selected == 'Parkinsons Prediction'):
     #set_bg("#FF0000", "#ffe0b2")
+    #set_bg("#0f2027", "#2c5364")
 
     # ---------- Defaults ----------
     parkinsons_defaults = {
@@ -500,6 +569,15 @@ if (selected == 'Parkinsons Prediction'):
                 st.success("🟢 No Parkinson’s Disease Detected")
 
     
+
+
+
+
+
+
+
+
+
 
 
 

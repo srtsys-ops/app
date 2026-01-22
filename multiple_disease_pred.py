@@ -369,7 +369,8 @@ if (selected == 'Heart Disease Prediction'):
 
 #------------Parkinsons Prediction Page-------------------------           
 if (selected == 'Parkinsons Prediction'):
-    set_bg("#FF0000", "#ffe0b2")
+    #set_bg("#FF0000", "#ffe0b2")
+    set_bg("#0f2027", "#2c5364")
 
     # ---------- Defaults ----------
     parkinsons_defaults = {
@@ -490,6 +491,7 @@ if (selected == 'Parkinsons Prediction'):
                 st.success("🟢 No Parkinson’s Disease Detected")
 
     
+
 
 
 

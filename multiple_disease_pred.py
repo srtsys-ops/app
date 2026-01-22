@@ -41,8 +41,10 @@ if (selected == 'Diabetes Prediction'):
     def get_risk_percentage(model, input_data):
         
         try:
+            st.header("🩸 Diabetes Prediction", divider="blue")
             return round(model.predict_proba(input_data)[0][1] * 100, 2)
         except:
+            st.header("🩸 Diabetes Prediction1", divider="blue")
             return None
 
 
@@ -433,6 +435,7 @@ if (selected == 'Parkinsons Prediction'):
                 st.success("🟢 No Parkinson’s Disease Detected")
 
     
+
 
 
 

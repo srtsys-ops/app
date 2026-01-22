@@ -143,8 +143,9 @@ if (selected == 'Diabetes Prediction'):
                 st.warning("The Person is Diabetic")
             else:
                 st.success("The Person is not Diabetic")
+                
 
-
+#------------Heart Disease Prediction Page-------------------------
 if (selected == 'Heart Disease Prediction'):
 
     heart_defaults = {
@@ -229,116 +230,95 @@ if (selected == 'Heart Disease Prediction'):
             st.success("✅ The person is unlikely to have heart disease")
 
 
-           
-    
-    
-
+#------------Parkinsons Prediction Page-------------------------           
 if (selected == 'Parkinsons Prediction'):
-    
-    #page title
-    st.title('Parkinsons Prediction using ML')
-    
-    #getting the input data from the user
-   
-    col1, col2, col3, col4, col5 = st.columns(5)
 
-    with col1:
-        fo = st.text_input('MDVP:Fo(Hz)')
+    # ---------- Defaults ----------
+    parkinsons_defaults = {
+        "fo": 0.0, "fhi": 0.0, "flo": 0.0,
+        "Jitter_percent": 0.0, "Jitter_Abs": 0.0,
+        "RAP": 0.0, "PPQ": 0.0, "DDP": 0.0,
+        "Shimmer": 0.0, "Shimmer_dB": 0.0,
+        "APQ3": 0.0, "APQ5": 0.0, "APQ": 0.0, "DDA": 0.0,
+        "NHR": 0.0, "HNR": 0.0,
+        "RPDE": 0.0, "DFA": 0.0,
+        "spread1": 0.0, "spread2": 0.0,
+        "D2": 0.0, "PPE": 0.0
+    }
 
-    with col2:
-        fhi = st.text_input('MDVP:Fhi(Hz)')
+    for key, val in parkinsons_defaults.items():
+        if key not in st.session_state:
+            st.session_state[key] = val
 
-    with col3:
-        flo = st.text_input('MDVP:Flo(Hz)')
+    def clear_parkinsons_form():
+        for key, val in parkinsons_defaults.items():
+            st.session_state[key] = val
 
-    with col4:
-        Jitter_percent = st.text_input('MDVP:Jitter(%)')
+    # ---------- Title + Clear Button ----------
+    col_title, col_btn = st.columns([4, 1])
 
-    with col5:
-        Jitter_Abs = st.text_input('MDVP:Jitter(Abs)')
+    with col_title:
+        st.header("Parkinson's Prediction using ML")
 
-    col1, col2, col3, col4, col5 = st.columns(5)
-    with col1:
-        RAP = st.text_input('MDVP:RAP')
+    with col_btn:
+        st.markdown("<br>", unsafe_allow_html=True)
+        st.button("Clear Form", on_click=clear_parkinsons_form)
 
-    with col2:
-        PPQ = st.text_input('MDVP:PPQ')
+    # ---------- Input Form ----------
+    with st.form("parkinsons_form"):
 
-    with col3:
-        DDP = st.text_input('Jitter:DDP')
+        cols = st.columns(5)
+        with cols[0]: fo = st.number_input("MDVP:Fo(Hz)", key="fo")
+        with cols[1]: fhi = st.number_input("MDVP:Fhi(Hz)", key="fhi")
+        with cols[2]: flo = st.number_input("MDVP:Flo(Hz)", key="flo")
+        with cols[3]: Jitter_percent = st.number_input("MDVP:Jitter(%)", key="Jitter_percent")
+        with cols[4]: Jitter_Abs = st.number_input("MDVP:Jitter(Abs)", key="Jitter_Abs")
 
-    with col4:
-        Shimmer = st.text_input('MDVP:Shimmer')
+        cols = st.columns(5)
+        with cols[0]: RAP = st.number_input("MDVP:RAP", key="RAP")
+        with cols[1]: PPQ = st.number_input("MDVP:PPQ", key="PPQ")
+        with cols[2]: DDP = st.number_input("Jitter:DDP", key="DDP")
+        with cols[3]: Shimmer = st.number_input("MDVP:Shimmer", key="Shimmer")
+        with cols[4]: Shimmer_dB = st.number_input("MDVP:Shimmer(dB)", key="Shimmer_dB")
 
-    with col5:
-        Shimmer_dB = st.text_input('MDVP:Shimmer(dB)')
+        cols = st.columns(5)
+        with cols[0]: APQ3 = st.number_input("Shimmer:APQ3", key="APQ3")
+        with cols[1]: APQ5 = st.number_input("Shimmer:APQ5", key="APQ5")
+        with cols[2]: APQ = st.number_input("MDVP:APQ", key="APQ")
+        with cols[3]: DDA = st.number_input("Shimmer:DDA", key="DDA")
+        with cols[4]: NHR = st.number_input("NHR", key="NHR")
 
-    col1, col2, col3, col4, col5 = st.columns(5)
-    with col1:
-        APQ3 = st.text_input('Shimmer:APQ3')
+        cols = st.columns(5)
+        with cols[0]: HNR = st.number_input("HNR", key="HNR")
+        with cols[1]: RPDE = st.number_input("RPDE", key="RPDE")
+        with cols[2]: DFA = st.number_input("DFA", key="DFA")
+        with cols[3]: spread1 = st.number_input("spread1", key="spread1")
+        with cols[4]: spread2 = st.number_input("spread2", key="spread2")
 
-    with col2:
-        APQ5 = st.text_input('Shimmer:APQ5')
+        cols = st.columns(2)
+        with cols[0]: D2 = st.number_input("D2", key="D2")
+        with cols[1]: PPE = st.number_input("PPE", key="PPE")
 
-    with col3:
-        APQ = st.text_input('MDVP:APQ')
+        predict_btn = st.form_submit_button("Parkinson's Test Result")
 
-    with col4:
-        DDA = st.text_input('Shimmer:DDA')
+    # ---------- Prediction ----------
+    if predict_btn:
+        input_data = [[
+            fo, fhi, flo, Jitter_percent, Jitter_Abs,
+            RAP, PPQ, DDP, Shimmer, Shimmer_dB,
+            APQ3, APQ5, APQ, DDA, NHR, HNR,
+            RPDE, DFA, spread1, spread2, D2, PPE
+        ]]
 
-    with col5:
-        NHR = st.text_input('NHR')
+        prediction = parkinsons_model.predict(input_data)
 
-    col1, col2, col3, col4, col5 = st.columns(5)
-    with col1:
-        HNR = st.text_input('HNR')
-
-    with col2:
-        RPDE = st.text_input('RPDE')
-
-    with col3:
-        DFA = st.text_input('DFA')
-
-    with col4:
-        spread1 = st.text_input('spread1')
-
-    with col5:
-        spread2 = st.text_input('spread2')
-
-    col1, col2, col3, col4, col5 = st.columns(5)
-    with col1:
-        D2 = st.text_input('D2')
-
-    with col2:
-        PPE = st.text_input('PPE')
-
-   
-    # Code for Pediction
- 
-   
-    #Creating a button for Predicition
-   
-    if st.button("Parkinson's Test Result"):
-        parkinsons_prediction = parkinsons_model.predict([[fo, fhi, flo, Jitter_percent, Jitter_Abs,
-                      RAP, PPQ, DDP,Shimmer, Shimmer_dB, APQ3, APQ5,
-                      APQ, DDA, NHR, HNR, RPDE, DFA, spread1, spread2, D2, PPE]])
-       
-        if parkinsons_prediction[0] == 1:
-            st.warning("The person has Parkinson's disease")
+        if prediction[0] == 1:
+            st.warning("⚠️ The person has Parkinson's disease")
         else:
-            st.success("The person does not have Parkinson's disease")
-       
-    
-        
-
-
-
-            
-
-
-   
+            st.success("✅ The person does not have Parkinson's disease")
 
     
+
 
 
 

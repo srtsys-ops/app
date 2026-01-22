@@ -30,6 +30,55 @@ def set_bg(color1, color2):
 
 
 with st.sidebar:
+    st.markdown(
+        """
+        <style>
+        /* Sidebar container */
+        section[data-testid="stSidebar"] {
+            background: linear-gradient(180deg, #0d47a1, #1976d2);
+            color: white;
+        }
+    
+        /* Sidebar title text */
+        section[data-testid="stSidebar"] h1,
+        section[data-testid="stSidebar"] h2,
+        section[data-testid="stSidebar"] h3,
+        section[data-testid="stSidebar"] p {
+            color: white;
+        }
+    
+        /* Sidebar menu items */
+        section[data-testid="stSidebar"] .nav-link {
+            color: #e3f2fd !important;
+            font-size: 15px;
+            padding: 8px;
+            border-radius: 8px;
+            margin-bottom: 5px;
+        }
+    
+        /* Selected menu item */
+        section[data-testid="stSidebar"] .nav-link-selected {
+            background-color: #ffffff !important;
+            color: #0d47a1 !important;
+            font-weight: 700;
+        }
+    
+        /* Sidebar icons */
+        section[data-testid="stSidebar"] svg {
+            fill: #bbdefb !important;
+        }
+    
+        /* Divider */
+        section[data-testid="stSidebar"] hr {
+            border-color: rgba(255,255,255,0.3);
+        }
+    
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
+
+    
     st.markdown("## 🩺 Health Predictor")
     st.markdown("AI-powered disease detection")
     st.divider()
@@ -420,6 +469,7 @@ if (selected == 'Parkinsons Prediction'):
                 st.success("🟢 No Parkinson’s Disease Detected")
 
     
+
 
 
 

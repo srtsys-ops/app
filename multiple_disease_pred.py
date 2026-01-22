@@ -65,7 +65,7 @@ if (selected == 'Diabetes Prediction'):
     col_title, col_btn = st.columns([4, 1])
 
     with col_title:
-        st.header("Diabetes Prediction using ML")
+        st.header("🩸 Diabetes Prediction", divider="blue")
     
     with col_btn:
         st.markdown("<br>", unsafe_allow_html=True)  # vertical alignment
@@ -185,7 +185,7 @@ if (selected == 'Heart Disease Prediction'):
     col_title, col_btn = st.columns([4, 1])
 
     with col_title:
-        st.header("Heart Disease Prediction using ML")
+        st.header("❤️ Heart Disease Prediction", divider="red")
 
     with col_btn:
         st.markdown("<br>", unsafe_allow_html=True)
@@ -307,7 +307,7 @@ if (selected == 'Parkinsons Prediction'):
     col_title, col_btn = st.columns([4, 1])
 
     with col_title:
-        st.header("Parkinson's Prediction using ML")
+        st.header("🧠 Parkinson’s Prediction", divider="violet")
 
     with col_btn:
         st.markdown("<br>", unsafe_allow_html=True)
@@ -401,6 +401,7 @@ if (selected == 'Parkinsons Prediction'):
                 st.success("✅ The person does not have Parkinson's disease")
 
     
+
 
 
 

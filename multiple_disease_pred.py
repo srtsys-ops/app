@@ -123,7 +123,7 @@ elif selected == 'Heart Disease Prediction':
     set_bg("#4a0404", "#8b0000")
 
 elif selected == 'Parkinsons Prediction':
-    set_bg("#1f1147", "#5b2c83")
+    set_bg("#1a0f3c", "#3a1c71")
 
 #Diabetes Prediction Page
 
@@ -498,6 +498,7 @@ if (selected == 'Parkinsons Prediction'):
                 st.success("🟢 No Parkinson’s Disease Detected")
 
     
+
 
 
 

@@ -12,6 +12,19 @@ from streamlit_option_menu import option_menu
 st.markdown(
     """
     <style>
+    /* Hide Manage app button */
+    button[data-testid="stAppSettingsButton"] {
+        display: none !important;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+
+st.markdown(
+    """
+    <style>
     header[data-testid="stHeader"] {
         display: none;
     }
@@ -532,6 +545,7 @@ if (selected == 'Parkinsons Prediction'):
                 st.success("🟢 No Parkinson’s Disease Detected")
 
     
+
 
 
 

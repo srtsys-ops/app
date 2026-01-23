@@ -322,22 +322,52 @@ if selected == 'Heart Disease Prediction':
     HEART_SAMPLES = {
         "Select Sample": None,
     
-        "Low Risk (Young Adult)": {
-            "age": 29, "sex": 0, "cp": 0, "trestbps": 110, "chol": 170,
-            "fbs": 0, "restecg": 0, "thalach": 185, "exang": 0,
-            "oldpeak": 0.0, "slope": 1, "ca": 0, "thal": 0
+        "🟢 Very Low Risk (Young & Fit)": {
+            "age": 25,
+            "sex": 0,
+            "cp": 0,
+            "trestbps": 108,
+            "chol": 165,
+            "fbs": 0,
+            "restecg": 0,
+            "thalach": 190,
+            "exang": 0,
+            "oldpeak": 0.0,
+            "slope": 1,
+            "ca": 0,
+            "thal": 0
         },
     
-        "Moderate Risk (Middle Age)": {
-            "age": 52, "sex": 1, "cp": 2, "trestbps": 135, "chol": 240,
-            "fbs": 0, "restecg": 1, "thalach": 150, "exang": 0,
-            "oldpeak": 1.2, "slope": 1, "ca": 0, "thal": 1
+        "🟡 Moderate Risk (Middle Age)": {
+            "age": 52,
+            "sex": 1,
+            "cp": 2,
+            "trestbps": 138,
+            "chol": 245,
+            "fbs": 0,
+            "restecg": 1,
+            "thalach": 150,
+            "exang": 0,
+            "oldpeak": 1.3,
+            "slope": 1,
+            "ca": 0,
+            "thal": 1
         },
     
-        "High Risk (Senior)": {
-            "age": 68, "sex": 1, "cp": 3, "trestbps": 165, "chol": 290,
-            "fbs": 1, "restecg": 2, "thalach": 120, "exang": 1,
-            "oldpeak": 2.8, "slope": 2, "ca": 2, "thal": 2
+        "🔴 High Risk (Senior)": {
+            "age": 67,
+            "sex": 1,
+            "cp": 3,
+            "trestbps": 168,
+            "chol": 295,
+            "fbs": 1,
+            "restecg": 2,
+            "thalach": 118,
+            "exang": 1,
+            "oldpeak": 2.9,
+            "slope": 2,
+            "ca": 2,
+            "thal": 2
         }
     }
 
@@ -592,6 +622,7 @@ if (selected == 'Parkinsons Prediction'):
                 st.success("🟢 No Parkinson’s Disease Detected")
 
     
+
 
 
 

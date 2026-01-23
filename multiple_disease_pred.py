@@ -541,6 +541,13 @@ if selected == 'Heart Disease Prediction':
                     else:
                         st.success("🟢 Low Risk")
 
+        if len(compare_samples) > 3:
+            st.warning("Compare up to 3 patients for best visibility.")
+
+        comparison_results.sort(key=lambda x: x[1], reverse=True)
+
+
+
 
 
 
@@ -670,6 +677,7 @@ if (selected == 'Parkinsons Prediction'):
                 st.success("🟢 No Parkinson’s Disease Detected")
 
     
+
 
 
 

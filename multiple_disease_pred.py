@@ -303,13 +303,36 @@ if selected == 'Heart Disease Prediction':
         for k, v in heart_defaults.items():
             st.session_state[k] = v
 
+    def autofill_heart_sample():
+        st.session_state.age = 54
+        st.session_state.sex = 1
+        st.session_state.cp = 2
+        st.session_state.trestbps = 140
+        st.session_state.chol = 246
+        st.session_state.fbs = 0
+        st.session_state.restecg = 1
+        st.session_state.thalach = 150
+        st.session_state.exang = 0
+        st.session_state.oldpeak = 1.2
+        st.session_state.slope = 1
+        st.session_state.ca = 0
+        st.session_state.thal = 2
+
+
     # ---------- Title + Clear ----------
-    col_title, col_btn = st.columns([4, 1])
+    col_title, col_btn1, col_btn2 = st.columns([4, 1, 1])
+
     with col_title:
         st.header("❤️ Heart Disease Prediction", divider="red")
-    with col_btn:
+    
+    with col_btn1:
         st.markdown("<br>", unsafe_allow_html=True)
-        st.button("🧹 Clear Form", on_click=clear_heart_form)
+        st.button("🧪 Sample Data", on_click=autofill_heart_sample)
+    
+    with col_btn2:
+        st.markdown("<br>", unsafe_allow_html=True)
+        st.button("🧹 Clear", on_click=clear_heart_form)
+
 
     # ---------- FORM ----------
     with st.form("heart_form"):
@@ -510,6 +533,7 @@ if (selected == 'Parkinsons Prediction'):
                 st.success("🟢 No Parkinson’s Disease Detected")
 
     
+
 
 
 

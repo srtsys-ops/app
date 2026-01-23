@@ -319,6 +319,16 @@ if (selected == 'Diabetes Prediction'):
             for err in errors:
                 st.write(err)
         else:
+            diab_prediction = diabetes_model.predict([[
+                Pregnancies, Glucose, BloodPressure,
+                SkinThickness, Insulin, BMI, DPF, Age
+            ]])
+    
+            if diab_prediction[0] == 1:
+                st.error("🔴 High Risk: The person is Diabetic")
+            else:
+                st.success("🟢 Low Risk: The person is not Diabetic")
+            
             if hasattr(diabetes_model, "predict_proba"):
                 proba = diabetes_model.predict_proba([[
                     Pregnancies, Glucose, BloodPressure,
@@ -693,6 +703,7 @@ if (selected == 'Parkinsons Prediction'):
                 st.success("🟢 No Parkinson’s Disease Detected")
 
     
+
 
 
 

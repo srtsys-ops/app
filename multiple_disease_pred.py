@@ -179,6 +179,51 @@ if (selected == 'Diabetes Prediction'):
     def clear_form():
         for key, value in defaults.items():
             st.session_state[key] = value
+
+    DIABETES_SAMPLES = {
+        "Select Sample": None,
+    
+        "🟢 Low Risk (Young Adult)": {
+            "Pregnancies": 0,
+            "Glucose": 95,
+            "BloodPressure": 72,
+            "SkinThickness": 20,
+            "Insulin": 85,
+            "BMI": 22.5,
+            "DPF": 0.25,
+            "Age": 25
+        },
+    
+        "🟡 Moderate Risk (Middle Age)": {
+            "Pregnancies": 2,
+            "Glucose": 135,
+            "BloodPressure": 82,
+            "SkinThickness": 28,
+            "Insulin": 140,
+            "BMI": 28.9,
+            "DPF": 0.78,
+            "Age": 45
+        },
+    
+        "🔴 High Risk (Senior)": {
+            "Pregnancies": 6,
+            "Glucose": 178,
+            "BloodPressure": 90,
+            "SkinThickness": 35,
+            "Insulin": 220,
+            "BMI": 34.6,
+            "DPF": 1.45,
+            "Age": 62
+        }
+    }
+
+    def apply_diabetes_sample(sample_name):
+        sample = DIABETES_SAMPLES.get(sample_name)
+        if sample:
+            for key, value in sample.items():
+                st.session_state[key] = value
+
+
     
     #page title
     #st.header('Diabetes Prediction using ML')
@@ -191,6 +236,16 @@ if (selected == 'Diabetes Prediction'):
     with col_btn:
         st.markdown("<br>", unsafe_allow_html=True)  # vertical alignment
         st.button("🧹 Clear Form", type="secondary", on_click=clear_form)
+
+    sample_choice = st.selectbox(
+        "🧪 Load Sample Patient",
+        list(DIABETES_SAMPLES.keys()),
+        index=0
+    )
+    
+    if sample_choice != "Select Sample":
+        apply_diabetes_sample(sample_choice)
+
         
     
     # ---------- Form ----------
@@ -273,6 +328,28 @@ if (selected == 'Diabetes Prediction'):
                 st.error("🔴 High Risk: The person is Diabetic")
             else:
                 st.success("🟢 Low Risk: The person is not Diabetic")
+                
+
+            proba = diabetes_model.predict_proba([[
+                Pregnancies, Glucose, BloodPressure,
+                SkinThickness, Insulin, BMI, DPF, Age
+            ]])
+            
+            risk = proba[0][1] * 100
+            safe = proba[0][0] * 100
+            
+            st.subheader("📊 Diabetes Risk Probability")
+            
+            st.metric("Risk of Diabetes", f"{risk:.2f} %")
+            st.progress(int(risk))
+            
+            if risk >= 70:
+                st.error("🔴 High Risk of Diabetes")
+            elif risk >= 40:
+                st.warning("🟠 Moderate Risk — lifestyle changes advised")
+            else:
+                st.success("🟢 Low Risk")
+
 
                 
 
@@ -621,6 +698,7 @@ if (selected == 'Parkinsons Prediction'):
                 st.success("🟢 No Parkinson’s Disease Detected")
 
     
+
 
 
 

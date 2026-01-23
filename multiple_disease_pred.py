@@ -403,6 +403,32 @@ if selected == 'Heart Disease Prediction':
     if sample_choice != "Select Sample":
         apply_heart_sample(sample_choice)
 
+    compare_samples = st.multiselect(
+        "📊 Compare Sample Patients",
+        options=[k for k in HEART_SAMPLES.keys() if k != "Select Sample"],
+        default=[]
+    )
+
+    comparison_results = []
+
+    for sample_name in compare_samples:
+        sample = HEART_SAMPLES[sample_name]
+    
+        input_data = [[
+            sample["age"], sample["sex"], sample["cp"],
+            sample["trestbps"], sample["chol"], sample["fbs"],
+            sample["restecg"], sample["thalach"], sample["exang"],
+            sample["oldpeak"], sample["slope"], sample["ca"],
+            sample["thal"]
+        ]]
+    
+        proba = heart_disease_model.predict_proba(input_data)
+        risk = proba[0][1] * 100
+    
+        comparison_results.append((sample_name, risk))
+
+
+
 
 
     # ---------- FORM ----------
@@ -493,6 +519,28 @@ if selected == 'Heart Disease Prediction':
                 st.warning("🟠 Moderate Risk — medical consultation advised")
             else:
                 st.success("🟢 Low Risk Detected")
+
+
+        if comparison_results:
+            st.subheader("📊 Risk Probability Comparison")
+        
+            cols = st.columns(len(comparison_results))
+        
+            for col, (name, risk) in zip(cols, comparison_results):
+                with col:
+                    st.metric(
+                        label=name,
+                        value=f"{risk:.2f} %",
+                    )
+                    st.progress(int(risk))
+        
+                    if risk >= 70:
+                        st.error("🔴 High Risk")
+                    elif risk >= 40:
+                        st.warning("🟠 Moderate Risk")
+                    else:
+                        st.success("🟢 Low Risk")
+
 
 
 
@@ -622,6 +670,7 @@ if (selected == 'Parkinsons Prediction'):
                 st.success("🟢 No Parkinson’s Disease Detected")
 
     
+
 
 
 

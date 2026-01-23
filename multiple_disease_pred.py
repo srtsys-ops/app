@@ -319,13 +319,19 @@ if (selected == 'Diabetes Prediction'):
             for err in errors:
                 st.write(err)
         else:
-            proba = diabetes_model.predict_proba([[
-                Pregnancies, Glucose, BloodPressure,
-                SkinThickness, Insulin, BMI, DPF, Age
-            ]])
-            
-            risk = proba[0][1] * 100
-            safe = proba[0][0] * 100
+            if hasattr(diabetes_model, "predict_proba"):
+                proba = diabetes_model.predict_proba([[
+                    Pregnancies, Glucose, BloodPressure,
+                    SkinThickness, Insulin, BMI, DPF, Age
+                ]])
+                risk = proba[0][1] * 100
+            else:
+                prediction = diabetes_model.predict([[
+                    Pregnancies, Glucose, BloodPressure,
+                    SkinThickness, Insulin, BMI, DPF, Age
+                ]])
+                risk = 100 if prediction[0] == 1 else 0
+
             
             st.subheader("📊 Diabetes Risk Probability")
             
@@ -687,6 +693,7 @@ if (selected == 'Parkinsons Prediction'):
                 st.success("🟢 No Parkinson’s Disease Detected")
 
     
+
 
 
 

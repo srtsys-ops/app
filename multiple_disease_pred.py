@@ -319,6 +319,37 @@ if selected == 'Heart Disease Prediction':
         st.session_state.thal = 2
 
 
+   HEART_SAMPLES = {
+        "Select Sample": None,
+    
+        "Low Risk (Young Adult)": {
+            "age": 29, "sex": 0, "cp": 0, "trestbps": 110, "chol": 170,
+            "fbs": 0, "restecg": 0, "thalach": 185, "exang": 0,
+            "oldpeak": 0.0, "slope": 1, "ca": 0, "thal": 0
+        },
+    
+        "Moderate Risk (Middle Age)": {
+            "age": 52, "sex": 1, "cp": 2, "trestbps": 135, "chol": 240,
+            "fbs": 0, "restecg": 1, "thalach": 150, "exang": 0,
+            "oldpeak": 1.2, "slope": 1, "ca": 0, "thal": 1
+        },
+    
+        "High Risk (Senior)": {
+            "age": 68, "sex": 1, "cp": 3, "trestbps": 165, "chol": 290,
+            "fbs": 1, "restecg": 2, "thalach": 120, "exang": 1,
+            "oldpeak": 2.8, "slope": 2, "ca": 2, "thal": 2
+        }
+    }
+
+    def apply_heart_sample(sample_name):
+        sample = HEART_SAMPLES.get(sample_name)
+        if sample:
+            for key, value in sample.items():
+                st.session_state[key] = value
+
+
+
+
     # ---------- Title + Clear ----------
     col_title, col_btn1, col_btn2 = st.columns([4, 1, 1])
 
@@ -332,6 +363,16 @@ if selected == 'Heart Disease Prediction':
     with col_btn2:
         st.markdown("<br>", unsafe_allow_html=True)
         st.button("🧹 Clear", on_click=clear_heart_form)
+
+    sample_choice = st.selectbox(
+        "🧪 Load Sample Patient",
+        list(HEART_SAMPLES.keys()),
+        index=0
+    )
+    
+    if sample_choice != "Select Sample":
+        apply_heart_sample(sample_choice)
+
 
 
     # ---------- FORM ----------
@@ -533,6 +574,7 @@ if (selected == 'Parkinsons Prediction'):
                 st.success("🟢 No Parkinson’s Disease Detected")
 
     
+
 
 
 

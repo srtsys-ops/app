@@ -435,34 +435,16 @@ if selected == 'Heart Disease Prediction':
             for e in errors:
                 st.write(e)
         else:
-             input_data = [[
+             prediction = heart_disease_model.predict([[
                 age, sex, cp, trestbps, chol, fbs,
                 restecg, thalach, exang, oldpeak,
                 slope, ca, thal
-            ]]
-    
-            # ---- Probability Prediction ----
-            proba = heart_disease_model.predict_proba(input_data)
-            risk = proba[0][1] * 100   # Probability of disease
-            safe = proba[0][0] * 100
-    
-            # ---- Display ----
-            st.subheader("📊 Risk Assessment")
-    
-            st.metric(
-                label="Heart Disease Risk",
-                value=f"{risk:.2f} %",
-                delta=f"{safe:.2f} % Healthy"
-            )
-    
-            st.progress(int(risk))
-    
-            if risk >= 70:
+            ]])
+
+            if prediction[0] == 1:
                 st.error("🔴 High Risk of Heart Disease")
-            elif risk >= 40:
-                st.warning("🟠 Moderate Risk — medical consultation advised")
             else:
-                st.success("🟢 Low Risk Detected")
+                st.success("🟢 No Significant Risk Detected")
 
 
 

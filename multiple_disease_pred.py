@@ -319,7 +319,7 @@ if selected == 'Heart Disease Prediction':
         st.session_state.thal = 2
 
 
-   HEART_SAMPLES = {
+    HEART_SAMPLES = {
         "Select Sample": None,
     
         "Low Risk (Young Adult)": {
@@ -574,6 +574,7 @@ if (selected == 'Parkinsons Prediction'):
                 st.success("🟢 No Parkinson’s Disease Detected")
 
     
+
 
 
 

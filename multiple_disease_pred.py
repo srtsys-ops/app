@@ -9,6 +9,17 @@ import pickle
 import streamlit as st
 from streamlit_option_menu import option_menu
 
+# ---------- Sidebar Toggle ----------
+if "show_sidebar" not in st.session_state:
+    st.session_state.show_sidebar = True
+
+st.toggle(
+    "📂 Show Sidebar",
+    value=st.session_state.show_sidebar,
+    key="show_sidebar"
+)
+
+
 st.markdown(
     """
     <style>
@@ -56,6 +67,19 @@ def set_bg(color1, color2):
         """,
         unsafe_allow_html=True
     )
+
+if not st.session_state.show_sidebar:
+    st.markdown(
+        """
+        <style>
+        section[data-testid="stSidebar"] {
+            display: none;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
+
 
 
 with st.sidebar:
@@ -703,6 +727,7 @@ if (selected == 'Parkinsons Prediction'):
                 st.success("🟢 No Parkinson’s Disease Detected")
 
     
+
 
 
 

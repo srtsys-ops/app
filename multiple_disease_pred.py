@@ -127,10 +127,10 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
     
-    with st.container():
-        st.markdown('<div class="mobile-menu">', unsafe_allow_html=True)
-        st.toggle("☰", key="sidebar_visible")
-        st.markdown('</div>', unsafe_allow_html=True)
+with st.container():
+    st.markdown('<div class="mobile-menu">', unsafe_allow_html=True)
+    st.toggle("☰", key="sidebar_visible")
+    st.markdown('</div>', unsafe_allow_html=True)
 
 
 with st.sidebar:
@@ -778,6 +778,7 @@ if (selected == 'Parkinsons Prediction'):
                 st.success("🟢 No Parkinson’s Disease Detected")
 
     
+
 
 
 

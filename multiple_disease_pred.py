@@ -10,6 +10,12 @@ import streamlit as st
 from streamlit_option_menu import option_menu
 
 # ---------- Sidebar Toggle ----------
+st.set_page_config(
+    page_title="Health Predictor",
+    layout="wide",
+    initial_sidebar_state="collapsed"
+)
+
 if "show_sidebar" not in st.session_state:
     st.session_state.show_sidebar = True
 
@@ -18,6 +24,9 @@ st.toggle(
     value=st.session_state.show_sidebar,
     key="show_sidebar"
 )
+
+
+
 
 
 st.markdown(
@@ -68,17 +77,42 @@ def set_bg(color1, color2):
         unsafe_allow_html=True
     )
 
-if not st.session_state.show_sidebar:
-    st.markdown(
-        """
-        <style>
-        section[data-testid="stSidebar"] {
-            display: none;
-        }
-        </style>
-        """,
-        unsafe_allow_html=True
+
+
+    if "sidebar_visible" not in st.session_state:
+        st.session_state.sidebar_visible = False
+    
+    st.toggle(
+        "📂 Menu",
+        value=st.session_state.sidebar_visible,
+        key="sidebar_visible"
     )
+
+    if not st.session_state.sidebar_visible:
+        st.markdown(
+            """
+            <style>
+            /* Desktop */
+            section[data-testid="stSidebar"] {
+                transform: translateX(-100%);
+            }
+    
+            /* Mobile drawer fix */
+            @media (max-width: 768px) {
+                section[data-testid="stSidebar"] {
+                    visibility: hidden;
+                    width: 0px;
+                }
+            }
+    
+            /* Remove blank space */
+            div[data-testid="stSidebarNav"] {
+                display: none;
+            }
+            </style>
+            """,
+            unsafe_allow_html=True
+        )
 
 
 
@@ -727,6 +761,7 @@ if (selected == 'Parkinsons Prediction'):
                 st.success("🟢 No Parkinson’s Disease Detected")
 
     
+
 
 
 

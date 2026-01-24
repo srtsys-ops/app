@@ -114,23 +114,23 @@ def set_bg(color1, color2):
             unsafe_allow_html=True
         )
 
-    st.markdown("""
-        <style>
-        .mobile-menu {
-            position: fixed;
-            top: 15px;
-            right: 15px;
-            z-index: 9999;
-        }
-        </style>
-        """, unsafe_allow_html=True)
-        
-        with st.container():
-            st.markdown('<div class="mobile-menu">', unsafe_allow_html=True)
-            st.toggle("☰", key="sidebar_visible")
-            st.markdown('</div>', unsafe_allow_html=True)
+    
 
-
+st.markdown("""
+    <style>
+    .mobile-menu {
+        position: fixed;
+        top: 15px;
+        right: 15px;
+        z-index: 9999;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+    
+    with st.container():
+        st.markdown('<div class="mobile-menu">', unsafe_allow_html=True)
+        st.toggle("☰", key="sidebar_visible")
+        st.markdown('</div>', unsafe_allow_html=True)
 
 
 with st.sidebar:
@@ -778,6 +778,7 @@ if (selected == 'Parkinsons Prediction'):
                 st.success("🟢 No Parkinson’s Disease Detected")
 
     
+
 
 
 

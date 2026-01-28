@@ -16,8 +16,11 @@ st.markdown("""
         visibility: hidden;
     }
     
-   
+    .stToolbarActions {
+        display: none !important;
+    }  
     
+    </style>
    
     """, unsafe_allow_html=True
 )
@@ -718,6 +721,7 @@ if (selected == 'Parkinsons Prediction'):
                 st.success("🟢 No Parkinson’s Disease Detected")
 
     
+
 
 
 

@@ -14,7 +14,7 @@ st.markdown("""
     /* Sticky main header */
     .fixed-header {
         position: fixed;
-        top: 60px;            /* below Streamlit header */
+        top: 20px;            /* below Streamlit header */
         left: 0;
         width: 100%;
         z-index: 999;
@@ -53,7 +53,8 @@ st.markdown("""
     }
 
     header {       
-        background: linear-gradient(180deg, #0d47a1, #1976d2) !important;
+        #background: linear-gradient(180deg, #0d47a1, #1976d2) !important;
+        background: transparent !important;
     }
 
     
@@ -788,6 +789,7 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

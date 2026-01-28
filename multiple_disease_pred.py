@@ -227,7 +227,7 @@ st.markdown("""
     </div>
     """, unsafe_allow_html=True)
 
-st.divider()
+#st.divider()
 st.markdown('<div class="main-content">', unsafe_allow_html=True)
 
 
@@ -788,6 +788,7 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

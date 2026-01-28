@@ -18,7 +18,11 @@ st.markdown("""
     
     .stToolbarActions {
         display: none !important;
-    }  
+    } 
+
+    button._terminalButton_rix23_138  {
+        display: none !important;
+    } 
     
     </style>
    
@@ -721,6 +725,7 @@ if (selected == 'Parkinsons Prediction'):
                 st.success("🟢 No Parkinson’s Disease Detected")
 
     
+
 
 
 

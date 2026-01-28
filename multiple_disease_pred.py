@@ -266,7 +266,7 @@ if (selected == 'Diabetes Prediction'):
     
     with col_btn2:
         st.markdown("<br>", unsafe_allow_html=True)  # vertical alignment
-        st.button("🧹 Clear Form", type="secondary", on_click=clear_form)
+        st.button("🧹 Clear", type="secondary", on_click=clear_form)
 
     sample_choice = st.selectbox(
         "🧪 Load Sample Patient",
@@ -637,12 +637,15 @@ if (selected == 'Parkinsons Prediction'):
             st.session_state[key] = val
 
     # ---------- Title + Clear Button ----------
-    col_title, col_btn = st.columns([4, 1])
-
+    col_title, col_btn1, col_btn2 = st.columns([4, 1, 1])
+    
     with col_title:
         st.header("🧠 Parkinson’s Prediction", divider="violet")
 
-    with col_btn:
+    with col_btn1:
+        st.markdown("<br>", unsafe_allow_html=True)
+
+    with col_btn2:
         st.markdown("<br>", unsafe_allow_html=True)
         st.button("🧹 Clear Form", type="secondary", on_click=clear_parkinsons_form)
 
@@ -734,6 +737,7 @@ if (selected == 'Parkinsons Prediction'):
                 st.success("🟢 No Parkinson’s Disease Detected")
 
     
+
 
 
 

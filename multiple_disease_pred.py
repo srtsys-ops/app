@@ -15,6 +15,11 @@ st.markdown("""
     #MainMenu {
         visibility: hidden;
     }
+
+    header {
+        background: linear-gradient(180deg, #0d47a1, #1976d2); 
+    }
+
     
     .stToolbarActions {
         display: none !important;
@@ -725,6 +730,7 @@ if (selected == 'Parkinsons Prediction'):
                 st.success("🟢 No Parkinson’s Disease Detected")
 
     
+
 
 
 

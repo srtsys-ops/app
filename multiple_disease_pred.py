@@ -16,8 +16,8 @@ st.markdown("""
         visibility: hidden;
     }
 
-    header {
-        background: linear-gradient(180deg, #0d47a1, #1976d2); 
+    header {       
+        background: linear-gradient(180deg, #0d47a1, #1976d2) !important;
     }
 
     
@@ -730,6 +730,7 @@ if (selected == 'Parkinsons Prediction'):
                 st.success("🟢 No Parkinson’s Disease Detected")
 
     
+
 
 
 

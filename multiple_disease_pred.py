@@ -9,6 +9,14 @@ import pickle
 import streamlit as st
 from streamlit_option_menu import option_menu
 
+st.markdown("""
+    <style>
+    #MainMenu {visibility: hidden;}
+    footer {visibility: hidden;}
+    </style>
+    """, unsafe_allow_html=True)
+
+
 st.markdown(
     """
     <style>
@@ -703,6 +711,7 @@ if (selected == 'Parkinsons Prediction'):
                 st.success("🟢 No Parkinson’s Disease Detected")
 
     
+
 
 
 

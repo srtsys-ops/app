@@ -152,8 +152,8 @@ with st.sidebar:
 
     selected = option_menu(
         "Select Prediction",
-        ['🩸 Diabetes Prediction', 'Heart Disease Prediction', 'Parkinsons Prediction'],
-        icons=['🩸' , 'heart-pulse', 'person-lines-fill'],
+        ['Diabetes Prediction', 'Heart Disease Prediction', 'Parkinsons Prediction'],
+        icons=['activity' , 'heart-pulse', 'person-lines-fill'],
         default_index=0,
         styles={
             "container": {"padding": "5px"},
@@ -737,6 +737,7 @@ if (selected == 'Parkinsons Prediction'):
                 st.success("🟢 No Parkinson’s Disease Detected")
 
     
+
 
 
 

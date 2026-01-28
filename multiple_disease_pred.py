@@ -16,7 +16,11 @@ st.markdown("""
         visibility: hidden;
     }
     
-   
+   /* Optional: remove top padding left by header */
+    .stApp {
+        margin-top: -80px;
+    }
+    </style>
     
    
     """, unsafe_allow_html=True
@@ -718,6 +722,7 @@ if (selected == 'Parkinsons Prediction'):
                 st.success("🟢 No Parkinson’s Disease Detected")
 
     
+
 
 
 

@@ -497,7 +497,7 @@ if selected == 'Heart Disease Prediction':
     
     with col_btn1:
         st.markdown("<br>", unsafe_allow_html=True)
-        st.button("🧪 Sample Data", on_click=autofill_heart_sample)
+        #st.button("🧪 Sample Data", on_click=autofill_heart_sample)
     
     with col_btn2:
         st.markdown("<br>", unsafe_allow_html=True)
@@ -730,6 +730,7 @@ if (selected == 'Parkinsons Prediction'):
                 st.success("🟢 No Parkinson’s Disease Detected")
 
     
+
 
 
 

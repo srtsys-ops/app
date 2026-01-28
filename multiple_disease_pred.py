@@ -16,15 +16,7 @@ st.markdown("""
         visibility: hidden;
     }
     
-    /* Hide footer */
-    footer {
-        visibility: hidden;
-    }
-    
-    /* Hide header (top bar) */
-    header {
-        visibility: hidden;
-    }
+   
     
    
     """, unsafe_allow_html=True
@@ -726,6 +718,7 @@ if (selected == 'Parkinsons Prediction'):
                 st.success("🟢 No Parkinson’s Disease Detected")
 
     
+
 
 
 

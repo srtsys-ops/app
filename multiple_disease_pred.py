@@ -647,7 +647,7 @@ if (selected == 'Parkinsons Prediction'):
 
     with col_btn2:
         st.markdown("<br>", unsafe_allow_html=True)
-        st.button("🧹 Clear Form", type="secondary", on_click=clear_parkinsons_form)
+        st.button("🧹 Clear", type="secondary", on_click=clear_parkinsons_form)
 
     # ---------- Input Form ----------
     with st.form("parkinsons_form"):
@@ -737,6 +737,7 @@ if (selected == 'Parkinsons Prediction'):
                 st.success("🟢 No Parkinson’s Disease Detected")
 
     
+
 
 
 

@@ -89,6 +89,27 @@ with st.sidebar:
     st.markdown(
         """
         <style>
+
+        /* Sidebar icons */
+            section[data-testid="stSidebar"] svg {
+                width: 20px !important;
+                height: 20px !important;
+                fill: #e3f2fd !important;
+                transition: transform 0.2s ease, fill 0.2s ease;
+            }
+            
+            /* Hover animation */
+            section[data-testid="stSidebar"] .nav-link:hover svg {
+                transform: scale(1.2);
+                fill: #ffffff !important;
+            }
+            
+            /* Selected icon */
+            section[data-testid="stSidebar"] .nav-link-selected svg {
+                fill: #0d47a1 !important;
+            }
+
+        
         /* Sidebar container */
         section[data-testid="stSidebar"] {
             background: linear-gradient(180deg, #0d47a1, #1976d2);            
@@ -736,6 +757,7 @@ if (selected == 'Parkinsons Prediction'):
                 st.success("🟢 No Parkinson’s Disease Detected")
 
     
+
 
 
 

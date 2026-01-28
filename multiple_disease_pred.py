@@ -14,10 +14,10 @@ st.markdown("""
     /* Sticky main header */
     .fixed-header {
         position: fixed;
-        top: -20px;            /* below Streamlit header */
-        left: 377;
-        width: 60%;
-        z-index: 1000000;;
+        top: 60px;            /* below Streamlit header */
+        left: 0;
+        width: 100%;
+        z-index: 999;
         background: linear-gradient(180deg, #0d47a1, #1976d2);
         padding: 12px 20px;
         text-align: center;
@@ -776,6 +776,7 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

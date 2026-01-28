@@ -11,6 +11,30 @@ from streamlit_option_menu import option_menu
 
 st.markdown("""
     <style>
+    /* Sticky main header */
+    .fixed-header {
+        position: fixed;
+        top: 60px;            /* below Streamlit header */
+        left: 0;
+        width: 100%;
+        z-index: 999;
+        background: linear-gradient(180deg, #0d47a1, #1976d2);
+        padding: 12px 20px;
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+    
+    /* Push page content down so it doesn't hide behind header */
+    .main-content {
+        margin-top: 120px;
+    }
+    </style>
+    """, unsafe_allow_html=True
+)
+
+
+st.markdown("""
+    <style>
     /* Hide top right menu (⋮) */
     #MainMenu {
         visibility: hidden;
@@ -185,12 +209,14 @@ elif selected == 'Parkinsons Prediction':
 
  # ---------- Main header ----------
 
-st.markdown(
-    "<h1 style='margin-top:10px;'>🩺 PERIYAR UNIVERSITY</h1>",
-    unsafe_allow_html=True
-)
+st.markdown("""
+    <div class="fixed-header">
+        <h1 style="margin:0; color:white;">🩺 PERIYAR UNIVERSITY</h1>
+    </div>
+    """, unsafe_allow_html=True)
 
 st.divider()
+st.markdown('<div class="main-content">', unsafe_allow_html=True)
 
 
 #Diabetes Prediction Page
@@ -749,6 +775,8 @@ if (selected == 'Parkinsons Prediction'):
                 st.success("🟢 No Parkinson’s Disease Detected")
 
     
+st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

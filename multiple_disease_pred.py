@@ -62,7 +62,7 @@ st.markdown("""
     } 
     
     .st-emotion-cache-1w723zb {        
-        padding: 4rem 1rem 10rem  !important;;        
+        padding: 0rem 1rem 10rem  !important;;        
     }
 
     ._terminalButton_rix23_138  {
@@ -792,6 +792,7 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

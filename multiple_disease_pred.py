@@ -177,7 +177,7 @@ with st.sidebar:
         icons=[
             "droplet-half",     # Diabetes
             "heart-fill",       # Heart
-            "brain"             # Parkinson's
+            "person-lines-fill"             # Parkinson's
         ],
         default_index=0,
     )
@@ -757,6 +757,7 @@ if (selected == 'Parkinsons Prediction'):
                 st.success("🟢 No Parkinson’s Disease Detected")
 
     
+
 
 
 

@@ -184,16 +184,11 @@ elif selected == 'Parkinsons Prediction':
 
 
  # ---------- Main header ----------
-col1, col2 = st.columns([1, 6])
 
-with col1:
-    #st.image("assets/logo.png", width=70)
-
-with col2:
-    st.markdown(
-        "<h1 style='margin-top:10px;'>🩺 Health Predictor AI</h1>",
-        unsafe_allow_html=True
-    )
+st.markdown(
+    "<h1 style='margin-top:10px;'>🩺 Health Predictor AI</h1>",
+    unsafe_allow_html=True
+)
 
 st.divider()
 
@@ -754,6 +749,7 @@ if (selected == 'Parkinsons Prediction'):
                 st.success("🟢 No Parkinson’s Disease Detected")
 
     
+
 
 
 

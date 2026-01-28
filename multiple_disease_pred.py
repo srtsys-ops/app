@@ -186,7 +186,7 @@ elif selected == 'Parkinsons Prediction':
  # ---------- Main header ----------
 
 st.markdown(
-    "<h1 style='margin-top:10px;'>🩺 Health Predictor AI</h1>",
+    "<h1 style='margin-top:10px;'>🩺 PERIYAR UNIVERSITY</h1>",
     unsafe_allow_html=True
 )
 
@@ -749,6 +749,7 @@ if (selected == 'Parkinsons Prediction'):
                 st.success("🟢 No Parkinson’s Disease Detected")
 
     
+
 
 
 

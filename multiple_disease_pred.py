@@ -171,9 +171,7 @@ with st.sidebar:
             border-color: rgba(255,255,255,0.3);
         }
 
-        .stCustomComponentV1 {
-            border-radius: 12px  !important;
-        }
+        
         
     
         </style>
@@ -814,6 +812,7 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

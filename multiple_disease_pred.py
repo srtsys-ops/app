@@ -203,6 +203,22 @@ with st.sidebar:
         default_index=0,
     )
 
+    st.divider()    
+
+     st.markdown(
+        """
+        <div style="
+            background: rgba(255,255,255,0.15);
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;">
+            <h2>🩺 Health Predictor</h2>
+            <p>AI-powered disease detection</p>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+
 
     st.markdown(
         """
@@ -792,6 +808,7 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

@@ -24,9 +24,21 @@ st.markdown("""
         box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     }
     
-    /* Push page content down so it doesn't hide behind header */
+   /* Hidden state */
+    .fixed-header.hide {
+        transform: translateY(-120%);
+    }
+    
+    /* Push content */
     .main-content {
         margin-top: 120px;
+    }
+    
+    /* Desktop: always visible */
+    @media (min-width: 769px) {
+        .fixed-header {
+            transform: translateY(0) !important;
+        }
     }
     </style>
     """, unsafe_allow_html=True
@@ -776,6 +788,7 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

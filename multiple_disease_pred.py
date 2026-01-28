@@ -58,7 +58,7 @@ st.markdown("""
     }
 
     
-    .stToolbarActions {
+    .stToolbarActions, .st-emotion-cache-3pwa5w {
         display: none !important;
     } 
 
@@ -789,6 +789,7 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

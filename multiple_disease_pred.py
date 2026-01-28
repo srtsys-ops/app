@@ -205,7 +205,7 @@ with st.sidebar:
 
     st.divider()    
 
-     st.markdown(
+    st.markdown(
         """
         <div style="
             background: rgba(255,255,255,0.15);
@@ -808,6 +808,7 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

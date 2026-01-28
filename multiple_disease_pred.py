@@ -179,7 +179,7 @@ with st.sidebar:
     st.markdown(
         """
         <div style="
-            background: rgba(255,255,255,0.15);
+            background: gbra(255,255,255,0.15);
             padding: 15px;
             border-radius: 12px;
             text-align: center;">
@@ -208,12 +208,13 @@ with st.sidebar:
     st.markdown(
         """
         <div style="
-            background: rgba(255,255,255,0.15);
+            background: #0b132b;
             padding: 15px;
             border-radius: 12px;
             text-align: center;">
-            <h2>🩺 Health Predictor</h2>
-            <p>AI-powered disease detection</p>
+            <h3>THILAK S</h3>
+            <p>U25PG507DTS041</p>
+            <p>1<sup>st</sup> Year MSc Data Science</p>
         </div>
         """,
         unsafe_allow_html=True
@@ -808,6 +809,7 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

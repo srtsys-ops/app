@@ -32,7 +32,7 @@ st.markdown("""
     
     /* Sticky main header */
     .fixed-header {
-        background: #ffffff;
+        background: #ffffff !important;
         position: fixed;
         top: -5px;            /* below Streamlit header */
         left: 0;
@@ -848,6 +848,7 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

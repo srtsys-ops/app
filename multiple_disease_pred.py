@@ -281,6 +281,8 @@ st.markdown(f"""
             <h1 style="margin:0; color:white;">
                 PERIYAR UNIVERSITY
             </h1>
+            <img src="data:image/png;base64,{logo_base64}"
+                 style="height:100px;">
         </div>
     </div>
     """, unsafe_allow_html=True
@@ -849,6 +851,7 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

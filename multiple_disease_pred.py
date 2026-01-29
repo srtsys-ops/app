@@ -20,8 +20,19 @@ logo_base64 = get_base64_image("periyar_logo.png")
 
 st.markdown("""
     <style>
+    /* Arrow button in sidebar */
+    .st-emotion-cache-ujm5ma {
+        background: black;
+        border-radius: 50%;
+    }
+
+    .st-emotion-cache-1b6jk7u h1 {        
+        color: black !important;
+    }
+    
     /* Sticky main header */
     .fixed-header {
+        background: #ffffff;
         position: fixed;
         top: -5px;            /* below Streamlit header */
         left: 0;
@@ -265,7 +276,7 @@ st.markdown(f"""
             gap:15px;
         ">
             <img src="data:image/png;base64,{logo_base64}"
-                 style="height:55px;">
+                 style="height:100px;">
             <h1 style="margin:0; color:white;">
                 PERIYAR UNIVERSITY
             </h1>
@@ -837,6 +848,7 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

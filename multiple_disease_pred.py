@@ -255,7 +255,7 @@ st.markdown("""
             justify-content: center;
             gap: 15px;
         ">
-            <img src="periyar_logo.png" 
+            <img src="https://github.com/srtsys-ops/app/blob/main/periyar_logo.png" 
                  style="height: 55px; width: auto;">
             <h1 style="margin:0; color:white; font-size: 28px;">
                 PERIYAR UNIVERSITY
@@ -827,6 +827,7 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

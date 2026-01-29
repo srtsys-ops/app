@@ -291,6 +291,47 @@ st.markdown(f"""
     """, unsafe_allow_html=True
  )
 
+st.markdown("""
+    <style>
+    
+    /* -------- Mobile View Fix -------- */
+    @media (max-width: 768px) {
+    
+        .fixed-header {
+            padding: 8px 10px;
+        }
+    
+        .fixed-header h1 {
+            font-size: 18px !important;   /* Reduce title size */
+            line-height: 1.2;
+            text-align: center;
+        }
+    
+        .fixed-header img {
+            height: 55px !important;      /* Reduce logo size */
+        }
+    
+        .main-content {
+            margin-top: 90px;             /* Reduce top gap */
+        }
+    }
+    
+    /* -------- Extra small screens -------- */
+    @media (max-width: 480px) {
+    
+        .fixed-header h1 {
+            font-size: 15px !important;
+        }
+    
+        .fixed-header img {
+            height: 45px !important;
+        }
+    }
+    
+    </style>
+    """, unsafe_allow_html=True)
+
+
 
 
 #st.divider()
@@ -854,6 +895,7 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

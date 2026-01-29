@@ -9,6 +9,15 @@ import pickle
 import streamlit as st
 from streamlit_option_menu import option_menu
 
+import base64
+
+def get_base64_image(image_path):
+    with open(image_path, "rb") as img:
+        return base64.b64encode(img.read()).decode()
+        
+logo_base64 = get_base64_image("periyar_logo.png")
+
+
 st.markdown("""
     <style>
     /* Sticky main header */
@@ -247,23 +256,24 @@ elif selected == 'Parkinsons Prediction':
 
  # ---------- Main header ----------
 
-st.markdown("""
+st.markdown(f"""
     <div class="fixed-header">
         <div style="
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            gap:15px;
         ">
-            <img src="https://github.com/srtsys-ops/app/blob/main/periyar_logo.png" 
-                 style="height: 55px; width: auto;">
-            <h1 style="margin:0; color:white; font-size: 28px;">
+            <img src="data:image/png;base64,{logo_base64}"
+                 style="height:55px;">
+            <h1 style="margin:0; color:white;">
                 PERIYAR UNIVERSITY
             </h1>
         </div>
     </div>
     """, unsafe_allow_html=True
-)
+ )
+
 
 
 #st.divider()
@@ -827,6 +837,7 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

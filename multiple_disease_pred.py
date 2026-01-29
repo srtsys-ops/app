@@ -128,6 +128,26 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
+st.markdown("""
+    <style>
+    /* Mobile view */
+    @media (max-width: 768px) {
+        h2 {
+            font-size: 20px !important;
+            line-height: 1.3;
+        }
+    }
+    
+    /* Extra small phones */
+    @media (max-width: 480px) {
+        h2 {
+            font-size: 17px !important;
+        }
+    }
+    </style>
+    """, unsafe_allow_html=True)
+
 # Loading the saved models
 
 diabetes_model = pickle.load(open('diabetes_model.sav','rb'))
@@ -895,6 +915,7 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

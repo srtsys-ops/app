@@ -53,7 +53,7 @@ st.markdown("""
     
     /* Push content */
     .main-content {
-        margin-top: 120px;
+        margin-top: 50px;
     }
     
     /* Desktop: always visible */
@@ -915,6 +915,7 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

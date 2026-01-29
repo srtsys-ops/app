@@ -203,6 +203,66 @@ with st.sidebar:
         unsafe_allow_html=True
     )
 
+    #-------fixed sidebar --------
+    st.markdown("""
+        <style>
+        /* FIX SIDEBAR */
+        section[data-testid="stSidebar"] {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 280px !important;
+            min-width: 280px !important;
+            max-width: 280px !important;
+            height: 100vh;
+            overflow-y: auto;
+            z-index: 1000;
+        }
+        </style>
+        """, unsafe_allow_html=True)
+
+    st.markdown("""
+        <style>
+        /* FIX MAIN CONTENT POSITION */
+        div[data-testid="stAppViewContainer"] {
+            margin-left: 280px !important;   /* same as sidebar width */
+            width: calc(100% - 280px) !important;
+        }
+        
+        /* Prevent any layout jump */
+        div[data-testid="stMain"] {
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        <style>
+            button[kind="header"],
+            button[data-testid="collapsedControl"] {
+                display: none !important;
+            }
+        </style>
+        """, unsafe_allow_html=True)
+
+        st.markdown("""
+            <style>
+            @media (max-width: 768px) {
+                section[data-testid="stSidebar"] {
+                    position: relative;
+                    width: 100% !important;
+                    height: auto;
+                }
+            
+                div[data-testid="stAppViewContainer"] {
+                    margin-left: 0 !important;
+                    width: 100% !important;
+                }
+            }
+            </style>
+            """, unsafe_allow_html=True)
+
+
+
+    #------- code end fixed sidebar --------
     st.markdown(
         """
         <div style="
@@ -852,6 +912,7 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

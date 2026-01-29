@@ -28,6 +28,7 @@ st.markdown("""
 
     .st-emotion-cache-1b6jk7u h1 {        
         color: #004080 !important;
+        font-family: 'CMU Sans Serif Demi borderless' !important;
     }
     
     /* Sticky main header */
@@ -848,6 +849,7 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

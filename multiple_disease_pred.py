@@ -266,63 +266,6 @@ elif selected == 'Heart Disease Prediction':
 elif selected == 'Parkinsons Prediction':
     set_bg("#1f1147", "#5b2c83")
 
-st.markdown("""
-    <style>
-    /* SIDEBAR AS OVERLAY */
-    section[data-testid="stSidebar"] {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 280px !important;
-        height: 100vh;
-        z-index: 2000;
-        background: linear-gradient(180deg, #0d47a1, #1976d2);
-        transform: translateX(-100%);
-        transition: transform 0.3s ease-in-out;
-    }
-    </style>
-    """, unsafe_allow_html=True)
-
-st.markdown("""
-    <style>
-    /* SHOW SIDEBAR WHEN OPEN */
-    section[data-testid="stSidebar"][data-expanded="true"] {
-        transform: translateX(0);
-    }
-    </style>
-    """, unsafe_allow_html=True)
-
-st.markdown("""
-    <style>
-    /* MAIN CONTENT NEVER MOVES */
-    div[data-testid="stAppViewContainer"] {
-        margin-left: 0 !important;
-        width: 100% !important;
-    }
-    
-    /* Prevent horizontal scroll */
-    div[data-testid="stMain"] {
-        overflow-x: hidden;
-    }
-    </style>
-    """, unsafe_allow_html=True)
-
-st.markdown("""
-    <style>
-    /* BACKDROP */
-    section[data-testid="stSidebar"][data-expanded="true"]::after {
-        content: "";
-        position: fixed;
-        top: 0;
-        left: 280px;
-        width: calc(100vw - 280px);
-        height: 100vh;
-        background: rgba(0,0,0,0.5);
-        z-index: -1;
-    }
-    </style>
-    """, unsafe_allow_html=True)
-
 
  # ---------- Main header ----------
 
@@ -909,6 +852,7 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

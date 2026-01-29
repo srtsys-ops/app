@@ -16,6 +16,7 @@ def get_base64_image(image_path):
         return base64.b64encode(img.read()).decode()
         
 logo_base64 = get_base64_image("periyar_logo.png")
+periyar_base64 = get_base64_image("periyar.jpg")
 
 
 st.markdown("""
@@ -281,7 +282,7 @@ st.markdown(f"""
             <h1 style="margin:0; color:white;">
                 PERIYAR UNIVERSITY
             </h1>
-            <img src="data:image/png;base64,{logo_base64}"
+            <img src="data:image/png;base64,{periyar_base64}"
                  style="height:100px;">
         </div>
     </div>
@@ -851,6 +852,7 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

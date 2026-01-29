@@ -212,6 +212,8 @@ with st.sidebar:
             text-align: center;">
             <h2>🩺 Health Predictor</h2>
             <p>AI-powered disease detection</p>
+            <p>Project Coordinator</p>
+            <p>Prof. Saravanan</p>
         </div>
         """,
         unsafe_allow_html=True
@@ -852,6 +854,7 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

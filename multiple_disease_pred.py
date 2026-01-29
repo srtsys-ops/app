@@ -22,12 +22,12 @@ st.markdown("""
     <style>
     /* Arrow button in sidebar */
     .st-emotion-cache-ujm5ma {
-        background: black;
+        background: #004080;
         border-radius: 50%;
     }
 
     .st-emotion-cache-1b6jk7u h1 {        
-        color: black !important;
+        color: #004080 !important;
     }
     
     /* Sticky main header */
@@ -848,6 +848,7 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

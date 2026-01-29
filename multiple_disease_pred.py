@@ -334,6 +334,10 @@ st.markdown("""
         .main-content {
             margin-top: 10px;             /* Reduce top gap */
         }
+
+        .st-emotion-cache-18kf3ut  {
+            margin-top: -50px  !important;     /* Reduce top gap */
+        }
     }
     
     /* -------- Extra small screens -------- */
@@ -915,6 +919,7 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

@@ -249,9 +249,22 @@ elif selected == 'Parkinsons Prediction':
 
 st.markdown("""
     <div class="fixed-header">
-        <h1 style="margin:0; color:white;">🩺 PERIYAR UNIVERSITY</h1>
+        <div style="
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        ">
+            <img src="periyar_logo.png" 
+                 style="height: 55px; width: auto;">
+            <h1 style="margin:0; color:white; font-size: 28px;">
+                PERIYAR UNIVERSITY
+            </h1>
+        </div>
     </div>
-    """, unsafe_allow_html=True)
+    """, unsafe_allow_html=True
+)
+
 
 #st.divider()
 st.markdown('<div class="main-content">', unsafe_allow_html=True)
@@ -814,6 +827,7 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

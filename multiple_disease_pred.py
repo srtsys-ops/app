@@ -332,7 +332,7 @@ st.markdown("""
         }
     
         .main-content {
-            margin-top: 90px;             /* Reduce top gap */
+            margin-top: 30px;             /* Reduce top gap */
         }
     }
     
@@ -915,6 +915,7 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

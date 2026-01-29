@@ -243,22 +243,22 @@ with st.sidebar:
         </style>
         """, unsafe_allow_html=True)
 
-        st.markdown("""
-            <style>
-            @media (max-width: 768px) {
-                section[data-testid="stSidebar"] {
-                    position: relative;
-                    width: 100% !important;
-                    height: auto;
-                }
-            
-                div[data-testid="stAppViewContainer"] {
-                    margin-left: 0 !important;
-                    width: 100% !important;
-                }
+    st.markdown("""
+        <style>
+        @media (max-width: 768px) {
+            section[data-testid="stSidebar"] {
+                position: relative;
+                width: 100% !important;
+                height: auto;
             }
-            </style>
-            """, unsafe_allow_html=True)
+        
+            div[data-testid="stAppViewContainer"] {
+                margin-left: 0 !important;
+                width: 100% !important;
+            }
+        }
+        </style>
+        """, unsafe_allow_html=True)
 
 
 
@@ -912,6 +912,7 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

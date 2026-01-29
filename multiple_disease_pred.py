@@ -145,10 +145,7 @@ st.markdown("""
             font-size: 17px !important;
         }
     }
-
-    div[data-testid="stLayoutWrapper"] {
-        margin-top: -50px !important;
-    }
+   
     </style>
     """, unsafe_allow_html=True)
 
@@ -921,6 +918,7 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

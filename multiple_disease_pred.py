@@ -435,15 +435,13 @@ if (selected == 'Diabetes Prediction'):
     #page title
     #st.header('Diabetes Prediction using ML')
 
-    col_title,  col_btn2 = st.columns([5,  1])
+    col_title,  col_btn1 = st.columns([5,  1])
 
     with col_title:
-        st.header("🩸 Diabetes Prediction", divider="blue")
-
+        st.header("🩸 Diabetes Prediction", divider="blue")    
     
-    
-    with col_btn2:
-        #st.markdown("<br>", unsafe_allow_html=True)  # vertical alignment
+    with col_btn1:
+        st.markdown("<br>", unsafe_allow_html=True)  # vertical alignment
         st.button("🧹 Clear", type="secondary", on_click=clear_form)
 
     sample_choice = st.selectbox(
@@ -973,6 +971,7 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

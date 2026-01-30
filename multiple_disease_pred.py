@@ -441,8 +441,10 @@ if (selected == 'Diabetes Prediction'):
         st.header("🩸 Diabetes Prediction", divider="blue")    
     
     with col_btn1:
-        st.markdown("<br>", unsafe_allow_html=True)  # vertical alignment
-        st.button("🧹 Clear", type="secondary", on_click=clear_form)
+        st.markdown('<div class="clear-btn">', unsafe_allow_html=True)
+            st.markdown("<br>", unsafe_allow_html=True)  # vertical alignment
+            st.button("🧹 Clear", type="secondary", on_click=clear_form)
+        st.markdown('</div>', unsafe_allow_html=True)
 
     sample_choice = st.selectbox(
         "🧪 Load Sample Patient",
@@ -971,6 +973,7 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

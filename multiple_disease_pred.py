@@ -435,14 +435,12 @@ if (selected == 'Diabetes Prediction'):
     #page title
     #st.header('Diabetes Prediction using ML')
 
-    col_title, col_btn1, col_btn2 = st.columns([4, 1, 1])
+    col_title,  col_btn2 = st.columns([5,  1])
 
     with col_title:
         st.header("🩸 Diabetes Prediction", divider="blue")
 
-    with col_btn1:
-        st.markdown("<br>", unsafe_allow_html=True)
-        #st.button("🧪 Sample Data", on_click=autofill_heart_sample)
+    
     
     with col_btn2:
         #st.markdown("<br>", unsafe_allow_html=True)  # vertical alignment
@@ -975,6 +973,7 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

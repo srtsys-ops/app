@@ -18,44 +18,6 @@ def get_base64_image(image_path):
 logo_base64 = get_base64_image("periyar_logo.png")
 periyar_base64 = get_base64_image("periyar.jpg")
 
-st.markdown("""
-    <style>
-    
-    /* Clear button wrapper */
-    #clear-btn-wrapper {
-        display: flex;
-        justify-content: flex-end;
-    }
-    
-    /* Target the actual Streamlit button inside wrapper */
-    #clear-btn-wrapper button {
-        background: green;
-        color: white !important;
-        border-radius: 10px;
-        padding: 8px 16px;
-        font-weight: 600;
-        border: none;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.25);
-        transition: all 0.2s ease-in-out;
-    }
-    
-    /* Hover effect */
-    #clear-btn-wrapper button:hover {
-        transform: scale(1.05);
-        background: linear-gradient(135deg, #ff1744, #d50000);
-    }
-    
-    /* Mobile tweak */
-    @media (max-width: 768px) {
-        #clear-btn-wrapper {
-            justify-content: center;
-        }
-    }
-    
-    </style>
-    """, unsafe_allow_html=True)
-
-
 
 st.markdown("""
     <style>
@@ -473,20 +435,18 @@ if (selected == 'Diabetes Prediction'):
     #page title
     #st.header('Diabetes Prediction using ML')
 
-    col_title,  col_btn1 = st.columns([5,  1])
+    col_title, col_btn1, col_btn2 = st.columns([4, 1, 1])
 
     with col_title:
-        st.header("🩸 Diabetes Prediction", divider="blue")    
-    
+        st.header("🩸 Diabetes Prediction", divider="blue")
+
     with col_btn1:
-        st.markdown(
-            """
-            <div id="clear-btn-wrapper" class="clear-btn-wrapper">
-            """,
-            unsafe_allow_html=True
-        )
+        st.markdown("<br>", unsafe_allow_html=True)
+        #st.button("🧪 Sample Data", on_click=autofill_heart_sample)
+    
+    with col_btn2:
+        #st.markdown("<br>", unsafe_allow_html=True)  # vertical alignment
         st.button("🧹 Clear", type="secondary", on_click=clear_form)
-        st.markdown("</div>", unsafe_allow_html=True)
 
     sample_choice = st.selectbox(
         "🧪 Load Sample Patient",
@@ -834,53 +794,6 @@ if selected == 'Heart Disease Prediction':
 if (selected == 'Parkinsons Prediction'):
     #set_bg("#FF0000", "#ffe0b2")
     #set_bg("#0f2027", "#2c5364")
-        # ---------- Parkinson's Sample Data ----------
-    PARKINSONS_SAMPLES = {
-        "Select Sample": None,
-
-        "🟢 Healthy Voice Pattern": {
-            "fo": 120.5, "fhi": 150.2, "flo": 95.3,
-            "Jitter_percent": 0.003, "Jitter_Abs": 0.00002,
-            "RAP": 0.001, "PPQ": 0.002, "DDP": 0.003,
-            "Shimmer": 0.02, "Shimmer_dB": 0.18,
-            "APQ3": 0.01, "APQ5": 0.012, "APQ": 0.014, "DDA": 0.03,
-            "NHR": 0.015, "HNR": 22.5,
-            "RPDE": 0.42, "DFA": 0.61,
-            "spread1": -6.1, "spread2": 0.18,
-            "D2": 2.1, "PPE": 0.12
-        },
-
-        "🟡 Mild Risk (Early Symptoms)": {
-            "fo": 145.2, "fhi": 180.6, "flo": 110.4,
-            "Jitter_percent": 0.006, "Jitter_Abs": 0.00005,
-            "RAP": 0.003, "PPQ": 0.004, "DDP": 0.009,
-            "Shimmer": 0.035, "Shimmer_dB": 0.32,
-            "APQ3": 0.02, "APQ5": 0.025, "APQ": 0.03, "DDA": 0.06,
-            "NHR": 0.03, "HNR": 18.4,
-            "RPDE": 0.52, "DFA": 0.67,
-            "spread1": -5.3, "spread2": 0.25,
-            "D2": 2.45, "PPE": 0.21
-        },
-
-        "🔴 High Risk (Parkinson’s)": {
-            "fo": 175.8, "fhi": 225.4, "flo": 130.2,
-            "Jitter_percent": 0.012, "Jitter_Abs": 0.00011,
-            "RAP": 0.007, "PPQ": 0.009, "DDP": 0.02,
-            "Shimmer": 0.065, "Shimmer_dB": 0.65,
-            "APQ3": 0.045, "APQ5": 0.055, "APQ": 0.06, "DDA": 0.13,
-            "NHR": 0.07, "HNR": 12.1,
-            "RPDE": 0.68, "DFA": 0.74,
-            "spread1": -4.1, "spread2": 0.38,
-            "D2": 3.15, "PPE": 0.42
-        }
-    }
-
-    def apply_parkinsons_sample(sample_name):
-        sample = PARKINSONS_SAMPLES.get(sample_name)
-        if sample:
-            for key, value in sample.items():
-                st.session_state[key] = value
-
 
     # ---------- Defaults ----------
     parkinsons_defaults = {
@@ -915,16 +828,6 @@ if (selected == 'Parkinsons Prediction'):
     with col_btn2:
         st.markdown("<br>", unsafe_allow_html=True)
         st.button("🧹 Clear", type="secondary", on_click=clear_parkinsons_form)
-
-    sample_choice = st.selectbox(
-        "🧪 Load Sample Voice Data",
-        list(PARKINSONS_SAMPLES.keys()),
-        index=0
-    )
-
-    if sample_choice != "Select Sample":
-        apply_parkinsons_sample(sample_choice)
-
 
     # ---------- Input Form ----------
     with st.form("parkinsons_form"):
@@ -1015,174 +918,6 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

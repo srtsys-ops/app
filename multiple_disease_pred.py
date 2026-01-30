@@ -136,7 +136,7 @@ st.markdown("""
     }     
     /* Mobile view */
     @media (max-width: 768px) {
-        h2 {
+        h2#diabetes-prediction {
             font-size: 20px !important;
             line-height: 1.3;
             margin-top: -50px !important;
@@ -927,6 +927,7 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

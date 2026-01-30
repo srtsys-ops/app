@@ -245,7 +245,7 @@ with st.sidebar:
             border-radius: 12px;
             text-align: center;">
             <h2>🩺 Health Predictor</h2>
-            <p>Disease detection by ML</p>
+            <p>Disease Detection by ML</p>
             <p>Project Coordinator</p>
             <p>Prof. Saravanan</p>
         </div>
@@ -931,6 +931,7 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

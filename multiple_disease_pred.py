@@ -131,6 +131,9 @@ st.markdown(
 
 st.markdown("""
     <style>
+    button[data-testid="stBaseButton-secondary"] {
+        margin-top: 30px !important;
+    }     
     /* Mobile view */
     @media (max-width: 768px) {
         h2 {
@@ -924,6 +927,7 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

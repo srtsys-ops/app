@@ -693,7 +693,7 @@ if selected == 'Heart Disease Prediction':
         #st.button("🧪 Sample Data", on_click=autofill_heart_sample)
     
     with col_btn2:
-        st.markdown("<br>", unsafe_allow_html=True)
+        #st.markdown("<br>", unsafe_allow_html=True)
         st.button("🧹 Clear", on_click=clear_heart_form)
 
     sample_choice = st.selectbox(
@@ -835,7 +835,7 @@ if (selected == 'Parkinsons Prediction'):
         st.markdown("<br>", unsafe_allow_html=True)
 
     with col_btn2:
-        st.markdown("<br>", unsafe_allow_html=True)
+        #st.markdown("<br>", unsafe_allow_html=True)
         st.button("🧹 Clear", type="secondary", on_click=clear_parkinsons_form)
 
     # ---------- Input Form ----------
@@ -927,6 +927,7 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

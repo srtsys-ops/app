@@ -485,7 +485,7 @@ if (selected == 'Diabetes Prediction'):
             """,
             unsafe_allow_html=True
         )
-        st.button("🧹 Clear", type="secondary", on_click=clear_parkinsons_form)
+        st.button("🧹 Clear", type="secondary", on_click=clear_form)
         st.markdown("</div>", unsafe_allow_html=True)
 
     sample_choice = st.selectbox(
@@ -1015,6 +1015,7 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

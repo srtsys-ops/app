@@ -18,6 +18,44 @@ def get_base64_image(image_path):
 logo_base64 = get_base64_image("periyar_logo.png")
 periyar_base64 = get_base64_image("periyar.jpg")
 
+st.markdown("""
+    <style>
+    
+    /* Clear button wrapper */
+    #clear-btn-wrapper {
+        display: flex;
+        justify-content: flex-end;
+    }
+    
+    /* Target the actual Streamlit button inside wrapper */
+    #clear-btn-wrapper button {
+        background: linear-gradient(135deg, #ff5252, #ff1744);
+        color: white !important;
+        border-radius: 10px;
+        padding: 8px 16px;
+        font-weight: 600;
+        border: none;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+        transition: all 0.2s ease-in-out;
+    }
+    
+    /* Hover effect */
+    #clear-btn-wrapper button:hover {
+        transform: scale(1.05);
+        background: linear-gradient(135deg, #ff1744, #d50000);
+    }
+    
+    /* Mobile tweak */
+    @media (max-width: 768px) {
+        #clear-btn-wrapper {
+            justify-content: center;
+        }
+    }
+    
+    </style>
+    """, unsafe_allow_html=True)
+
+
 
 st.markdown("""
     <style>
@@ -447,9 +485,7 @@ if (selected == 'Diabetes Prediction'):
             """,
             unsafe_allow_html=True
         )
-
         st.button("🧹 Clear", type="secondary", on_click=clear_parkinsons_form)
-
         st.markdown("</div>", unsafe_allow_html=True)
 
     sample_choice = st.selectbox(
@@ -979,6 +1015,7 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

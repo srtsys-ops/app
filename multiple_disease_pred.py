@@ -144,7 +144,11 @@ st.markdown("""
 
         button[data-testid="stBaseButton-secondary"] {
             margin-top: -10px !important;
-        }       
+        } 
+
+        .stHorizontalBlock .stVerticalBlock br {
+            display: none !important;
+        } 
         
     }
     
@@ -927,6 +931,7 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

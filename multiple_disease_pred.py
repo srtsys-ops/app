@@ -29,7 +29,7 @@ st.markdown("""
     
     /* Target the actual Streamlit button inside wrapper */
     #clear-btn-wrapper button {
-        background: black;
+        background: green;
         color: white !important;
         border-radius: 10px;
         padding: 8px 16px;
@@ -1015,6 +1015,7 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

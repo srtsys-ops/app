@@ -140,8 +140,13 @@ st.markdown("""
         }
 
         button[data-testid="stBaseButton-secondary"] {
-            margin-top: -15px !important;
+            margin-top: -10px !important;
         }
+
+        .st-emotion-cache-8zc3en {
+            display: none !important;
+        }
+        
     }
     
     /* Extra small phones */
@@ -923,6 +928,7 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

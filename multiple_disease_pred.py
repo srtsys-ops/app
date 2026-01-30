@@ -29,7 +29,7 @@ st.markdown("""
     
     /* Target the actual Streamlit button inside wrapper */
     #clear-btn-wrapper button {
-        background: linear-gradient(135deg, #ff5252, #ff1744);
+        background: black;
         color: white !important;
         border-radius: 10px;
         padding: 8px 16px;

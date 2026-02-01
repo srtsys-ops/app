@@ -269,7 +269,7 @@ st.markdown("""
     @media (max-width: 768px) {    
         .fixed-header { padding: 8px 10px; }    
         .fixed-header h1 {
-            font-size: 18px !important;   /* Reduce title size */
+            font-size: 20px !important;   /* Reduce title size */
             line-height: 1.2;
             text-align: center;
         }    
@@ -1142,6 +1142,7 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

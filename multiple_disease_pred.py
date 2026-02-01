@@ -1049,24 +1049,3 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -21,17 +21,7 @@ import base64
 import streamlit as st
 from streamlit_option_menu import option_menu
 
-# =========================================================
-# 🖼️ IMAGE UTILS
-# =========================================================
-def get_base64_image(image_path):
-    """Convert image to base64 for HTML rendering"""
-    with open(image_path, "rb") as img:
-        return base64.b64encode(img.read()).decode()
 
-
-logo_base64 = get_base64_image("periyar_logo.png")
-periyar_base64 = get_base64_image("periyar.jpg")
 
 # =========================================================
 # 🎨 GLOBAL STYLES (HEADER + APP)
@@ -285,6 +275,18 @@ st.markdown(
         """,
         unsafe_allow_html=True
     )
+
+# =========================================================
+# 🖼️ IMAGE UTILS
+# =========================================================
+def get_base64_image(image_path):
+    """Convert image to base64 for HTML rendering"""
+    with open(image_path, "rb") as img:
+        return base64.b64encode(img.read()).decode()
+
+
+logo_base64 = get_base64_image("periyar_logo.png")
+periyar_base64 = get_base64_image("periyar.jpg")
 
 # =========================================================
 # 🎨 BACKGROUND HELPER FOR EACH MODULE
@@ -1172,6 +1174,7 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

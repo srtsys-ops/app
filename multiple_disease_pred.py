@@ -229,42 +229,7 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
-# =========================================================
-# 🎨 BACKGROUND HELPER FOR EACH MODULE
-# =========================================================
-def set_bg(color1, color2):
-    """Set page background gradient"""
-    st.markdown(
-        f"""
-        <style>
-        .stApp {{
-            background: linear-gradient(135deg, {color1}, {color2});
-        }}
-        </style>
-        """,
-        unsafe_allow_html=True
-    )
-
-# =========================================================
-# 📚 SIDEBAR STYLES                                                      
-# =========================================================                 
-
-# =========================================================
-# 🧠 LOAD ML MODELS
-# =========================================================
-diabetes_model = pickle.load(open("diabetes_model.sav", "rb"))
-heart_disease_model = pickle.load(open("heart_disease_model.sav", "rb"))
-parkinsons_model = pickle.load(open("parkinsons_model.sav", "rb"))
-
-
-
-# =========================================================
-# 📚 SIDEBAR
-# =========================================================
-
-with st.sidebar:
-    
-    st.markdown(
+st.markdown(
         """
         <style>    
         
@@ -318,6 +283,40 @@ with st.sidebar:
         unsafe_allow_html=True
     )
 
+# =========================================================
+# 🎨 BACKGROUND HELPER FOR EACH MODULE
+# =========================================================
+def set_bg(color1, color2):
+    """Set page background gradient"""
+    st.markdown(
+        f"""
+        <style>
+        .stApp {{
+            background: linear-gradient(135deg, {color1}, {color2});
+        }}
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
+
+# =========================================================
+# 📚 SIDEBAR STYLES                                                      
+# =========================================================                 
+
+# =========================================================
+# 🧠 LOAD ML MODELS
+# =========================================================
+diabetes_model = pickle.load(open("diabetes_model.sav", "rb"))
+heart_disease_model = pickle.load(open("heart_disease_model.sav", "rb"))
+parkinsons_model = pickle.load(open("parkinsons_model.sav", "rb"))
+
+
+
+# =========================================================
+# 📚 SIDEBAR
+# =========================================================
+
+with st.sidebar:  
     st.markdown(
         """
         <div style="
@@ -1172,6 +1171,7 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

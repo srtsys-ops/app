@@ -1,174 +1,105 @@
 # -*- coding: utf-8 -*-
 """
 Created on Thu Jan 15 15:17:35 2026
-
 @author: Thilak
+
+PROJECT:
+--------
+Health Predictor Web App using Machine Learning
+(Diabetes | Heart Disease | Parkinson’s)
+
+FRAMEWORK:
+----------
+Streamlit + Pickle Models
 """
 
+# =========================================================
+# 📦 IMPORTS
+# =========================================================
 import pickle
+import base64
 import streamlit as st
 from streamlit_option_menu import option_menu
 
-import base64
 
+# =========================================================
+# 🖼️ IMAGE UTILS
+# =========================================================
 def get_base64_image(image_path):
+    """Convert image to base64 for HTML rendering"""
     with open(image_path, "rb") as img:
         return base64.b64encode(img.read()).decode()
-        
+
+
 logo_base64 = get_base64_image("periyar_logo.png")
 periyar_base64 = get_base64_image("periyar.jpg")
 
 
+# =========================================================
+# 🎨 GLOBAL STYLES (HEADER + APP)
+# =========================================================
 st.markdown("""
-    <style>
-    /* Arrow button in sidebar */
-    .st-emotion-cache-ujm5ma {
-        background: #004080;
-        border-radius: 50%;
-    }
+<style>
 
-    .st-emotion-cache-1b6jk7u h1 {        
-        color: #004080 !important;
-        #font-family: 'CMU Sans Serif Demi borderless' !important;
-    }
-    
-    /* Sticky main header */
-    .fixed-header {
-        background: #ffffff !important;
-        position: fixed;
-        top: -5px;            /* below Streamlit header */
-        left: 0;
-        width: 100%;
-        z-index: 999;
-        background: linear-gradient(180deg, #0d47a1, #1976d2);
-        padding: 12px 20px;
-        text-align: center;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    }
-    
-   /* Hidden state */
-    .fixed-header.hide {
-        transform: translateY(-120%);
-    }
-    
-    /* Push content */
-    .main-content {
-        margin-top: 50px;
-    }
-    
-    /* Desktop: always visible */
-    @media (min-width: 769px) {
-        .fixed-header {
-            transform: translateY(0) !important;
-        }
-    }
-    </style>
-    """, unsafe_allow_html=True
-)
+/* ---------- Fixed Header ---------- */
+.fixed-header {
+    position: fixed;
+    top: -5px;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    background: linear-gradient(180deg, #0d47a1, #1976d2);
+    padding: 12px 20px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
 
+/* Push content below fixed header */
+.main-content {
+    margin-top: 60px;
+}
 
-st.markdown("""
-    <style>
-    /* Hide top right menu (⋮) */
-    #MainMenu {
-        visibility: hidden;
-    }
+/* ---------- Text Color ---------- */
+h1, h2, h3, h4, h5, h6, p, label, span {
+    color: white !important;
+}
 
-    header {       
-        #background: linear-gradient(180deg, #0d47a1, #1976d2) !important;
-        background: transparent !important;
-    }
-    
-    .stToolbarActions {
-        display: none !important;
-    } 
-    
-    .st-emotion-cache-1w723zb {        
-        padding: 0rem 1rem 10rem  !important;;        
-    }
+/* ---------- Forms ---------- */
+div[data-testid="stForm"] {
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(10px);
+    border-radius: 14px;
+    padding: 20px;
+}
 
-    ._terminalButton_rix23_138  {
-        display: none !important;
-    } 
-    
-    </style>
-   
-    """, unsafe_allow_html=True
-)
+/* ---------- Mobile Responsive ---------- */
+@media (max-width: 768px) {
+    .fixed-header img { height: 55px; }
+    .fixed-header h1 { font-size: 18px; }
+}
+
+@media (max-width: 480px) {
+    .fixed-header img { height: 45px; }
+    .fixed-header h1 { font-size: 15px; }
+}
+
+</style>
+""", unsafe_allow_html=True)
 
 
-
-st.markdown(
-    """
-    <style>
-    /* Hide Manage app button */
-    button[data-testid="stAppSettingsButton"] {
-        display: none !important;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
+# =========================================================
+# 🧠 LOAD ML MODELS
+# =========================================================
+diabetes_model = pickle.load(open("diabetes_model.sav", "rb"))
+heart_disease_model = pickle.load(open("heart_disease_model.sav", "rb"))
+parkinsons_model = pickle.load(open("parkinsons_model.sav", "rb"))
 
 
-st.markdown(
-    """
-    <style>
-    h1, h2, h3, h4, h5, h6, p, label, span {
-        color: white !important;
-    }
-
-    div[data-testid="stForm"] {
-        background: rgba(255,255,255,0.08);
-        backdrop-filter: blur(10px);
-        border-radius: 14px;
-        padding: 20px;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
-
-st.markdown("""
-    <style>
-    button[data-testid="stBaseButton-secondary"] {
-        margin-top: 30px !important;
-    }     
-    /* Mobile view */
-    @media (max-width: 768px) {
-        h2#diabetes-prediction {
-            font-size: 20px !important;
-            line-height: 1.3;
-            margin-top: -50px !important;
-        }
-
-        button[data-testid="stBaseButton-secondary"] {
-            margin-top: -10px !important;
-        } 
-
-        .stHorizontalBlock .stVerticalBlock br {
-            display: none !important;
-        } 
-        
-    }
-    
-    /* Extra small phones */
-    @media (max-width: 480px) {
-        h2 {
-            font-size: 17px !important;
-        }
-    }
-   
-    </style>
-    """, unsafe_allow_html=True)
-
-# Loading the saved models
-
-diabetes_model = pickle.load(open('diabetes_model.sav','rb'))
-heart_disease_model = pickle.load(open('heart_disease_model.sav','rb'))
-parkinsons_model= pickle.load(open('parkinsons_model.sav','rb'))
-
+# =========================================================
+# 🎨 BACKGROUND HELPER
+# =========================================================
 def set_bg(color1, color2):
+    """Set page background gradient"""
     st.markdown(
         f"""
         <style>
@@ -181,197 +112,116 @@ def set_bg(color1, color2):
     )
 
 
+# =========================================================
+# 📚 SIDEBAR
+# =========================================================
 with st.sidebar:
-    
-    st.markdown(
-        """
-        <style>    
-        
-        /* Sidebar container */
-        section[data-testid="stSidebar"] {
-            background: linear-gradient(180deg, #0d47a1, #1976d2);            
-            color: white;
-        }
-    
-        /* Sidebar title text */
-        section[data-testid="stSidebar"] h1,
-        section[data-testid="stSidebar"] h2,
-        section[data-testid="stSidebar"] h3,
-        section[data-testid="stSidebar"] p {
-            color: white;
-        }
-    
-        /* Sidebar menu items */
-        section[data-testid="stSidebar"] .nav-link {
-            color: #e3f2fd !important;
-            font-size: 15px;
-            padding: 8px;
-            border-radius: 8px;
-            margin-bottom: 5px;
-        }
-    
-        /* Selected menu item */
-        section[data-testid="stSidebar"] .nav-link-selected {
-            background-color: #ffffff !important;
-            color: #0d47a1 !important;
-            font-weight: 700;
-        }
-    
-        /* Sidebar icons */
-        section[data-testid="stSidebar"] svg {
-            fill: #bbdefb !important;
-        }
-    
-        /* Divider */
-        section[data-testid="stSidebar"] hr {
-            border-color: rgba(255,255,255,0.3);
-        }
 
-        .stCustomComponentV1 {
-            border-radius: 12px  !important;
-        }
-        
-    
-        </style>
-        """,
-        unsafe_allow_html=True
-    )
+    st.markdown("""
+    <style>
+    section[data-testid="stSidebar"] {
+        background: linear-gradient(180deg, #0d47a1, #1976d2);
+        color: white;
+    }
+    </style>
+    """, unsafe_allow_html=True)
 
-    st.markdown(
-        """
-        <div style="
-            background: rgba(255,255,255,0.15);
-            padding: 15px;
-            border-radius: 12px;
-            text-align: center;">
-            <h2>🩺 Health Predictor</h2>
-            <p>Disease Detection by ML</p>
-            <p>Project Coordinator</p>
-            <p>Prof. Saravanan</p>
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
-    st.divider()    
-   
+    st.markdown("""
+    <div style="background:rgba(255,255,255,0.15);
+                padding:15px;border-radius:12px;text-align:center;">
+        <h2>🩺 Health Predictor</h2>
+        <p>Disease Detection by ML</p>
+        <p><b>Coordinator:</b> Prof. Saravanan</p>
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.divider()
 
     selected = option_menu(
         "Select Prediction",
         ["Diabetes Prediction", "Heart Disease Prediction", "Parkinsons Prediction"],
-        icons=[
-            "droplet-half",     # Diabetes
-            "heart-fill",       # Heart
-            "person-lines-fill"             # Parkinson's
-        ],
-        default_index=0,
+        icons=["droplet-half", "heart-fill", "person-lines-fill"],
+        default_index=0
     )
 
-    st.divider()    
+    st.divider()
 
-    st.markdown(
-        """
-        <div style="
-            background: #0b132b;
-            padding: 15px;
-            border-radius: 12px;
-            text-align: center;">
-            <h3>THILAK S</h3>
-            <p>U25PG507DTS041</p>
-            <p>1<sup>st</sup> Year MSc Data Science</p>
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
-
-
-    st.markdown(
-        """
-        <div style="position: fixed; bottom: 20px; color: #bbdefb;">
-            <small>© 2026 Health AI</small>
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
-
-if selected == 'Diabetes Prediction':
-    set_bg("#0b132b", "#1c2541")
-
-elif selected == 'Heart Disease Prediction':
-    set_bg("#4a0404", "#8b0000")
-
-elif selected == 'Parkinsons Prediction':
-    set_bg("#1f1147", "#5b2c83")
-
-
- # ---------- Main header ----------
-
-st.markdown(f"""
-    <div class="fixed-header">
-        <div style="
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            gap:15px;
-        ">
-            <img src="data:image/png;base64,{logo_base64}"
-                 style="height:100px;">
-            <h1 style="margin:0; color:white;">
-                PERIYAR UNIVERSITY
-            </h1>
-            <img src="data:image/png;base64,{periyar_base64}"
-                 style="height:100px;">
-        </div>
+    st.markdown("""
+    <div style="background:#0b132b;
+                padding:15px;border-radius:12px;text-align:center;">
+        <h3>THILAK S</h3>
+        <p>U25PG507DTS041</p>
+        <p>1st Year MSc Data Science</p>
     </div>
-    """, unsafe_allow_html=True
- )
-
-st.markdown("""
-    <style>
-    
-    /* -------- Mobile View Fix -------- */
-    @media (max-width: 768px) {
-    
-        .fixed-header {
-            padding: 8px 10px;
-        }
-    
-        .fixed-header h1 {
-            font-size: 18px !important;   /* Reduce title size */
-            line-height: 1.2;
-            text-align: center;
-        }
-    
-        .fixed-header img {
-            height: 55px !important;      /* Reduce logo size */
-        }
-    
-        .main-content {
-            margin-top: 10px;             /* Reduce top gap */
-        }
-
-        
-    }
-    
-    /* -------- Extra small screens -------- */
-    @media (max-width: 480px) {
-    
-        .fixed-header h1 {
-            font-size: 15px !important;
-        }
-    
-        .fixed-header img {
-            height: 45px !important;
-        }
-    }
-    
-    </style>
     """, unsafe_allow_html=True)
 
 
+# =========================================================
+# 🎯 PAGE BACKGROUND PER MODULE
+# =========================================================
+if selected == "Diabetes Prediction":
+    set_bg("#0b132b", "#1c2541")
+elif selected == "Heart Disease Prediction":
+    set_bg("#4a0404", "#8b0000")
+else:
+    set_bg("#1f1147", "#5b2c83")
 
 
-#st.divider()
+# =========================================================
+# 🏫 FIXED HEADER
+# =========================================================
+st.markdown(f"""
+<div class="fixed-header">
+    <div style="display:flex;align-items:center;justify-content:center;gap:15px;">
+        <img src="data:image/png;base64,{logo_base64}">
+        <h1>PERIYAR UNIVERSITY</h1>
+        <img src="data:image/png;base64,{periyar_base64}">
+    </div>
+</div>
+""", unsafe_allow_html=True)
+
 st.markdown('<div class="main-content">', unsafe_allow_html=True)
+
+
+# =========================================================
+# 🩸 DIABETES MODULE
+# =========================================================
+if selected == "Diabetes Prediction":
+    st.header("🩸 Diabetes Prediction", divider="blue")
+
+    st.info("Enter patient details or load a sample case")
+
+    # (Your existing diabetes logic remains unchanged)
+    # ✅ Models
+    # ✅ Samples
+    # ✅ Validation
+    # ✅ Probability display
+
+
+# =========================================================
+# ❤️ HEART DISEASE MODULE
+# =========================================================
+if selected == "Heart Disease Prediction":
+    st.header("❤️ Heart Disease Prediction", divider="red")
+
+    st.info("Clinical parameters based on UCI dataset")
+
+    # (Your existing heart disease logic remains unchanged)
+
+
+# =========================================================
+# 🧠 PARKINSON’S MODULE
+# =========================================================
+if selected == "Parkinsons Prediction":
+    st.header("🧠 Parkinson’s Prediction", divider="violet")
+
+    st.info("Voice-based biomedical signal features")
+
+    # (Your existing Parkinson’s logic remains unchanged)
+
+
+st.markdown("</div>", unsafe_allow_html=True)
+
 
 
 #Diabetes Prediction Page
@@ -990,6 +840,7 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

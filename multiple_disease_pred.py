@@ -170,9 +170,8 @@ st.markdown(
 
 st.markdown("""
     <style>
-    button[data-testid="stBaseButton-secondary"] {
-        margin-top: 30px !important;
-    }     
+    button[data-testid="stBaseButton-secondary"] { margin-top: 30px !important; }     
+    
     /* Mobile view */
     @media (max-width: 768px) {
         h2#diabetes-prediction {
@@ -180,22 +179,13 @@ st.markdown("""
             line-height: 1.3;
             margin-top: -50px !important;
         }
-
-        button[data-testid="stBaseButton-secondary"] {
-            margin-top: -10px !important;
-        } 
-
-        .stHorizontalBlock .stVerticalBlock br {
-            display: none !important;
-        } 
-        
+        button[data-testid="stBaseButton-secondary"] { margin-top: -10px !important; } 
+        .stHorizontalBlock .stVerticalBlock br { display: none !important; }         
     }
     
     /* Extra small phones */
     @media (max-width: 480px) {
-        h2 {
-            font-size: 17px !important;
-        }
+        h2 { font-size: 17px !important; }
     }
    
     </style>
@@ -279,8 +269,7 @@ st.markdown("""
     @media (max-width: 480px) {    
         .fixed-header h1 { font-size: 15px !important; }    
         .fixed-header img { height: 45px !important; }
-    }
-   
+    }   
     
     </style>
     """, unsafe_allow_html=True)
@@ -1141,6 +1130,7 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

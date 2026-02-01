@@ -689,10 +689,14 @@ if (selected == 'Diabetes Prediction'):
                 
 
 # =========================================================
-# ❤️ HEART DISEASE MODULE
+# ❤️ HEART DISEASE PREDICTION MODULE
 # =========================================================
 if selected == 'Heart Disease Prediction':
 
+    # -----------------------------------------------------
+    # 1️⃣ SESSION STATE DEFAULT VALUES
+    # -----------------------------------------------------
+    # Default values ensure form persistence and reset safety
     heart_defaults = {
         "age": 1,
         "sex": 0,
@@ -709,14 +713,20 @@ if selected == 'Heart Disease Prediction':
         "thal": 0
     }
 
+    # Initialize session state
     for k, v in heart_defaults.items():
         if k not in st.session_state:
             st.session_state[k] = v
-
+            
+    # -----------------------------------------------------
+    # 2️⃣ CLEAR FORM FUNCTION
+    # -----------------------------------------------------
+    # Resets all heart disease inputs to default values
     def clear_heart_form():
         for k, v in heart_defaults.items():
             st.session_state[k] = v
 
+    
     def autofill_heart_sample():
         st.session_state.age = 54
         st.session_state.sex = 1
@@ -732,7 +742,10 @@ if selected == 'Heart Disease Prediction':
         st.session_state.ca = 0
         st.session_state.thal = 2
 
-
+    # -----------------------------------------------------
+    # 3️⃣ SAMPLE DATA (FOR QUICK TESTING)
+    # -----------------------------------------------------
+    # Used to auto-fill realistic patient profiles
     HEART_SAMPLES = {
         "Select Sample": None,
     
@@ -785,6 +798,10 @@ if selected == 'Heart Disease Prediction':
         }
     }
 
+    # -----------------------------------------------------
+    # 4️⃣ APPLY SELECTED SAMPLE
+    # -----------------------------------------------------
+    # Loads chosen sample data into session state
     def apply_heart_sample(sample_name):
         sample = HEART_SAMPLES.get(sample_name)
         if sample:
@@ -794,7 +811,9 @@ if selected == 'Heart Disease Prediction':
 
 
 
-    # ---------- Title + Clear ----------
+    # -----------------------------------------------------
+    # 5️⃣ PAGE HEADER & ACTION BUTTONS
+    # -----------------------------------------------------
     col_title, col_btn1, col_btn2 = st.columns([4, 1, 1])
 
     with col_title:
@@ -808,6 +827,9 @@ if selected == 'Heart Disease Prediction':
         #st.markdown("<br>", unsafe_allow_html=True)
         st.button("🧹 Clear", on_click=clear_heart_form)
 
+    # -----------------------------------------------------
+    # 6️⃣ SAMPLE SELECTION DROPDOWN
+    # -----------------------------------------------------
     sample_choice = st.selectbox(
         "🧪 Load Sample Patient",
         list(HEART_SAMPLES.keys()),
@@ -819,9 +841,12 @@ if selected == 'Heart Disease Prediction':
 
 
 
-    # ---------- FORM ----------
+    # -----------------------------------------------------
+    # 7️⃣ HEART DISEASE INPUT FORM
+    # -----------------------------------------------------
     with st.form("heart_form"):
 
+        # --- Row 1 ---
         col1, col2, col3 = st.columns(3)
         with col1:
             age = st.number_input('Age', 1, 120, key="age")
@@ -830,6 +855,7 @@ if selected == 'Heart Disease Prediction':
         with col3:
             cp = st.number_input('Chest Pain Type (0–3)', 0, 3, key="cp")
 
+        # --- Row 2 ---
         col1, col2, col3 = st.columns(3)
         with col1:
             trestbps = st.number_input('Resting Blood Pressure', 80, 200, key="trestbps")
@@ -838,6 +864,7 @@ if selected == 'Heart Disease Prediction':
         with col3:
             fbs = st.number_input('Fasting Blood Sugar > 120', 0, 1, key="fbs")
 
+        # --- Row 3 ---
         col1, col2, col3 = st.columns(3)
         with col1:
             restecg = st.number_input('Resting ECG (0–2)', 0, 2, key="restecg")
@@ -846,6 +873,7 @@ if selected == 'Heart Disease Prediction':
         with col3:
             exang = st.number_input('Exercise Induced Angina', 0, 1, key="exang")
 
+        # --- Row 4 ---
         col1, col2, col3 = st.columns(3)
         with col1:
             oldpeak = st.number_input('ST Depression', 0.0, 10.0, key="oldpeak")
@@ -858,9 +886,12 @@ if selected == 'Heart Disease Prediction':
 
         predict_btn = st.form_submit_button("🔍 Heart Disease Test Result", type="primary")
 
-    # ---------- Prediction ----------
+    # -----------------------------------------------------
+    # 8️⃣ PREDICTION & VALIDATION
+    # -----------------------------------------------------
     if predict_btn:
 
+        # --- Input Validation ---
         errors = []
 
         if age < 10:
@@ -874,10 +905,14 @@ if selected == 'Heart Disease Prediction':
         if ca < 0 or ca > 4:
             errors.append("⚠️ Major vessels must be 0–4.")
 
+        # Display validation errors
         if errors:
             st.error("Please correct the following:")
             for e in errors:
                 st.write(e)
+        # -------------------------------------------------
+        # 9️⃣ MODEL INFERENCE & RISK ANALYSIS
+        # -------------------------------------------------
         else:
             input_data = [[
                 age, sex, cp, trestbps, chol, fbs,
@@ -885,12 +920,14 @@ if selected == 'Heart Disease Prediction':
                 slope, ca, thal
             ]]
 
-            # ---- Probability Prediction ----
+            # Probability prediction
             proba = heart_disease_model.predict_proba(input_data)
             risk = proba[0][1] * 100   # Probability of disease
             safe = proba[0][0] * 100
     
-            # ---- Display ----
+            # -------------------------------------------------
+            # 🔟 RESULT VISUALIZATION
+            # -------------------------------------------------
             st.subheader("📊 Risk Assessment")
     
             st.metric(
@@ -900,7 +937,10 @@ if selected == 'Heart Disease Prediction':
             )
     
             st.progress(int(risk))
-    
+
+            # -------------------------------------------------
+            # 1️⃣1️⃣ RISK CATEGORY INTERPRETATION
+            # -------------------------------------------------
             if risk >= 70:
                 st.error("🔴 High Risk of Heart Disease")
             elif risk >= 40:
@@ -1097,4 +1137,5 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
+
 

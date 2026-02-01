@@ -1,22 +1,90 @@
 # -*- coding: utf-8 -*-
 """
 Created on Thu Jan 15 15:17:35 2026
-
 @author: Thilak
+
+PROJECT:
+--------
+Health Predictor Web App using Machine Learning
+(Diabetes | Heart Disease | Parkinson’s)
+
+FRAMEWORK:
+----------
+Streamlit + Pickle Models
 """
 
+# =========================================================
+# 📦 IMPORTS
+# =========================================================
 import pickle
+import base64
 import streamlit as st
 from streamlit_option_menu import option_menu
 
-import base64
-
+# =========================================================
+# 🖼️ IMAGE UTILS
+# =========================================================
 def get_base64_image(image_path):
+    """Convert image to base64 for HTML rendering"""
     with open(image_path, "rb") as img:
         return base64.b64encode(img.read()).decode()
-        
+
+
 logo_base64 = get_base64_image("periyar_logo.png")
 periyar_base64 = get_base64_image("periyar.jpg")
+
+# =========================================================
+# 🎨 GLOBAL STYLES (HEADER + APP)
+# =========================================================
+
+st.markdown("""
+    <style>
+    
+    /* ---------- Fixed Header ---------- */
+    .fixed-header {
+        background: #ffffff 
+        position: fixed;
+        top: -5px;            /* below Streamlit header */
+        left: 0;
+        width: 100%;
+        z-index: 999;
+        background: linear-gradient(180deg, #0d47a1, #1976d2);
+        padding: 12px 20px;
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+    
+    /* Push content below fixed header */
+    .main-content {
+        margin-top: 50px;
+    }
+
+    /* ---------- Text Color ---------- */
+    h1, h2, h3, h4, h5, h6, p, label, span {
+        color: white !important;
+    }
+
+    /* ---------- Forms ---------- */
+    div[data-testid="stForm"] {
+        background: rgba(255,255,255,0.08);
+        backdrop-filter: blur(10px);
+        border-radius: 14px;
+        padding: 20px;
+    }
+
+    /* ---------- Mobile Responsive ---------- */
+    @media (max-width: 768px) {
+        .fixed-header img { height: 55px; }
+        .fixed-header h1 { font-size: 18px; }
+    }
+    
+    @media (max-width: 480px) {
+        .fixed-header img { height: 45px; }
+        .fixed-header h1 { font-size: 15px; }
+    }
+
+</style>
+""", unsafe_allow_html=True)
 
 
 st.markdown("""
@@ -33,28 +101,14 @@ st.markdown("""
     }
     
     /* Sticky main header */
-    .fixed-header {
-        background: #ffffff !important;
-        position: fixed;
-        top: -5px;            /* below Streamlit header */
-        left: 0;
-        width: 100%;
-        z-index: 999;
-        background: linear-gradient(180deg, #0d47a1, #1976d2);
-        padding: 12px 20px;
-        text-align: center;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    }
+   
     
    /* Hidden state */
     .fixed-header.hide {
         transform: translateY(-120%);
     }
     
-    /* Push content */
-    .main-content {
-        margin-top: 50px;
-    }
+   
     
     /* Desktop: always visible */
     @media (min-width: 769px) {
@@ -990,6 +1044,7 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

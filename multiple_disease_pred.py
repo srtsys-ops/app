@@ -870,6 +870,13 @@ if (selected == 'Parkinsons Prediction'):
         }
     }
 
+    def apply_parkinsons_sample(sample_name):
+        sample = PARKINSONS_SAMPLES.get(sample_name)
+    if sample:
+        for key, value in sample.items():
+            st.session_state[key] = value
+
+
 
     # ---------- Title + Clear Button ----------
     col_title, col_btn1, col_btn2 = st.columns([4, 1, 1])
@@ -983,6 +990,7 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

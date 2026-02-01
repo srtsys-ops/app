@@ -135,8 +135,6 @@ st.markdown("""
     """, unsafe_allow_html=True
 )
 
-
-
 st.markdown(
     """
     <style>
@@ -148,7 +146,6 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-
 
 st.markdown(
     """
@@ -253,6 +250,21 @@ st.markdown(
 # =========================================================
 st.markdown("""
     <style>    
+    .fixed-header-inner {
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        gap:15px;    
+    }
+
+    .fixed-header-inner img {
+        height:100px; 
+    }
+    .fixed-header-inner h1 {
+        margin:0; 
+        color:white;
+    }
+    
     /* -------- Mobile View Fix -------- */
     @media (max-width: 768px) {    
         .fixed-header { padding: 8px 10px; }    
@@ -262,14 +274,14 @@ st.markdown("""
             text-align: center;
         }    
         .fixed-header img { height: 55px !important; }    /* Reduce Logo size */    
-        .main-content { margin-top: 10px; }  /* Reduce top gap */        
+        .main-content { margin-top: 10px; }  /* Reduce top gap */             
     }
     
     /* -------- Extra small screens -------- */
     @media (max-width: 480px) {    
         .fixed-header h1 { font-size: 15px !important; }    
         .fixed-header img { height: 45px !important; }
-    }   
+    }       
     
     </style>
     """, unsafe_allow_html=True)
@@ -390,10 +402,10 @@ else:
 # =========================================================
 st.markdown(f"""
     <div class="fixed-header">
-        <div style="display:flex;align-items:center;justify-content:center;gap:15px;">
-            <img src="data:image/png;base64,{logo_base64}" style="height:100px;">
-            <h1 style="margin:0; color:white;">PERIYAR UNIVERSITY</h1>
-            <img src="data:image/png;base64,{periyar_base64}" style="height:100px;">
+        <div class="fixed-header-inner">
+            <img src="data:image/png;base64,{logo_base64}">
+            <h1>PERIYAR UNIVERSITY</h1>
+            <img src="data:image/png;base64,{periyar_base64}">
         </div>
     </div>
     """, unsafe_allow_html=True
@@ -1130,6 +1142,7 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

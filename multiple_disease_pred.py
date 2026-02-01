@@ -20,7 +20,7 @@ import pickle
 import base64
 import streamlit as st
 from streamlit_option_menu import option_menu
-import os
+
 
 def load_css(file_path: str):
     with open(file_path) as f:
@@ -884,6 +884,7 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

@@ -829,6 +829,48 @@ if (selected == 'Parkinsons Prediction'):
         for key, val in parkinsons_defaults.items():
             st.session_state[key] = val
 
+    # ---------- Parkinson's Sample Data ----------
+    PARKINSONS_SAMPLES = {
+        "Select Sample": None,
+    
+        "🟢 Low Risk (Healthy Voice)": {
+            "fo": 120.0, "fhi": 150.0, "flo": 100.0,
+            "Jitter_percent": 0.003, "Jitter_Abs": 0.00002,
+            "RAP": 0.0015, "PPQ": 0.002, "DDP": 0.004,
+            "Shimmer": 0.015, "Shimmer_dB": 0.15,
+            "APQ3": 0.008, "APQ5": 0.009, "APQ": 0.012, "DDA": 0.024,
+            "NHR": 0.02, "HNR": 25.0,
+            "RPDE": 0.35, "DFA": 0.60,
+            "spread1": -6.0, "spread2": 0.15,
+            "D2": 2.1, "PPE": 0.08
+        },
+    
+        "🟡 Moderate Risk": {
+            "fo": 145.0, "fhi": 180.0, "flo": 110.0,
+            "Jitter_percent": 0.006, "Jitter_Abs": 0.00005,
+            "RAP": 0.003, "PPQ": 0.004, "DDP": 0.009,
+            "Shimmer": 0.030, "Shimmer_dB": 0.30,
+            "APQ3": 0.015, "APQ5": 0.020, "APQ": 0.025, "DDA": 0.045,
+            "NHR": 0.04, "HNR": 18.0,
+            "RPDE": 0.48, "DFA": 0.67,
+            "spread1": -4.8, "spread2": 0.22,
+            "D2": 2.6, "PPE": 0.16
+        },
+    
+        "🔴 High Risk (Parkinson’s)": {
+            "fo": 165.0, "fhi": 220.0, "flo": 90.0,
+            "Jitter_percent": 0.012, "Jitter_Abs": 0.00012,
+            "RAP": 0.006, "PPQ": 0.008, "DDP": 0.018,
+            "Shimmer": 0.060, "Shimmer_dB": 0.55,
+            "APQ3": 0.030, "APQ5": 0.035, "APQ": 0.045, "DDA": 0.090,
+            "NHR": 0.08, "HNR": 10.5,
+            "RPDE": 0.68, "DFA": 0.78,
+            "spread1": -3.5, "spread2": 0.32,
+            "D2": 3.4, "PPE": 0.32
+        }
+    }
+
+
     # ---------- Title + Clear Button ----------
     col_title, col_btn1, col_btn2 = st.columns([4, 1, 1])
     
@@ -841,6 +883,16 @@ if (selected == 'Parkinsons Prediction'):
     with col_btn2:
         #st.markdown("<br>", unsafe_allow_html=True)
         st.button("🧹 Clear", type="secondary", on_click=clear_parkinsons_form)
+
+    sample_choice = st.selectbox(
+        "🧪 Load Sample Voice Data",
+        list(PARKINSONS_SAMPLES.keys()),
+        index=0
+    )
+    
+    if sample_choice != "Select Sample":
+        apply_parkinsons_sample(sample_choice)
+    
 
     # ---------- Input Form ----------
     with st.form("parkinsons_form"):
@@ -931,6 +983,7 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

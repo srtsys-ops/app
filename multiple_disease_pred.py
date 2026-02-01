@@ -952,10 +952,14 @@ if selected == 'Heart Disease Prediction':
 
 
 # =========================================================
-# 🧠 PARKINSON’S MODULE
+# 🧠 PARKINSON’S DISEASE PREDICTION MODULE
 # =========================================================
 if (selected == 'Parkinsons Prediction'):
-      # ---------- Defaults ----------
+    
+    # -----------------------------------------------------
+    # 1️⃣ SESSION STATE DEFAULT VALUES
+    # -----------------------------------------------------
+    # Default initialization for all Parkinson's voice features
     parkinsons_defaults = {
         "fo": 0.0, "fhi": 0.0, "flo": 0.0,
         "Jitter_percent": 0.0, "Jitter_Abs": 0.0,
@@ -968,15 +972,22 @@ if (selected == 'Parkinsons Prediction'):
         "D2": 0.0, "PPE": 0.0
     }
 
+    # Initialize session state keys
     for key, val in parkinsons_defaults.items():
         if key not in st.session_state:
             st.session_state[key] = val
 
+    # -----------------------------------------------------
+    # 2️⃣ CLEAR FORM FUNCTION
+    # -----------------------------------------------------
     def clear_parkinsons_form():
         for key, val in parkinsons_defaults.items():
             st.session_state[key] = val
 
-    # ---------- Parkinson's Sample Data ----------
+    # -----------------------------------------------------
+    # 3️⃣ SAMPLE VOICE DATA (FOR DEMONSTRATION)
+    # -----------------------------------------------------
+    # Helps users test model using realistic voice patterns
     PARKINSONS_SAMPLES = {
         "Select Sample": None,
     
@@ -1017,6 +1028,10 @@ if (selected == 'Parkinsons Prediction'):
         }
     }
 
+    # -----------------------------------------------------
+    # 4️⃣ APPLY SELECTED SAMPLE DATA
+    # -----------------------------------------------------
+    # Loads selected voice sample into the form
     def apply_parkinsons_sample(sample_name):
         sample = PARKINSONS_SAMPLES.get(sample_name)
         if sample:
@@ -1024,8 +1039,9 @@ if (selected == 'Parkinsons Prediction'):
                 st.session_state[key] = value
 
 
-
-    # ---------- Title + Clear Button ----------
+    # -----------------------------------------------------
+    # 5️⃣ PAGE HEADER & CLEAR BUTTON
+    # -----------------------------------------------------
     col_title, col_btn1, col_btn2 = st.columns([4, 1, 1])
     
     with col_title:
@@ -1038,6 +1054,9 @@ if (selected == 'Parkinsons Prediction'):
         #st.markdown("<br>", unsafe_allow_html=True)
         st.button("🧹 Clear", type="secondary", on_click=clear_parkinsons_form)
 
+    # -----------------------------------------------------
+    # 6️⃣ SAMPLE SELECTION DROPDOWN
+    # -----------------------------------------------------
     sample_choice = st.selectbox(
         "🧪 Load Sample Voice Data",
         list(PARKINSONS_SAMPLES.keys()),
@@ -1048,9 +1067,12 @@ if (selected == 'Parkinsons Prediction'):
         apply_parkinsons_sample(sample_choice)
     
 
-    # ---------- Input Form ----------
+    # -----------------------------------------------------
+    # 7️⃣ PARKINSON’S INPUT FORM      
+    # -----------------------------------------------------
     with st.form("parkinsons_form"):
 
+        # --- Frequency & Jitter Metrics ---
         cols = st.columns(5)
         with cols[0]: fo = st.number_input("MDVP:Fo(Hz)", key="fo")
         with cols[1]: fhi = st.number_input("MDVP:Fhi(Hz)", key="fhi")
@@ -1058,6 +1080,7 @@ if (selected == 'Parkinsons Prediction'):
         with cols[3]: Jitter_percent = st.number_input("MDVP:Jitter(%)", key="Jitter_percent")
         with cols[4]: Jitter_Abs = st.number_input("MDVP:Jitter(Abs)", key="Jitter_Abs")
 
+        # --- Jitter & Shimmer Features ---
         cols = st.columns(5)
         with cols[0]: RAP = st.number_input("MDVP:RAP", key="RAP")
         with cols[1]: PPQ = st.number_input("MDVP:PPQ", key="PPQ")
@@ -1065,6 +1088,7 @@ if (selected == 'Parkinsons Prediction'):
         with cols[3]: Shimmer = st.number_input("MDVP:Shimmer", key="Shimmer")
         with cols[4]: Shimmer_dB = st.number_input("MDVP:Shimmer(dB)", key="Shimmer_dB")
 
+        # --- Amplitude Perturbation Measures ---
         cols = st.columns(5)
         with cols[0]: APQ3 = st.number_input("Shimmer:APQ3", key="APQ3")
         with cols[1]: APQ5 = st.number_input("Shimmer:APQ5", key="APQ5")
@@ -1072,6 +1096,7 @@ if (selected == 'Parkinsons Prediction'):
         with cols[3]: DDA = st.number_input("Shimmer:DDA", key="DDA")
         with cols[4]: NHR = st.number_input("NHR", key="NHR")
 
+        # --- Noise & Nonlinear Measures ---
         cols = st.columns(5)
         with cols[0]: HNR = st.number_input("HNR", key="HNR")
         with cols[1]: RPDE = st.number_input("RPDE", key="RPDE")
@@ -1079,18 +1104,21 @@ if (selected == 'Parkinsons Prediction'):
         with cols[3]: spread1 = st.number_input("spread1", key="spread1")
         with cols[4]: spread2 = st.number_input("spread2", key="spread2")
 
+        # --- Complexity Measures ---
         cols = st.columns(2)
         with cols[0]: D2 = st.number_input("D2", key="D2")
         with cols[1]: PPE = st.number_input("PPE", key="PPE")
 
         predict_btn = st.form_submit_button("🔍 Parkinson's Test Result", type="primary")
 
-    # ---------- Prediction ----------
+    # -----------------------------------------------------
+    # 8️⃣ INPUT VALIDATION & ERROR HANDLING
+    # -----------------------------------------------------
     if predict_btn:
 
         errors = []
     
-        # --------- Basic Validations ----------
+        # Basic numeric sanity checks
         if fo <= 0 or fhi <= 0 or flo <= 0:
             errors.append("⚠️ Frequency values (Fo, Fhi, Flo) must be greater than 0.")
     
@@ -1103,7 +1131,7 @@ if (selected == 'Parkinsons Prediction'):
         if D2 <= 0 or PPE <= 0:
             errors.append("⚠️ D2 and PPE must be greater than 0.")
     
-        # Check if all inputs are zero
+        # Prevent meaningless all-zero input
         all_inputs = [
             fo, fhi, flo, Jitter_percent, Jitter_Abs, RAP, PPQ, DDP,
             Shimmer, Shimmer_dB, APQ3, APQ5, APQ, DDA,
@@ -1113,7 +1141,9 @@ if (selected == 'Parkinsons Prediction'):
         if all(value == 0 for value in all_inputs):
             errors.append("⚠️ Please enter valid data. All values cannot be zero.")
     
-        # --------- Show Errors ----------
+        # -------------------------------------------------
+        # 9️⃣ DISPLAY ERRORS OR PERFORM PREDICTION
+        # -------------------------------------------------
         if errors:
             st.error("Please fix the following issues before prediction:")
             for err in errors:
@@ -1129,7 +1159,10 @@ if (selected == 'Parkinsons Prediction'):
             ]]
     
             prediction = parkinsons_model.predict(input_data)
-    
+
+            # -------------------------------------------------
+            # 🔟 RESULT DISPLAY
+            # -------------------------------------------------
             if prediction[0] == 1:
                 st.error("🔴 Parkinson’s Disease Detected")
             else:
@@ -1137,5 +1170,6 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 

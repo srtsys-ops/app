@@ -872,9 +872,9 @@ if (selected == 'Parkinsons Prediction'):
 
     def apply_parkinsons_sample(sample_name):
         sample = PARKINSONS_SAMPLES.get(sample_name)
-    if sample:
-        for key, value in sample.items():
-            st.session_state[key] = value
+        if sample:
+            for key, value in sample.items():
+                st.session_state[key] = value
 
 
 
@@ -990,6 +990,7 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

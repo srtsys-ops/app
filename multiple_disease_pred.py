@@ -28,25 +28,7 @@ from streamlit_option_menu import option_menu
 # =========================================================
 
 st.markdown("""
-    <style>
-    
-    /* ---------- Fixed Header ---------- */
-    .fixed-header {
-        position: fixed;
-        top: -5px;
-        left: 0;
-        width: 100%;
-        z-index: 999;
-        background: linear-gradient(180deg, #0d47a1, #1976d2);
-        padding: 12px 20px;
-        text-align: center;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    }
-
-    /* Push content below fixed header */
-    .main-content {
-        margin-top: 60px;
-    }
+    <style>    
 
     /* ---------- Text Color ---------- */
     h1, h2, h3, h4, h5, h6, p, label, span {
@@ -280,43 +262,25 @@ st.markdown(
 # 🏫 FIXED HEADER STYLES
 # =========================================================
 st.markdown("""
-    <style>
-    
+    <style>    
     /* -------- Mobile View Fix -------- */
-    @media (max-width: 768px) {
-    
-        .fixed-header {
-            padding: 8px 10px;
-        }
-    
+    @media (max-width: 768px) {    
+        .fixed-header { padding: 8px 10px; }    
         .fixed-header h1 {
             font-size: 18px !important;   /* Reduce title size */
             line-height: 1.2;
             text-align: center;
-        }
-    
-        .fixed-header img {
-            height: 55px !important;      /* Reduce logo size */
-        }
-    
-        .main-content {
-            margin-top: 10px;             /* Reduce top gap */
-        }
-
-        
+        }    
+        .fixed-header img { height: 55px !important; }    /* Reduce Logo size */    
+        .main-content { margin-top: 10px; }  /* Reduce top gap */        
     }
     
     /* -------- Extra small screens -------- */
-    @media (max-width: 480px) {
-    
-        .fixed-header h1 {
-            font-size: 15px !important;
-        }
-    
-        .fixed-header img {
-            height: 45px !important;
-        }
+    @media (max-width: 480px) {    
+        .fixed-header h1 { font-size: 15px !important; }    
+        .fixed-header img { height: 45px !important; }
     }
+   
     
     </style>
     """, unsafe_allow_html=True)
@@ -1177,6 +1141,7 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

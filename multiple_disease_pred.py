@@ -229,13 +229,19 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
-# Loading the saved models
+# =========================================================
+# 🧠 LOAD ML MODELS
+# =========================================================
+diabetes_model = pickle.load(open("diabetes_model.sav", "rb"))
+heart_disease_model = pickle.load(open("heart_disease_model.sav", "rb"))
+parkinsons_model = pickle.load(open("parkinsons_model.sav", "rb"))
 
-diabetes_model = pickle.load(open('diabetes_model.sav','rb'))
-heart_disease_model = pickle.load(open('heart_disease_model.sav','rb'))
-parkinsons_model= pickle.load(open('parkinsons_model.sav','rb'))
 
+# =========================================================
+# 🎨 BACKGROUND HELPER
+# =========================================================
 def set_bg(color1, color2):
+    """Set page background gradient"""
     st.markdown(
         f"""
         <style>
@@ -247,6 +253,10 @@ def set_bg(color1, color2):
         unsafe_allow_html=True
     )
 
+
+# =========================================================
+# 📚 SIDEBAR
+# =========================================================
 
 with st.sidebar:
     
@@ -360,14 +370,16 @@ with st.sidebar:
         unsafe_allow_html=True
     )
 
-if selected == 'Diabetes Prediction':
+# =========================================================
+# 🎯 PAGE BACKGROUND PER MODULE
+# =========================================================
+if selected == "Diabetes Prediction":
     set_bg("#0b132b", "#1c2541")
-
-elif selected == 'Heart Disease Prediction':
+elif selected == "Heart Disease Prediction":
     set_bg("#4a0404", "#8b0000")
-
-elif selected == 'Parkinsons Prediction':
+else:
     set_bg("#1f1147", "#5b2c83")
+
 
 
  # ---------- Main header ----------
@@ -1057,6 +1069,7 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

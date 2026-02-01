@@ -381,29 +381,9 @@ else:
     set_bg("#1f1147", "#5b2c83")
 
 
-
- # ---------- Main header ----------
-
-st.markdown(f"""
-    <div class="fixed-header">
-        <div style="
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            gap:15px;
-        ">
-            <img src="data:image/png;base64,{logo_base64}"
-                 style="height:100px;">
-            <h1 style="margin:0; color:white;">
-                PERIYAR UNIVERSITY
-            </h1>
-            <img src="data:image/png;base64,{periyar_base64}"
-                 style="height:100px;">
-        </div>
-    </div>
-    """, unsafe_allow_html=True
- )
-
+# =========================================================
+# 🏫 FIXED HEADER
+# =========================================================
 st.markdown("""
     <style>
     
@@ -446,13 +426,20 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
+st.markdown(f"""
+    <div class="fixed-header">
+        <div style="display:flex;align-items:center;justify-content:center;gap:15px;">
+            <img src="data:image/png;base64,{logo_base64}" style="height:100px;">
+            <h1 style="margin:0; color:white;">PERIYAR UNIVERSITY</h1>
+            <img src="data:image/png;base64,{periyar_base64}" style="height:100px;">
+        </div>
+    </div>
+    """, unsafe_allow_html=True
+ )
 
-
-
-#st.divider()
 st.markdown('<div class="main-content">', unsafe_allow_html=True)
 
-
+ 
 #Diabetes Prediction Page
 
 if (selected == 'Diabetes Prediction'):  
@@ -1069,6 +1056,7 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

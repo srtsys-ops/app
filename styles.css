@@ -192,6 +192,8 @@ section[data-testid="stSidebar"] hr { border-color: rgba(255,255,255,0.3); }
 
 .fixed-header-inner img { height:100px;  }
 .fixed-header-inner h1 { margin:0; color:white; }
+.fixed-header-inner div { display: inline-block;  }
+
 
 /* -------- Mobile View Fix -------- */
 @media (max-width: 768px) {    

@@ -229,6 +229,9 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
+# =========================================================
+# 📚 SIDEBAR STYLES                                                      
+# =========================================================       
 st.markdown(
         """
         <style>    
@@ -299,9 +302,7 @@ def set_bg(color1, color2):
         unsafe_allow_html=True
     )
 
-# =========================================================
-# 📚 SIDEBAR STYLES                                                      
-# =========================================================                 
+          
 
 # =========================================================
 # 🧠 LOAD ML MODELS
@@ -1171,6 +1172,7 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

@@ -230,15 +230,7 @@ st.markdown("""
     """, unsafe_allow_html=True)
 
 # =========================================================
-# 🧠 LOAD ML MODELS
-# =========================================================
-diabetes_model = pickle.load(open("diabetes_model.sav", "rb"))
-heart_disease_model = pickle.load(open("heart_disease_model.sav", "rb"))
-parkinsons_model = pickle.load(open("parkinsons_model.sav", "rb"))
-
-
-# =========================================================
-# 🎨 BACKGROUND HELPER
+# 🎨 BACKGROUND HELPER FOR EACH MODULE
 # =========================================================
 def set_bg(color1, color2):
     """Set page background gradient"""
@@ -252,6 +244,18 @@ def set_bg(color1, color2):
         """,
         unsafe_allow_html=True
     )
+
+# =========================================================
+# 📚 SIDEBAR STYLES                                                      
+# =========================================================                 
+
+# =========================================================
+# 🧠 LOAD ML MODELS
+# =========================================================
+diabetes_model = pickle.load(open("diabetes_model.sav", "rb"))
+heart_disease_model = pickle.load(open("heart_disease_model.sav", "rb"))
+parkinsons_model = pickle.load(open("parkinsons_model.sav", "rb"))
+
 
 
 # =========================================================
@@ -809,8 +813,6 @@ if selected == 'Heart Disease Prediction':
                 st.session_state[key] = value
 
 
-
-
     # -----------------------------------------------------
     # 5️⃣ PAGE HEADER & ACTION BUTTONS
     # -----------------------------------------------------
@@ -1170,6 +1172,7 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

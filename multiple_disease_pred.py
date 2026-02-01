@@ -439,12 +439,12 @@ st.markdown(f"""
 
 st.markdown('<div class="main-content">', unsafe_allow_html=True)
 
- 
-#Diabetes Prediction Page
 
+# =========================================================
+# 🩸 DIABETES MODULE
+# =========================================================
 if (selected == 'Diabetes Prediction'):  
-
-    #set_bg("#7f0000", "#b71c1c")
+   
      # ---------- Initialize session state ----------
     defaults = {
         "Pregnancies": 0,
@@ -509,11 +509,8 @@ if (selected == 'Diabetes Prediction'):
             for key, value in sample.items():
                 st.session_state[key] = value
 
-
-    
-    #page title
-    #st.header('Diabetes Prediction using ML')
-
+  
+   
     col_title, col_btn1, col_btn2 = st.columns([4, 1, 1])
 
     with col_title:
@@ -585,11 +582,6 @@ if (selected == 'Diabetes Prediction'):
             predict_btn = st.form_submit_button("🔍 Diabetes Test Result", type="primary")
         
 
-    
-    # ---------- Clear Button (OUTSIDE FORM) ----------
-    #st.button("Clear Form", on_click=clear_form)
-
-       
     # ---------- Prediction ----------
     if predict_btn:
 
@@ -648,7 +640,9 @@ if (selected == 'Diabetes Prediction'):
 
                 
 
-# ------------ Heart Disease Prediction Page -------------------------
+# =========================================================
+# ❤️ HEART DISEASE MODULE
+# =========================================================
 if selected == 'Heart Disease Prediction':
 
     heart_defaults = {
@@ -869,12 +863,11 @@ if selected == 'Heart Disease Prediction':
 
 
 
-#------------Parkinsons Prediction Page-------------------------           
+# =========================================================
+# 🧠 PARKINSON’S MODULE
+# =========================================================
 if (selected == 'Parkinsons Prediction'):
-    #set_bg("#FF0000", "#ffe0b2")
-    #set_bg("#0f2027", "#2c5364")
-
-    # ---------- Defaults ----------
+      # ---------- Defaults ----------
     parkinsons_defaults = {
         "fo": 0.0, "fhi": 0.0, "flo": 0.0,
         "Jitter_percent": 0.0, "Jitter_Abs": 0.0,
@@ -1056,6 +1049,7 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

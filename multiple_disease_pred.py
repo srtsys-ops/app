@@ -226,18 +226,12 @@ st.markdown(
         }
     
         /* Sidebar icons */
-        section[data-testid="stSidebar"] svg {
-            fill: #bbdefb !important;
-        }
+        section[data-testid="stSidebar"] svg { fill: #bbdefb !important; }
     
         /* Divider */
-        section[data-testid="stSidebar"] hr {
-            border-color: rgba(255,255,255,0.3);
-        }
+        section[data-testid="stSidebar"] hr { border-color: rgba(255,255,255,0.3); }
 
-        .stCustomComponentV1 {
-            border-radius: 12px  !important;
-        }
+        .stCustomComponentV1 { border-radius: 12px  !important; }
         
     
         </style>
@@ -257,13 +251,8 @@ st.markdown("""
         gap:15px;    
     }
 
-    .fixed-header-inner img {
-        height:100px; 
-    }
-    .fixed-header-inner h1 {
-        margin:0; 
-        color:white;
-    }
+    .fixed-header-inner img { height:100px;  }
+    .fixed-header-inner h1 { margin:0; color:white; }
     
     /* -------- Mobile View Fix -------- */
     @media (max-width: 768px) {    
@@ -1142,6 +1131,7 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

@@ -22,12 +22,15 @@ import streamlit as st
 from streamlit_option_menu import option_menu
 import os
 
-def load_css(file_name="styles.css"):
-    css_path = os.path.join(os.path.dirname(__file__), file_name)
-    with open(css_path) as f:
-        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+def load_css(file_path: str):
+    try:
+        with open(file_path) as f:
+            st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+        st.success("✅ CSS loaded successfully")
+    except FileNotFoundError:
+        st.error("❌ CSS file not found")
 
-load_css()
+load_css("styles.css")
 # =========================================================
 # 🖼️ IMAGE UTILS
 # =========================================================
@@ -884,6 +887,7 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

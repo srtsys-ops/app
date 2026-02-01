@@ -115,12 +115,16 @@ div[data-testid="stForm"] {
 
 button[data-testid="stBaseButton-secondary"] { margin-top: 30px !important; }     
 
+h2#diabetes-prediction {	
+	margin-top: 70px !important;
+}
+
 /* Mobile view */
 @media (max-width: 768px) {
 	h2#diabetes-prediction {
 		font-size: 20px !important;
 		line-height: 1.3;
-		margin-top: -50px !important;
+		margin-top: -40px !important;
 	}
 	button[data-testid="stBaseButton-secondary"] { margin-top: -10px !important; } 
 	.stHorizontalBlock .stVerticalBlock br { display: none !important; }         

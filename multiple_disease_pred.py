@@ -42,9 +42,8 @@ st.markdown("""
     
     /* ---------- Fixed Header ---------- */
     .fixed-header {
-        background: #ffffff 
         position: fixed;
-        top: -5px;            /* below Streamlit header */
+        top: -5px;
         left: 0;
         width: 100%;
         z-index: 999;
@@ -53,10 +52,10 @@ st.markdown("""
         text-align: center;
         box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     }
-    
+
     /* Push content below fixed header */
     .main-content {
-        margin-top: 50px;
+        margin-top: 60px;
     }
 
     /* ---------- Text Color ---------- */
@@ -101,14 +100,28 @@ st.markdown("""
     }
     
     /* Sticky main header */
-   
+    .fixed-header {
+        background: #ffffff !important;
+        position: fixed;
+        top: -5px;            /* below Streamlit header */
+        left: 0;
+        width: 100%;
+        z-index: 999;
+        background: linear-gradient(180deg, #0d47a1, #1976d2);
+        padding: 12px 20px;
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
     
    /* Hidden state */
     .fixed-header.hide {
         transform: translateY(-120%);
     }
     
-   
+    /* Push content */
+    .main-content {
+        margin-top: 50px;
+    }
     
     /* Desktop: always visible */
     @media (min-width: 769px) {

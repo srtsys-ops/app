@@ -277,6 +277,51 @@ st.markdown(
     )
 
 # =========================================================
+# 🏫 FIXED HEADER STYLES
+# =========================================================
+st.markdown("""
+    <style>
+    
+    /* -------- Mobile View Fix -------- */
+    @media (max-width: 768px) {
+    
+        .fixed-header {
+            padding: 8px 10px;
+        }
+    
+        .fixed-header h1 {
+            font-size: 18px !important;   /* Reduce title size */
+            line-height: 1.2;
+            text-align: center;
+        }
+    
+        .fixed-header img {
+            height: 55px !important;      /* Reduce logo size */
+        }
+    
+        .main-content {
+            margin-top: 10px;             /* Reduce top gap */
+        }
+
+        
+    }
+    
+    /* -------- Extra small screens -------- */
+    @media (max-width: 480px) {
+    
+        .fixed-header h1 {
+            font-size: 15px !important;
+        }
+    
+        .fixed-header img {
+            height: 45px !important;
+        }
+    }
+    
+    </style>
+    """, unsafe_allow_html=True)
+
+# =========================================================
 # 🖼️ IMAGE UTILS
 # =========================================================
 def get_base64_image(image_path):
@@ -390,48 +435,6 @@ else:
 # =========================================================
 # 🏫 FIXED HEADER
 # =========================================================
-st.markdown("""
-    <style>
-    
-    /* -------- Mobile View Fix -------- */
-    @media (max-width: 768px) {
-    
-        .fixed-header {
-            padding: 8px 10px;
-        }
-    
-        .fixed-header h1 {
-            font-size: 18px !important;   /* Reduce title size */
-            line-height: 1.2;
-            text-align: center;
-        }
-    
-        .fixed-header img {
-            height: 55px !important;      /* Reduce logo size */
-        }
-    
-        .main-content {
-            margin-top: 10px;             /* Reduce top gap */
-        }
-
-        
-    }
-    
-    /* -------- Extra small screens -------- */
-    @media (max-width: 480px) {
-    
-        .fixed-header h1 {
-            font-size: 15px !important;
-        }
-    
-        .fixed-header img {
-            height: 45px !important;
-        }
-    }
-    
-    </style>
-    """, unsafe_allow_html=True)
-
 st.markdown(f"""
     <div class="fixed-header">
         <div style="display:flex;align-items:center;justify-content:center;gap:15px;">
@@ -1174,6 +1177,7 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

@@ -186,13 +186,9 @@ section[data-testid="stSidebar"] hr { border-color: rgba(255,255,255,0.3); }
 	text-align: center;
 }
 
-.sidebar-box1 {
-	background: rgba(255,255,255,0.15);	
-}
-
-.sidebar-box3 {
-	background: #0b132b;
-}
+.sidebar-box1 {	background: rgba(255,255,255,0.15);	}
+.sidebar-box3 {	background: #0b132b; }
+.sidebar-foote { position: fixed; bottom: 20px; color: #bbdefb; }
     
        
 
@@ -232,3 +228,4 @@ section[data-testid="stSidebar"] hr { border-color: rgba(255,255,255,0.3); }
     
 
   
+

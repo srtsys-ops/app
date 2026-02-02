@@ -699,7 +699,17 @@ if (selected == 'Parkinsons Prediction'):
     # -----------------------------------------------------
     # Helps users test model using realistic voice patterns
     PARKINSONS_SAMPLES = {
-        "Select Sample": None,
+        "Select Sample": None{
+            "fo": 0.0, "fhi": 0.0, "flo": 0.0,
+            "Jitter_percent": 0.0, "Jitter_Abs": 0.0,
+            "RAP": 0.0, "PPQ": 0.0, "DDP": 0.0,
+            "Shimmer": 0.0, "Shimmer_dB": 0.0,
+            "APQ3": 0.0, "APQ5": 0.0, "APQ": 0.0, "DDA": 0.0,
+            "NHR": 0.0, "HNR": 0.0,
+            "RPDE": 0.0, "DFA": 0.0,
+            "spread1": 0.0, "spread2": 0.0,
+            "D2": 0.0, "PPE": 0.0
+        },
     
         "1️⃣ Sample Data": {
             "fo": 120.0, "fhi": 150.0, "flo": 100.0,
@@ -773,7 +783,7 @@ if (selected == 'Parkinsons Prediction'):
         index=0
     )
     
-    if sample_choice != "Select Sample":
+    if sample_choice:
         apply_parkinsons_sample(sample_choice)
     
 
@@ -880,6 +890,7 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

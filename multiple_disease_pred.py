@@ -461,7 +461,7 @@ if selected == 'Heart Disease Prediction':
     HEART_SAMPLES = {
         "Select Sample": None,
     
-        "🟢 Very Low Risk (Young & Fit)": {
+        "1️⃣ Sample Data": {
             "age": 25,
             "sex": 0,
             "cp": 0,
@@ -477,7 +477,7 @@ if selected == 'Heart Disease Prediction':
             "thal": 0
         },
     
-        "🟡 Moderate Risk (Middle Age)": {
+        "2️⃣ Sample Data": {
             "age": 52,
             "sex": 1,
             "cp": 2,
@@ -493,7 +493,7 @@ if selected == 'Heart Disease Prediction':
             "thal": 1
         },
     
-        "🔴 High Risk (Senior)": {
+        "3️⃣ Sample Data": {
             "age": 67,
             "sex": 1,
             "cp": 3,
@@ -880,6 +880,7 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

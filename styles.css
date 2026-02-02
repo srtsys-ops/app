@@ -5,7 +5,6 @@
 h1, h2, h3, h4, h5, h6, p, label, span {
 	color: white !important;
 }
-
 /* ---------- Forms ---------- */
 div[data-testid="stForm"] {
 	background: rgba(255,255,255,0.08);
@@ -13,30 +12,24 @@ div[data-testid="stForm"] {
 	border-radius: 14px;
 	padding: 20px;
 }
-
 /* ---------- Mobile Responsive ---------- */
 @media (max-width: 768px) {
 	.fixed-header img { height: 55px; }
 	.fixed-header h1 { font-size: 18px; }
 }
-
 @media (max-width: 480px) {
 	.fixed-header img { height: 45px; }
 	.fixed-header h1 { font-size: 15px; }
 }
-
-
 /* Arrow button in sidebar */
 .st-emotion-cache-ujm5ma {
 	background: #004080;
 	border-radius: 50%;
 }
-
 .st-emotion-cache-1b6jk7u h1 {        
 	color: #004080 !important;
 	#font-family: 'CMU Sans Serif Demi borderless' !important;
 }
-
 /* Sticky main header */
 .fixed-header {
 	background: #ffffff !important;
@@ -50,74 +43,36 @@ div[data-testid="stForm"] {
 	text-align: center;
 	box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
-
 /* Hidden state */
-.fixed-header.hide {
-	transform: translateY(-120%);
-}
-
+.fixed-header.hide { transform: translateY(-120%); }
 /* Push content */
-.main-content {
-	margin-top: 50px;
-}
-
+.main-content { margin-top: 50px; }
 /* Desktop: always visible */
 @media (min-width: 769px) {
 	.fixed-header {
 		transform: translateY(0) !important;
 	}
 }
- 
-
-
-
 /* Hide top right menu (⋮) */
-#MainMenu {
-	visibility: hidden;
-}
-
+#MainMenu { visibility: hidden; }
 header {       
 	#background: linear-gradient(180deg, #0d47a1, #1976d2) !important;
 	background: transparent !important;
 }
-
-.stToolbarActions {
-	display: none !important;
-} 
-
-.st-emotion-cache-1w723zb {        
-	padding: 0rem 1rem 10rem  !important;;        
-}
-
-._terminalButton_rix23_138  {
-	display: none !important;
-} 
-
-
+.stToolbarActions { display: none !important; } 
+.st-emotion-cache-1w723zb { padding: 0rem 1rem 10rem  !important; }
+._terminalButton_rix23_138  { display: none !important; } 
 /* Hide Manage app button */
-button[data-testid="stAppSettingsButton"] {
-	display: none !important;
-}
-
-
-
-h1, h2, h3, h4, h5, h6, p, label, span {
-	color: white !important;
-}
-
+button[data-testid="stAppSettingsButton"] { display: none !important; }
+h1, h2, h3, h4, h5, h6, p, label, span { color: white !important; }
 div[data-testid="stForm"] {
 	background: rgba(255,255,255,0.08);
 	backdrop-filter: blur(10px);
 	border-radius: 14px;
 	padding: 20px;
 }
-   
-
-button[data-testid="stBaseButton-secondary"] { margin-top: 100px !important; }     
-
-h2#diabetes-prediction {	
-	margin-top: 70px !important;
-}
+button[data-testid="stBaseButton-secondary"] { margin-top: 100px !important; } 
+h2#diabetes-prediction { margin-top: 70px !important; }
 
 /* Mobile view */
 @media (max-width: 768px) {
@@ -129,25 +84,18 @@ h2#diabetes-prediction {
 	button[data-testid="stBaseButton-secondary"] { margin-top: -10px !important; } 
 	.stHorizontalBlock .stVerticalBlock br { display: none !important; }         
 }
-
 /* Extra small phones */
 @media (max-width: 480px) {
 	h2 { font-size: 17px !important; }
-}
-   
- 
-
+}  
 /*# =========================================================
 # 📚 SIDEBAR STYLES                                                      
-# =========================================================       */
-  
-        
+# =========================================================       */ 
 /* Sidebar container */
 section[data-testid="stSidebar"] {
 	background: linear-gradient(180deg, #0d47a1, #1976d2);            
 	color: white;
 }
-
 /* Sidebar title text */
 section[data-testid="stSidebar"] h1,
 section[data-testid="stSidebar"] h2,
@@ -155,7 +103,6 @@ section[data-testid="stSidebar"] h3,
 section[data-testid="stSidebar"] p {
 	color: white;
 }
-
 /* Sidebar menu items */
 section[data-testid="stSidebar"] .nav-link {
 	color: #e3f2fd !important;
@@ -164,50 +111,36 @@ section[data-testid="stSidebar"] .nav-link {
 	border-radius: 8px;
 	margin-bottom: 5px;
 }
-
 /* Selected menu item */
 section[data-testid="stSidebar"] .nav-link-selected {
 	background-color: #ffffff !important;
 	color: #0d47a1 !important;
 	font-weight: 700;
-}
-	
+}	
 /* Sidebar icons */
 section[data-testid="stSidebar"] svg { fill: #bbdefb !important; }
-
 /* Divider */
 section[data-testid="stSidebar"] hr { border-color: rgba(255,255,255,0.3); }
-
 .stCustomComponentV1 { border-radius: 12px  !important; }
-
 .sidebar-box {	
 	padding: 15px;
 	border-radius: 12px;
 	text-align: center;
 }
-
 .sidebar-box1 {	background: rgba(255,255,255,0.15);	}
 .sidebar-box3 {	background: #0b132b; }
-.sidebar-foote { position: fixed; bottom: 20px; color: #bbdefb; }
-    
-       
-
+.sidebar-foote { position: fixed; bottom: 20px; color: #bbdefb; }   
 /*# =========================================================
 # 🏫 FIXED HEADER STYLES
-# =========================================================*/
-  
+# =========================================================*/  
 .fixed-header-inner {
 	display:flex;
 	align-items:center;
 	justify-content:center;
 	gap:15px;    
 }
-
 .fixed-header-inner img { height:100px;  }
 .fixed-header-inner h1 { margin:0; color:white; }
-/*.fixed-header-inner div { display: inline-block;  }*/
-
-
 /* -------- Mobile View Fix -------- */
 @media (max-width: 768px) {    
 	.fixed-header { padding: 8px 10px; }    
@@ -219,7 +152,6 @@ section[data-testid="stSidebar"] hr { border-color: rgba(255,255,255,0.3); }
 	.fixed-header img { height: 55px !important; }    /* Reduce Logo size */    
 	.main-content { margin-top: 10px; }  /* Reduce top gap */             
 }
-
 /* -------- Extra small screens -------- */
 @media (max-width: 480px) {    
 	.fixed-header h1 { font-size: 15px !important; }    
@@ -228,4 +160,5 @@ section[data-testid="stSidebar"] hr { border-color: rgba(255,255,255,0.3); }
     
 
   
+
 

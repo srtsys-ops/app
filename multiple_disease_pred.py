@@ -74,11 +74,7 @@ parkinsons_model = pickle.load(open("parkinsons_model.sav", "rb"))
 with st.sidebar:  
     st.markdown(
         """
-        <div style="
-            background: rgba(255,255,255,0.15);
-            padding: 15px;
-            border-radius: 12px;
-            text-align: center;">
+        <div class="sidebar-box sidebar-box1">
             <h2>🩺 Health Predictor</h2>
             <p>Disease Detection by ML</p>
             <p>Project Coordinator</p>
@@ -105,11 +101,7 @@ with st.sidebar:
 
     st.markdown(
         """
-        <div style="
-            background: #0b132b;
-            padding: 15px;
-            border-radius: 12px;
-            text-align: center;">
+        <div class="sidebar-box sidebar-box3">
             <h3>THILAK S</h3>
             <p>U25PG507DTS041</p>
             <p>1<sup>st</sup> Year MSc Data Science</p>
@@ -121,7 +113,7 @@ with st.sidebar:
 
     st.markdown(
         """
-        <div style="position: fixed; bottom: 20px; color: #bbdefb;">
+        <div class="sidebar-footer">
             <small>© 2026 Health AI</small>
         </div>
         """,
@@ -884,6 +876,7 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

@@ -701,7 +701,7 @@ if (selected == 'Parkinsons Prediction'):
     PARKINSONS_SAMPLES = {
         "Select Sample": None,
     
-        "🟢 Low Risk (Healthy Voice)": {
+        "1️⃣ Sample Data": {
             "fo": 120.0, "fhi": 150.0, "flo": 100.0,
             "Jitter_percent": 0.003, "Jitter_Abs": 0.00002,
             "RAP": 0.0015, "PPQ": 0.002, "DDP": 0.004,
@@ -713,7 +713,7 @@ if (selected == 'Parkinsons Prediction'):
             "D2": 2.1, "PPE": 0.08
         },
     
-        "🟡 Moderate Risk": {
+        "2️⃣ Sample Data": {
             "fo": 145.0, "fhi": 180.0, "flo": 110.0,
             "Jitter_percent": 0.006, "Jitter_Abs": 0.00005,
             "RAP": 0.003, "PPQ": 0.004, "DDP": 0.009,
@@ -725,7 +725,7 @@ if (selected == 'Parkinsons Prediction'):
             "D2": 2.6, "PPE": 0.16
         },
     
-        "🔴 High Risk (Parkinson’s)": {
+        "3️⃣ Sample Data": {
             "fo": 165.0, "fhi": 220.0, "flo": 90.0,
             "Jitter_percent": 0.012, "Jitter_Abs": 0.00012,
             "RAP": 0.006, "PPQ": 0.008, "DDP": 0.018,
@@ -880,6 +880,7 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

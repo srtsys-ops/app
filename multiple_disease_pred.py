@@ -75,14 +75,14 @@ with st.sidebar:
     st.markdown("""
         <style>
         /* ===== OPTION MENU CONTAINER ===== */
-        div[data-testid="stSidebar"] .nav {
+       [data-testid="stSidebar"] .nav {
             background-color: #111827;   /* dark bg */
             border-radius: 12px;
             padding: 10px;
         }
         
         /* ===== MENU ITEMS ===== */
-        div[data-testid="stSidebar"] .nav-link {
+        [data-testid="stSidebar"] .nav-link {
             color: #e5e7eb !important;   /* text color */
             font-size: 16px;
             margin: 6px 0;
@@ -91,26 +91,26 @@ with st.sidebar:
         }
         
         /* ===== ICON COLOR ===== */
-        div[data-testid="stSidebar"] .nav-link svg {
+       [data-testid="stSidebar"] .nav-link svg {
             color: #60a5fa !important;
         }
         
         /* ===== HOVER EFFECT ===== */
-        div[data-testid="stSidebar"] .nav-link:hover {
+        [data-testid="stSidebar"] .nav-link:hover {
             background-color: #1f2933;
             color: #ffffff !important;
             transform: translateX(4px);
         }
         
         /* ===== SELECTED ITEM ===== */
-        div[data-testid="stSidebar"] .nav-link.active {
+        [data-testid="stSidebar"] .nav-link.active {
             background: linear-gradient(90deg, #2563eb, #1d4ed8);
             color: white !important;
             font-weight: 600;
         }
         
         /* ===== SELECTED ICON ===== */
-        div[data-testid="stSidebar"] .nav-link.active svg {
+        [data-testid="stSidebar"] .nav-link.active svg {
             color: white !important;
         }
         </style>
@@ -920,6 +920,7 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

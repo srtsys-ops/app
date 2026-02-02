@@ -714,15 +714,15 @@ if (selected == 'Parkinsons Prediction'):
         },
     
         "2️⃣ Sample Data": {
-            "fo": 145.0, "fhi": 180.0, "flo": 110.0,
-            "Jitter_percent": 0.006, "Jitter_Abs": 0.00005,
-            "RAP": 0.003, "PPQ": 0.004, "DDP": 0.009,
-            "Shimmer": 0.030, "Shimmer_dB": 0.30,
-            "APQ3": 0.015, "APQ5": 0.020, "APQ": 0.025, "DDA": 0.045,
-            "NHR": 0.04, "HNR": 18.0,
-            "RPDE": 0.48, "DFA": 0.67,
-            "spread1": -4.8, "spread2": 0.22,
-            "D2": 2.6, "PPE": 0.16
+            "fo": 197.076, "fhi": 206.896, "flo":192.055,
+            "Jitter_percent": .00289, "Jitter_Abs": 0.00001,
+            "RAP": 0.00166, "PPQ": 0.00168, "DDP": 0.00498,
+            "Shimmer":  0.01098, "Shimmer_dB": 0.097,
+            "APQ3": 0.00563, "APQ5": 0.0068, "APQ": 0.00802, "DDA": 0.01689,
+            "NHR": 0.00339, "HNR": 26.775,
+            "RPDE": 0.422229, "DFA": 0.741367,
+            "spread1": -7.3483, "spread2": 0.177551,
+            "D2": 1.743867, "PPE": 0.085569           
         },
     
         "3️⃣ Sample Data": {
@@ -738,15 +738,15 @@ if (selected == 'Parkinsons Prediction'):
         },
 
          "4️⃣ Sample Data": {
-            "fo": 197.076, "fhi": 206.896, "flo":192.055,
-            "Jitter_percent": .00289, "Jitter_Abs": 0.00001,
-            "RAP": 0.00166, "PPQ": 0.00168, "DDP": 0.00498,
-            "Shimmer":  0.01098, "Shimmer_dB": 0.097,
-            "APQ3": 0.00563, "APQ5": 0.0068, "APQ": 0.00802, "DDA": 0.01689,
-            "NHR": 0.00339, "HNR": 26.775,
-            "RPDE": 0.422229, "DFA": 0.741367,
-            "spread1": -7.3483, "spread2": 0.177551,
-            "D2": 1.743867, "PPE": 0.085569
+            "fo": 145.0, "fhi": 180.0, "flo": 110.0,
+            "Jitter_percent": 0.006, "Jitter_Abs": 0.00005,
+            "RAP": 0.003, "PPQ": 0.004, "DDP": 0.009,
+            "Shimmer": 0.030, "Shimmer_dB": 0.30,
+            "APQ3": 0.015, "APQ5": 0.020, "APQ": 0.025, "DDA": 0.045,
+            "NHR": 0.04, "HNR": 18.0,
+            "RPDE": 0.48, "DFA": 0.67,
+            "spread1": -4.8, "spread2": 0.22,
+            "D2": 2.6, "PPE": 0.16
         }
     }
 
@@ -892,6 +892,7 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

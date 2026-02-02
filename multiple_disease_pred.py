@@ -123,49 +123,6 @@ with st.sidebar:
     )
 
 
-    st.markdown("""
-        <style>
-        /* ===== OPTION MENU CONTAINER ===== */
-       .menu .nav {
-            background-color: #111827;   /* dark bg */
-            border-radius: 12px;
-            padding: 10px;
-        }
-        
-        /* ===== MENU ITEMS ===== */
-        .menu .nav-link {
-            color: #e5e7eb !important;   /* text color */
-            font-size: 16px;
-            margin: 6px 0;
-            border-radius: 10px;
-            transition: all 0.3s ease;
-        }
-        
-        /* ===== ICON COLOR ===== */
-       .menu .nav-link svg {
-            color: #60a5fa !important;
-        }
-        
-        /* ===== HOVER EFFECT ===== */
-        .menu .nav-link:hover {
-            background-color: #1f2933;
-            color: #ffffff !important;
-            transform: translateX(4px);
-        }
-        
-        /* ===== SELECTED ITEM ===== */
-        .menu .nav-link.active {
-            background: linear-gradient(90deg, #2563eb, #1d4ed8);
-            color: white !important;
-            font-weight: 600;
-        }
-        
-        /* ===== SELECTED ICON ===== */
-        .menu .nav-link.active svg {
-            color: white !important;
-        }
-        </style>
-        """, unsafe_allow_html=True)
 
 # =========================================================
 # 🎯 PAGE BACKGROUND PER MODULE
@@ -923,6 +880,7 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

@@ -699,7 +699,7 @@ if (selected == 'Parkinsons Prediction'):
     # -----------------------------------------------------
     # Helps users test model using realistic voice patterns
     PARKINSONS_SAMPLES = {
-        "Select Sample": None{
+        "Select Sample": {
             "fo": 0.0, "fhi": 0.0, "flo": 0.0,
             "Jitter_percent": 0.0, "Jitter_Abs": 0.0,
             "RAP": 0.0, "PPQ": 0.0, "DDP": 0.0,
@@ -890,6 +890,7 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

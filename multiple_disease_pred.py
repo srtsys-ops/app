@@ -773,7 +773,7 @@ if (selected == 'Parkinsons Prediction'):
         index=0
     )
     
-    if sample_choice:
+    if sample_choice != "Select Sample":
         apply_parkinsons_sample(sample_choice)
     
 
@@ -880,6 +880,7 @@ if (selected == 'Parkinsons Prediction'):
 
     
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

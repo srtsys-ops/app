@@ -179,7 +179,20 @@ section[data-testid="stSidebar"] svg { fill: #bbdefb !important; }
 section[data-testid="stSidebar"] hr { border-color: rgba(255,255,255,0.3); }
 
 .stCustomComponentV1 { border-radius: 12px  !important; }
-				
+
+.sidebar-box {	
+	padding: 15px;
+	border-radius: 12px;
+	text-align: center;
+}
+
+.sidebar-box1 {
+	background: rgba(255,255,255,0.15);	
+}
+
+.sidebar-box3 {
+	background: #0b132b;
+}
     
        
 
@@ -217,4 +230,5 @@ section[data-testid="stSidebar"] hr { border-color: rgba(255,255,255,0.3); }
 	.fixed-header img { height: 45px !important; }
 }       
     
+
   

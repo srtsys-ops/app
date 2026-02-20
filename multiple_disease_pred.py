@@ -701,7 +701,14 @@ if (selected == 'Parkinsons Prediction'):
         with cols[0]: fo = st.number_input("MDVP:Fo(Hz)", key="fo")
         with cols[1]: fhi = st.number_input("MDVP:Fhi(Hz)", key="fhi")
         with cols[2]: flo = st.number_input("MDVP:Flo(Hz)", key="flo")
-        with cols[3]: Jitter_percent = st.number_input("MDVP:Jitter(%)", key="Jitter_percent")
+        with cols[3]:
+            Jitter_percent = st.number_input(
+                "MDVP:Jitter(%)",
+                min_value=0.0,
+                step=0.00001,
+                format="%.5f",
+                key="Jitter_percent"
+            )
         with cols[4]: Jitter_Abs = st.number_input("MDVP:Jitter(Abs)", key="Jitter_Abs")
 
         # --- Jitter & Shimmer Features ---
@@ -794,6 +801,7 @@ if (selected == 'Parkinsons Prediction'):
 
 #------------ Mmain Content Section End--------------------    
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

@@ -125,12 +125,14 @@ st.markdown(f"""
    <div class="fixed-header">
         <div class="fixed-header-inner">
             <img src="data:image/png;base64,{logo_base64}">
-            <h1>PERIYAR UNIVERSITY</h1>
-            <div class="scrolling-text">
-                <h5>
-                    Name: THILAK S, 1st Year MSc Data Science | 
-                    Project Coordinator: Prof. Saravanan
-                </h5>
+            <div>
+                <h1>PERIYAR UNIVERSITY</h1>
+                <div class="scrolling-text">
+                    <h5>
+                        Name: THILAK S, 1st Year MSc Data Science | 
+                        Project Coordinator: Prof. Saravanan
+                    </h5>
+                </div>
             </div>
             <img src="data:image/png;base64,{periyar_base64}">
         </div>
@@ -792,6 +794,7 @@ if (selected == 'Parkinsons Prediction'):
 
 #------------ Mmain Content Section End--------------------    
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

@@ -644,7 +644,7 @@ if (selected == 'Parkinsons Prediction'):
             "RPDE": 0.48, "DFA": 0.67,
             "spread1": -4.8, "spread2": 0.22,
             "D2": 2.6, "PPE": 0.16
-        }
+        },
 
         "4️⃣ Sample Data 5": {
             "fo": 198.383, "fhi": 215.203, "flo": 193.104,
@@ -799,6 +799,7 @@ if (selected == 'Parkinsons Prediction'):
 
 #------------ Mmain Content Section End--------------------    
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

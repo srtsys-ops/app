@@ -322,10 +322,10 @@ if (selected == 'Diabetes Prediction'):
             ]])
 
             # Display prediction result
-            if diab_prediction[0] == 1:
-                st.error("🔴 High Risk: The person is Diabetic")
-            else:
-                st.success("🟢 Low Risk: The person is not Diabetic")
+            #if diab_prediction[0] == 1:
+                #st.error("🔴 High Risk: The person is Diabetic")
+            #else:
+                #st.success("🟢 Low Risk: The person is not Diabetic")
 
             # ------------------------------------------------- 
             # 9.3️⃣ RISK PROBABILITY CALCULATION
@@ -361,7 +361,7 @@ if (selected == 'Diabetes Prediction'):
             elif risk >= 40:
                 st.warning("🟠 Moderate Risk — lifestyle changes advised")
             else:
-                st.success("🟢 Low Risk")
+                st.success("🟢 Low Risk: The person is not Diabetic")
                 
 
 # =========================================================
@@ -794,6 +794,7 @@ if (selected == 'Parkinsons Prediction'):
 
 #------------ Mmain Content Section End--------------------    
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

@@ -135,7 +135,7 @@ section[data-testid="stSidebar"] hr { border-color: rgba(255,255,255,0.3); }
     text-wrap: unset;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 850px) {
     .scrolling-text h5 {
          font-size: 14px;
          padding: 0;
@@ -162,6 +162,7 @@ section[data-testid="stSidebar"] hr { border-color: rgba(255,255,255,0.3); }
           padding-bottom: 0;
       }
 }
+
 
 
 

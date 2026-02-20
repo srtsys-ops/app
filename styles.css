@@ -37,7 +37,6 @@ h2#diabetes-prediction {  margin-top: 70px !important; }
     padding: 12px 20px;
     text-align: center;   
 }
-.fixed-header.hide { transform: translateY(-120%); }
 .fixed-header-inner {
     display: flex;
     align-items: center;
@@ -47,10 +46,6 @@ h2#diabetes-prediction {  margin-top: 70px !important; }
 .fixed-header-inner img { height: 100px; }
 .fixed-header-inner h1 { margin: 0; color: white; }
 .main-content { margin-top: 50px; }
-/* Desktop: Always visible */
-@media (min-width: 769px) {
-    .fixed-header { transform: translateY(0) !important; }
-}
 /* =========================================================
    📚 SIDEBAR STYLES
 ========================================================= */
@@ -102,3 +97,4 @@ section[data-testid="stSidebar"] hr { border-color: rgba(255,255,255,0.3); }
     .fixed-header img { height: 45px !important; }
     h2 { font-size: 17px !important; }
 }
+

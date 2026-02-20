@@ -170,7 +170,7 @@ if (selected == 'Diabetes Prediction'):
     DIABETES_SAMPLES = {
         "Select Sample": None,
     
-        "1️⃣ Sample Data: {
+        "1️⃣ Sample Data": {
             "Pregnancies": 0, "Glucose": 95, "BloodPressure": 72,
             "SkinThickness": 20, "Insulin": 85, "BMI": 22.5,
             "DPF": 0.25, "Age": 25
@@ -787,5 +787,6 @@ if (selected == 'Parkinsons Prediction'):
 
 #------------ Mmain Content Section End--------------------    
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 

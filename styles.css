@@ -66,18 +66,13 @@ h2#diabetes-prediction {
 
 .fixed-header-inner img { height: 100px; }
 
-.fixed-header-inner h1 {
-    margin: 0;
-    color: white;
-}
+.fixed-header-inner h1 { margin: 0; color: white; }
 
 .main-content { margin-top: 50px; }
 
 /* Desktop: Always visible */
 @media (min-width: 769px) {
-    .fixed-header {
-        transform: translateY(0) !important;
-    }
+    .fixed-header { transform: translateY(0) !important; }
 }
 
 /* =========================================================
@@ -103,13 +98,9 @@ section[data-testid="stSidebar"] .nav-link-selected {
     font-weight: 700;
 }
 
-section[data-testid="stSidebar"] svg {
-    fill: #bbdefb !important;
-}
+section[data-testid="stSidebar"] svg { fill: #bbdefb !important; }
 
-section[data-testid="stSidebar"] hr {
-    border-color: rgba(255,255,255,0.3);
-}
+section[data-testid="stSidebar"] hr { border-color: rgba(255,255,255,0.3); }
 
 /* Sidebar Boxes */
 .sidebar-box {
@@ -118,13 +109,9 @@ section[data-testid="stSidebar"] hr {
     text-align: center;
 }
 
-.sidebar-box1 {
-    background: rgba(255,255,255,0.15);
-}
+.sidebar-box1 { background: rgba(255,255,255,0.15); }
 
-.sidebar-box3 {
-    background: #0b132b;
-}
+.sidebar-box3 { background: #0b132b; }
 
 .sidebar-footer {
     position: fixed;
@@ -141,13 +128,9 @@ section[data-testid="stSidebar"] hr {
     border-radius: 50%;
 }
 
-.st-emotion-cache-1b6jk7u h1 {
-    color: #004080 !important;
-}
+.st-emotion-cache-1b6jk7u h1 { color: #004080 !important; }
 
-.stCustomComponentV1 {
-    border-radius: 12px !important;
-}
+.stCustomComponentV1 { border-radius: 12px !important; }
 
 /* =========================================================
    📱 RESPONSIVE DESIGN
@@ -156,9 +139,7 @@ section[data-testid="stSidebar"] hr {
 /* Tablet & Mobile */
 @media (max-width: 768px) {
 
-    .fixed-header {
-        padding: 8px 10px;
-    }
+    .fixed-header { padding: 8px 10px; }
 
     .fixed-header h1 {
         font-size: 24px !important;
@@ -166,13 +147,9 @@ section[data-testid="stSidebar"] hr {
         text-align: center;
     }
 
-    .fixed-header img {
-        height: 55px !important;
-    }
+    .fixed-header img { height: 55px !important; }
 
-    .main-content {
-        margin-top: 10px;
-    }
+    .main-content { margin-top: 10px; }
 
     h2#diabetes-prediction {
         font-size: 24px !important;
@@ -188,169 +165,11 @@ section[data-testid="stSidebar"] hr {
         display: none !important;
     }
 }
-
 /* Small Phones */
 @media (max-width: 480px) {
-
-    .fixed-header h1 {
-        font-size: 15px !important;
-    }
-
-    .fixed-header img {
-        height: 45px !important;
-    }
-
-    h2 {
-        font-size: 17px !important;
-    }
+    .fixed-header h1 { font-size: 15px !important; }
+    .fixed-header img { height: 45px !important; }
+    h2 { font-size: 17px !important; }
 }
 
-
-/* =========================================================
-   🎨 GLOBAL BASE
-========================================================= */
-
-:root {
-    --primary-dark: #0d47a1;
-    --primary: #1976d2;
-    --primary-light: #bbdefb;
-    --text-light: #ffffff;
-}
-
-/* Global text */
-h1, h2, h3, h4, h5, h6,
-p, label, span {
-    color: var(--text-light);
-}
-
-/* Hide default Streamlit elements */
-#MainMenu,
-header button[title="Settings"],
-.stToolbarActions,
-button[data-testid="stAppSettingsButton"] {
-    display: none !important;
-}
-
-/* =========================================================
-   📝 FORM STYLING
-========================================================= */
-
-div[data-testid="stForm"] {
-    background: rgba(255,255,255,0.08);
-    backdrop-filter: blur(10px);
-    border-radius: 12px;
-    padding: 20px;
-}
-
-/* =========================================================
-   🏫 FIXED HEADER
-========================================================= */
-
-.fixed-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    padding: 12px 20px;
-    text-align: center;
-    background: linear-gradient(180deg, var(--primary-dark), var(--primary));
-    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
-}
-
-.fixed-header-inner {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-}
-
-.fixed-header-inner img {
-    height: 80px;
-}
-
-.fixed-header-inner h1 {
-    margin: 0;
-    color: var(--text-light);
-}
-
-.main-content {
-    margin-top: 80px;
-}
-
-/* =========================================================
-   📚 SIDEBAR
-========================================================= */
-
-section[data-testid="stSidebar"] {
-    background: linear-gradient(180deg, var(--primary-dark), var(--primary));
-    color: var(--text-light);
-}
-
-section[data-testid="stSidebar"] .nav-link {
-    color: #e3f2fd;
-    font-size: 14px;
-    padding: 8px;
-    border-radius: 8px;
-    margin-bottom: 5px;
-}
-
-section[data-testid="stSidebar"] .nav-link-selected {
-    background-color: #ffffff;
-    color: var(--primary-dark);
-    font-weight: 600;
-}
-
-section[data-testid="stSidebar"] svg {
-    fill: var(--primary-light);
-}
-
-/* Sidebar Utility Box */
-.sidebar-box {
-    padding: 15px;
-    border-radius: 12px;
-    text-align: center;
-}
-
-/* =========================================================
-   📱 RESPONSIVE
-========================================================= */
-
-@media (max-width: 768px) {
-
-    .fixed-header {
-        padding: 8px 12px;
-    }
-
-    .fixed-header-inner img {
-        height: 55px;
-    }
-
-    .fixed-header-inner h1 {
-        font-size: 20px;
-    }
-
-    .main-content {
-        margin-top: 65px;
-    }
-
-    h2 {
-        font-size: 20px;
-    }
-}
-
-@media (max-width: 480px) {
-
-    .fixed-header-inner img {
-        height: 45px;
-    }
-
-    .fixed-header-inner h1 {
-        font-size: 16px;
-    }
-
-    h2 {
-        font-size: 17px;
-    }
-}
 

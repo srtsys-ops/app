@@ -792,8 +792,46 @@ if (selected == 'Parkinsons Prediction'):
             else:
                 st.success("🟢 No Parkinson’s Disease Detected")
 
+            prediction = parkinsons_model.predict(input_data)
+
+            # --------------------------------------------
+            # 📊 RISK PROBABILITY CALCULATION
+            # --------------------------------------------
+            if hasattr(parkinsons_model, "predict_proba"):
+                proba = parkinsons_model.predict_proba(input_data)
+                risk = proba[0][1] * 100
+            else:
+                risk = 100 if prediction[0] == 1 else 0
+            
+            # --------------------------------------------
+            # 📊 RISK VISUALIZATION
+            # --------------------------------------------
+            st.subheader("📊 Risk Assessment for Parkinson’s")
+            
+            st.metric("Parkinson’s Risk", f"{risk:.2f} %")
+            st.progress(int(risk))
+            
+            # --------------------------------------------
+            # 🔍 RESULT MESSAGE
+            # --------------------------------------------
+            if prediction[0] == 1:
+                st.error("🔴 Parkinson’s Disease Detected")
+            else:
+                st.success("🟢 No Parkinson’s Disease Detected")
+            
+            # --------------------------------------------
+            # 🚦 RISK CATEGORY INTERPRETATION
+            # --------------------------------------------
+            if risk >= 70:
+                st.error("🔴 High Risk of Parkinson’s Disease")
+            elif risk >= 40:
+                st.warning("🟠 Moderate Risk — Neurological evaluation advised")
+            else:
+                st.success("🟢 Low Risk")
+
 #------------ Mmain Content Section End--------------------    
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

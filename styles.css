@@ -121,7 +121,7 @@ section[data-testid="stSidebar"] hr { border-color: rgba(255,255,255,0.3); }
 }
 
 /* Left to Right Animation */
-@keyframes scroll-left {
+@keyframes scroll-right-left {
     0% {
         transform: translateX(-100%);
     }
@@ -162,6 +162,7 @@ section[data-testid="stSidebar"] hr { border-color: rgba(255,255,255,0.3); }
           padding-bottom: 0;
       }
 }
+
 
 
 

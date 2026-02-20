@@ -145,14 +145,9 @@ if (selected == 'Diabetes Prediction'):
     # These defaults ensure the form retains values
     # and can be reset or auto-filled safely
     defaults = {
-        "Pregnancies": 0,
-        "Glucose": 0,
-        "BloodPressure": 0,
-        "SkinThickness": 0,
-        "Insulin": 0,
-        "BMI": 0.0,
-        "DPF": 0.0,
-        "Age": 1
+        "Pregnancies": 0, "Glucose": 0, "BloodPressure": 0,
+        "SkinThickness": 0, "Insulin": 0,  "BMI": 0.0,
+        "DPF": 0.0,  "Age": 1
     }
 
     # Initialize session state keys if not already present
@@ -176,36 +171,21 @@ if (selected == 'Diabetes Prediction'):
         "Select Sample": None,
     
         "🟢 Low Risk (Young Adult)": {
-            "Pregnancies": 0,
-            "Glucose": 95,
-            "BloodPressure": 72,
-            "SkinThickness": 20,
-            "Insulin": 85,
-            "BMI": 22.5,
-            "DPF": 0.25,
-            "Age": 25
+            "Pregnancies": 0, "Glucose": 95, "BloodPressure": 72,
+            "SkinThickness": 20, "Insulin": 85, "BMI": 22.5,
+            "DPF": 0.25, "Age": 25
         },
     
         "🟡 Moderate Risk (Middle Age)": {
-            "Pregnancies": 2,
-            "Glucose": 135,
-            "BloodPressure": 82,
-            "SkinThickness": 28,
-            "Insulin": 140,
-            "BMI": 28.9,
-            "DPF": 0.78,
-            "Age": 45
+            "Pregnancies": 2, "Glucose": 135, "BloodPressure": 82,
+            "SkinThickness": 28, "Insulin": 140, "BMI": 28.9,
+            "DPF": 0.78, "Age": 45
         },
     
         "🔴 High Risk (Senior)": {
-            "Pregnancies": 6,
-            "Glucose": 178,
-            "BloodPressure": 90,
-            "SkinThickness": 35,
-            "Insulin": 220,
-            "BMI": 34.6,
-            "DPF": 1.45,
-            "Age": 62
+            "Pregnancies": 6, "Glucose": 178, "BloodPressure": 90,
+            "SkinThickness": 35, "Insulin": 220, "BMI": 34.6,
+            "DPF": 1.45, "Age": 62
         }
     }
 
@@ -229,8 +209,7 @@ if (selected == 'Diabetes Prediction'):
 
     with col_btn1:
         st.markdown("<br>", unsafe_allow_html=True)
-        #st.button("🧪 Sample Data", on_click=autofill_heart_sample)
-    
+           
     with col_btn2:      
         st.button("🧹 Clear", type="secondary", on_click=clear_form)
 
@@ -388,19 +367,9 @@ if selected == 'Heart Disease Prediction':
     # -----------------------------------------------------
     # Default values ensure form persistence and reset safety
     heart_defaults = {
-        "age": 1,
-        "sex": 0,
-        "cp": 0,
-        "trestbps": 80,
-        "chol": 100,
-        "fbs": 0,
-        "restecg": 0,
-        "thalach": 60,
-        "exang": 0,
-        "oldpeak": 0.0,
-        "slope": 0,
-        "ca": 0,
-        "thal": 0
+        "age": 1, "sex": 0, "cp": 0, "trestbps": 80,  
+        "chol": 100, "fbs": 0, "restecg": 0, "thalach": 60, 
+        "exang": 0, "oldpeak": 0.0, "slope": 0, "ca": 0, "thal": 0
     }
 
     # Initialize session state
@@ -416,21 +385,6 @@ if selected == 'Heart Disease Prediction':
         for k, v in heart_defaults.items():
             st.session_state[k] = v
     
-    def autofill_heart_sample():
-        st.session_state.age = 54
-        st.session_state.sex = 1
-        st.session_state.cp = 2
-        st.session_state.trestbps = 140
-        st.session_state.chol = 246
-        st.session_state.fbs = 0
-        st.session_state.restecg = 1
-        st.session_state.thalach = 150
-        st.session_state.exang = 0
-        st.session_state.oldpeak = 1.2
-        st.session_state.slope = 1
-        st.session_state.ca = 0
-        st.session_state.thal = 2
-
     # -----------------------------------------------------
     # 3️⃣ SAMPLE DATA (FOR QUICK TESTING)
     # -----------------------------------------------------
@@ -439,51 +393,22 @@ if selected == 'Heart Disease Prediction':
         "Select Sample": None,
     
         "1️⃣ Sample Data": {
-            "age": 25,
-            "sex": 0,
-            "cp": 0,
-            "trestbps": 108,
-            "chol": 165,
-            "fbs": 0,
-            "restecg": 0,
-            "thalach": 190,
-            "exang": 0,
-            "oldpeak": 0.0,
-            "slope": 1,
-            "ca": 0,
-            "thal": 0
+            "age": 25, "sex": 0, "cp": 0,  "trestbps": 108,
+            "chol": 165, "fbs": 0, "restecg": 0, "thalach": 190,
+            "exang": 0, "oldpeak": 0.0,  "slope": 1, "ca": 0, "thal": 0
         },
     
         "2️⃣ Sample Data": {
-            "age": 52,
-            "sex": 1,
-            "cp": 2,
-            "trestbps": 138,
-            "chol": 245,
-            "fbs": 0,
-            "restecg": 1,
-            "thalach": 150,
-            "exang": 0,
-            "oldpeak": 1.3,
-            "slope": 1,
-            "ca": 0,
-            "thal": 1
+            "age": 52, "sex": 1, "cp": 2, "trestbps": 138,
+            "chol": 245, "fbs": 0, "restecg": 1, "thalach": 150,
+            "exang": 0, "oldpeak": 1.3, "slope": 1, "ca": 0, "thal": 1
         },
     
         "3️⃣ Sample Data": {
-            "age": 67,
-            "sex": 1,
-            "cp": 3,
-            "trestbps": 168,
-            "chol": 295,
-            "fbs": 1,
-            "restecg": 2,
-            "thalach": 118,
-            "exang": 1,
-            "oldpeak": 2.9,
-            "slope": 2,
-            "ca": 2,
-            "thal": 2
+            "age": 67, "sex": 1, "cp": 3, "trestbps": 168,
+            "chol": 295, "fbs": 1,
+            "restecg": 2, "thalach": 118, "exang": 1,
+            "oldpeak": 2.9, "slope": 2, "ca": 2, "thal": 2
         }
     }
 
@@ -862,3 +787,4 @@ if (selected == 'Parkinsons Prediction'):
 
 #------------ Mmain Content Section End--------------------    
 st.markdown('</div>', unsafe_allow_html=True)
+

@@ -809,16 +809,7 @@ if (selected == 'Parkinsons Prediction'):
             st.subheader("📊 Risk Assessment for Parkinson’s")
             
             st.metric("Parkinson’s Risk", f"{risk:.2f} %")
-            st.progress(int(risk))
-            
-            # --------------------------------------------
-            # 🔍 RESULT MESSAGE
-            # --------------------------------------------
-            if prediction[0] == 1:
-                st.error("🔴 Parkinson’s Disease Detected")
-            else:
-                st.success("🟢 No Parkinson’s Disease Detected")
-            
+            st.progress(int(risk))            
             # --------------------------------------------
             # 🚦 RISK CATEGORY INTERPRETATION
             # --------------------------------------------
@@ -831,6 +822,7 @@ if (selected == 'Parkinsons Prediction'):
 
 #------------ Mmain Content Section End--------------------    
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

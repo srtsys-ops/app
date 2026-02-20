@@ -130,6 +130,21 @@ section[data-testid="stSidebar"] hr { border-color: rgba(255,255,255,0.3); }
     text-wrap: unset;
 }
 
+@media (max-width: 480px) {
+      .scrolling-text h5 {
+         font-size: 14px;
+         padding: 0;
+      }
+      .scrolling-text {
+      	width: 270px;
+      }
+      
+      .fixed-header h1  {    
+          padding-bottom: 0;
+      }
+}
+
+
 
 
 

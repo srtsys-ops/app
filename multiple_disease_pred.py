@@ -645,6 +645,18 @@ if (selected == 'Parkinsons Prediction'):
             "spread1": -4.8, "spread2": 0.22,
             "D2": 2.6, "PPE": 0.16
         }
+
+        "4️⃣ Sample Data 5": {
+            "fo": 198.383, "fhi": 215.203, "flo": 193.104,
+            "Jitter_percent": 0.00212, "Jitter_Abs": 0.00001,
+            "RAP": 0.00113, "PPQ": 0.00135, "DDP": 0.00339,
+            "Shimmer": 0.01263, "Shimmer_dB": 0.111,
+            "APQ3": 0.0064, "APQ5": 0.00825, "APQ": 0.00951, "DDA": 0.01919,
+            "NHR": 0.00119, "HNR": 30.775,
+            "RPDE": 0.465946, "DFA": 0.738703,
+            "spread1": -7.067931, "spread2": 0.175181,
+            "D2": 1.512275, "PPE": 0.09632
+        }
     }
 
     # -----------------------------------------------------
@@ -787,6 +799,7 @@ if (selected == 'Parkinsons Prediction'):
 
 #------------ Mmain Content Section End--------------------    
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

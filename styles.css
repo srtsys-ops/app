@@ -155,13 +155,14 @@ section[data-testid="stSidebar"] hr { border-color: rgba(255,255,255,0.3); }
          padding: 0;
       }
       .scrolling-text {
-      	width: 200px;
+      	width: 170px;
       }
       
       .fixed-header h1  {    
           padding-bottom: 0;
       }
 }
+
 
 
 

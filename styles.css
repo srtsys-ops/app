@@ -97,3 +97,30 @@ section[data-testid="stSidebar"] hr { border-color: rgba(255,255,255,0.3); }
     .fixed-header img { height: 45px !important; }
     h2 { font-size: 17px !important; }
 }
+
+/* =========================================
+   🎞️ Scrolling Header Animation
+========================================= */
+
+.scrolling-text {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+    position: relative;
+}
+
+.scrolling-text h1 {
+    display: inline-block;
+    padding-left: 100%;
+    animation: scroll-left 12s linear infinite;
+}
+
+/* Left to Right Animation */
+@keyframes scroll-left {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}

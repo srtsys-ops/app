@@ -178,9 +178,9 @@ if (selected == 'Diabetes Prediction'):
         "Select Sample": None,
     
         "1️⃣ Sample Data": {
-            "Pregnancies": 0, "Glucose": 95, "BloodPressure": 72,
-            "SkinThickness": 20, "Insulin": 85, "BMI": 22.5,
-            "DPF": 0.25, "Age": 25
+            "Pregnancies": 3, "Glucose": 126, "BloodPressure": 88,
+            "SkinThickness": 41, "Insulin": 235, "BMI": 39.3,
+            "DPF": 0.704, "Age": 27
         },
     
         "2️⃣ Sample Data": {
@@ -794,6 +794,7 @@ if (selected == 'Parkinsons Prediction'):
 
 #------------ Mmain Content Section End--------------------    
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

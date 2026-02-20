@@ -12,7 +12,6 @@ FRAMEWORK:
 ----------
 Streamlit + Pickle Models
 """
-
 # =========================================================
 # 📦 IMPORTS
 # =========================================================
@@ -21,13 +20,11 @@ import base64
 import streamlit as st
 from streamlit_option_menu import option_menu
 
-
 def load_css(file_path: str):
     with open(file_path) as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
-
+        
 load_css("styles.css")
-
 # =========================================================
 # 🖼️ IMAGE UTILS
 # =========================================================
@@ -36,10 +33,8 @@ def get_base64_image(image_path):
     with open(image_path, "rb") as img:
         return base64.b64encode(img.read()).decode()
 
-
 logo_base64 = get_base64_image("periyar_logo.png")
 periyar_base64 = get_base64_image("periyar.jpg")
-
 # =========================================================
 # 🎨 BACKGROUND HELPER FOR EACH MODULE
 # =========================================================
@@ -54,26 +49,19 @@ def set_bg(color1, color2):
         </style>
         """,
         unsafe_allow_html=True
-    )
-
-          
-
+    ) 
 # =========================================================
 # 🧠 LOAD ML MODELS
 # =========================================================
 diabetes_model = pickle.load(open("diabetes_model.sav", "rb"))
 heart_disease_model = pickle.load(open("heart_disease_model.sav", "rb"))
 parkinsons_model = pickle.load(open("parkinsons_model.sav", "rb"))
-
-
-
 # =========================================================
 # 📚 SIDEBAR
 # =========================================================
-
 with st.sidebar:  
-    
 
+    #---------- Sidebar Header Section ----------
     st.markdown(
         """
         <div class="sidebar-box sidebar-box1">
@@ -85,22 +73,22 @@ with st.sidebar:
         """,
         unsafe_allow_html=True
     )
-    st.divider()    
-   
+    st.divider() 
 
+    #---------- Sidebar Menu Section ----------
     selected = option_menu(
         "Select Prediction",
         ["Diabetes Prediction", "Heart Disease Prediction", "Parkinsons Prediction"],
         icons=[
-            "droplet-half",     # Diabetes
-            "heart-fill",       # Heart
-            "person-lines-fill"             # Parkinson's
+            "droplet-half",      # Diabetes
+            "heart-fill",        # Heart
+            "person-lines-fill"  # Parkinson's
         ],
         default_index=0,
     )
-
     st.divider()    
 
+    #---------- Sidebar Footer Section ----------
     st.markdown(
         """
         <div class="sidebar-box sidebar-box3">
@@ -112,7 +100,7 @@ with st.sidebar:
         unsafe_allow_html=True
     )
 
-
+    #---------- Sidebar Footer Fixed ----------
     st.markdown(
         """
         <div class="sidebar-footer">
@@ -121,9 +109,6 @@ with st.sidebar:
         """,
         unsafe_allow_html=True
     )
-
-
-
 # =========================================================
 # 🎯 PAGE BACKGROUND PER MODULE
 # =========================================================
@@ -133,8 +118,6 @@ elif selected == "Heart Disease Prediction":
     set_bg("#4a0404", "#8b0000")
 else:
     set_bg("#1f1147", "#5b2c83")
-
-
 # =========================================================
 # 🏫 FIXED HEADER
 # =========================================================
@@ -149,14 +132,13 @@ st.markdown(f"""
     """, unsafe_allow_html=True
  )
 
+#------------ Mmain Content Section  Start--------------------
 st.markdown('<div class="main-content">', unsafe_allow_html=True)
-
 
 # =========================================================
 # 🩸 DIABETES PREDICTION MODULE
 # =========================================================
-if (selected == 'Diabetes Prediction'):  
-   
+if (selected == 'Diabetes Prediction'):     
     # -----------------------------------------------------
     # 1️⃣ SESSION STATE INITIALIZATION (Default Values)
     # -----------------------------------------------------
@@ -236,7 +218,6 @@ if (selected == 'Diabetes Prediction'):
         if sample:
             for key, value in sample.items():
                 st.session_state[key] = value
-
   
     # -----------------------------------------------------
     # 5️⃣ PAGE HEADER & ACTION BUTTONS
@@ -317,8 +298,7 @@ if (selected == 'Diabetes Prediction'):
         # -------------------------------------------------
         col1, col2 = st.columns(2)
         with col1:
-            predict_btn = st.form_submit_button("🔍 Diabetes Test Result", type="primary")
-        
+            predict_btn = st.form_submit_button("🔍 Diabetes Test Result", type="primary")        
 
     # -----------------------------------------------------
     # 9️⃣ DIABETES PREDICTION & VALIDATION
@@ -396,8 +376,6 @@ if (selected == 'Diabetes Prediction'):
                 st.warning("🟠 Moderate Risk — lifestyle changes advised")
             else:
                 st.success("🟢 Low Risk")
-
-
                 
 
 # =========================================================
@@ -437,7 +415,6 @@ if selected == 'Heart Disease Prediction':
     def clear_heart_form():
         for k, v in heart_defaults.items():
             st.session_state[k] = v
-
     
     def autofill_heart_sample():
         st.session_state.age = 54
@@ -520,7 +497,6 @@ if selected == 'Heart Disease Prediction':
             for key, value in sample.items():
                 st.session_state[key] = value
 
-
     # -----------------------------------------------------
     # 5️⃣ PAGE HEADER & ACTION BUTTONS
     # -----------------------------------------------------
@@ -531,10 +507,8 @@ if selected == 'Heart Disease Prediction':
     
     with col_btn1:
         st.markdown("<br>", unsafe_allow_html=True)
-        #st.button("🧪 Sample Data", on_click=autofill_heart_sample)
-    
+            
     with col_btn2:
-        #st.markdown("<br>", unsafe_allow_html=True)
         st.button("🧹 Clear", on_click=clear_heart_form)
 
     # -----------------------------------------------------
@@ -548,8 +522,6 @@ if selected == 'Heart Disease Prediction':
     
     if sample_choice != "Select Sample":
         apply_heart_sample(sample_choice)
-
-
 
     # -----------------------------------------------------
     # 7️⃣ HEART DISEASE INPUT FORM
@@ -773,7 +745,6 @@ if (selected == 'Parkinsons Prediction'):
         st.markdown("<br>", unsafe_allow_html=True)
 
     with col_btn2:
-        #st.markdown("<br>", unsafe_allow_html=True)
         st.button("🧹 Clear", type="secondary", on_click=clear_parkinsons_form)
 
     # -----------------------------------------------------
@@ -786,8 +757,7 @@ if (selected == 'Parkinsons Prediction'):
     )
     
     if sample_choice != "Select Sample":
-        apply_parkinsons_sample(sample_choice)
-    
+        apply_parkinsons_sample(sample_choice)    
 
     # -----------------------------------------------------
     # 7️⃣ PARKINSON’S INPUT FORM      
@@ -890,8 +860,9 @@ if (selected == 'Parkinsons Prediction'):
             else:
                 st.success("🟢 No Parkinson’s Disease Detected")
 
-    
+#------------ Mmain Content Section End--------------------    
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

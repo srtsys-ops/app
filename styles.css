@@ -105,8 +105,7 @@ section[data-testid="stSidebar"] hr { border-color: rgba(255,255,255,0.3); }
 .scrolling-text {
    overflow: hidden;
    white-space: nowrap;   
-   position: relative;
-   height: 150px;
+   position: relative;  
 }
 
 .scrolling-text h1 {
@@ -129,3 +128,4 @@ section[data-testid="stSidebar"] hr { border-color: rgba(255,255,255,0.3); }
     word-break: normal;
     text-wrap: unset;
 }
+

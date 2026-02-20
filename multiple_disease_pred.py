@@ -698,47 +698,40 @@ if (selected == 'Parkinsons Prediction'):
 
         # --- Frequency & Jitter Metrics ---
         cols = st.columns(5)
-        with cols[0]: fo = st.number_input("MDVP:Fo(Hz)", key="fo")
-        with cols[1]: fhi = st.number_input("MDVP:Fhi(Hz)", key="fhi")
-        with cols[2]: flo = st.number_input("MDVP:Flo(Hz)", key="flo")
-        with cols[3]:
-            Jitter_percent = st.number_input(
-                "MDVP:Jitter(%)",
-                min_value=0.0,
-                step=0.00001,
-                format="%.5f",
-                key="Jitter_percent"
-            )
-        with cols[4]: Jitter_Abs = st.number_input("MDVP:Jitter(Abs)", key="Jitter_Abs")
+        with cols[0]: fo = st.number_input("MDVP:Fo(Hz)", step=0.001, format="%.3f", key="fo")
+        with cols[1]: fhi = st.number_input("MDVP:Fhi(Hz)", step=0.001, format="%.3f", key="fhi")
+        with cols[2]: flo = st.number_input("MDVP:Flo(Hz)", step=0.001, format="%.3f", key="flo")
+        with cols[3]: Jitter_percent = st.number_input("MDVP:Jitter(%)", step=0.00001, format="%.5f", key="Jitter_percent")
+        with cols[4]: Jitter_Abs = st.number_input("MDVP:Jitter(Abs)", step=0.00001, format="%.5f", key="Jitter_Abs")
 
         # --- Jitter & Shimmer Features ---
         cols = st.columns(5)
-        with cols[0]: RAP = st.number_input("MDVP:RAP", key="RAP")
-        with cols[1]: PPQ = st.number_input("MDVP:PPQ", key="PPQ")
-        with cols[2]: DDP = st.number_input("Jitter:DDP", key="DDP")
-        with cols[3]: Shimmer = st.number_input("MDVP:Shimmer", key="Shimmer")
-        with cols[4]: Shimmer_dB = st.number_input("MDVP:Shimmer(dB)", key="Shimmer_dB")
+        with cols[0]: RAP = st.number_input("MDVP:RAP", step=0.00001, format="%.5f", key="RAP")
+        with cols[1]: PPQ = st.number_input("MDVP:PPQ", step=0.00001, format="%.5f", key="PPQ")
+        with cols[2]: DDP = st.number_input("Jitter:DDP", step=0.00001, format="%.5f", key="DDP")
+        with cols[3]: Shimmer = st.number_input("MDVP:Shimmer", step=0.00001, format="%.5f", key="Shimmer")
+        with cols[4]: Shimmer_dB = st.number_input("MDVP:Shimmer(dB)", step=0.001, format="%.3f", key="Shimmer_dB")
 
         # --- Amplitude Perturbation Measures ---
         cols = st.columns(5)
-        with cols[0]: APQ3 = st.number_input("Shimmer:APQ3", key="APQ3")
-        with cols[1]: APQ5 = st.number_input("Shimmer:APQ5", key="APQ5")
-        with cols[2]: APQ = st.number_input("MDVP:APQ", key="APQ")
-        with cols[3]: DDA = st.number_input("Shimmer:DDA", key="DDA")
-        with cols[4]: NHR = st.number_input("NHR", key="NHR")
+        with cols[0]: APQ3 = st.number_input("Shimmer:APQ3", step=0.00001, format="%.5f", key="APQ3")
+        with cols[1]: APQ5 = st.number_input("Shimmer:APQ5", step=0.00001, format="%.5f", key="APQ5")
+        with cols[2]: APQ = st.number_input("MDVP:APQ", step=0.00001, format="%.5f", key="APQ")
+        with cols[3]: DDA = st.number_input("Shimmer:DDA", step=0.00001, format="%.5f", key="DDA")
+        with cols[4]: NHR = st.number_input("NHR", step=0.00001, format="%.5f", key="NHR")
 
         # --- Noise & Nonlinear Measures ---
         cols = st.columns(5)
-        with cols[0]: HNR = st.number_input("HNR", key="HNR")
-        with cols[1]: RPDE = st.number_input("RPDE", key="RPDE")
-        with cols[2]: DFA = st.number_input("DFA", key="DFA")
-        with cols[3]: spread1 = st.number_input("spread1", key="spread1")
-        with cols[4]: spread2 = st.number_input("spread2", key="spread2")
+        with cols[0]: HNR = st.number_input("HNR", step=0.001, format="%.3f", key="HNR")
+        with cols[1]: RPDE = st.number_input("RPDE", step=0.00001, format="%.6f", key="RPDE")
+        with cols[2]: DFA = st.number_input("DFA", step=0.00001, format="%.6f", key="DFA")
+        with cols[3]: spread1 = st.number_input("spread1", step=0.00001, format="%.6f", key="spread1")
+        with cols[4]: spread2 = st.number_input("spread2", step=0.00001, format="%.6f", key="spread2")
 
         # --- Complexity Measures ---
         cols = st.columns(2)
-        with cols[0]: D2 = st.number_input("D2", key="D2")
-        with cols[1]: PPE = st.number_input("PPE", key="PPE")
+        with cols[0]: D2 = st.number_input("D2", step=0.00001, format="%.6f", key="D2")
+        with cols[1]: PPE = st.number_input("PPE", step=0.00001, format="%.6f", key="PPE")
 
         predict_btn = st.form_submit_button("🔍 Parkinson's Test Result", type="primary")
 
@@ -801,6 +794,7 @@ if (selected == 'Parkinsons Prediction'):
 
 #------------ Mmain Content Section End--------------------    
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

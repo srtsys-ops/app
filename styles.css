@@ -112,7 +112,7 @@ section[data-testid="stSidebar"] hr { border-color: rgba(255,255,255,0.3); }
 .scrolling-text h5 {
     display: inline-block;
     padding-left: 50%;
-    animation: scroll-right-left 150s linear infinite;
+    animation: scroll-right-left 15s linear infinite;
     color: #000 !important;
 }
 
@@ -155,6 +155,7 @@ section[data-testid="stSidebar"] hr { border-color: rgba(255,255,255,0.3); }
         font-size: 14px;
     }
 }
+
 
 
 

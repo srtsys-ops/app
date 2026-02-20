@@ -123,12 +123,10 @@ else:
 # =========================================================
 st.markdown(f"""
     <div class="fixed-header">
-        <div class="fixed-header-inner">
-            
-            #----- Left Logo -----
+        <div class="fixed-header-inner">          
+           
             <img src="data:image/png;base64,{logo_base64}" class="header-logo-left">
-
-            #----- Center Title Section -----
+           
             <div class="header-center">
                 <h1>PERIYAR UNIVERSITY</h1>
                 <div class="scrolling-text">
@@ -138,8 +136,7 @@ st.markdown(f"""
                     </h5>
                 </div>
             </div>
-
-            #----- Right Image -----
+           
             <img src="data:image/png;base64,{periyar_base64}" class="header-logo-right">
 
         </div>
@@ -801,6 +798,7 @@ if (selected == 'Parkinsons Prediction'):
 
 #------------ Mmain Content Section End--------------------    
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

@@ -170,19 +170,19 @@ if (selected == 'Diabetes Prediction'):
     DIABETES_SAMPLES = {
         "Select Sample": None,
     
-        "🟢 Low Risk (Young Adult)": {
+        "1️⃣ Sample Data: {
             "Pregnancies": 0, "Glucose": 95, "BloodPressure": 72,
             "SkinThickness": 20, "Insulin": 85, "BMI": 22.5,
             "DPF": 0.25, "Age": 25
         },
     
-        "🟡 Moderate Risk (Middle Age)": {
+        "2️⃣ Sample Data": {
             "Pregnancies": 2, "Glucose": 135, "BloodPressure": 82,
             "SkinThickness": 28, "Insulin": 140, "BMI": 28.9,
             "DPF": 0.78, "Age": 45
         },
     
-        "🔴 High Risk (Senior)": {
+        "3️⃣ Sample Data": {
             "Pregnancies": 6, "Glucose": 178, "BloodPressure": 90,
             "SkinThickness": 35, "Insulin": 220, "BMI": 34.6,
             "DPF": 1.45, "Age": 62
@@ -787,4 +787,5 @@ if (selected == 'Parkinsons Prediction'):
 
 #------------ Mmain Content Section End--------------------    
 st.markdown('</div>', unsafe_allow_html=True)
+
 

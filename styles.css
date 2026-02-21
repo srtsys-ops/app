@@ -97,64 +97,38 @@ section[data-testid="stSidebar"] hr { border-color: rgba(255,255,255,0.3); }
     .fixed-header img { height: 45px !important; }
     h2 { font-size: 17px !important; }
 }
-
 /* =========================================
    🎞️ Scrolling Header Animation
 ========================================= */
-
 .scrolling-text {
     overflow: hidden;
     white-space: nowrap;
     position: relative;
     width: 525px;
 }
-
 .scrolling-text h5 {
     display: inline-block;
     padding-left: 0%;
     animation: scroll-right-left 10s linear infinite;
     color: #000 !important;
 }
-
-.fixed-header-inner h1 {
-    padding-bottom: 0;
-}
-
+.fixed-header-inner h1 {padding-bottom: 0;}
 /* Right to Left Animation */
 @keyframes scroll-right-left {
-    0% {
-        transform: translateX(100%);
-    }
-    100% {
-        transform: translateX(-100%);
-    }
+    0% {transform: translateX(100%);}
+    100% {transform: translateX(-100%);}
 }
-
 /* Prevent unwanted word wrapping */
-.scrolling-text .st-emotion-cache-1b6jk7u {
-    white-space: nowrap;
-}
-
+.scrolling-text .st-emotion-cache-1b6jk7u {white-space: nowrap;}
 @media (max-width: 850px) {
-    .scrolling-text {
-        width: 270px;
-    }
-
-    .scrolling-text h5 {
-        font-size: 14px;
-        padding: 0;
-    }
+    .scrolling-text {width: 270px;}
+    .scrolling-text h5 {font-size: 14px; padding: 0;}
 }
-
 @media (max-width: 480px) {
-    .scrolling-text {
-        width: 170px;
-    }
-
-    .scrolling-text h5 {
-        font-size: 14px;
-    }
+    .scrolling-text {width: 170px;}
+    .scrolling-text h5 { font-size: 14px;}
 }
+
 
 
 

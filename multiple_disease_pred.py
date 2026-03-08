@@ -20,142 +20,14 @@ import base64
 import streamlit as st
 from streamlit_option_menu import option_menu
 
-
-       # st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
-
-st.markdown(f"""<style>
-/* =========================================================
-   🎨 GLOBAL STYLES
-========================================================= */
-/* ---------- Text ---------- */
-h1, h2, h3, h4, h5, h6, p, label, span { color: white !important; }
-/* ---------- Forms ---------- */
-div[data-testid="stForm"] {
-    background: rgba(255,255,255,0.08);
-    backdrop-filter: blur(10px);
-    border-radius: 14px;
-    padding: 20px;
-}
-/* ---------- Hide Default Streamlit UI ---------- */
-#MainMenu,
-.stToolbarActions,
-._terminalButton_rix23_138,
-button[data-testid="stAppSettingsButton"] {
-    display: none !important;
-}
-header { background: transparent !important; }
-/* ---------- Layout Adjustments ---------- */
-.st-emotion-cache-1w723zb { padding: 0rem 1rem 10rem !important; }
-button[data-testid="stBaseButton-secondary"] {
-    margin-top: 100px !important;
-}
-h2#diabetes-prediction {  margin-top: 70px !important; }
-/* =========================================================
-   🏫 FIXED HEADER
-========================================================= */
-.fixed-header {
-    background: #ffffff !important;
-    position: fixed;
-    top: -5px;
-    left: 0;
-    width: 100%;
-    z-index: 999;
-    padding: 12px 20px;
-    text-align: center;   
-}
-.fixed-header-inner {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-}
-.fixed-header-inner img { height: 100px; }
-.fixed-header-inner h1 { margin: 0; color: white; }
-.main-content { margin-top: 50px; }
-/* =========================================================
-   📚 SIDEBAR STYLES
-========================================================= */
-section[data-testid="stSidebar"] {
-    background: linear-gradient(180deg, #0d47a1, #1976d2);
-    color: white;
-}
-section[data-testid="stSidebar"] .nav-link {
-    color: #e3f2fd !important;
-    font-size: 15px;
-    padding: 8px;
-    border-radius: 8px;
-    margin-bottom: 5px;
-}
-section[data-testid="stSidebar"] .nav-link-selected {
-    background-color: #ffffff !important;
-    color: #0d47a1 !important;
-    font-weight: 700;
-}
-section[data-testid="stSidebar"] svg { fill: #bbdefb !important; }
-section[data-testid="stSidebar"] hr { border-color: rgba(255,255,255,0.3); }
-/* Sidebar Boxes */
-.sidebar-box {padding: 15px; border-radius: 12px; text-align: center;}
-.sidebar-box1 { background: rgba(255,255,255,0.15); }
-.sidebar-box3 { background: #0b132b; }
-.sidebar-footer {position: fixed; bottom: 20px; color: #bbdefb;}
-/* =========================================================
-   🔵 BUTTON & ICON CUSTOMIZATION
-========================================================= */
-.st-emotion-cache-ujm5ma { background: #004080; border-radius: 50%; }
-.st-emotion-cache-1b6jk7u h1 { color: #004080 !important; }
-.stCustomComponentV1 { border-radius: 12px !important; }
-/* =========================================================
-   📱 RESPONSIVE DESIGN
-========================================================= */
-/* Tablet & Mobile */
-@media (max-width: 768px) {
-    .fixed-header { padding: 8px 10px; }
-    .fixed-header h1 {font-size: 24px !important;line-height: 1.2;text-align: center;}
-    .fixed-header img { height: 55px !important; }
-    .main-content { margin-top: 10px; }
-    h2#diabetes-prediction {font-size: 24px !important;line-height: 1.3; margin-top: 30px !important;}
-    button[data-testid="stBaseButton-secondary"] { margin-top: -10px !important; }
-    .stHorizontalBlock .stVerticalBlock br { display: none !important; }
-}
-/* Small Phones */
-@media (max-width: 480px) {
-    .fixed-header h1 { font-size: 15px !important; }
-    .fixed-header img { height: 45px !important; }
-    h2 { font-size: 17px !important; }
-}
-/* =========================================
-   🎞️ Scrolling Header Animation
-========================================= */
-.scrolling-text {
-    overflow: hidden;
-    white-space: nowrap;
-    position: relative;
-    width: 525px;
-}
-.scrolling-text h5 {
-    display: inline-block;
-    padding-left: 0%;
-    animation: scroll-right-left 10s linear infinite;
-    color: #000 !important;
-}
-.fixed-header-inner h1 {padding-bottom: 0;}
-/* Right to Left Animation */
-@keyframes scroll-right-left {
-    0% {transform: translateX(100%);}
-    100% {transform: translateX(-100%);}
-}
-/* Prevent unwanted word wrapping */
-.scrolling-text .st-emotion-cache-1b6jk7u {white-space: nowrap;}
-@media (max-width: 850px) {
-    .scrolling-text {width: 270px;}
-    .scrolling-text h5 {font-size: 14px; padding: 0;}
-}
-@media (max-width: 480px) {
-    .scrolling-text {width: 170px;}
-    .scrolling-text h5 { font-size: 14px;}
-}
+# =========================================================
+# 🖼️ CSS
+# =========================================================
+def load_css(file_path: str):
+    with open(file_path) as f:
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
         
-</style>""", unsafe_allow_html=True)
+load_css("styles.css")
 # =========================================================
 # 🖼️ IMAGE UTILS
 # =========================================================
@@ -953,6 +825,7 @@ if (selected == 'Parkinsons Prediction'):
 
 #------------ Mmain Content Section End--------------------    
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

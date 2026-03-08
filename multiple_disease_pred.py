@@ -20,11 +20,10 @@ import base64
 import streamlit as st
 from streamlit_option_menu import option_menu
 
-def load_css(file_path: str):
-    with open(file_path) as f:
-        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+
+       # st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
         
-load_css("styles.css")
+
 # =========================================================
 # 🖼️ IMAGE UTILS
 # =========================================================
@@ -822,6 +821,7 @@ if (selected == 'Parkinsons Prediction'):
 
 #------------ Mmain Content Section End--------------------    
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

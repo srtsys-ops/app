@@ -70,7 +70,7 @@ with st.sidebar:
             <h2>🩺 Health Predictor</h2>
             <p>Disease Detection by ML</p>
             <p>Project Coordinator</p>
-            <p>Prof. Saravanan</p>
+            <p>Prof. Sharavanan</p>
         </div>
         """,
         unsafe_allow_html=True
@@ -117,15 +117,6 @@ with st.sidebar:
     )
     
 # =========================================================
-# 🎯 PAGE BACKGROUND PER MODULE
-# =========================================================
-if selected == "Diabetes Prediction":
-    set_bg("#0b132b", "#1c2541")
-elif selected == "Heart Disease Prediction":
-    set_bg("#4a0404", "#8b0000")
-else:
-    set_bg("#1f1147", "#5b2c83")
-# =========================================================
 # 🏫 FIXED HEADER
 # =========================================================
 st.markdown(f"""
@@ -137,7 +128,7 @@ st.markdown(f"""
                 <div class="scrolling-text">
                     <h5>
                         Name: THILAK S, 1st Year MSc Data Science | 
-                        Project Coordinator: Prof. Saravanan
+                        Project Coordinator: Prof. Sharavanan | Salem-11
                     </h5>
                 </div>
             </div>
@@ -148,6 +139,16 @@ st.markdown(f"""
  )
 #------------ Mmain Content Section  Start--------------------
 st.markdown('<div class="main-content">', unsafe_allow_html=True)
+
+# =========================================================
+# 🎯 PAGE BACKGROUND PER MODULE
+# =========================================================
+if selected == "Diabetes Prediction":
+    set_bg("#0b132b", "#1c2541")
+elif selected == "Heart Disease Prediction":
+    set_bg("#4a0404", "#8b0000")
+else:
+    set_bg("#1f1147", "#5b2c83")
 
 # =========================================================
 # 🩸 DIABETES PREDICTION MODULE
@@ -829,6 +830,7 @@ if (selected == 'Parkinsons Prediction'):
 
 #------------ Mmain Content Section End--------------------    
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

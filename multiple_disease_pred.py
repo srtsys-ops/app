@@ -77,6 +77,19 @@ with st.sidebar:
     )
     st.divider() 
 
+    #---------- Sidebar Menu Section ----------
+    selected = option_menu(
+        "Select Prediction",
+        ["Diabetes Prediction", "Heart Disease Prediction", "Parkinsons Prediction"],
+        icons=[
+            "droplet-half",      # Diabetes
+            "heart-fill",        # Heart
+            "person-lines-fill"  # Parkinson's
+        ],
+        default_index=0,
+    )
+    st.divider()    
+
     #---------- Sidebar Footer Section ----------
     st.markdown(
         """
@@ -812,6 +825,7 @@ if (selected == 'Parkinsons Prediction'):
 
 #------------ Mmain Content Section End--------------------    
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

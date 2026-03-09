@@ -164,7 +164,10 @@ if (selected == 'Diabetes Prediction'):
         "SkinThickness": 0, "Insulin": 0,  "BMI": 0.0,
         "DPF": 0.0,  "Age": 1
     }
-    
+    # Initialize session state keys if not already present
+    for key, value in defaults.items():
+        if key not in st.session_state:
+            st.session_state[key] = value
     # -----------------------------------------------------
     # 2️⃣ CLEAR FORM FUNCTION
     # -----------------------------------------------------
@@ -242,7 +245,7 @@ if (selected == 'Diabetes Prediction'):
     with st.form("diabetes_form"):
 
         # --- Row 1 ---
-        col1, col2, col3 = st.columns(3)
+        #col1, col2, col3 = st.columns(3)
         with col1:
             Pregnancies = st.number_input(
                 "Number of Pregnancies", 0, 20, key="Pregnancies"
@@ -279,7 +282,7 @@ if (selected == 'Diabetes Prediction'):
             )
         with col2:
             Age = st.number_input(
-                "Age", 0, 120, key="Age"
+                "Age", 1, 120, key="Age"
             )
     
         # -------------------------------------------------
@@ -825,6 +828,7 @@ if (selected == 'Parkinsons Prediction'):
 
 #------------ Mmain Content Section End--------------------    
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

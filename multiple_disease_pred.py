@@ -169,7 +169,7 @@ if (selected == 'Diabetes Prediction'):
     # 2️⃣ CLEAR FORM FUNCTION
     # -----------------------------------------------------
     # Resets all input fields back to default values
-    def clear_form():
+    def clear_diabetes_form():
         for key, value in defaults.items():
             st.session_state[key] = value
 
@@ -221,7 +221,7 @@ if (selected == 'Diabetes Prediction'):
         st.markdown("<br>", unsafe_allow_html=True)
            
     with col_btn2:      
-        st.button("🧹 Clear", type="secondary", on_click=clear_form)
+        st.button("🧹 Clear", type="secondary", on_click=clear_diabetes_form)
 
     # -----------------------------------------------------
     # 6️⃣ SAMPLE SELECTION DROPDOWN
@@ -825,6 +825,7 @@ if (selected == 'Parkinsons Prediction'):
 
 #------------ Mmain Content Section End--------------------    
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

@@ -159,7 +159,11 @@ if (selected == 'Diabetes Prediction'):
     # -----------------------------------------------------
     # These defaults ensure the form retains values
     # and can be reset or auto-filled safely
-
+    defaults = {
+        "Pregnancies": 0, "Glucose": 0, "BloodPressure": 0,
+        "SkinThickness": 0, "Insulin": 0,  "BMI": 0.0,
+        "DPF": 0.0,  "Age": 1
+    }
     
     # -----------------------------------------------------
     # 2️⃣ CLEAR FORM FUNCTION
@@ -275,7 +279,7 @@ if (selected == 'Diabetes Prediction'):
             )
         with col2:
             Age = st.number_input(
-                "Age", 1, 120, key="Age"
+                "Age", 0, 120, key="Age"
             )
     
         # -------------------------------------------------
@@ -821,6 +825,7 @@ if (selected == 'Parkinsons Prediction'):
 
 #------------ Mmain Content Section End--------------------    
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

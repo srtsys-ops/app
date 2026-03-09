@@ -63,7 +63,19 @@ parkinsons_model = pickle.load(open("parkinsons_model.sav", "rb"))
 # 📚 SIDEBAR
 # =========================================================
 with st.sidebar:  
-
+    #---------- Sidebar Header Section ----------
+    st.markdown(
+        """
+        <div class="sidebar-box sidebar-box1">
+            <h2>🩺 Health Predictor</h2>
+            <p>Disease Detection by ML</p>
+            <p>Project Coordinator</p>
+            <p>Prof. Saravanan</p>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+    st.divider() 
     
 # =========================================================
 # 🎯 PAGE BACKGROUND PER MODULE
@@ -778,6 +790,7 @@ if (selected == 'Parkinsons Prediction'):
 
 #------------ Mmain Content Section End--------------------    
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

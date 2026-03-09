@@ -245,7 +245,7 @@ if (selected == 'Diabetes Prediction'):
     with st.form("diabetes_form"):
 
         # --- Row 1 ---
-        col1, col2 = st.columns(2)
+        col1, col2 = st.columns(1)
         with col1:
             Pregnancies = st.number_input(
                 "Number of Pregnancies", 0, 20, key="Pregnancies"
@@ -825,6 +825,7 @@ if (selected == 'Parkinsons Prediction'):
 
 #------------ Mmain Content Section End--------------------    
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

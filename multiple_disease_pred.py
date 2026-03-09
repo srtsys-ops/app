@@ -159,16 +159,7 @@ if (selected == 'Diabetes Prediction'):
     # -----------------------------------------------------
     # These defaults ensure the form retains values
     # and can be reset or auto-filled safely
-    defaults = {
-        "Pregnancies": 0, "Glucose": 0, "BloodPressure": 0,
-        "SkinThickness": 0, "Insulin": 0,  "BMI": 0.0,
-        "DPF": 0.0,  "Age": 1
-    }
 
-    # Initialize session state keys if not already present
-    for key, value in defaults.items():
-        if key not in st.session_state:
-            st.session_state[key] = value
     
     # -----------------------------------------------------
     # 2️⃣ CLEAR FORM FUNCTION
@@ -830,6 +821,7 @@ if (selected == 'Parkinsons Prediction'):
 
 #------------ Mmain Content Section End--------------------    
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

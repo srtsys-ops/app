@@ -64,54 +64,7 @@ parkinsons_model = pickle.load(open("parkinsons_model.sav", "rb"))
 # =========================================================
 with st.sidebar:  
 
-    #---------- Sidebar Header Section ----------
-    st.markdown(
-        """
-        <div class="sidebar-box sidebar-box1">
-            <h2>🩺 Health Predictor</h2>
-            <p>Disease Detection by ML</p>
-            <p>Project Coordinator</p>
-            <p>Prof. Saravanan</p>
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
-    st.divider() 
-
-    #---------- Sidebar Menu Section ----------
-    selected = option_menu(
-        "Select Prediction",
-        ["Diabetes Prediction", "Heart Disease Prediction", "Parkinsons Prediction"],
-        icons=[
-            "droplet-half",      # Diabetes
-            "heart-fill",        # Heart
-            "person-lines-fill"  # Parkinson's
-        ],
-        default_index=0,
-    )
-    st.divider()    
-
-    #---------- Sidebar Footer Section ----------
-    st.markdown(
-        """
-        <div class="sidebar-box sidebar-box3">
-            <h3>THILAK S</h3>
-            <p>U25PG507DTS041</p>
-            <p>1<sup>st</sup> Year MSc Data Science</p>
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
-
-    #---------- Sidebar Footer Fixed ----------
-    st.markdown(
-        """
-        <div class="sidebar-footer">
-            <small>© 2026 Health AI</small>
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
+    
 # =========================================================
 # 🎯 PAGE BACKGROUND PER MODULE
 # =========================================================
@@ -825,6 +778,7 @@ if (selected == 'Parkinsons Prediction'):
 
 #------------ Mmain Content Section End--------------------    
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

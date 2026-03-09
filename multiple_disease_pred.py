@@ -245,7 +245,7 @@ if (selected == 'Diabetes Prediction'):
     with st.form("diabetes_form"):
 
         # --- Row 1 ---
-        col1, col2 = st.columns(1)
+        col1, col2, col3 = st.columns(3)
         with col1:
             Pregnancies = st.number_input(
                 "Number of Pregnancies", 0, 20, key="Pregnancies"
@@ -254,7 +254,10 @@ if (selected == 'Diabetes Prediction'):
             Glucose = st.number_input(
                 "Glucose Level (mg/dL)", 0, 300, key="Glucose"
             )
-       
+        with col3:
+            BloodPressure = st.number_input(
+                "Blood Pressure (mm Hg)", 0, 200, key="BloodPressure"
+            )       
 
         # --- Row 2 ---
         col1, col2, col3 = st.columns(3)
@@ -825,6 +828,7 @@ if (selected == 'Parkinsons Prediction'):
 
 #------------ Mmain Content Section End--------------------    
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

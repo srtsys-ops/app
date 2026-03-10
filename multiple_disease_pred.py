@@ -85,11 +85,7 @@ with st.sidebar:
          "Heart Disease Prediction", 
          "Parkinsons Prediction"
         ],
-        icons=[
-            "droplet-half",      # Diabetes
-            "heart-fill",        # Heart
-            "person-lines-fill"  # Parkinson's
-        ],
+        
         default_index=0,
     )
     st.divider()    
@@ -828,6 +824,7 @@ if (selected == 'Parkinsons Prediction'):
 
 #------------ Mmain Content Section End--------------------    
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

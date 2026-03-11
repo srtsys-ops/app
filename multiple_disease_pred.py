@@ -19,6 +19,7 @@ import pickle
 import base64
 import streamlit as st
 from streamlit_option_menu import option_menu
+import matplotlib.pyplot as plt
 
 # =========================================================
 # 🖼️ CSS
@@ -369,7 +370,7 @@ if (selected == 'Diabetes Prediction'):
             else:
                 st.success("🟢 Low Risk: The person is not Diabetic")
 
-            import matplotlib.pyplot as plt
+            
 
             safe = 100 - risk
             
@@ -388,17 +389,7 @@ if (selected == 'Diabetes Prediction'):
             st.pyplot(fig)
 
 
-            fig, ax = plt.subplots()
-
-            labels = ["Risk", "Healthy"]
-            values = [risk, 100-risk]
-            
-            ax.bar(labels, values)
-            
-            ax.set_ylabel("Percentage")
-            ax.set_title("Health Risk Analysis")
-            
-            st.pyplot(fig)
+           
                 
 
 # =========================================================
@@ -859,6 +850,7 @@ if (selected == 'Parkinsons Prediction'):
 
 #------------ Mmain Content Section End--------------------    
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

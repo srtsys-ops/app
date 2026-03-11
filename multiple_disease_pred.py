@@ -368,6 +368,37 @@ if (selected == 'Diabetes Prediction'):
                 st.warning("🟠 Moderate Risk — lifestyle changes advised")
             else:
                 st.success("🟢 Low Risk: The person is not Diabetic")
+
+            import matplotlib.pyplot as plt
+
+            safe = 100 - risk
+            
+            fig, ax = plt.subplots()
+            
+            labels = ["Risk", "Healthy"]
+            values = [risk, safe]
+            
+            ax.pie(values,
+                   labels=labels,
+                   autopct='%1.1f%%',
+                   startangle=90)
+            
+            ax.set_title("Disease Risk Distribution")
+            
+            st.pyplot(fig)
+
+
+            fig, ax = plt.subplots()
+
+            labels = ["Risk", "Healthy"]
+            values = [risk, 100-risk]
+            
+            ax.bar(labels, values)
+            
+            ax.set_ylabel("Percentage")
+            ax.set_title("Health Risk Analysis")
+            
+            st.pyplot(fig)
                 
 
 # =========================================================
@@ -828,6 +859,7 @@ if (selected == 'Parkinsons Prediction'):
 
 #------------ Mmain Content Section End--------------------    
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

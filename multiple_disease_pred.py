@@ -21,7 +21,7 @@ import streamlit as st
 from streamlit_option_menu import option_menu
 import matplotlib.pyplot as plt
 import plotly.graph_objects as go
-import time
+#import time
 
 # =========================================================
 # 🖼️ CSS
@@ -916,6 +916,7 @@ if (selected == 'Parkinsons Prediction'):
 
 #------------ Mmain Content Section End--------------------    
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

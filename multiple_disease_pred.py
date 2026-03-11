@@ -372,21 +372,21 @@ if (selected == 'Diabetes Prediction'):
 
             
 
-            # safe = 100 - risk
+            safe = 100 - risk
             
-            # fig, ax = plt.subplots()
+            fig, ax = plt.subplots()
             
-            # labels = ["Risk", "Healthy"]
-            # values = [risk, safe]
+            labels = ["Risk", "Healthy"]
+            values = [risk, safe]
             
-            # ax.pie(values,
-            #        labels=labels,
-            #        autopct='%1.1f%%',
-            #        startangle=90)
+            ax.pie(values,
+                   labels=labels,
+                   autopct='%1.1f%%',
+                   startangle=90)
             
-            # ax.set_title("Disease Risk Distribution")
+            ax.set_title("Disease Risk Distribution")
             
-            # st.pyplot(fig)
+            st.pyplot(fig)
 
 
            
@@ -850,6 +850,7 @@ if (selected == 'Parkinsons Prediction'):
 
 #------------ Mmain Content Section End--------------------    
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

@@ -388,25 +388,12 @@ if (selected == 'Diabetes Prediction'):
             ax.set_title("Disease Risk Distribution")
             
             st.pyplot(fig)
-
-            #--------------------------- Bar Chart -----------------
-            fig, ax = plt.subplots()
-
-            labels = ["Risk", "Healthy"]
-            values = [risk, 100-risk]
-            
-            ax.bar(labels, values)
-            
-            ax.set_ylabel("Percentage")
-            ax.set_title("Health Risk Analysis")
-            
-            st.pyplot(fig)
-
+          
             #--------------------------- Gauge Chart -----------------
             fig = go.Figure(go.Indicator(
                 mode = "gauge+number",
                 value = risk,
-                title = {'text': "Disease Risk"},
+                title = {'text': "Diabetes Risk Level"},
                 gauge = {
                     'axis': {'range': [0, 100]},
                     'bar': {'color': "blue"},
@@ -416,7 +403,8 @@ if (selected == 'Diabetes Prediction'):
                         {'range': [70, 100], 'color': "red"}]
                 }
             ))
-            
+
+            st.subheader("🏥 AI Risk Dashboard")
             st.plotly_chart(fig)
 
 
@@ -878,6 +866,7 @@ if (selected == 'Parkinsons Prediction'):
 
 #------------ Mmain Content Section End--------------------    
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

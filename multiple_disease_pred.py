@@ -402,8 +402,21 @@ if (selected == 'Diabetes Prediction'):
             
             st.pyplot(fig)
 
-
-           
+            #--------------------------- Gauge Chart -----------------
+           fig = go.Figure(go.Indicator(
+                mode = "gauge+number",
+                value = risk,
+                title = {'text': "Disease Risk"},
+                gauge = {
+                    'axis': {'range': [0, 100]},
+                    'steps': [
+                        {'range': [0, 40], 'color': "green"},
+                        {'range': [40, 70], 'color': "orange"},
+                        {'range': [70, 100], 'color': "red"}]
+                }
+            ))
+            
+            st.plotly_chart(fig)
                 
 
 # =========================================================
@@ -864,6 +877,7 @@ if (selected == 'Parkinsons Prediction'):
 
 #------------ Mmain Content Section End--------------------    
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

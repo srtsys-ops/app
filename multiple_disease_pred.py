@@ -409,6 +409,7 @@ if (selected == 'Diabetes Prediction'):
                 title = {'text': "Disease Risk"},
                 gauge = {
                     'axis': {'range': [0, 100]},
+                    'bar': {'color': "red"},
                     'steps': [
                         {'range': [0, 40], 'color': "green"},
                         {'range': [40, 70], 'color': "orange"},
@@ -877,6 +878,7 @@ if (selected == 'Parkinsons Prediction'):
 
 #------------ Mmain Content Section End--------------------    
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

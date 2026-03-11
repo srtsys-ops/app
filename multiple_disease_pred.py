@@ -21,7 +21,6 @@ import streamlit as st
 from streamlit_option_menu import option_menu
 import matplotlib.pyplot as plt
 import plotly.graph_objects as go
-#import time
 
 # =========================================================
 # 🖼️ CSS
@@ -420,44 +419,7 @@ if (selected == 'Diabetes Prediction'):
             
             st.plotly_chart(fig)
 
-            #--------------- animated --------
 
-            # def animated_gauge(risk, title):
-            
-            #     placeholder = st.empty()
-            
-            #     # animate from 0 to risk
-            #     for i in range(0, int(risk) + 1, 2):
-            
-            #         fig = go.Figure(go.Indicator(
-            #             mode="gauge+number",
-            #             value=i,
-            #             title={'text': title},
-            
-            #             gauge={
-            #                 'axis': {'range': [0, 100]},
-            #                 'bar': {'color': "red"},
-            
-            #                 'steps': [
-            #                     {'range': [0, 40], 'color': "green"},
-            #                     {'range': [40, 70], 'color': "orange"},
-            #                     {'range': [70, 100], 'color': "red"}
-            #                 ],
-            
-            #                 'threshold': {
-            #                     'line': {'color': "black", 'width': 4},
-            #                     'thickness': 0.75,
-            #                     'value': i
-            #                 }
-            #             }
-            #         ))
-            
-            #         placeholder.plotly_chart(fig, use_container_width=True)
-            #         time.sleep(0.02)
-
-
-            # st.subheader("🏥 AI Risk Dashboard")
-            # animated_gauge(risk, "Diabetes Risk Level")
 # =========================================================
 # ❤️ HEART DISEASE PREDICTION MODULE
 # =========================================================
@@ -916,6 +878,7 @@ if (selected == 'Parkinsons Prediction'):
 
 #------------ Mmain Content Section End--------------------    
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

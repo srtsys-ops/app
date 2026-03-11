@@ -403,7 +403,7 @@ if (selected == 'Diabetes Prediction'):
             st.pyplot(fig)
 
             #--------------------------- Gauge Chart -----------------
-           fig = go.Figure(go.Indicator(
+            fig = go.Figure(go.Indicator(
                 mode = "gauge+number",
                 value = risk,
                 title = {'text': "Disease Risk"},
@@ -877,6 +877,7 @@ if (selected == 'Parkinsons Prediction'):
 
 #------------ Mmain Content Section End--------------------    
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

@@ -22,6 +22,13 @@ from streamlit_option_menu import option_menu
 import matplotlib.pyplot as plt
 import plotly.graph_objects as go
 
+st.set_page_config(
+    page_title="Health Disease Predictor",
+    page_icon="🩺",
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
+
 # =========================================================
 # 🖼️ CSS
 # =========================================================
@@ -859,6 +866,7 @@ if (selected == 'Parkinsons Prediction'):
 
 #------------ Mmain Content Section End--------------------    
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

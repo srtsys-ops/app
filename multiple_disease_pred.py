@@ -79,7 +79,7 @@ with st.sidebar:
             <h2>🩺 Health Predictor</h2>
             <p>Disease Detection by ML</p>
             <p>Project Coordinator</p>
-            <p>Prof. Sharavanan</p>
+            <p>Mr.Sharavanan</p>
         </div>
         """,
         unsafe_allow_html=True
@@ -137,7 +137,7 @@ st.markdown(f"""
                 <div class="scrolling-text">
                     <h5>
                         Name: THILAK S, 1st Year MSc Data Science | 
-                        Project Coordinator: Prof. Sharavanan | Salem-11
+                        Project Coordinator: Mr.Sharavanan | Salem-11
                     </h5>
                 </div>
             </div>
@@ -866,6 +866,7 @@ if (selected == 'Parkinsons Prediction'):
 
 #------------ Mmain Content Section End--------------------    
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

@@ -371,24 +371,6 @@ if (selected == 'Diabetes Prediction'):
             else:
                 st.success("🟢 Low Risk: The person is not Diabetic")
 
-            
-            #--------------------------- Pie Chart -----------------
-            safe = 100 - risk
-            
-            fig, ax = plt.subplots()
-            
-            labels = ["Risk", "Healthy"]
-            values = [risk, safe]
-            
-            ax.pie(values,
-                   labels=labels,
-                   autopct='%1.1f%%',
-                   startangle=90)
-            
-            ax.set_title("Disease Risk Distribution")
-            
-            st.pyplot(fig)
-          
             #--------------------------- Gauge Chart -----------------
             fig = go.Figure(go.Indicator(
                 mode = "gauge+number",
@@ -406,8 +388,19 @@ if (selected == 'Diabetes Prediction'):
 
             st.subheader("🏥 AI Risk Dashboard")
             st.plotly_chart(fig)
-
-
+            
+            #--------------------------- Pie Chart -----------------
+            safe = 100 - risk            
+            fig, ax = plt.subplots()            
+            labels = ["Risk", "Healthy"]
+            values = [risk, safe]            
+            ax.pie(values,
+                   labels=labels,
+                   autopct='%1.1f%%',
+                   startangle=90)            
+            ax.set_title("Disease Risk Distribution")            
+            st.pyplot(fig)     
+            
 # =========================================================
 # ❤️ HEART DISEASE PREDICTION MODULE
 # =========================================================
@@ -866,6 +859,7 @@ if (selected == 'Parkinsons Prediction'):
 
 #------------ Mmain Content Section End--------------------    
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 

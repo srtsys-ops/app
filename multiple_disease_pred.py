@@ -371,7 +371,10 @@ if (selected == 'Diabetes Prediction'):
             fig = go.Figure(go.Indicator(
                 mode = "gauge+number",
                 value = risk,
-                title = {'text': "Diabetes Risk Level"},
+                number = {
+                    'suffix': "%",
+                    'valueformat': ".2f"   # shows 65.3%
+                },
                 gauge = {
                     'axis': {'range': [0, 100]},
                     'bar': {'color': "blue"},

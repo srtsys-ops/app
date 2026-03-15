@@ -369,28 +369,25 @@ if (selected == 'Diabetes Prediction'):
             #st.progress(int(risk))
             #--------------------------- Gauge Chart -----------------
             fig = go.Figure(go.Indicator(
-                mode = "gauge+number",
-                value = risk,
-                number = {
-                    'suffix': "%",
-                    'valueformat': ".2f",  # shows 65.3%
-                    'font': {'size': 40}
-                },
+                mode="gauge+number",
+                value=risk,
+                number={'suffix': "%", 'font': {'size': 40}},
                 title={'text': "Diabetes Risk Level", 'font': {'size': 24}},
-                gauge = {
+                gauge={
                     'axis': {'range': [0, 100]},
-                    'bar': {'color': "blue"},
+                    'bar': {'color': "darkblue"},
                     'steps': [
-                        {'range': [0, 40], 'color': "green"},
-                        {'range': [40, 70], 'color': "orange"},
-                        {'range': [70, 100], 'color': "red"}]
-                },
-                'threshold': {
-                    'line': {'color': "black", 'width': 4},
-                    'thickness': 0.75,
-                    'value': risk
+                        {'range': [0, 30], 'color': "#2ecc71"},
+                        {'range': [30, 60], 'color': "#f1c40f"},
+                        {'range': [60, 100], 'color': "#e74c3c"}
+                    ],
+                    'threshold': {
+                        'line': {'color': "black", 'width': 4},
+                        'thickness': 0.75,
+                        'value': risk
+                    }
                 }
-            ))
+            ))         
 
             #st.subheader("🏥 AI Risk Dashboard")
             st.plotly_chart(fig)

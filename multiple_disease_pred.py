@@ -365,19 +365,8 @@ if (selected == 'Diabetes Prediction'):
             # -------------------------------------------------           
             st.subheader("📊 Diabetes Risk Probability")
             
-            st.metric("Risk of Diabetes", f"{risk:.2f} %")
-            st.progress(int(risk))
-
-            # -------------------------------------------------
-            # 9.5️⃣ RISK CATEGORY INTERPRETATION
-            # -------------------------------------------------
-            if risk >= 70:
-                st.error("🔴 High Risk of Diabetes")
-            elif risk >= 40:
-                st.warning("🟠 Moderate Risk — lifestyle changes advised")
-            else:
-                st.success("🟢 Low Risk: The person is not Diabetic")
-
+            #st.metric("Risk of Diabetes", f"{risk:.2f} %")
+            #st.progress(int(risk))
             #--------------------------- Gauge Chart -----------------
             fig = go.Figure(go.Indicator(
                 mode = "gauge+number",
@@ -393,8 +382,20 @@ if (selected == 'Diabetes Prediction'):
                 }
             ))
 
-            st.subheader("🏥 AI Risk Dashboard")
+            #st.subheader("🏥 AI Risk Dashboard")
             st.plotly_chart(fig)
+
+            # -------------------------------------------------
+            # 9.5️⃣ RISK CATEGORY INTERPRETATION
+            # -------------------------------------------------
+            if risk >= 70:
+                st.error("🔴 High Risk of Diabetes")
+            elif risk >= 40:
+                st.warning("🟠 Moderate Risk — lifestyle changes advised")
+            else:
+                st.success("🟢 Low Risk: The person is not Diabetic")
+
+            
             
             #--------------------------- Pie Chart -----------------
             safe = 100 - risk            

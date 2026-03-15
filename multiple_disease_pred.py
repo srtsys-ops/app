@@ -406,15 +406,12 @@ if (selected == 'Diabetes Prediction'):
             
             #--------------------------- Pie Chart -----------------
             safe = 100 - risk            
-            fig, ax = plt.subplots()            
-            labels = ["Risk", "Healthy"]
-            values = [risk, safe]
-            colors = ["red", "green"]   # Risk = red, Healthy = green
-            explode = (0.1, 0)  # slightly separate risk slice
+            fig, ax = plt.subplots() 
+            values = [risk, safe]            
             ax.pie(values,
-                   labels=labels,
-                   colors=colors,
-                   explode=explode,
+                   labels=["Risk", "Healthy"],
+                   colors=["red", "green"], # Risk = red, Healthy = green
+                   explode=(0.1, 0),  # slightly separate risk slice
                    autopct='%1.1f%%',
                    startangle=90)            
             ax.set_title("Disease Risk Distribution")            

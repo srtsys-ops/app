@@ -410,9 +410,11 @@ if (selected == 'Diabetes Prediction'):
             labels = ["Risk", "Healthy"]
             values = [risk, safe]
             colors = ["red", "green"]   # Risk = red, Healthy = green
+            explode = (0.1, 0)  # slightly separate risk slice
             ax.pie(values,
                    labels=labels,
                    colors=colors,
+                   explode=explode,
                    autopct='%1.1f%%',
                    startangle=90)            
             ax.set_title("Disease Risk Distribution")            

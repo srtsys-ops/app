@@ -373,14 +373,14 @@ if (selected == 'Diabetes Prediction'):
                 value=risk,
                 number={'suffix': "%", 'font': {'size': 40}},
                 title={'text': "Diabetes Risk Level", 'font': {'size': 24}},
-                gauge={
+                gauge = {
                     'axis': {'range': [0, 100]},
-                    'bar': {'color': "darkblue"},
+                    'bar': {'color': "blue"},
                     'steps': [
-                        {'range': [0, 30], 'color': "#2ecc71"},
-                        {'range': [30, 60], 'color': "#f1c40f"},
-                        {'range': [60, 100], 'color': "#e74c3c"}
-                    ],
+                        {'range': [0, 40], 'color': "green"},
+                        {'range': [40, 70], 'color': "orange"},
+                        {'range': [70, 100], 'color': "red"}
+                     ],                    
                     'threshold': {
                         'line': {'color': "black", 'width': 4},
                         'thickness': 0.75,

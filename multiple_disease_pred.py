@@ -408,9 +408,11 @@ if (selected == 'Diabetes Prediction'):
             safe = 100 - risk            
             fig, ax = plt.subplots()            
             labels = ["Risk", "Healthy"]
-            values = [risk, safe]            
+            values = [risk, safe]
+            colors = ["red", "green"]   # Risk = red, Healthy = green
             ax.pie(values,
                    labels=labels,
+                   colors=colors,
                    autopct='%1.1f%%',
                    startangle=90)            
             ax.set_title("Disease Risk Distribution")            

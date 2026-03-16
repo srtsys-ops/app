@@ -401,10 +401,8 @@ if (selected == 'Diabetes Prediction'):
                     paper_bgcolor="rgba(0,0,0,0)",
                     plot_bgcolor="rgba(0,0,0,0)",
                     font={'color': 'white'}
-                )
-                
-                st.plotly_chart(fig_gauge, use_container_width=True)
-            
+                )                
+                st.plotly_chart(fig_gauge, use_container_width=True)            
             # ---------------- Pie Chart ----------------
             with col2:               
                 st.markdown(
@@ -427,13 +425,10 @@ if (selected == 'Diabetes Prediction'):
                     autopct='%1.1f%%',
                     startangle=90,
                     textprops={'color': "white"}  # label color
-                )
-                
+                )               
                 #ax.set_title("Disease Risk Distribution", color="white")
                 fig_pie.patch.set_alpha(0)
-                st.pyplot(fig_pie)
-                    
-           
+                st.pyplot(fig_pie)   
             # -------------------------------------------------
             # 9.5️⃣ RISK CATEGORY INTERPRETATION
             # -------------------------------------------------           
@@ -442,11 +437,7 @@ if (selected == 'Diabetes Prediction'):
             elif risk >= 40:
                 st.warning("🟠 Moderate Risk — lifestyle changes advised")
             else:
-                st.success("🟢 Low Risk: The person is not Diabetic")     
-            
-            
-           
-            
+                st.success("🟢 Low Risk: The person is not Diabetic")   
 # =========================================================
 # ❤️ HEART DISEASE PREDICTION MODULE
 # =========================================================
@@ -685,8 +676,7 @@ if selected == 'Heart Disease Prediction':
                     font={'color': 'white'}
                 )
             
-                st.plotly_chart(fig_gauge, use_container_width=True)
-            
+                st.plotly_chart(fig_gauge, use_container_width=True)            
             # ---------------- Pie Chart ----------------
             with col2:
                 st.markdown(
@@ -708,14 +698,10 @@ if selected == 'Heart Disease Prediction':
                     autopct='%1.1f%%',
                     startangle=90,
                     textprops={'color': "white"}
-                )
-            
-                #ax.set_title("Disease Risk Distribution", color="white")
-            
-                fig_pie.patch.set_alpha(0)
-            
+                )            
+                #ax.set_title("Disease Risk Distribution", color="white")            
+                fig_pie.patch.set_alpha(0)            
                 st.pyplot(fig_pie)
-
             # -------------------------------------------------
             # 1️⃣1️⃣ RISK CATEGORY INTERPRETATION
             # -------------------------------------------------
@@ -725,10 +711,6 @@ if selected == 'Heart Disease Prediction':
                 st.warning("🟠 Moderate Risk — medical consultation advised")
             else:
                 st.success("🟢 Low Risk of Heart Disease Detected")
-
-
-
-
 # =========================================================
 # 🧠 PARKINSON’S DISEASE PREDICTION MODULE
 # =========================================================

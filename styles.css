@@ -142,15 +142,19 @@ section[data-testid="stSidebar"] hr { border-color: rgba(255,255,255,0.3); }
    transition: all 0.3s ease;
 } */
 
+/* Default state */
 .stMainBlockContainer{
-    transition: transform 0.3s ease;
+    position: relative;
+    left: 0;
+    transition: left 0.3s ease;
 }
 
+/* When sidebar opens */
 section[data-testid="stSidebar"][aria-expanded="true"] 
 + div.st-emotion-cache-6px8kg 
 section[data-testid="stMain"] 
 .stMainBlockContainer
 {
-   transform: translateX(-170px);
+   left: -170px !important;
 }
 

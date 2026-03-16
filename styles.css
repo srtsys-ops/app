@@ -134,16 +134,9 @@ section[data-testid="stSidebar"] hr { border-color: rgba(255,255,255,0.3); }
 
 
 /* When sidebar opens */
-section[data-testid="stSidebar"][aria-expanded="true"] {
-    left: 0 !important;
+section[data-testid="stSidebar"][aria-expanded="true"]  .stMainBlockContainer {
+    left: -170px;
+    position: relative;
 }
 
-/* Prevent main content from shifting */
-[data-testid="stSidebar"] + div {
-    margin-left: 0 !important;
-}
 
-/* Optional shadow for overlay effect */
-section[data-testid="stSidebar"] {
-    box-shadow: 0 0 20px rgba(0,0,0,0.5);
-}

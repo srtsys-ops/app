@@ -139,5 +139,6 @@ section[data-testid="stSidebar"][aria-expanded="true"]
 {   
    left: -170px !important;
    position: relative;
+   transition: all 0.3s ease;
 }
 

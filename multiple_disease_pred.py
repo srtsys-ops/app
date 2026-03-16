@@ -612,6 +612,17 @@ if selected == 'Heart Disease Prediction':
             proba = heart_disease_model.predict_proba(input_data)
             risk = proba[0][1] * 100   # Probability of disease
             safe = proba[0][0] * 100
+
+            prediction = heart_disease_model.predict(input_data)
+
+            # -------------------------------------------------
+            # 🔟 RESULT DISPLAY
+            # -------------------------------------------------
+            if prediction[0] == 1:
+                st.error("🔴 Heart Disease Detected")
+            else:
+                st.success("🟢 No Heart Disease Detected")           
+
     
             # -------------------------------------------------
             # 🔟 RESULT VISUALIZATION
@@ -693,7 +704,7 @@ if selected == 'Heart Disease Prediction':
             elif risk >= 40:
                 st.warning("🟠 Moderate Risk — medical consultation advised")
             else:
-                st.success("🟢 Low Risk Detected")
+                st.success("🟢 Low Risk of Heart Disease Detected")
 
 
 
@@ -923,9 +934,7 @@ if (selected == 'Parkinsons Prediction'):
             if prediction[0] == 1:
                 st.error("🔴 Parkinson’s Disease Detected")
             else:
-                st.success("🟢 No Parkinson’s Disease Detected")
-
-            prediction = parkinsons_model.predict(input_data)
+                st.success("🟢 No Parkinson’s Disease Detected")           
 
             # --------------------------------------------
             # 📊 RISK PROBABILITY CALCULATION

@@ -435,7 +435,7 @@ if (selected == 'Diabetes Prediction'):
             
            
             # Reduce vertical space
-            st.markdown("<div class="footer-report"></div>", unsafe_allow_html=True)
+            st.markdown('<div class="footer-report"></div>', unsafe_allow_html=True)
             # -------------------------------------------------
             # 9.5️⃣ RISK CATEGORY INTERPRETATION
             # -------------------------------------------------           

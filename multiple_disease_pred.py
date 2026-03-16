@@ -398,6 +398,7 @@ if (selected == 'Diabetes Prediction'):
             
                 fig_gauge.update_layout(
                     height=350,
+                    top: -40,
                     paper_bgcolor="rgba(0,0,0,0)",
                     plot_bgcolor="rgba(0,0,0,0)",
                     font={'color': 'white'}

@@ -184,6 +184,9 @@ if (selected == 'Diabetes Prediction'):
     def clear_diabetes_form():
         for key, value in defaults.items():
             st.session_state[key] = value
+    
+        # reset dropdown
+        st.session_state["diabetes_sample"] = "Select Sample"
 
     # -----------------------------------------------------
     # 3️⃣ SAMPLE PATIENT DATA (FOR DEMO PURPOSE)
@@ -241,12 +244,12 @@ if (selected == 'Diabetes Prediction'):
     sample_choice = st.selectbox(
         "🧪 Load Sample Patient",
         list(DIABETES_SAMPLES.keys()),
-        index=0
+        key="diabetes_sample"
     )
 
     # Load sample data when selected
-    if sample_choice != "Select Sample":
-        apply_diabetes_sample(sample_choice)
+    if st.session_state.diabetes_sample != "Select Sample":
+        apply_diabetes_sample(st.session_state.diabetes_sample)
            
     # -----------------------------------------------------
     # 7️⃣ DIABETES INPUT FORM

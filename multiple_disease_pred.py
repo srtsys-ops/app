@@ -401,7 +401,7 @@ if (selected == 'Diabetes Prediction'):
             with col2:
                 safe = 100 - risk
 
-                fig_pie, ax = plt.subplots()
+                fig_pie, ax = plt.subplots(figsize=(4,3.5), dpi=100)
                 
                 # Set background colors
                 fig_pie.patch.set_facecolor("black")   # whole figure background

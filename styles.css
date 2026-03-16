@@ -130,7 +130,7 @@ section[data-testid="stSidebar"] hr { border-color: rgba(255,255,255,0.3); }
 }
 
 
-@media (min-width: 768px) {
+@media (min-width: 1004px) {
 
     /* Default state */
     .stMainBlockContainer{

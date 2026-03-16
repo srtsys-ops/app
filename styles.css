@@ -134,9 +134,11 @@ section[data-testid="stSidebar"] hr { border-color: rgba(255,255,255,0.3); }
 
 
 /* When sidebar opens */
-section[data-testid="stSidebar"][aria-expanded="true"]  .stMainBlockContainer {
-    left: -170px;
-    position: relative;
+section[data-testid="stSidebar"][aria-expanded="true"] 
++ div.block-container {
+   filter: blur(3px);
+   left: -170px !important;
+   position: relative;
 }
 
 

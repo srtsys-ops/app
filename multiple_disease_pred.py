@@ -660,11 +660,15 @@ if selected == 'Heart Disease Prediction':
             
             # ---------------- Gauge Chart ----------------
             with col1:
+                st.markdown(
+                    "<h5 style='text-align: center;'Heart Disease Risk Level</h5>",
+                    unsafe_allow_html=True
+                )
                 fig_gauge = go.Figure(go.Indicator(
                     mode="gauge+number",
                     value=risk,
                     number={'suffix': "%", 'font': {'size': 40}},
-                    title={'text': "Heart Disease Risk Level", 'font': {'size': 24}},
+                    #title={'text': "Heart Disease Risk Level", 'font': {'size': 24}},
                     gauge={
                         'axis': {'range': [0, 100], 'tickcolor': "white"},
                         'bar': {'color': "blue"},
@@ -687,6 +691,10 @@ if selected == 'Heart Disease Prediction':
             
             # ---------------- Pie Chart ----------------
             with col2:
+                st.markdown(
+                    "<h4 style='text-align: center;'>Disease Risk Distribution</h4>",
+                    unsafe_allow_html=True
+                )
                 safe = 100 - risk
             
                 fig_pie, ax = plt.subplots(figsize=(4,3.5), dpi=100)
@@ -704,7 +712,7 @@ if selected == 'Heart Disease Prediction':
                     textprops={'color': "white"}
                 )
             
-                ax.set_title("Disease Risk Distribution", color="white")
+                #ax.set_title("Disease Risk Distribution", color="white")
             
                 fig_pie.patch.set_alpha(0)
             
@@ -972,11 +980,15 @@ if (selected == 'Parkinsons Prediction'):
             
             # ---------------- Gauge Chart ----------------
             with col1:
+                st.markdown(
+                    "<h5 style='text-align: center;'Parkinson’s Risk Level</h5>",
+                    unsafe_allow_html=True
+                )
                 fig_gauge = go.Figure(go.Indicator(
                     mode="gauge+number",
                     value=risk,
                     number={'suffix': "%", 'font': {'size': 40}},
-                    title={'text': "Parkinson’s Risk Level", 'font': {'size': 24}},
+                    #title={'text': "Parkinson’s Risk Level", 'font': {'size': 24}},
                     gauge={
                         'axis': {'range': [0, 100], 'tickcolor': "white"},
                         'bar': {'color': "blue"},
@@ -999,6 +1011,10 @@ if (selected == 'Parkinsons Prediction'):
             
             # ---------------- Pie Chart ----------------
             with col2:
+                st.markdown(
+                    "<h4 style='text-align: center;'>Disease Risk Distribution</h4>",
+                    unsafe_allow_html=True
+                )
                 safe = 100 - risk
             
                 fig_pie, ax = plt.subplots(figsize=(4,3.5), dpi=100)
@@ -1016,7 +1032,7 @@ if (selected == 'Parkinsons Prediction'):
                     textprops={'color': "white"}
                 )
             
-                ax.set_title("Disease Risk Distribution", color="white")
+                #ax.set_title("Disease Risk Distribution", color="white")
             
                 fig_pie.patch.set_alpha(0)
             
@@ -1033,68 +1049,3 @@ if (selected == 'Parkinsons Prediction'):
 
 #------------ Mmain Content Section End--------------------    
 st.markdown('</div>', unsafe_allow_html=True)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

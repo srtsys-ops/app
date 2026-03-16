@@ -396,8 +396,8 @@ if (selected == 'Diabetes Prediction'):
 
                 fig_gauge.update_layout(
                     height=350,
-                    paper_bgcolor="black",
-                    plot_bgcolor="black",
+                    paper_bgcolor="rgba(0,0,0,0)",   # transparent outer background
+                    plot_bgcolor="rgba(0,0,0,0)",    # transparent chart background
                     font={'color': 'white'}
                 )
                 st.plotly_chart(fig_gauge, use_container_width=True)

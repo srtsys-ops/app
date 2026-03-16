@@ -377,7 +377,7 @@ if (selected == 'Diabetes Prediction'):
             # ---------------- Gauge Chart ----------------
             with col1:               
                 st.markdown(
-                    "<h4 style='text-align: center;'>Diabetes Risk Level</h4>",
+                    "<h5 style='text-align: center;'>Diabetes Risk Level</h5>",
                     unsafe_allow_html=True
                 )
                 fig_gauge = go.Figure(go.Indicator(

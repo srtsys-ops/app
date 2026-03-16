@@ -399,20 +399,25 @@ if (selected == 'Diabetes Prediction'):
             # ---------------- Pie Chart ----------------
             with col2:
                 safe = 100 - risk
-            
+
                 fig_pie, ax = plt.subplots()
-            
+                
+                # Set background colors
+                fig_pie.patch.set_facecolor("black")   # whole figure background
+                ax.set_facecolor("black")              # chart area background
+                
                 ax.pie(
                     [risk, safe],
                     labels=["Risk", "Healthy"],
                     colors=["red", "green"],
                     explode=(0.1, 0),
                     autopct='%1.1f%%',
-                    startangle=90
+                    startangle=90,
+                    textprops={'color': "white"}  # label color
                 )
-            
-                ax.set_title("Disease Risk Distribution")
-            
+                
+                ax.set_title("Disease Risk Distribution", color="white")
+                
                 st.pyplot(fig_pie)
             
            

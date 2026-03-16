@@ -369,7 +369,7 @@ if (selected == 'Diabetes Prediction'):
             #st.progress(int(risk))
             st.subheader("📊 Diabetes Risk Probability")
 
-            col1, col2 = st.columns([2,1])
+            col1, col2 = st.columns(2)
 
             # ---------------- Gauge Chart ----------------
             with col1:

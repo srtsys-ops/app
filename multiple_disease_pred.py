@@ -423,7 +423,7 @@ if (selected == 'Diabetes Prediction'):
                 )
                 
                 ax.set_title("Disease Risk Distribution", color="white")
-                
+                fig_pie.patch.set_alpha(0)
                 st.pyplot(fig_pie)
             
            

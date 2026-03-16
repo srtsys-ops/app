@@ -953,7 +953,7 @@ if (selected == 'Parkinsons Prediction'):
                     title={'text': "Parkinson’s Risk Level", 'font': {'size': 24}},
                     gauge={
                         'axis': {'range': [0, 100], 'tickcolor': "white"},
-                        'bar': {'color': "purple"},
+                        'bar': {'color': "blue"},
                         'steps': [
                             {'range': [0, 40], 'color': "green"},
                             {'range': [40, 70], 'color': "orange"},
@@ -1003,7 +1003,7 @@ if (selected == 'Parkinsons Prediction'):
             elif risk >= 40:
                 st.warning("🟠 Moderate Risk — Neurological evaluation advised")
             else:
-                st.success("🟢 Low Risk")
+                st.success("🟢 Low Risk of Parkinson’s Disease")
 
 #------------ Mmain Content Section End--------------------    
 st.markdown('</div>', unsafe_allow_html=True)

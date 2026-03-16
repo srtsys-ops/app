@@ -377,14 +377,14 @@ if (selected == 'Diabetes Prediction'):
             # ---------------- Gauge Chart ----------------
             with col1:               
                 st.markdown(
-                    "<h3 style='text-align: center;'>Diabetes Risk Level</h3>",
+                    "<h4 style='text-align: center;'>Diabetes Risk Level</h4>",
                     unsafe_allow_html=True
                 )
                 fig_gauge = go.Figure(go.Indicator(
                     mode="gauge+number",
                     value=risk,
                     number={'suffix': "%", 'font': {'size': 40}},
-                    title={'text': "Diabetes Risk Level", 'font': {'size': 24}},
+                    #title={'text': "Diabetes Risk Level", 'font': {'size': 24}},
                     gauge={
                         'axis': {'range': [0, 100], 'tickcolor': "white"},
                         'bar': {'color': "blue"},
@@ -408,7 +408,7 @@ if (selected == 'Diabetes Prediction'):
             # ---------------- Pie Chart ----------------
             with col2:               
                 st.markdown(
-                    "<h3 style='text-align: center;'>Disease Risk Distribution</h3>",
+                    "<h4 style='text-align: center;'>Disease Risk Distribution</h4>",
                     unsafe_allow_html=True
                 )
                 safe = 100 - risk
@@ -429,7 +429,7 @@ if (selected == 'Diabetes Prediction'):
                     textprops={'color': "white"}  # label color
                 )
                 
-                ax.set_title("Disease Risk Distribution", color="white")
+                #ax.set_title("Disease Risk Distribution", color="white")
                 fig_pie.patch.set_alpha(0)
                 st.pyplot(fig_pie)
             

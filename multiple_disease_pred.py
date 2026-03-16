@@ -439,12 +439,12 @@ if (selected == 'Diabetes Prediction'):
             # 9.5️⃣ RISK CATEGORY INTERPRETATION
             # -------------------------------------------------
             st.markdown('<div class="footer-report">', unsafe_allow_html=True)
-                if risk >= 70:
-                    st.error("🔴 High Risk of Diabetes")
-                elif risk >= 40:
-                    st.warning("🟠 Moderate Risk — lifestyle changes advised")
-                else:
-                    st.success("🟢 Low Risk: The person is not Diabetic")
+            if risk >= 70:
+                st.error("🔴 High Risk of Diabetes")
+            elif risk >= 40:
+                st.warning("🟠 Moderate Risk — lifestyle changes advised")
+            else:
+                st.success("🟢 Low Risk: The person is not Diabetic")
             st.markdown('</div>', unsafe_allow_html=True)
             
             

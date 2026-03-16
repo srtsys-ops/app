@@ -393,7 +393,8 @@ if (selected == 'Diabetes Prediction'):
                         }
                     }
                 ))
-            
+
+                fig_gauge.update_layout(height=350)   # same height
                 st.plotly_chart(fig_gauge, use_container_width=True)
             
             # ---------------- Pie Chart ----------------

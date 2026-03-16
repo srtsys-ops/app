@@ -397,8 +397,8 @@ if (selected == 'Diabetes Prediction'):
                 ))
             
                 fig_gauge.update_layout(
-                    height=350,
-                    top: -40,
+                    height=350,   
+                    margin=dict(t=40, b=0, l=0, r=0),   # move chart upward
                     paper_bgcolor="rgba(0,0,0,0)",
                     plot_bgcolor="rgba(0,0,0,0)",
                     font={'color': 'white'}

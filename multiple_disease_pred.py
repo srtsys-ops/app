@@ -394,7 +394,7 @@ if (selected == 'Diabetes Prediction'):
                     }
                 ))
 
-                 fig_gauge.update_layout(
+                fig_gauge.update_layout(
                     height=350,
                     paper_bgcolor="black",
                     plot_bgcolor="black",

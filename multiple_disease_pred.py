@@ -434,18 +434,17 @@ if (selected == 'Diabetes Prediction'):
                 st.pyplot(fig_pie)
             
            
-
+            # Reduce vertical space
+            st.markdown("<div style='margin-top:-50px'></div>", unsafe_allow_html=True)
             # -------------------------------------------------
             # 9.5️⃣ RISK CATEGORY INTERPRETATION
-            # -------------------------------------------------
-            st.markdown('<div class="footer-report">', unsafe_allow_html=True)
+            # -------------------------------------------------           
             if risk >= 70:
                 st.error("🔴 High Risk of Diabetes")
             elif risk >= 40:
                 st.warning("🟠 Moderate Risk — lifestyle changes advised")
             else:
-                st.success("🟢 Low Risk: The person is not Diabetic")
-            st.markdown('</div>', unsafe_allow_html=True)
+                st.success("🟢 Low Risk: The person is not Diabetic")     
             
             
            

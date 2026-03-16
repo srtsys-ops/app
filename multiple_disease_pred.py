@@ -376,31 +376,45 @@ if (selected == 'Diabetes Prediction'):
                 fig_gauge = go.Figure(go.Indicator(
                     mode="gauge+number",
                     value=risk,
-                    number={'suffix': "%", 'font': {'size': 40}},
-                    title={'text': "Diabetes Risk Level", 'font': {'size': 24}},
+                    number={'suffix': "%", 'font': {'size': 42}},
+                    title={'text': "Diabetes Risk Level", 'font': {'size': 26}},
+                    
                     gauge={
-                        'axis': {'range': [0, 100]},
-                        'bar': {'color': "blue"},
+                        'axis': {'range': [0, 100], 'tickcolor': "white"},
+                        
+                        'bar': {'color': "#00BFFF"},   # modern blue
+                        
                         'steps': [
-                            {'range': [0, 40], 'color': "green"},
-                            {'range': [40, 70], 'color': "orange"},
-                            {'range': [70, 100], 'color': "red"}
+                            {'range': [0, 40], 'color': "#2ecc71"},   # green
+                            {'range': [40, 70], 'color': "#f39c12"},  # orange
+                            {'range': [70, 100], 'color': "#e74c3c"}  # red
                         ],
+                
                         'threshold': {
-                            'line': {'color': "black", 'width': 4},
-                            'thickness': 0.75,
+                            'line': {'color': "white", 'width': 5},
+                            'thickness': 0.8,
                             'value': risk
                         }
-                    }
+                    },
+                    
+                    domain={'x': [0, 1], 'y': [0, 1]}
                 ))
-
+                
                 fig_gauge.update_layout(
                     height=350,
-                    paper_bgcolor="rgba(0,0,0,0)",   # transparent outer background
-                    plot_bgcolor="rgba(0,0,0,0)",    # transparent chart background
+                    margin=dict(t=40, b=0, l=0, r=0),
+                
+                    paper_bgcolor="rgba(0,0,0,0)",  # transparent
+                    plot_bgcolor="rgba(0,0,0,0)",
+                
                     font={'color': 'white'}
                 )
-                st.plotly_chart(fig_gauge, use_container_width=True)
+                
+                st.plotly_chart(
+                    fig_gauge,
+                    use_container_width=True,
+                    config={'displayModeBar': False}
+                )
             
             # ---------------- Pie Chart ----------------
             with col2:

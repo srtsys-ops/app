@@ -363,7 +363,7 @@ if (selected == 'Diabetes Prediction'):
             # -------------------------------------------------
             # 9.4️⃣ RISK VISUALIZATION      
             # -------------------------------------------------           
-            st.subheader("📊 Diabetes Risk Probability")
+            #st.subheader("📊 Diabetes Risk Probability")
             
             #st.metric("Risk of Diabetes", f"{risk:.2f} %")
             #st.progress(int(risk))
@@ -415,30 +415,7 @@ if (selected == 'Diabetes Prediction'):
             
                 st.pyplot(fig_pie)
             
-            #--------------------------- Gauge Chart -----------------
-            fig = go.Figure(go.Indicator(
-                mode="gauge+number",
-                value=risk,
-                number={'suffix': "%", 'font': {'size': 40}},
-                title={'text': "Diabetes Risk Level", 'font': {'size': 24}},
-                gauge = {
-                    'axis': {'range': [0, 100]},
-                    'bar': {'color': "blue"},
-                    'steps': [
-                        {'range': [0, 40], 'color': "green"},
-                        {'range': [40, 70], 'color': "orange"},
-                        {'range': [70, 100], 'color': "red"}
-                     ],                    
-                    'threshold': {
-                        'line': {'color': "black", 'width': 4},
-                        'thickness': 0.75,
-                        'value': risk
-                    }
-                }
-            ))         
-
-            #st.subheader("🏥 AI Risk Dashboard")
-            st.plotly_chart(fig)
+           
 
             # -------------------------------------------------
             # 9.5️⃣ RISK CATEGORY INTERPRETATION
@@ -452,18 +429,7 @@ if (selected == 'Diabetes Prediction'):
 
             
             
-            #--------------------------- Pie Chart -----------------
-            safe = 100 - risk            
-            fig, ax = plt.subplots() 
-            values = [risk, safe]            
-            ax.pie(values,
-                   labels=["Risk", "Healthy"],
-                   colors=["red", "green"], # Risk = red, Healthy = green
-                   explode=(0.1, 0),  # slightly separate risk slice
-                   autopct='%1.1f%%',
-                   startangle=90)            
-            ax.set_title("Disease Risk Distribution")            
-            st.pyplot(fig)     
+           
             
 # =========================================================
 # ❤️ HEART DISEASE PREDICTION MODULE

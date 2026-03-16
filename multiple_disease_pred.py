@@ -367,6 +367,54 @@ if (selected == 'Diabetes Prediction'):
             
             #st.metric("Risk of Diabetes", f"{risk:.2f} %")
             #st.progress(int(risk))
+            st.subheader("📊 Diabetes Risk Probability")
+
+            col1, col2 = st.columns(2)
+
+            # ---------------- Gauge Chart ----------------
+            with col1:
+                fig_gauge = go.Figure(go.Indicator(
+                    mode="gauge+number",
+                    value=risk,
+                    number={'suffix': "%", 'font': {'size': 40}},
+                    title={'text': "Diabetes Risk Level", 'font': {'size': 24}},
+                    gauge={
+                        'axis': {'range': [0, 100]},
+                        'bar': {'color': "blue"},
+                        'steps': [
+                            {'range': [0, 40], 'color': "green"},
+                            {'range': [40, 70], 'color': "orange"},
+                            {'range': [70, 100], 'color': "red"}
+                        ],
+                        'threshold': {
+                            'line': {'color': "black", 'width': 4},
+                            'thickness': 0.75,
+                            'value': risk
+                        }
+                    }
+                ))
+            
+                st.plotly_chart(fig_gauge, use_container_width=True)
+            
+            # ---------------- Pie Chart ----------------
+            with col2:
+                safe = 100 - risk
+            
+                fig_pie, ax = plt.subplots()
+            
+                ax.pie(
+                    [risk, safe],
+                    labels=["Risk", "Healthy"],
+                    colors=["red", "green"],
+                    explode=(0.1, 0),
+                    autopct='%1.1f%%',
+                    startangle=90
+                )
+            
+                ax.set_title("Disease Risk Distribution")
+            
+                st.pyplot(fig_pie)
+            
             #--------------------------- Gauge Chart -----------------
             fig = go.Figure(go.Indicator(
                 mode="gauge+number",

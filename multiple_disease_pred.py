@@ -375,9 +375,11 @@ if (selected == 'Diabetes Prediction'):
             col1, col2 = st.columns(2)
 
             # ---------------- Gauge Chart ----------------
-            with col1:
-                st.title("Diabetes Risk Level")
-                
+            with col1:               
+                st.markdown(
+                    "<h3 style='text-align: center;'>Diabetes Risk Level</h3>",
+                    unsafe_allow_html=True
+                )
                 fig_gauge = go.Figure(go.Indicator(
                     mode="gauge+number",
                     value=risk,
@@ -404,8 +406,11 @@ if (selected == 'Diabetes Prediction'):
                 st.plotly_chart(fig_gauge, use_container_width=True)
             
             # ---------------- Pie Chart ----------------
-            with col2:
-                st.title("Disease Risk Distribution")
+            with col2:               
+                st.markdown(
+                    "<h3 style='text-align: center;'>Disease Risk Distribution</h3>",
+                    unsafe_allow_html=True
+                )
                 safe = 100 - risk
 
                 fig_pie, ax = plt.subplots(figsize=(4,3.5), dpi=100)

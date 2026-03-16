@@ -747,6 +747,9 @@ if (selected == 'Parkinsons Prediction'):
     def clear_parkinsons_form():
         for key, val in parkinsons_defaults.items():
             st.session_state[key] = val
+    
+        # Reset dropdown
+        st.session_state["parkinsons_sample"] = "Select Sample"
 
     # -----------------------------------------------------
     # 3️⃣ SAMPLE VOICE DATA (FOR DEMONSTRATION)
@@ -835,11 +838,11 @@ if (selected == 'Parkinsons Prediction'):
     sample_choice = st.selectbox(
         "🧪 Load Sample Voice Data",
         list(PARKINSONS_SAMPLES.keys()),
-        index=0
+        key="parkinsons_sample"
     )
     
-    if sample_choice != "Select Sample":
-        apply_parkinsons_sample(sample_choice)    
+    if st.session_state.parkinsons_sample != "Select Sample":
+        apply_parkinsons_sample(st.session_state.parkinsons_sample)  
 
     # -----------------------------------------------------
     # 7️⃣ PARKINSON’S INPUT FORM      

@@ -432,10 +432,8 @@ if (selected == 'Diabetes Prediction'):
                 #ax.set_title("Disease Risk Distribution", color="white")
                 fig_pie.patch.set_alpha(0)
                 st.pyplot(fig_pie)
-            
+                    
            
-            # Reduce vertical space
-            st.markdown('<div class="footer-report"></div>', unsafe_allow_html=True)
             # -------------------------------------------------
             # 9.5️⃣ RISK CATEGORY INTERPRETATION
             # -------------------------------------------------           

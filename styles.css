@@ -128,3 +128,32 @@ section[data-testid="stSidebar"] hr { border-color: rgba(255,255,255,0.3); }
     .scrolling-text {width: 170px;}
     .scrolling-text h5 { font-size: 14px;}
 }
+
+
+/* ---------- Sidebar Overlay Mode ---------- */
+
+/* Sidebar fixed position */
+section[data-testid="stSidebar"] {
+    position: fixed;
+    left: -270px;          /* hide sidebar initially */
+    top: 0;
+    height: 100vh;
+    width: 260px !important;
+    transition: all 0.3s ease;
+    z-index: 9999;
+}
+
+/* When sidebar opens */
+section[data-testid="stSidebar"][aria-expanded="true"] {
+    left: 0;
+}
+
+/* Prevent main content from shifting */
+[data-testid="stSidebar"] + div {
+    margin-left: 0 !important;
+}
+
+/* Optional shadow for overlay effect */
+section[data-testid="stSidebar"] {
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}

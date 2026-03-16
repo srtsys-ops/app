@@ -616,15 +616,74 @@ if selected == 'Heart Disease Prediction':
             # -------------------------------------------------
             # 🔟 RESULT VISUALIZATION
             # -------------------------------------------------
-            st.subheader("📊 Risk Assessment")
+            # st.subheader("📊 Risk Assessment")
     
-            st.metric(
-                label="Heart Disease Risk",
-                value=f"{risk:.2f} %",
-                delta=f"{safe:.2f} % Healthy"
-            )
+            # st.metric(
+            #     label="Heart Disease Risk",
+            #     value=f"{risk:.2f} %",
+            #     delta=f"{safe:.2f} % Healthy"
+            # )
     
-            st.progress(int(risk))
+            # st.progress(int(risk))
+
+            # -------------------------------------------------
+            # 📊 RISK VISUALIZATION
+            # -------------------------------------------------
+            st.subheader("📊 Heart Disease Risk Probability")
+            
+            col1, col2 = st.columns(2)
+            
+            # ---------------- Gauge Chart ----------------
+            with col1:
+                fig_gauge = go.Figure(go.Indicator(
+                    mode="gauge+number",
+                    value=risk,
+                    number={'suffix': "%", 'font': {'size': 40}},
+                    title={'text': "Heart Disease Risk Level", 'font': {'size': 24}},
+                    gauge={
+                        'axis': {'range': [0, 100], 'tickcolor': "white"},
+                        'bar': {'color': "red"},
+                        'steps': [
+                            {'range': [0, 40], 'color': "green"},
+                            {'range': [40, 70], 'color': "orange"},
+                            {'range': [70, 100], 'color': "red"}
+                        ]
+                    }
+                ))
+            
+                fig_gauge.update_layout(
+                    height=350,
+                    paper_bgcolor="rgba(0,0,0,0)",
+                    plot_bgcolor="rgba(0,0,0,0)",
+                    font={'color': 'white'}
+                )
+            
+                st.plotly_chart(fig_gauge, use_container_width=True)
+            
+            # ---------------- Pie Chart ----------------
+            with col2:
+                safe = 100 - risk
+            
+                fig_pie, ax = plt.subplots(figsize=(4,3.5), dpi=100)
+            
+                fig_pie.patch.set_facecolor("black")
+                ax.set_facecolor("black")
+            
+                ax.pie(
+                    [risk, safe],
+                    labels=["Risk", "Healthy"],
+                    colors=["red", "green"],
+                    explode=(0.1, 0),
+                    autopct='%1.1f%%',
+                    startangle=90,
+                    textprops={'color': "white"}
+                )
+            
+                ax.set_title("Disease Risk Distribution", color="white")
+            
+                fig_pie.patch.set_alpha(0)
+            
+                st.pyplot(fig_pie)
 
             # -------------------------------------------------
             # 1️⃣1️⃣ RISK CATEGORY INTERPRETATION

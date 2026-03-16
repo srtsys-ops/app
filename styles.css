@@ -134,7 +134,7 @@ section[data-testid="stSidebar"] hr { border-color: rgba(255,255,255,0.3); }
 
 /* Sidebar fixed position */
 section[data-testid="stSidebar"] {
-    position: fixed;
+    position: fixed !important;
     left: -270px;          /* hide sidebar initially */
     top: 0;
     height: 100vh;

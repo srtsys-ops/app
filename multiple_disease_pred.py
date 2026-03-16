@@ -397,8 +397,7 @@ if (selected == 'Diabetes Prediction'):
                 ))
             
                 fig_gauge.update_layout(
-                    height=350,   
-                    margin=dict(t=0, b=0, l=0, r=0),   # move chart upward
+                    height=350, 
                     paper_bgcolor="rgba(0,0,0,0)",
                     plot_bgcolor="rgba(0,0,0,0)",
                     font={'color': 'white'}
@@ -439,13 +438,14 @@ if (selected == 'Diabetes Prediction'):
             # -------------------------------------------------
             # 9.5️⃣ RISK CATEGORY INTERPRETATION
             # -------------------------------------------------
-            if risk >= 70:
-                st.error("🔴 High Risk of Diabetes")
-            elif risk >= 40:
-                st.warning("🟠 Moderate Risk — lifestyle changes advised")
-            else:
-                st.success("🟢 Low Risk: The person is not Diabetic")
-
+            st.markdown('<div class="footer-report">', unsafe_allow_html=True)
+                if risk >= 70:
+                    st.error("🔴 High Risk of Diabetes")
+                elif risk >= 40:
+                    st.warning("🟠 Moderate Risk — lifestyle changes advised")
+                else:
+                    st.success("🟢 Low Risk: The person is not Diabetic")
+            st.markdown('</div>', unsafe_allow_html=True)
             
             
            

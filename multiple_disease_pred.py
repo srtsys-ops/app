@@ -468,6 +468,9 @@ if selected == 'Heart Disease Prediction':
     def clear_heart_form():
         for k, v in heart_defaults.items():
             st.session_state[k] = v
+
+        # reset dropdown
+        st.session_state["heart_sample"] = "Select Sample"
     
     # -----------------------------------------------------
     # 3️⃣ SAMPLE DATA (FOR QUICK TESTING)
@@ -526,11 +529,11 @@ if selected == 'Heart Disease Prediction':
     sample_choice = st.selectbox(
         "🧪 Load Sample Patient",
         list(HEART_SAMPLES.keys()),
-        index=0
+        key="heart_sample"
     )
     
-    if sample_choice != "Select Sample":
-        apply_heart_sample(sample_choice)
+    if st.session_state.heart_sample != "Select Sample":
+        apply_diabetes_sample(st.session_state.heart_sample)
 
     # -----------------------------------------------------
     # 7️⃣ HEART DISEASE INPUT FORM

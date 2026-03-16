@@ -394,7 +394,12 @@ if (selected == 'Diabetes Prediction'):
                     }
                 ))
 
-                fig_gauge.update_layout(height=350)   # same height
+                 fig_gauge.update_layout(
+                    height=350,
+                    paper_bgcolor="black",
+                    plot_bgcolor="black",
+                    font={'color': 'white'}
+                )
                 st.plotly_chart(fig_gauge, use_container_width=True)
             
             # ---------------- Pie Chart ----------------

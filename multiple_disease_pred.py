@@ -406,7 +406,7 @@ if (selected == 'Diabetes Prediction'):
             # ---------------- Pie Chart ----------------
             with col2:               
                 st.markdown(
-                    "<h4 style='text-align: center;'>Disease Risk Distribution</h4>",
+                    "<h5 style='text-align: center;'>Disease Risk Distribution</h5>",
                     unsafe_allow_html=True
                 )
                 safe = 100 - risk
@@ -680,7 +680,7 @@ if selected == 'Heart Disease Prediction':
             # ---------------- Pie Chart ----------------
             with col2:
                 st.markdown(
-                    "<h4 style='text-align: center;'>Disease Risk Distribution</h4>",
+                    "<h5 style='text-align: center;'>Disease Risk Distribution</h5>",
                     unsafe_allow_html=True
                 )
                 safe = 100 - risk
@@ -992,7 +992,7 @@ if (selected == 'Parkinsons Prediction'):
             # ---------------- Pie Chart ----------------
             with col2:
                 st.markdown(
-                    "<h4 style='text-align: center;'>Disease Risk Distribution</h4>",
+                    "<h5 style='text-align: center;'>Disease Risk Distribution</h5>",
                     unsafe_allow_html=True
                 )
                 safe = 100 - risk

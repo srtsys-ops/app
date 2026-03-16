@@ -376,6 +376,8 @@ if (selected == 'Diabetes Prediction'):
 
             # ---------------- Gauge Chart ----------------
             with col1:
+                st.title("Diabetes Risk Level")
+                
                 fig_gauge = go.Figure(go.Indicator(
                     mode="gauge+number",
                     value=risk,
@@ -403,6 +405,7 @@ if (selected == 'Diabetes Prediction'):
             
             # ---------------- Pie Chart ----------------
             with col2:
+                st.title("Disease Risk Distribution")
                 safe = 100 - risk
 
                 fig_pie, ax = plt.subplots(figsize=(4,3.5), dpi=100)

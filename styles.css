@@ -130,31 +130,23 @@ section[data-testid="stSidebar"] hr { border-color: rgba(255,255,255,0.3); }
 }
 
 
-/* ---------- Sidebar Overlay Mode ---------- */
+@media (min-width: 768px) {
 
+    /* Default state */
+    .stMainBlockContainer{
+        position: relative;
+        left: 0;
+        transition: left 0.3s ease;
+    }
 
-/* When sidebar opens */
-/* section[data-testid="stSidebar"][aria-expanded="true"] 
-+ div.st-emotion-cache-6px8kg section[data-testid="stMain"] .stMainBlockContainer
-{   
-   left: -170px !important;
-   position: relative;
-   transition: all 0.3s ease;
-} */
+    /* When sidebar opens */
+    section[data-testid="stSidebar"][aria-expanded="true"] 
+    + div.st-emotion-cache-6px8kg 
+    section[data-testid="stMain"] 
+    .stMainBlockContainer
+    {
+        left: -170px !important;
+    }
 
-/* Default state */
-.stMainBlockContainer{
-    position: relative;
-    left: 0;
-    transition: left 0.3s ease;
-}
-
-/* When sidebar opens */
-section[data-testid="stSidebar"][aria-expanded="true"] 
-+ div.st-emotion-cache-6px8kg 
-section[data-testid="stMain"] 
-.stMainBlockContainer
-{
-   left: -170px !important;
 }
 

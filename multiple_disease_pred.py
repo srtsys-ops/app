@@ -661,7 +661,7 @@ if selected == 'Heart Disease Prediction':
             # ---------------- Gauge Chart ----------------
             with col1:
                 st.markdown(
-                    "<h5 style='text-align: center;'Heart Disease Risk Level</h5>",
+                    "<h5 style='text-align: center;'>Heart Disease Risk Level</h5>",
                     unsafe_allow_html=True
                 )
                 fig_gauge = go.Figure(go.Indicator(
@@ -981,7 +981,7 @@ if (selected == 'Parkinsons Prediction'):
             # ---------------- Gauge Chart ----------------
             with col1:
                 st.markdown(
-                    "<h5 style='text-align: center;'Parkinson’s Risk Level</h5>",
+                    "<h5 style='text-align: center;'>Parkinson’s Risk Level</h5>",
                     unsafe_allow_html=True
                 )
                 fig_gauge = go.Figure(go.Indicator(

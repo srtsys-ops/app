@@ -303,7 +303,7 @@ if (selected == 'Diabetes Prediction'):
         col1, col2 = st.columns(2)
         with col1:
             predict_btn = st.form_submit_button("🔍 Diabetes Test Result", type="primary")        
-
+    st.error("predict_btn value :", predict_btn)
     # -----------------------------------------------------
     # 9️⃣ DIABETES PREDICTION & VALIDATION
     # -----------------------------------------------------

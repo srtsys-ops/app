@@ -186,7 +186,7 @@ if (selected == 'Diabetes Prediction'):
             st.session_state[key] = value
     
         # reset dropdown
-        #st.session_state["diabetes_sample"] = "Select Sample"
+        st.session_state["diabetes_sample"] = "Select Sample"
 
     # -----------------------------------------------------
     # 3️⃣ SAMPLE PATIENT DATA (FOR DEMO PURPOSE)

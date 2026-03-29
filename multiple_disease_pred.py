@@ -488,19 +488,9 @@ if selected == 'Heart Disease Prediction':
             "oldpeak": 2.9, "slope": 2, "ca": 2, "thal": 2
         }
     }
-
+    
     # -----------------------------------------------------
-    # 4️⃣ APPLY SELECTED SAMPLE
-    # -----------------------------------------------------
-    # Loads chosen sample data into session state
-    def apply_heart_sample(sample_name):
-        sample = HEART_SAMPLES.get(sample_name)
-        if sample:
-            for key, value in sample.items():
-                st.session_state[key] = value
-
-    # -----------------------------------------------------
-    # 5️⃣ PAGE HEADER & ACTION BUTTONS
+    # 4️⃣ PAGE HEADER & ACTION BUTTONS   
     # -----------------------------------------------------
     col_title, col_btn1, col_btn2 = st.columns([4, 1, 1])
 
@@ -514,7 +504,7 @@ if selected == 'Heart Disease Prediction':
         st.button("🧹 Clear", on_click=clear_heart_form)
 
     # -----------------------------------------------------
-    # 6️⃣ SAMPLE SELECTION DROPDOWN
+    # 5️ SAMPLE SELECTION DROPDOWN
     # -----------------------------------------------------
     sample_choice = st.selectbox(
         "🧪 Load Sample Patient",
@@ -523,10 +513,13 @@ if selected == 'Heart Disease Prediction':
     )
     
     if st.session_state.heart_sample != "Select Sample":
-        apply_heart_sample(st.session_state.heart_sample)
+        sample = HEART_SAMPLES.get(st.session_state.heart_sample)
+        if sample:
+            for key, value in sample.items():
+                st.session_state[key] = value
 
     # -----------------------------------------------------
-    # 7️⃣ HEART DISEASE INPUT FORM
+    # 6️⃣ HEART DISEASE INPUT FORM
     # -----------------------------------------------------
     with st.form("heart_form"):
 
@@ -571,7 +564,7 @@ if selected == 'Heart Disease Prediction':
         predict_btn = st.form_submit_button("🔍 Heart Disease Test Result", type="primary")
 
     # -----------------------------------------------------
-    # 8️⃣ PREDICTION & VALIDATION
+    # 7️⃣ PREDICTION & VALIDATION
     # -----------------------------------------------------
     if predict_btn:
 
@@ -595,7 +588,7 @@ if selected == 'Heart Disease Prediction':
             for e in errors:
                 st.write(e)
         # -------------------------------------------------
-        # 9️⃣ MODEL INFERENCE & RISK ANALYSIS
+        # 8️⃣ MODEL INFERENCE & RISK ANALYSIS
         # -------------------------------------------------
         else:
             input_data = [[
@@ -612,7 +605,7 @@ if selected == 'Heart Disease Prediction':
             prediction = heart_disease_model.predict(input_data)
 
             # -------------------------------------------------
-            # 🔟 RESULT DISPLAY
+            # 9️⃣ RESULT DISPLAY
             # -------------------------------------------------
             if prediction[0] == 1:
                 st.error("🔴 Heart Disease Detected")
@@ -696,7 +689,7 @@ if selected == 'Heart Disease Prediction':
                 fig_pie.patch.set_alpha(0)            
                 st.pyplot(fig_pie)
             # -------------------------------------------------
-            # 1️⃣1️⃣ RISK CATEGORY INTERPRETATION
+            # 🔟 RISK CATEGORY INTERPRETATION
             # -------------------------------------------------
             if risk >= 70:
                 st.error("🔴 High Risk of Heart Disease")

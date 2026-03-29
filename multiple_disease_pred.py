@@ -790,18 +790,7 @@ if (selected == 'Parkinsons Prediction'):
     }
 
     # -----------------------------------------------------
-    # 4️⃣ APPLY SELECTED SAMPLE DATA
-    # -----------------------------------------------------
-    # Loads selected voice sample into the form
-    def apply_parkinsons_sample(sample_name):
-        sample = PARKINSONS_SAMPLES.get(sample_name)
-        if sample:
-            for key, value in sample.items():
-                st.session_state[key] = value
-
-
-    # -----------------------------------------------------
-    # 5️⃣ PAGE HEADER & CLEAR BUTTON
+    # 4️⃣ PAGE HEADER & CLEAR BUTTON
     # -----------------------------------------------------
     col_title, col_btn1, col_btn2 = st.columns([4, 1, 1])
     
@@ -815,7 +804,7 @@ if (selected == 'Parkinsons Prediction'):
         st.button("🧹 Clear", type="secondary", on_click=clear_parkinsons_form)
 
     # -----------------------------------------------------
-    # 6️⃣ SAMPLE SELECTION DROPDOWN
+    # 5️⃣ SAMPLE SELECTION DROPDOWN
     # -----------------------------------------------------
     sample_choice = st.selectbox(
         "🧪 Load Sample Voice Data",
@@ -824,10 +813,13 @@ if (selected == 'Parkinsons Prediction'):
     )
     
     if st.session_state.parkinsons_sample != "Select Sample":
-        apply_parkinsons_sample(st.session_state.parkinsons_sample)  
+        sample = PARKINSONS_SAMPLES.get(st.session_state.parkinsons_samplee)
+        if sample:
+            for key, value in sample.items():
+                st.session_state[key] = value
 
     # -----------------------------------------------------
-    # 7️⃣ PARKINSON’S INPUT FORM      
+    # 6️⃣ PARKINSON’S INPUT FORM      
     # -----------------------------------------------------
     with st.form("parkinsons_form"):
 
@@ -871,7 +863,7 @@ if (selected == 'Parkinsons Prediction'):
         predict_btn = st.form_submit_button("🔍 Parkinson's Test Result", type="primary")
 
     # -----------------------------------------------------
-    # 8️⃣ INPUT VALIDATION & ERROR HANDLING
+    # 7️⃣ INPUT VALIDATION & ERROR HANDLING
     # -----------------------------------------------------
     if predict_btn:
 
@@ -901,7 +893,7 @@ if (selected == 'Parkinsons Prediction'):
             errors.append("⚠️ Please enter valid data. All values cannot be zero.")
     
         # -------------------------------------------------
-        # 9️⃣ DISPLAY ERRORS OR PERFORM PREDICTION
+        # 8️⃣ DISPLAY ERRORS OR PERFORM PREDICTION
         # -------------------------------------------------
         if errors:
             st.error("Please fix the following issues before prediction:")
@@ -920,7 +912,7 @@ if (selected == 'Parkinsons Prediction'):
             prediction = parkinsons_model.predict(input_data)
 
             # -------------------------------------------------
-            # 🔟 RESULT DISPLAY
+            # 9️⃣ RESULT DISPLAY
             # -------------------------------------------------
             if prediction[0] == 1:
                 st.error("🔴 Parkinson’s Disease Detected")
@@ -1004,7 +996,7 @@ if (selected == 'Parkinsons Prediction'):
             
                 st.pyplot(fig_pie)
             # --------------------------------------------
-            # 🚦 RISK CATEGORY INTERPRETATION
+            # 🔟🚦 RISK CATEGORY INTERPRETATION
             # --------------------------------------------
             if risk >= 70:
                 st.error("🔴 High Risk of Parkinson’s Disease")

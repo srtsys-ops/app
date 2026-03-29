@@ -38,13 +38,13 @@ with open("styles.css") as f:
 # =========================================================
 # 🖼️ IMAGE UTILS
 # =========================================================
-def get_base64_image(image_path):
-    """Convert image to base64 for HTML rendering"""
-    with open(image_path, "rb") as img:
-        return base64.b64encode(img.read()).decode()
+# Convert periyar_logo.png to base64
+with open("periyar_logo.png", "rb") as img:
+    logo_base64 = base64.b64encode(img.read()).decode()
 
-logo_base64 = get_base64_image("periyar_logo.png")
-periyar_base64 = get_base64_image("periyar.jpg")
+# Convert periyar.jpg to base64
+with open("periyar.jpg", "rb") as img:
+    periyar_base64 = base64.b64encode(img.read()).decode()
 # =========================================================
 # 🎨 BACKGROUND HELPER FOR EACH MODULE
 # =========================================================

@@ -45,21 +45,7 @@ with open("periyar_logo.png", "rb") as img:
 # Convert periyar.jpg to base64
 with open("periyar.jpg", "rb") as img:
     periyar_base64 = base64.b64encode(img.read()).decode()
-# =========================================================
-# 🎨 BACKGROUND HELPER FOR EACH MODULE
-# =========================================================
-def set_bg(color1, color2):
-    """Set page background gradient"""
-    st.markdown(
-        f"""
-        <style>
-        .stApp {{
-            background: linear-gradient(135deg, {color1}, {color2});
-        }}
-        </style>
-        """,
-        unsafe_allow_html=True
-    ) 
+
 # =========================================================
 # 🧠 LOAD ML MODELS
 # =========================================================
@@ -150,6 +136,18 @@ st.markdown('<div class="main-content">', unsafe_allow_html=True)
 # =========================================================
 # 🎯 PAGE BACKGROUND PER MODULE
 # =========================================================
+def set_bg(color1, color2):
+    """Set page background gradient"""
+    st.markdown(
+        f"""
+        <style>
+        .stApp {{
+            background: linear-gradient(135deg, {color1}, {color2});
+        }}
+        </style>
+        """,
+        unsafe_allow_html=True
+    ) 
 if selected == "Diabetes Prediction":
     set_bg("#0b132b", "#1c2541")
 elif selected == "Heart Disease Prediction":

@@ -249,7 +249,10 @@ if (selected == 'Diabetes Prediction'):
 
     # Load sample data when selected
     if st.session_state.diabetes_sample != "Select Sample":
-        apply_diabetes_sample(st.session_state.diabetes_sample)
+        sample = DIABETES_SAMPLES.get(st.session_state.diabetes_sample)
+        if sample:
+            for key, value in sample.items():
+                st.session_state[key] = value
            
     # -----------------------------------------------------
     # 7️⃣ DIABETES INPUT FORM

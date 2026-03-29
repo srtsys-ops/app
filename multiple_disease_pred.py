@@ -813,7 +813,7 @@ if (selected == 'Parkinsons Prediction'):
     )
     
     if st.session_state.parkinsons_sample != "Select Sample":
-        sample = PARKINSONS_SAMPLES.get(st.session_state.parkinsons_samplee)
+        sample = PARKINSONS_SAMPLES.get(st.session_state.parkinsons_sample)
         if sample:
             for key, value in sample.items():
                 st.session_state[key] = value

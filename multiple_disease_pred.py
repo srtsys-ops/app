@@ -144,7 +144,7 @@ if selected == "Diabetes Prediction":
 elif selected == "Heart Disease Prediction":
     set_bg("#4a0404", "#620a0a")
 else:
-    set_bg("#1f1147", "#5b2c83")
+    set_bg("#1f1147", "#5b2c83")    
 # =========================================================
 # 🩸 DIABETES PREDICTION MODULE
 # =========================================================
@@ -386,9 +386,8 @@ if (selected == 'Diabetes Prediction'):
 # ❤️ HEART DISEASE PREDICTION MODULE
 # =========================================================
 if selected == 'Heart Disease Prediction':
-
     # -----------------------------------------------------
-    # 1️⃣ SESSION STATE DEFAULT VALUES
+    # 1 SESSION STATE DEFAULT VALUES
     # -----------------------------------------------------
     # Default values ensure form persistence and reset safety
     heart_defaults = {
@@ -396,83 +395,69 @@ if selected == 'Heart Disease Prediction':
         "chol": 100, "fbs": 0, "restecg": 0, "thalach": 60, 
         "exang": 0, "oldpeak": 0.0, "slope": 0, "ca": 0, "thal": 0
     }
-
     # Initialize session state
-    for k, v in heart_defaults.items():
-        if k not in st.session_state:
-            st.session_state[k] = v
-            
+    for key, value in heart_defaults.items():
+        if key not in st.session_state:
+            st.session_state[key] = value            
     # -----------------------------------------------------
-    # 2️⃣ CLEAR FORM FUNCTION
+    # 2 CLEAR FORM FUNCTION
     # -----------------------------------------------------
     # Resets all heart disease inputs to default values
     def clear_heart_form():
         # Reset sample dropdown
-        st.session_state["heart_sample"] = "Select Sample"
-        
-        for k, v in heart_defaults.items():
-            st.session_state[k] = v  
+        st.session_state["heart_sample"] = "Select Sample"        
+        for key, value in heart_defaults.items():
+            st.session_state[key] = value
     # -----------------------------------------------------
-    # 3️⃣ SAMPLE DATA (FOR QUICK TESTING)
+    # 3 SAMPLE DATA (FOR QUICK TESTING)
     # -----------------------------------------------------
     # Used to auto-fill realistic patient profiles
     HEART_SAMPLES = {
-        "Select Sample": None,
-    
+        "Select Sample": None,    
         "1️⃣ Sample Data": {
             "age": 25, "sex": 0, "cp": 0,  "trestbps": 108,
             "chol": 165, "fbs": 0, "restecg": 0, "thalach": 190,
             "exang": 0, "oldpeak": 0.0,  "slope": 1, "ca": 0, "thal": 0
-        },
-    
+        },    
         "2️⃣ Sample Data": {
             "age": 52, "sex": 1, "cp": 2, "trestbps": 138,
             "chol": 245, "fbs": 0, "restecg": 1, "thalach": 150,
             "exang": 0, "oldpeak": 1.3, "slope": 1, "ca": 0, "thal": 1
-        },
-    
+        },    
         "3️⃣ Sample Data": {
             "age": 67, "sex": 1, "cp": 3, "trestbps": 168,
             "chol": 295, "fbs": 1,
             "restecg": 2, "thalach": 118, "exang": 1,
             "oldpeak": 2.9, "slope": 2, "ca": 2, "thal": 2
         }
-    }
-    
+    }    
     # -----------------------------------------------------
-    # 4️⃣ PAGE HEADER & ACTION BUTTONS   
+    # 4 PAGE HEADER & ACTION BUTTONS   
     # -----------------------------------------------------
     col_title, col_btn1, col_btn2 = st.columns([4, 1, 1])
-
     with col_title:
-        st.header("❤️ Heart Disease Prediction", divider="red")
-    
+        st.header("❤️ Heart Disease Prediction", divider="red")    
     with col_btn1:
-        st.markdown("<br>", unsafe_allow_html=True)
-            
+        st.markdown("<br>", unsafe_allow_html=True)            
     with col_btn2:
         st.button("🧹 Clear", on_click=clear_heart_form)
-
     # -----------------------------------------------------
-    # 5️ SAMPLE SELECTION DROPDOWN
+    # 5 SAMPLE SELECTION DROPDOWN
     # -----------------------------------------------------
     sample_choice = st.selectbox(
         "🧪 Load Sample Patient",
         list(HEART_SAMPLES.keys()),
         key="heart_sample"
-    )
-    
+    )    
     if st.session_state.heart_sample != "Select Sample":
         sample = HEART_SAMPLES.get(st.session_state.heart_sample)
         if sample:
             for key, value in sample.items():
                 st.session_state[key] = value
-
     # -----------------------------------------------------
-    # 6️⃣ HEART DISEASE INPUT FORM
+    # 6 HEART DISEASE INPUT FORM
     # -----------------------------------------------------
     with st.form("heart_form"):
-
         # --- Row 1 ---
         col1, col2, col3 = st.columns(3)
         with col1:
@@ -481,7 +466,6 @@ if selected == 'Heart Disease Prediction':
             sex = st.number_input('Sex (1 = Male, 0 = Female)', 0, 1, key="sex")
         with col3:
             cp = st.number_input('Chest Pain Type (0–3)', 0, 3, key="cp")
-
         # --- Row 2 ---
         col1, col2, col3 = st.columns(3)
         with col1:
@@ -490,7 +474,6 @@ if selected == 'Heart Disease Prediction':
             chol = st.number_input('Serum Cholesterol', 100, 600, key="chol")
         with col3:
             fbs = st.number_input('Fasting Blood Sugar > 120', 0, 1, key="fbs")
-
         # --- Row 3 ---
         col1, col2, col3 = st.columns(3)
         with col1:
@@ -499,7 +482,6 @@ if selected == 'Heart Disease Prediction':
             thalach = st.number_input('Max Heart Rate', 60, 250, key="thalach")
         with col3:
             exang = st.number_input('Exercise Induced Angina', 0, 1, key="exang")
-
         # --- Row 4 ---
         col1, col2, col3 = st.columns(3)
         with col1:
@@ -512,15 +494,12 @@ if selected == 'Heart Disease Prediction':
         thal = st.number_input('Thal (0–2)', 0, 2, key="thal")
 
         predict_btn = st.form_submit_button("🔍 Heart Disease Test Result", type="primary")
-
     # -----------------------------------------------------
-    # 7️⃣ PREDICTION & VALIDATION
+    # 7 PREDICTION & VALIDATION
     # -----------------------------------------------------
     if predict_btn:
-
         # --- Input Validation ---
         errors = []
-
         if age < 10:
             errors.append("⚠️ Age must be at least 10 years.")
         if trestbps < 80 or trestbps > 200:
@@ -531,14 +510,13 @@ if selected == 'Heart Disease Prediction':
             errors.append("⚠️ Max heart rate must be 60–250.")
         if ca < 0 or ca > 4:
             errors.append("⚠️ Major vessels must be 0–4.")
-
         # Display validation errors
         if errors:
             st.error("Please correct the following:")
             for e in errors:
                 st.write(e)
         # -------------------------------------------------
-        # 8️⃣ MODEL INFERENCE & RISK ANALYSIS
+        # 8 MODEL INFERENCE & RISK ANALYSIS
         # -------------------------------------------------
         else:
             input_data = [[
@@ -546,29 +524,23 @@ if selected == 'Heart Disease Prediction':
                 restecg, thalach, exang, oldpeak,
                 slope, ca, thal
             ]]
-
             # Probability prediction
             proba = heart_disease_model.predict_proba(input_data)
             risk = proba[0][1] * 100   # Probability of disease
             safe = proba[0][0] * 100
-
             prediction = heart_disease_model.predict(input_data)
-
             # -------------------------------------------------
-            # 9️⃣ RESULT DISPLAY
+            # 9 RESULT DISPLAY
             # -------------------------------------------------
             if prediction[0] == 1:
                 st.error("🔴 Heart Disease Detected")
             else:
-                st.success("🟢 No Heart Disease Detected") 
-           
+                st.success("🟢 No Heart Disease Detected")            
             # -------------------------------------------------
-            # 🔟📊 RISK VISUALIZATION
+            # 10📊 RISK VISUALIZATION
             # -------------------------------------------------
-            st.subheader("📊 Heart Disease Risk Probability")
-            
-            col1, col2 = st.columns(2)
-            
+            st.subheader("📊 Heart Disease Risk Probability")            
+            col1, col2 = st.columns(2)            
             # ---------------- Gauge Chart ----------------
             with col1:
                 st.markdown(
@@ -589,15 +561,13 @@ if selected == 'Heart Disease Prediction':
                             {'range': [70, 100], 'color': "red"}
                         ]
                     }
-                ))
-            
+                ))            
                 fig_gauge.update_layout(
                     height=350,
                     paper_bgcolor="rgba(0,0,0,0)",
                     plot_bgcolor="rgba(0,0,0,0)",
                     font={'color': 'white'}
-                )
-            
+                )            
                 st.plotly_chart(fig_gauge, use_container_width=True)            
             # ---------------- Pie Chart ----------------
             with col2:
@@ -605,13 +575,10 @@ if selected == 'Heart Disease Prediction':
                     "<h5 style='text-align: center;'>Disease Risk Distribution</h5>",
                     unsafe_allow_html=True
                 )
-                safe = 100 - risk
-            
-                fig_pie, ax = plt.subplots(figsize=(4,3.5), dpi=100)
-            
+                safe = 100 - risk            
+                fig_pie, ax = plt.subplots(figsize=(4,3.5), dpi=100)            
                 fig_pie.patch.set_facecolor("black")
-                ax.set_facecolor("black")
-            
+                ax.set_facecolor("black")            
                 ax.pie(
                     [risk, safe],
                     labels=["Risk", "Healthy"],
@@ -620,12 +587,11 @@ if selected == 'Heart Disease Prediction':
                     autopct='%1.1f%%',
                     startangle=90,
                     textprops={'color': "white"}
-                )            
-                #ax.set_title("Disease Risk Distribution", color="white")            
+                )        
                 fig_pie.patch.set_alpha(0)            
                 st.pyplot(fig_pie)
             # -------------------------------------------------
-            # 🔟 RISK CATEGORY INTERPRETATION
+            # 11 RISK CATEGORY INTERPRETATION
             # -------------------------------------------------
             if risk >= 70:
                 st.error("🔴 High Risk of Heart Disease")
@@ -636,10 +602,9 @@ if selected == 'Heart Disease Prediction':
 # =========================================================
 # 🧠 PARKINSON’S DISEASE PREDICTION MODULE
 # =========================================================
-if (selected == 'Parkinsons Prediction'):
-    
+if (selected == 'Parkinsons Prediction'):    
     # -----------------------------------------------------
-    # 1️⃣ SESSION STATE DEFAULT VALUES
+    # 1 SESSION STATE DEFAULT VALUES
     # -----------------------------------------------------
     # Default initialization for all Parkinson's voice features
     parkinsons_defaults = {
@@ -653,29 +618,24 @@ if (selected == 'Parkinsons Prediction'):
         "spread1": 0.0, "spread2": 0.0,
         "D2": 0.0, "PPE": 0.0
     }
-
     # Initialize session state keys
-    for key, val in parkinsons_defaults.items():
+    for key, value in parkinsons_defaults.items():
         if key not in st.session_state:
-            st.session_state[key] = val
-
+            st.session_state[key] = value
     # -----------------------------------------------------
-    # 2️⃣ CLEAR FORM FUNCTION
+    # 2 CLEAR FORM FUNCTION
     # -----------------------------------------------------
     def clear_parkinsons_form():
          # Reset dropdown
-        st.session_state["parkinsons_sample"] = "Select Sample"
-        
-        for key, val in parkinsons_defaults.items():
-            st.session_state[key] = val
-            
+        st.session_state["parkinsons_sample"] = "Select Sample"        
+        for key, value in parkinsons_defaults.items():
+            st.session_state[key] = value            
     # -----------------------------------------------------
-    # 3️⃣ SAMPLE VOICE DATA (FOR DEMONSTRATION)
+    # 3 SAMPLE VOICE DATA (FOR DEMONSTRATION)
     # -----------------------------------------------------
     # Helps users test model using realistic voice patterns
     PARKINSONS_SAMPLES = {
-        "Select Sample": None,
-    
+        "Select Sample": None,    
         "1️⃣ Sample Data": {
             "fo": 120.0, "fhi": 150.0, "flo": 100.0,
             "Jitter_percent": 0.003, "Jitter_Abs": 0.00002,
@@ -686,8 +646,7 @@ if (selected == 'Parkinsons Prediction'):
             "RPDE": 0.35, "DFA": 0.60,
             "spread1": -6.0, "spread2": 0.15,
             "D2": 2.1, "PPE": 0.08
-        },
-    
+        },    
         "2️⃣ Sample Data": {
             "fo": 197.076, "fhi": 206.896, "flo":192.055,
             "Jitter_percent": .00289, "Jitter_Abs": 0.00001,
@@ -698,8 +657,7 @@ if (selected == 'Parkinsons Prediction'):
             "RPDE": 0.422229, "DFA": 0.741367,
             "spread1": -7.3483, "spread2": 0.177551,
             "D2": 1.743867, "PPE": 0.085569           
-        },
-    
+        },    
         "3️⃣ Sample Data": {
             "fo": 165.0, "fhi": 220.0, "flo": 90.0,
             "Jitter_percent": 0.012, "Jitter_Abs": 0.00012,
@@ -711,7 +669,6 @@ if (selected == 'Parkinsons Prediction'):
             "spread1": -3.5, "spread2": 0.32,
             "D2": 3.4, "PPE": 0.32
         },
-
         "4️⃣ Sample Data": {
             "fo": 198.383, "fhi": 215.203, "flo": 193.104,
             "Jitter_percent": 0.00212, "Jitter_Abs": 0.00001,
@@ -724,41 +681,33 @@ if (selected == 'Parkinsons Prediction'):
             "D2": 1.512275, "PPE": 0.09632
         }
     }
-
     # -----------------------------------------------------
-    # 4️⃣ PAGE HEADER & CLEAR BUTTON
+    # 4 PAGE HEADER & CLEAR BUTTON
     # -----------------------------------------------------
-    col_title, col_btn1, col_btn2 = st.columns([4, 1, 1])
-    
+    col_title, col_btn1, col_btn2 = st.columns([4, 1, 1])    
     with col_title:
         st.header("🧠 Parkinson’s Prediction", divider="violet")
-
     with col_btn1:
         st.markdown("<br>", unsafe_allow_html=True)
-
     with col_btn2:
         st.button("🧹 Clear", type="secondary", on_click=clear_parkinsons_form)
-
     # -----------------------------------------------------
-    # 5️⃣ SAMPLE SELECTION DROPDOWN
+    # 5 SAMPLE SELECTION DROPDOWN
     # -----------------------------------------------------
     sample_choice = st.selectbox(
         "🧪 Load Sample Voice Data",
         list(PARKINSONS_SAMPLES.keys()),
         key="parkinsons_sample"
-    )
-    
+    )    
     if st.session_state.parkinsons_sample != "Select Sample":
         sample = PARKINSONS_SAMPLES.get(st.session_state.parkinsons_sample)
         if sample:
             for key, value in sample.items():
                 st.session_state[key] = value
-
     # -----------------------------------------------------
-    # 6️⃣ PARKINSON’S INPUT FORM      
+    # 6 PARKINSON’S INPUT FORM      
     # -----------------------------------------------------
     with st.form("parkinsons_form"):
-
         # --- Frequency & Jitter Metrics ---
         cols = st.columns(5)
         with cols[0]: fo = st.number_input("MDVP:Fo(Hz)", step=0.001, format="%.3f", key="fo")
@@ -766,7 +715,6 @@ if (selected == 'Parkinsons Prediction'):
         with cols[2]: flo = st.number_input("MDVP:Flo(Hz)", step=0.001, format="%.3f", key="flo")
         with cols[3]: Jitter_percent = st.number_input("MDVP:Jitter(%)", step=0.00001, format="%.5f", key="Jitter_percent")
         with cols[4]: Jitter_Abs = st.number_input("MDVP:Jitter(Abs)", step=0.00001, format="%.5f", key="Jitter_Abs")
-
         # --- Jitter & Shimmer Features ---
         cols = st.columns(5)
         with cols[0]: RAP = st.number_input("MDVP:RAP", step=0.00001, format="%.5f", key="RAP")
@@ -774,7 +722,6 @@ if (selected == 'Parkinsons Prediction'):
         with cols[2]: DDP = st.number_input("Jitter:DDP", step=0.00001, format="%.5f", key="DDP")
         with cols[3]: Shimmer = st.number_input("MDVP:Shimmer", step=0.00001, format="%.5f", key="Shimmer")
         with cols[4]: Shimmer_dB = st.number_input("MDVP:Shimmer(dB)", step=0.001, format="%.3f", key="Shimmer_dB")
-
         # --- Amplitude Perturbation Measures ---
         cols = st.columns(5)
         with cols[0]: APQ3 = st.number_input("Shimmer:APQ3", step=0.00001, format="%.5f", key="APQ3")
@@ -782,7 +729,6 @@ if (selected == 'Parkinsons Prediction'):
         with cols[2]: APQ = st.number_input("MDVP:APQ", step=0.00001, format="%.5f", key="APQ")
         with cols[3]: DDA = st.number_input("Shimmer:DDA", step=0.00001, format="%.5f", key="DDA")
         with cols[4]: NHR = st.number_input("NHR", step=0.00001, format="%.5f", key="NHR")
-
         # --- Noise & Nonlinear Measures ---
         cols = st.columns(5)
         with cols[0]: HNR = st.number_input("HNR", step=0.001, format="%.3f", key="HNR")
@@ -790,52 +736,41 @@ if (selected == 'Parkinsons Prediction'):
         with cols[2]: DFA = st.number_input("DFA", step=0.00001, format="%.6f", key="DFA")
         with cols[3]: spread1 = st.number_input("spread1", step=0.00001, format="%.6f", key="spread1")
         with cols[4]: spread2 = st.number_input("spread2", step=0.00001, format="%.6f", key="spread2")
-
         # --- Complexity Measures ---
         cols = st.columns(2)
         with cols[0]: D2 = st.number_input("D2", step=0.00001, format="%.6f", key="D2")
         with cols[1]: PPE = st.number_input("PPE", step=0.00001, format="%.6f", key="PPE")
 
         predict_btn = st.form_submit_button("🔍 Parkinson's Test Result", type="primary")
-
     # -----------------------------------------------------
-    # 7️⃣ INPUT VALIDATION & ERROR HANDLING
+    # 7 INPUT VALIDATION & ERROR HANDLING
     # -----------------------------------------------------
     if predict_btn:
-
-        errors = []
-    
+        errors = []    
         # Basic numeric sanity checks
         if fo <= 0 or fhi <= 0 or flo <= 0:
-            errors.append("⚠️ Frequency values (Fo, Fhi, Flo) must be greater than 0.")
-    
+            errors.append("⚠️ Frequency values (Fo, Fhi, Flo) must be greater than 0.")    
         if Jitter_percent < 0 or Shimmer < 0:
-            errors.append("⚠️ Jitter and Shimmer values cannot be negative.")
-    
+            errors.append("⚠️ Jitter and Shimmer values cannot be negative.")    
         if HNR <= 0:
-            errors.append("⚠️ HNR must be greater than 0.")
-    
+            errors.append("⚠️ HNR must be greater than 0.")    
         if D2 <= 0 or PPE <= 0:
-            errors.append("⚠️ D2 and PPE must be greater than 0.")
-    
+            errors.append("⚠️ D2 and PPE must be greater than 0.")    
         # Prevent meaningless all-zero input
         all_inputs = [
             fo, fhi, flo, Jitter_percent, Jitter_Abs, RAP, PPQ, DDP,
             Shimmer, Shimmer_dB, APQ3, APQ5, APQ, DDA,
             NHR, HNR, RPDE, DFA, spread1, spread2, D2, PPE
-        ]
-    
+        ]    
         if all(value == 0 for value in all_inputs):
-            errors.append("⚠️ Please enter valid data. All values cannot be zero.")
-    
+            errors.append("⚠️ Please enter valid data. All values cannot be zero.")    
         # -------------------------------------------------
-        # 8️⃣ DISPLAY ERRORS OR PERFORM PREDICTION
+        # 8 DISPLAY ERRORS OR PERFORM PREDICTION
         # -------------------------------------------------
         if errors:
             st.error("Please fix the following issues before prediction:")
             for err in errors:
-                st.write(err)
-    
+                st.write(err)    
         # --------- Prediction ----------
         else:
             input_data = [[
@@ -843,18 +778,15 @@ if (selected == 'Parkinsons Prediction'):
                 RAP, PPQ, DDP, Shimmer, Shimmer_dB,
                 APQ3, APQ5, APQ, DDA, NHR, HNR,
                 RPDE, DFA, spread1, spread2, D2, PPE
-            ]]
-    
+            ]]    
             prediction = parkinsons_model.predict(input_data)
-
             # -------------------------------------------------
-            # 9️⃣ RESULT DISPLAY
+            # 9 RESULT DISPLAY
             # -------------------------------------------------
             if prediction[0] == 1:
                 st.error("🔴 Parkinson’s Disease Detected")
             else:
-                st.success("🟢 No Parkinson’s Disease Detected")           
-
+                st.success("🟢 No Parkinson’s Disease Detected")  
             # --------------------------------------------
             # 📊 RISK PROBABILITY CALCULATION
             # --------------------------------------------
@@ -862,16 +794,12 @@ if (selected == 'Parkinsons Prediction'):
                 proba = parkinsons_model.predict_proba(input_data)
                 risk = proba[0][1] * 100
             else:
-                risk = 100 if prediction[0] == 1 else 0
-            
+                risk = 100 if prediction[0] == 1 else 0            
             # --------------------------------------------
             # 📊 RISK VISUALIZATION
-            # -------------------------------------------- 
-
+            # --------------------------------------------
             st.subheader("📊 Parkinson’s Risk Probability")   
-
-            col1, col2 = st.columns(2)
-            
+            col1, col2 = st.columns(2)            
             # ---------------- Gauge Chart ----------------
             with col1:
                 st.markdown(
@@ -881,8 +809,7 @@ if (selected == 'Parkinsons Prediction'):
                 fig_gauge = go.Figure(go.Indicator(
                     mode="gauge+number",
                     value=risk,
-                    number={'suffix': "%", 'font': {'size': 40}},
-                    #title={'text': "Parkinson’s Risk Level", 'font': {'size': 24}},
+                    number={'suffix': "%", 'font': {'size': 40}},                    
                     gauge={
                         'axis': {'range': [0, 100], 'tickcolor': "white"},
                         'bar': {'color': "blue"},
@@ -892,30 +819,24 @@ if (selected == 'Parkinsons Prediction'):
                             {'range': [70, 100], 'color': "red"}
                         ]
                     }
-                ))
-            
+                ))            
                 fig_gauge.update_layout(
                     height=350,
                     paper_bgcolor="rgba(0,0,0,0)",
                     plot_bgcolor="rgba(0,0,0,0)",
                     font={'color': 'white'}
-                )
-            
-                st.plotly_chart(fig_gauge, use_container_width=True)
-            
+                )            
+                st.plotly_chart(fig_gauge, use_container_width=True)            
             # ---------------- Pie Chart ----------------
             with col2:
                 st.markdown(
                     "<h5 style='text-align: center;'>Disease Risk Distribution</h5>",
                     unsafe_allow_html=True
                 )
-                safe = 100 - risk
-            
-                fig_pie, ax = plt.subplots(figsize=(4,3.5), dpi=100)
-            
+                safe = 100 - risk            
+                fig_pie, ax = plt.subplots(figsize=(4,3.5), dpi=100)            
                 fig_pie.patch.set_facecolor("black")
-                ax.set_facecolor("black")
-            
+                ax.set_facecolor("black")            
                 ax.pie(
                     [risk, safe],
                     labels=["Risk", "Healthy"],
@@ -925,14 +846,10 @@ if (selected == 'Parkinsons Prediction'):
                     startangle=90,
                     textprops={'color': "white"}
                 )
-            
-                #ax.set_title("Disease Risk Distribution", color="white")
-            
-                fig_pie.patch.set_alpha(0)
-            
+                fig_pie.patch.set_alpha(0)            
                 st.pyplot(fig_pie)
             # --------------------------------------------
-            # 🔟🚦 RISK CATEGORY INTERPRETATION
+            # 10🚦 RISK CATEGORY INTERPRETATION
             # --------------------------------------------
             if risk >= 70:
                 st.error("🔴 High Risk of Parkinson’s Disease")

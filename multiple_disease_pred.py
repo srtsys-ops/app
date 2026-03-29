@@ -213,19 +213,9 @@ if (selected == 'Diabetes Prediction'):
             "DPF": 1.45, "Age": 62
         }
     }
-
+    
     # -----------------------------------------------------
-    # 4️⃣ APPLY SELECTED SAMPLE DATA
-    # -----------------------------------------------------
-    # Copies selected sample values into session state
-    def apply_diabetes_sample(sample_name):
-        sample = DIABETES_SAMPLES.get(sample_name)
-        if sample:
-            for key, value in sample.items():
-                st.session_state[key] = value
-  
-    # -----------------------------------------------------
-    # 5️⃣ PAGE HEADER & ACTION BUTTONS
+    # 4️⃣ PAGE HEADER & ACTION BUTTONS
     # -----------------------------------------------------
     col_title, col_btn1, col_btn2 = st.columns([4, 1, 1])
 
@@ -239,7 +229,7 @@ if (selected == 'Diabetes Prediction'):
         st.button("🧹 Clear", type="secondary", on_click=clear_diabetes_form)
 
     # -----------------------------------------------------
-    # 6️⃣ SAMPLE SELECTION DROPDOWN
+    # 5️⃣ SAMPLE SELECTION DROPDOWN
     # -----------------------------------------------------
     sample_choice = st.selectbox(
         "🧪 Load Sample Patient",
@@ -255,7 +245,7 @@ if (selected == 'Diabetes Prediction'):
                 st.session_state[key] = value
            
     # -----------------------------------------------------
-    # 7️⃣ DIABETES INPUT FORM
+    # 6️⃣ DIABETES INPUT FORM
     # -----------------------------------------------------
     with st.form("diabetes_form"):
 
@@ -301,19 +291,19 @@ if (selected == 'Diabetes Prediction'):
             )
     
         # -------------------------------------------------
-        # 8️⃣ PREDICTION BUTTON
+        # 7️⃣ PREDICTION BUTTON
         # -------------------------------------------------
         col1, col2 = st.columns(2)
         with col1:
             predict_btn = st.form_submit_button("🔍 Diabetes Test Result", type="primary")        
    
     # -----------------------------------------------------
-    # 9️⃣ DIABETES PREDICTION & VALIDATION
+    # 8️⃣ DIABETES PREDICTION & VALIDATION
     # -----------------------------------------------------
     if predict_btn:
         
         # -------------------------------------------------
-        # 9.1️⃣ BASIC INPUT VALIDATION
+        # 8.1️⃣ BASIC INPUT VALIDATION
         # -------------------------------------------------
         # Collects warnings for unrealistic or unsafe inputs
         errors = []
@@ -333,7 +323,7 @@ if (selected == 'Diabetes Prediction'):
             for err in errors:
                 st.write(err)
         # -------------------------------------------------
-        # 9.2️⃣ MODEL PREDICTION
+        # 8.2️⃣ MODEL PREDICTION
         # -------------------------------------------------
         else:
             # Predict diabetes outcome (0 = No, 1 = Yes)
@@ -349,7 +339,7 @@ if (selected == 'Diabetes Prediction'):
                 st.success("🟢 The person is not Diabetic")
 
             # ------------------------------------------------- 
-            # 9.3️⃣ RISK PROBABILITY CALCULATION
+            # 8.3️⃣ RISK PROBABILITY CALCULATION
             # -------------------------------------------------
             # Use probability if model supports it
             if hasattr(diabetes_model, "predict_proba"):
@@ -367,7 +357,7 @@ if (selected == 'Diabetes Prediction'):
                 risk = 100 if prediction[0] == 1 else 0
 
             # -------------------------------------------------
-            # 9.4️⃣ RISK VISUALIZATION      
+            # 8.4️⃣ RISK VISUALIZATION      
             # -------------------------------------------------           
             #st.subheader("📊 Diabetes Risk Probability")
             
@@ -433,7 +423,7 @@ if (selected == 'Diabetes Prediction'):
                 fig_pie.patch.set_alpha(0)
                 st.pyplot(fig_pie)   
             # -------------------------------------------------
-            # 9.5️⃣ RISK CATEGORY INTERPRETATION
+            # 8.5️⃣ RISK CATEGORY INTERPRETATION
             # -------------------------------------------------           
             if risk >= 70:
                 st.error("🔴 High Risk of Diabetes")

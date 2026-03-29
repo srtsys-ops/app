@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 Created on Thu Jan 15 15:17:35 2026
-@author: Thilak
+@author: Thilak S
 
 PROJECT:
 --------
@@ -28,24 +28,20 @@ st.set_page_config(
     #layout="wide",
     initial_sidebar_state="expanded"
 )
-
 # =========================================================
 # 🖼️ CSS
 # =========================================================
 with open("styles.css") as f:
-    st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
-    
+    st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)    
 # =========================================================
 # 🖼️ IMAGE UTILS
 # =========================================================
 # Convert periyar_logo.png to base64
 with open("periyar_logo.png", "rb") as img:
     logo_base64 = base64.b64encode(img.read()).decode()
-
 # Convert periyar.jpg to base64
 with open("periyar.jpg", "rb") as img:
     periyar_base64 = base64.b64encode(img.read()).decode()
-
 # =========================================================
 # 🧠 LOAD ML MODELS
 # =========================================================
@@ -69,7 +65,6 @@ with st.sidebar:
         unsafe_allow_html=True
     )
     st.divider() 
-
     #---------- Sidebar Menu Section ----------
     selected = option_menu(
         "Select Prediction",
@@ -85,8 +80,7 @@ with st.sidebar:
         ],
         default_index=0,
     )
-    st.divider()    
-
+    st.divider() 
     #---------- Sidebar Footer Section ----------
     st.markdown(
         """
@@ -98,7 +92,6 @@ with st.sidebar:
         """,
         unsafe_allow_html=True
     )
-
     #---------- Sidebar Footer Fixed ----------
     st.markdown(
         """
@@ -107,8 +100,7 @@ with st.sidebar:
         </div>
         """,
         unsafe_allow_html=True
-    )
-    
+    )    
 # =========================================================
 # 🏫 FIXED HEADER
 # =========================================================
@@ -132,7 +124,6 @@ st.markdown(f"""
  )
 #------------ Mmain Content Section  Start--------------------
 st.markdown('<div class="main-content">', unsafe_allow_html=True)
-
 # =========================================================
 # 🎯 PAGE BACKGROUND PER MODULE
 # =========================================================
@@ -154,13 +145,12 @@ elif selected == "Heart Disease Prediction":
     set_bg("#4a0404", "#620a0a")
 else:
     set_bg("#1f1147", "#5b2c83")
-
 # =========================================================
 # 🩸 DIABETES PREDICTION MODULE
 # =========================================================
 if (selected == 'Diabetes Prediction'):     
     # -----------------------------------------------------
-    # 1️⃣ SESSION STATE INITIALIZATION (Default Values)
+    # 1 SESSION STATE INITIALIZATION (Default Values)
     # -----------------------------------------------------
     # These defaults ensure the form retains values
     # and can be reset or auto-filled safely
@@ -174,77 +164,64 @@ if (selected == 'Diabetes Prediction'):
         if key not in st.session_state:
             st.session_state[key] = value
     # -----------------------------------------------------
-    # 2️⃣ CLEAR FORM FUNCTION
+    # 2 CLEAR FORM FUNCTION
     # -----------------------------------------------------
     # Resets all input fields back to default values
     def clear_diabetes_form():
         # reset dropdown
-        st.session_state["diabetes_sample"] = "Select Sample"
-        
+        st.session_state["diabetes_sample"] = "Select Sample"        
         for key, value in defaults.items():
             st.session_state[key] = value  
-
     # -----------------------------------------------------
-    # 3️⃣ SAMPLE PATIENT DATA (FOR DEMO PURPOSE)
+    # 3 SAMPLE PATIENT DATA (FOR DEMO PURPOSE)
     # -----------------------------------------------------
     # Helps users quickly test the model with realistic data
     DIABETES_SAMPLES = {
-        "Select Sample": None,
-    
+        "Select Sample": None,    
         "1️⃣ Sample Data": {
             "Pregnancies": 3, "Glucose": 126, "BloodPressure": 88,
             "SkinThickness": 41, "Insulin": 235, "BMI": 39.3,
             "DPF": 0.704, "Age": 27
-        },
-    
+        },    
         "2️⃣ Sample Data": {
             "Pregnancies": 2, "Glucose": 135, "BloodPressure": 82,
             "SkinThickness": 28, "Insulin": 140, "BMI": 28.9,
             "DPF": 0.78, "Age": 45
-        },
-    
+        },    
         "3️⃣ Sample Data": {
             "Pregnancies": 6, "Glucose": 178, "BloodPressure": 90,
             "SkinThickness": 35, "Insulin": 220, "BMI": 34.6,
             "DPF": 1.45, "Age": 62
         }
-    }
-    
+    }    
     # -----------------------------------------------------
-    # 4️⃣ PAGE HEADER & ACTION BUTTONS
+    # 4 PAGE HEADER & ACTION BUTTONS
     # -----------------------------------------------------
     col_title, col_btn1, col_btn2 = st.columns([4, 1, 1])
-
     with col_title:
         st.header("🩸 Diabetes Prediction", divider="blue")
-
     with col_btn1:
-        st.markdown("<br>", unsafe_allow_html=True)
-           
+        st.markdown("<br>", unsafe_allow_html=True)           
     with col_btn2:      
         st.button("🧹 Clear", type="secondary", on_click=clear_diabetes_form)
-
     # -----------------------------------------------------
-    # 5️⃣ SAMPLE SELECTION DROPDOWN
+    # 5 SAMPLE SELECTION DROPDOWN
     # -----------------------------------------------------
     sample_choice = st.selectbox(
         "🧪 Load Sample Patient",
         list(DIABETES_SAMPLES.keys()),
         key="diabetes_sample"
     )
-
     # Load sample data when selected
     if st.session_state.diabetes_sample != "Select Sample":
         sample = DIABETES_SAMPLES.get(st.session_state.diabetes_sample)
         if sample:
             for key, value in sample.items():
-                st.session_state[key] = value
-           
+                st.session_state[key] = value           
     # -----------------------------------------------------
-    # 6️⃣ DIABETES INPUT FORM
+    # 6 DIABETES INPUT FORM
     # -----------------------------------------------------
     with st.form("diabetes_form"):
-
         # --- Row 1 ---
         col1, col2, col3 = st.columns(3)
         with col1:
@@ -258,8 +235,7 @@ if (selected == 'Diabetes Prediction'):
         with col3:
             BloodPressure = st.number_input(
                 "Blood Pressure (mm Hg)", 0, 200, key="BloodPressure"
-            )       
-
+            )   
         # --- Row 2 ---
         col1, col2, col3 = st.columns(3)
         with col1:
@@ -274,7 +250,6 @@ if (selected == 'Diabetes Prediction'):
             BMI = st.number_input(
                 "BMI", 0.0, 70.0, format="%.2f", key="BMI"
             )
-
         # --- Row 3 ---
         col1, col2 = st.columns(2)
         with col1:
@@ -284,26 +259,22 @@ if (selected == 'Diabetes Prediction'):
         with col2:
             Age = st.number_input(
                 "Age", 1, 120, key="Age"
-            )
-    
+            )    
         # -------------------------------------------------
-        # 7️⃣ PREDICTION BUTTON
+        # 7 PREDICTION BUTTON
         # -------------------------------------------------
         col1, col2 = st.columns(2)
         with col1:
-            predict_btn = st.form_submit_button("🔍 Diabetes Test Result", type="primary")        
-   
+            predict_btn = st.form_submit_button("🔍 Diabetes Test Result", type="primary") 
     # -----------------------------------------------------
-    # 8️⃣ DIABETES PREDICTION & VALIDATION
+    # 8 DIABETES PREDICTION & VALIDATION
     # -----------------------------------------------------
-    if predict_btn:
-        
+    if predict_btn:        
         # -------------------------------------------------
-        # 8.1️⃣ BASIC INPUT VALIDATION
+        # 8.1 BASIC INPUT VALIDATION
         # -------------------------------------------------
         # Collects warnings for unrealistic or unsafe inputs
-        errors = []
-    
+        errors = []    
         if Glucose < 70:
             errors.append("⚠️ Glucose level seems too low.")
         if BloodPressure < 40:
@@ -312,14 +283,13 @@ if (selected == 'Diabetes Prediction'):
             errors.append("⚠️ BMI value seems invalid.")
         if Age < 10:
             errors.append("⚠️ Age must be at least 10 years.")
-
         # Display validation errors (if any)
         if errors:
             st.error("Please correct the following:")
             for err in errors:
                 st.write(err)
         # -------------------------------------------------
-        # 8.2️⃣ MODEL PREDICTION
+        # 8.2 MODEL PREDICTION
         # -------------------------------------------------
         else:
             # Predict diabetes outcome (0 = No, 1 = Yes)
@@ -327,15 +297,13 @@ if (selected == 'Diabetes Prediction'):
                 Pregnancies, Glucose, BloodPressure,
                 SkinThickness, Insulin, BMI, DPF, Age
             ]])
-
             # Display prediction result
             if diab_prediction[0] == 1:
                 st.error("🔴 The person is Diabetic")
             else:
                 st.success("🟢 The person is not Diabetic")
-
             # ------------------------------------------------- 
-            # 8.3️⃣ RISK PROBABILITY CALCULATION
+            # 8.3 RISK PROBABILITY CALCULATION
             # -------------------------------------------------
             # Use probability if model supports it
             if hasattr(diabetes_model, "predict_proba"):
@@ -351,18 +319,11 @@ if (selected == 'Diabetes Prediction'):
                     SkinThickness, Insulin, BMI, DPF, Age
                 ]])
                 risk = 100 if prediction[0] == 1 else 0
-
             # -------------------------------------------------
-            # 8.4️⃣ RISK VISUALIZATION      
-            # -------------------------------------------------           
-            #st.subheader("📊 Diabetes Risk Probability")
-            
-            #st.metric("Risk of Diabetes", f"{risk:.2f} %")
-            #st.progress(int(risk))
+            # 8.4 RISK VISUALIZATION      
+            # -------------------------------------------------                                               
             st.subheader("📊 Diabetes Risk Probability")
-
             col1, col2 = st.columns(2)
-
             # ---------------- Gauge Chart ----------------
             with col1:               
                 st.markdown(
@@ -372,8 +333,7 @@ if (selected == 'Diabetes Prediction'):
                 fig_gauge = go.Figure(go.Indicator(
                     mode="gauge+number",
                     value=risk,
-                    number={'suffix': "%", 'font': {'size': 40}},
-                    #title={'text': "Diabetes Risk Level", 'font': {'size': 24}},
+                    number={'suffix': "%", 'font': {'size': 40}},                   
                     gauge={
                         'axis': {'range': [0, 100], 'tickcolor': "white"},
                         'bar': {'color': "blue"},
@@ -383,8 +343,7 @@ if (selected == 'Diabetes Prediction'):
                             {'range': [70, 100], 'color': "red"}
                         ]
                     }
-                ))
-            
+                ))            
                 fig_gauge.update_layout(
                     height=350, 
                     paper_bgcolor="rgba(0,0,0,0)",
@@ -399,13 +358,10 @@ if (selected == 'Diabetes Prediction'):
                     unsafe_allow_html=True
                 )
                 safe = 100 - risk
-
-                fig_pie, ax = plt.subplots(figsize=(4,3.5), dpi=100)
-                
+                fig_pie, ax = plt.subplots(figsize=(4,3.5), dpi=100)                
                 # Set background colors
                 fig_pie.patch.set_facecolor("black")   # whole figure background
-                ax.set_facecolor("black")              # chart area background
-                
+                ax.set_facecolor("black")              # chart area background                
                 ax.pie(
                     [risk, safe],
                     labels=["Risk", "Healthy"],
@@ -414,12 +370,11 @@ if (selected == 'Diabetes Prediction'):
                     autopct='%1.1f%%',
                     startangle=90,
                     textprops={'color': "white"}  # label color
-                )               
-                #ax.set_title("Disease Risk Distribution", color="white")
+                )  
                 fig_pie.patch.set_alpha(0)
                 st.pyplot(fig_pie)   
             # -------------------------------------------------
-            # 8.5️⃣ RISK CATEGORY INTERPRETATION
+            # 8.5 RISK CATEGORY INTERPRETATION
             # -------------------------------------------------           
             if risk >= 70:
                 st.error("🔴 High Risk of Diabetes")

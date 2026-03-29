@@ -178,11 +178,11 @@ if (selected == 'Diabetes Prediction'):
     # -----------------------------------------------------
     # Resets all input fields back to default values
     def clear_diabetes_form():
-        for key, value in defaults.items():
-            st.session_state[key] = value
-    
         # reset dropdown
         st.session_state["diabetes_sample"] = "Select Sample"
+        
+        for key, value in defaults.items():
+            st.session_state[key] = value  
 
     # -----------------------------------------------------
     # 3️⃣ SAMPLE PATIENT DATA (FOR DEMO PURPOSE)
@@ -452,12 +452,11 @@ if selected == 'Heart Disease Prediction':
     # -----------------------------------------------------
     # Resets all heart disease inputs to default values
     def clear_heart_form():
-        for k, v in heart_defaults.items():
-            st.session_state[k] = v
-        
         # Reset sample dropdown
         st.session_state["heart_sample"] = "Select Sample"
-    
+        
+        for k, v in heart_defaults.items():
+            st.session_state[k] = v  
     # -----------------------------------------------------
     # 3️⃣ SAMPLE DATA (FOR QUICK TESTING)
     # -----------------------------------------------------
@@ -606,24 +605,10 @@ if selected == 'Heart Disease Prediction':
             if prediction[0] == 1:
                 st.error("🔴 Heart Disease Detected")
             else:
-                st.success("🟢 No Heart Disease Detected")           
-
-    
+                st.success("🟢 No Heart Disease Detected") 
+           
             # -------------------------------------------------
-            # 🔟 RESULT VISUALIZATION
-            # -------------------------------------------------
-            # st.subheader("📊 Risk Assessment")
-    
-            # st.metric(
-            #     label="Heart Disease Risk",
-            #     value=f"{risk:.2f} %",
-            #     delta=f"{safe:.2f} % Healthy"
-            # )
-    
-            # st.progress(int(risk))
-
-            # -------------------------------------------------
-            # 📊 RISK VISUALIZATION
+            # 🔟📊 RISK VISUALIZATION
             # -------------------------------------------------
             st.subheader("📊 Heart Disease Risk Probability")
             
@@ -723,12 +708,12 @@ if (selected == 'Parkinsons Prediction'):
     # 2️⃣ CLEAR FORM FUNCTION
     # -----------------------------------------------------
     def clear_parkinsons_form():
+         # Reset dropdown
+        st.session_state["parkinsons_sample"] = "Select Sample"
+        
         for key, val in parkinsons_defaults.items():
             st.session_state[key] = val
-    
-        # Reset dropdown
-        st.session_state["parkinsons_sample"] = "Select Sample"
-
+            
     # -----------------------------------------------------
     # 3️⃣ SAMPLE VOICE DATA (FOR DEMONSTRATION)
     # -----------------------------------------------------

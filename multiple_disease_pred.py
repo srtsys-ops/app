@@ -375,15 +375,16 @@ if (selected == 'Diabetes Prediction'):
 # =========================================================
 if selected == 'Heart Disease Prediction':
     # -----------------------------------------------------
-    # 1 SESSION STATE DEFAULT VALUES
+    # 1 SESSION STATE INITIALIZATION (Default Values)
     # -----------------------------------------------------
-    # Default values ensure form persistence and reset safety
+    # These defaults ensure the form retains values
+    # and can be reset or auto-filled safely
     heart_defaults = {
         "age": 1, "sex": 0, "cp": 0, "trestbps": 80,  
         "chol": 100, "fbs": 0, "restecg": 0, "thalach": 60, 
         "exang": 0, "oldpeak": 0.0, "slope": 0, "ca": 0, "thal": 0
     }
-    # Initialize session state
+     # Initialize session state keys if not already present
     for key, value in heart_defaults.items():
         if key not in st.session_state:
             st.session_state[key] = value            
@@ -396,10 +397,10 @@ if selected == 'Heart Disease Prediction':
         st.session_state["heart_sample"] = "Select Sample"        
         for key, value in heart_defaults.items():
             st.session_state[key] = value
+    # ----------------------------------------------------- 
+    # 3 SAMPLE PATIENT DATA (FOR DEMO PURPOSE) 
     # -----------------------------------------------------
-    # 3 SAMPLE DATA (FOR QUICK TESTING)
-    # -----------------------------------------------------
-    # Used to auto-fill realistic patient profiles
+    # Helps users quickly test the model with realistic data
     HEART_SAMPLES = {
         "Select Sample": None,    
         "1️⃣ Sample Data": {
@@ -482,11 +483,12 @@ if selected == 'Heart Disease Prediction':
         thal = st.number_input('Thal (0–2)', 0, 2, key="thal")
 
         predict_btn = st.form_submit_button("🔍 Heart Disease Test Result", type="primary")
-    # -----------------------------------------------------
-    # 7 PREDICTION & VALIDATION
+    # ----------------------------------------------------- 
+    # 7 HEART DISEASE PREDICTION & VALIDATION
     # -----------------------------------------------------
     if predict_btn:
-        # --- Input Validation ---
+        # --------- BASIC INPUT VALIDATION ----------------        
+        # Collects warnings for unrealistic or unsafe inputs
         errors = []
         if age < 10:
             errors.append("⚠️ Age must be at least 10 years.")
@@ -498,13 +500,13 @@ if selected == 'Heart Disease Prediction':
             errors.append("⚠️ Max heart rate must be 60–250.")
         if ca < 0 or ca > 4:
             errors.append("⚠️ Major vessels must be 0–4.")
-        # Display validation errors
+        # Display validation errors (if any)
         if errors:
             st.error("Please correct the following:")
             for e in errors:
                 st.write(e)
         # -------------------------------------------------
-        # 8 MODEL INFERENCE & RISK ANALYSIS
+        # 8 MODEL PREDICTION
         # -------------------------------------------------
         else:
             input_data = [[
@@ -520,13 +522,15 @@ if selected == 'Heart Disease Prediction':
                 st.error("🔴 Heart Disease Detected")
             else:
                 st.success("🟢 No Heart Disease Detected")
-            # Probability prediction
+            # ------------------------------------------------- 
+            # 10 RISK PROBABILITY CALCULATION
+            # -------------------------------------------------
             proba = heart_disease_model.predict_proba(input_data)
             risk = proba[0][1] * 100   # Probability of disease
             safe = proba[0][0] * 100
             # -------------------------------------------------
-            # 10📊 RISK VISUALIZATION
-            # -------------------------------------------------
+            # 11 📊 RISK VISUALIZATION
+            # -------------------------------------------------        
             st.subheader("📊 Heart Disease Risk Probability")            
             col1, col2 = st.columns(2)            
             # ---------------- Gauge Chart ----------------
@@ -579,7 +583,7 @@ if selected == 'Heart Disease Prediction':
                 fig_pie.patch.set_alpha(0)            
                 st.pyplot(fig_pie)
             # -------------------------------------------------
-            # 11 RISK CATEGORY INTERPRETATION
+            # 12 RISK CATEGORY INTERPRETATION
             # -------------------------------------------------
             if risk >= 70:
                 st.error("🔴 High Risk of Heart Disease")

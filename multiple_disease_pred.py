@@ -23,7 +23,7 @@ import matplotlib.pyplot as plt
 import plotly.graph_objects as go
 
 st.set_page_config(
-    page_title="Health Disease Predictor",
+    page_title="Healthcare Predictor",
     page_icon="🩺",
     #layout="wide",
     initial_sidebar_state="expanded"

@@ -178,17 +178,17 @@ if (selected == 'Diabetes Prediction'):
     # Helps users quickly test the model with realistic data
     DIABETES_SAMPLES = {
         "Select Sample": None,    
-        "1️⃣ Sample Data": {
+        "Sample Data 1": {
             "Pregnancies": 3, "Glucose": 126, "BloodPressure": 88,
             "SkinThickness": 41, "Insulin": 235, "BMI": 39.3,
             "DPF": 0.704, "Age": 27
         },    
-        "2️⃣ Sample Data": {
+        "Sample Data 2": {
             "Pregnancies": 2, "Glucose": 135, "BloodPressure": 82,
             "SkinThickness": 28, "Insulin": 140, "BMI": 28.9,
             "DPF": 0.78, "Age": 45
         },    
-        "3️⃣ Sample Data": {
+        "Sample Data 3": {
             "Pregnancies": 6, "Glucose": 178, "BloodPressure": 90,
             "SkinThickness": 35, "Insulin": 220, "BMI": 34.6,
             "DPF": 1.45, "Age": 62
@@ -403,17 +403,17 @@ if selected == 'Heart Disease Prediction':
     # Helps users quickly test the model with realistic data
     HEART_SAMPLES = {
         "Select Sample": None,    
-        "1️⃣ Sample Data": {
+        "Sample Data 1": {
             "age": 25, "sex": 0, "cp": 0,  "trestbps": 108,
             "chol": 165, "fbs": 0, "restecg": 0, "thalach": 190,
             "exang": 0, "oldpeak": 0.0,  "slope": 1, "ca": 0, "thal": 0
         },    
-        "2️⃣ Sample Data": {
+        "Sample Data 2": {
             "age": 52, "sex": 1, "cp": 2, "trestbps": 138,
             "chol": 245, "fbs": 0, "restecg": 1, "thalach": 150,
             "exang": 0, "oldpeak": 1.3, "slope": 1, "ca": 0, "thal": 1
         },    
-        "3️⃣ Sample Data": {
+        "Sample Data 3": {
             "age": 67, "sex": 1, "cp": 3, "trestbps": 168,
             "chol": 295, "fbs": 1,
             "restecg": 2, "thalach": 118, "exang": 1,
@@ -630,7 +630,7 @@ if (selected == 'Parkinsons Prediction'):
     # Helps users test model using realistic voice patterns
     PARKINSONS_SAMPLES = {
         "Select Sample": None,    
-        "1️⃣ Sample Data": {
+        "Sample Data 1": {
             "fo": 120.0, "fhi": 150.0, "flo": 100.0,
             "Jitter_percent": 0.003, "Jitter_Abs": 0.00002,
             "RAP": 0.0015, "PPQ": 0.002, "DDP": 0.004,
@@ -641,7 +641,7 @@ if (selected == 'Parkinsons Prediction'):
             "spread1": -6.0, "spread2": 0.15,
             "D2": 2.1, "PPE": 0.08
         },    
-        "2️⃣ Sample Data": {
+        "Sample Data 2": {
             "fo": 197.076, "fhi": 206.896, "flo":192.055,
             "Jitter_percent": .00289, "Jitter_Abs": 0.00001,
             "RAP": 0.00166, "PPQ": 0.00168, "DDP": 0.00498,
@@ -652,7 +652,7 @@ if (selected == 'Parkinsons Prediction'):
             "spread1": -7.3483, "spread2": 0.177551,
             "D2": 1.743867, "PPE": 0.085569           
         },    
-        "3️⃣ Sample Data": {
+        "Sample Data 3": {
             "fo": 165.0, "fhi": 220.0, "flo": 90.0,
             "Jitter_percent": 0.012, "Jitter_Abs": 0.00012,
             "RAP": 0.006, "PPQ": 0.008, "DDP": 0.018,
@@ -663,7 +663,7 @@ if (selected == 'Parkinsons Prediction'):
             "spread1": -3.5, "spread2": 0.32,
             "D2": 3.4, "PPE": 0.32
         },
-        "4️⃣ Sample Data": {
+        "Sample Data 4": {
             "fo": 198.383, "fhi": 215.203, "flo": 193.104,
             "Jitter_percent": 0.00212, "Jitter_Abs": 0.00001,
             "RAP": 0.00113, "PPQ": 0.00135, "DDP": 0.00339,

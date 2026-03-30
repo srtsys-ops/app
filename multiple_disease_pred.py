@@ -5,7 +5,7 @@ Created on Thu Jan 15 15:17:35 2026
 
 PROJECT:
 --------
-Health Predictor Web App using Machine Learning
+Healthcare Predictor Web App using Machine Learning
 (Diabetes | Heart Disease | Parkinson’s)
 
 FRAMEWORK:

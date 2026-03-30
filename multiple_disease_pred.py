@@ -139,9 +139,12 @@ def set_bg(color1, color2):
         """,
         unsafe_allow_html=True
     ) 
-if selected == "Diabetes Prediction": set_bg("#0b132b", "#1c2541")
-elif selected == "Heart Disease Prediction": set_bg("#4a0404", "#620a0a")
-else: set_bg("#1f1147", "#5b2c83")    
+if selected == "Diabetes Prediction": 
+    set_bg("#0b132b", "#1c2541")
+elif selected == "Heart Disease Prediction": 
+    set_bg("#4a0404", "#620a0a")
+else: 
+    set_bg("#1f1147", "#5b2c83")    
 # =========================================================
 # 🩸 DIABETES PREDICTION MODULE
 # =========================================================

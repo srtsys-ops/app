@@ -58,8 +58,8 @@ with st.sidebar:
         <div class="sidebar-box sidebar-box1">
             <h2>🩺 Health Predictor</h2>
             <p>Disease Detection by ML</p>
-            <p>Project Coordinator</p>
-            <p>Mr.Sharavanan, M.Sc., M.Phil.</p>
+            <p>Project Guide</p>
+            <p>MR.E.V.Sharavanan, M.C.A, M.Phil.,</p>
         </div>
         """,
         unsafe_allow_html=True
@@ -113,7 +113,7 @@ st.markdown(f"""
                 <div class="scrolling-text">
                     <h5>
                         Name: THILAK S, 1st Year MSc Data Science | 
-                        Project Coordinator: Mr.Sharavanan, M.Sc., M.Phil. | Salem-11
+                        Project Guide: MR.E.V.Sharavanan, M.C.A, M.Phil., | Salem-11
                     </h5>
                 </div>
             </div>

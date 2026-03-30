@@ -292,11 +292,12 @@ if (selected == 'Diabetes Prediction'):
         # 8.2 MODEL PREDICTION
         # -------------------------------------------------
         else:
-            # Predict diabetes outcome (0 = No, 1 = Yes)
-            diab_prediction = diabetes_model.predict([[
+            input_data = [[
                 Pregnancies, Glucose, BloodPressure,
                 SkinThickness, Insulin, BMI, DPF, Age
-            ]])
+            ]]
+            # Predict diabetes outcome (0 = No, 1 = Yes)
+            diab_prediction = diabetes_model.predict(input_data)
             # Display prediction result
             if diab_prediction[0] == 1:
                 st.error("🔴 The person is Diabetic")
@@ -304,21 +305,10 @@ if (selected == 'Diabetes Prediction'):
                 st.success("🟢 The person is not Diabetic")
             # ------------------------------------------------- 
             # 8.3 RISK PROBABILITY CALCULATION
-            # -------------------------------------------------
-            # Use probability if model supports it
-            if hasattr(diabetes_model, "predict_proba"):
-                proba = diabetes_model.predict_proba([[
-                    Pregnancies, Glucose, BloodPressure,
-                    SkinThickness, Insulin, BMI, DPF, Age
-                ]])
-                risk = proba[0][1] * 100
-            # Fallback for models without probability support
-            else:
-                prediction = diabetes_model.predict([[
-                    Pregnancies, Glucose, BloodPressure,
-                    SkinThickness, Insulin, BMI, DPF, Age
-                ]])
-                risk = 100 if prediction[0] == 1 else 0
+            # -------------------------------------------------                                      
+            proba = diabetes_model.predict_proba(input_data)
+            risk = proba[0][1] * 100   # Probability of disease
+            safe = proba[0][0] * 100            
             # -------------------------------------------------
             # 8.4 RISK VISUALIZATION      
             # -------------------------------------------------                                               
@@ -523,11 +513,7 @@ if selected == 'Heart Disease Prediction':
                 age, sex, cp, trestbps, chol, fbs,
                 restecg, thalach, exang, oldpeak,
                 slope, ca, thal
-            ]]
-            # Probability prediction
-            proba = heart_disease_model.predict_proba(input_data)
-            risk = proba[0][1] * 100   # Probability of disease
-            safe = proba[0][0] * 100
+            ]]           
             prediction = heart_disease_model.predict(input_data)
             # -------------------------------------------------
             # 9 RESULT DISPLAY
@@ -535,7 +521,11 @@ if selected == 'Heart Disease Prediction':
             if prediction[0] == 1:
                 st.error("🔴 Heart Disease Detected")
             else:
-                st.success("🟢 No Heart Disease Detected")            
+                st.success("🟢 No Heart Disease Detected")
+            # Probability prediction
+            proba = heart_disease_model.predict_proba(input_data)
+            risk = proba[0][1] * 100   # Probability of disease
+            safe = proba[0][0] * 100
             # -------------------------------------------------
             # 10📊 RISK VISUALIZATION
             # -------------------------------------------------
@@ -790,11 +780,10 @@ if (selected == 'Parkinsons Prediction'):
             # --------------------------------------------
             # 📊 RISK PROBABILITY CALCULATION
             # --------------------------------------------
-            if hasattr(parkinsons_model, "predict_proba"):
-                proba = parkinsons_model.predict_proba(input_data)
-                risk = proba[0][1] * 100
-            else:
-                risk = 100 if prediction[0] == 1 else 0            
+             # Probability prediction
+            proba = parkinsons_model.predict_proba(input_data)
+            risk = proba[0][1] * 100   # Probability of disease
+            safe = proba[0][0] * 100             
             # --------------------------------------------
             # 📊 RISK VISUALIZATION
             # --------------------------------------------

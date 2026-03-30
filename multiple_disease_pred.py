@@ -259,20 +259,16 @@ if (selected == 'Diabetes Prediction'):
         with col2:
             Age = st.number_input(
                 "Age", 1, 120, key="Age"
-            )    
-        # -------------------------------------------------
-        # 7 PREDICTION BUTTON
-        # -------------------------------------------------
+            )  
+        # --- Row 4 ---
         col1, col2 = st.columns(2)
         with col1:
             predict_btn = st.form_submit_button("🔍 Diabetes Test Result", type="primary") 
     # -----------------------------------------------------
-    # 8 DIABETES PREDICTION & VALIDATION
+    # 7 DIABETES PREDICTION & VALIDATION
     # -----------------------------------------------------
-    if predict_btn:        
-        # -------------------------------------------------
-        # 8.1 BASIC INPUT VALIDATION
-        # -------------------------------------------------
+    if predict_btn: 
+        # --------- BASIC INPUT VALIDATION ----------------        
         # Collects warnings for unrealistic or unsafe inputs
         errors = []    
         if Glucose < 70:
@@ -289,7 +285,7 @@ if (selected == 'Diabetes Prediction'):
             for err in errors:
                 st.write(err)
         # -------------------------------------------------
-        # 8.2 MODEL PREDICTION
+        # 8 MODEL PREDICTION
         # -------------------------------------------------
         else:
             input_data = [[
@@ -298,19 +294,21 @@ if (selected == 'Diabetes Prediction'):
             ]]
             # Predict diabetes outcome (0 = No, 1 = Yes)
             diab_prediction = diabetes_model.predict(input_data)
-            # Display prediction result
+            # -------------------------------------------------
+            # 9 RESULT DISPLAY
+            # -------------------------------------------------            
             if diab_prediction[0] == 1:
                 st.error("🔴 The person is Diabetic")
             else:
                 st.success("🟢 The person is not Diabetic")
             # ------------------------------------------------- 
-            # 8.3 RISK PROBABILITY CALCULATION
+            # 10 RISK PROBABILITY CALCULATION
             # -------------------------------------------------                                      
             proba = diabetes_model.predict_proba(input_data)
             risk = proba[0][1] * 100   # Probability of disease
             safe = proba[0][0] * 100            
             # -------------------------------------------------
-            # 8.4 RISK VISUALIZATION      
+            # 11 📊 RISK VISUALIZATION
             # -------------------------------------------------                                               
             st.subheader("📊 Diabetes Risk Probability")
             col1, col2 = st.columns(2)
@@ -364,7 +362,7 @@ if (selected == 'Diabetes Prediction'):
                 fig_pie.patch.set_alpha(0)
                 st.pyplot(fig_pie)   
             # -------------------------------------------------
-            # 8.5 RISK CATEGORY INTERPRETATION
+            # 12 RISK CATEGORY INTERPRETATION
             # -------------------------------------------------           
             if risk >= 70:
                 st.error("🔴 High Risk of Diabetes")

@@ -596,9 +596,10 @@ if selected == 'Heart Disease Prediction':
 # =========================================================
 if (selected == 'Parkinsons Prediction'):    
     # -----------------------------------------------------
-    # 1 SESSION STATE DEFAULT VALUES
+    # 1 SESSION STATE INITIALIZATION (Default Values)
     # -----------------------------------------------------
-    # Default initialization for all Parkinson's voice features
+    # These defaults ensure the form retains values
+    # and can be reset or auto-filled safely
     parkinsons_defaults = {
         "fo": 0.0, "fhi": 0.0, "flo": 0.0,
         "Jitter_percent": 0.0, "Jitter_Abs": 0.0,
@@ -610,20 +611,21 @@ if (selected == 'Parkinsons Prediction'):
         "spread1": 0.0, "spread2": 0.0,
         "D2": 0.0, "PPE": 0.0
     }
-    # Initialize session state keys
+    # Initialize session state keys if not already present
     for key, value in parkinsons_defaults.items():
         if key not in st.session_state:
             st.session_state[key] = value
     # -----------------------------------------------------
     # 2 CLEAR FORM FUNCTION
     # -----------------------------------------------------
+    # Resets all input fields back to default values
     def clear_parkinsons_form():
          # Reset dropdown
         st.session_state["parkinsons_sample"] = "Select Sample"        
         for key, value in parkinsons_defaults.items():
             st.session_state[key] = value            
     # -----------------------------------------------------
-    # 3 SAMPLE VOICE DATA (FOR DEMONSTRATION)
+    # 3 SAMPLE PATIENT DATA (FOR DEMO PURPOSE)
     # -----------------------------------------------------
     # Helps users test model using realistic voice patterns
     PARKINSONS_SAMPLES = {
@@ -734,12 +736,13 @@ if (selected == 'Parkinsons Prediction'):
         with cols[1]: PPE = st.number_input("PPE", step=0.00001, format="%.6f", key="PPE")
 
         predict_btn = st.form_submit_button("🔍 Parkinson's Test Result", type="primary")
-    # -----------------------------------------------------
-    # 7 INPUT VALIDATION & ERROR HANDLING
+    # ----------------------------------------------------- 
+    # 7 Parkinson's PREDICTION & VALIDATION
     # -----------------------------------------------------
     if predict_btn:
-        errors = []    
-        # Basic numeric sanity checks
+        # --------- BASIC INPUT VALIDATION ----------------        
+        # Collects warnings for unrealistic or unsafe inputs
+        errors = []   
         if fo <= 0 or fhi <= 0 or flo <= 0:
             errors.append("⚠️ Frequency values (Fo, Fhi, Flo) must be greater than 0.")    
         if Jitter_percent < 0 or Shimmer < 0:
@@ -756,14 +759,14 @@ if (selected == 'Parkinsons Prediction'):
         ]    
         if all(value == 0 for value in all_inputs):
             errors.append("⚠️ Please enter valid data. All values cannot be zero.")    
-        # -------------------------------------------------
-        # 8 DISPLAY ERRORS OR PERFORM PREDICTION
-        # -------------------------------------------------
+        # Display validation errors (if any)
         if errors:
             st.error("Please fix the following issues before prediction:")
             for err in errors:
                 st.write(err)    
-        # --------- Prediction ----------
+        # -------------------------------------------------
+        # 8 MODEL PREDICTION
+        # -------------------------------------------------
         else:
             input_data = [[
                 fo, fhi, flo, Jitter_percent, Jitter_Abs,
@@ -779,15 +782,14 @@ if (selected == 'Parkinsons Prediction'):
                 st.error("🔴 Parkinson’s Disease Detected")
             else:
                 st.success("🟢 No Parkinson’s Disease Detected")  
-            # --------------------------------------------
-            # 📊 RISK PROBABILITY CALCULATION
-            # --------------------------------------------
-             # Probability prediction
+            # -------------------------------------------- 
+            # 10 RISK PROBABILITY CALCULATION
+            # --------------------------------------------          
             proba = parkinsons_model.predict_proba(input_data)
             risk = proba[0][1] * 100   # Probability of disease
             safe = proba[0][0] * 100             
             # --------------------------------------------
-            # 📊 RISK VISUALIZATION
+            # 11 📊 RISK VISUALIZATION
             # --------------------------------------------
             st.subheader("📊 Parkinson’s Risk Probability")   
             col1, col2 = st.columns(2)            
@@ -840,7 +842,7 @@ if (selected == 'Parkinsons Prediction'):
                 fig_pie.patch.set_alpha(0)            
                 st.pyplot(fig_pie)
             # --------------------------------------------
-            # 10🚦 RISK CATEGORY INTERPRETATION
+            # 12 RISK CATEGORY INTERPRETATION
             # --------------------------------------------
             if risk >= 70:
                 st.error("🔴 High Risk of Parkinson’s Disease")

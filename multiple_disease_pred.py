@@ -83,10 +83,8 @@ with st.sidebar:
     st.markdown(
         """
         <div class="sidebar-box sidebar-box3">
-            <h3>THILAK S</h3>
-            <p>U25PG507DTS041</p>
-            <p>1<sup>st</sup> Year MSc Data Science</p>
-            <p>Department of  Computer Science</p>
+            <h3>THILAK S <br>U25PG507DTS041</h3>            
+            <p>1<sup>st</sup> Year MSc Data Science <br> Department of  Computer Science</p>            
             <p>Periyar University <br>Salem - 11</p>
         </div>
         """,

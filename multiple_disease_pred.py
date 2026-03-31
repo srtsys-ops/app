@@ -56,8 +56,8 @@ with st.sidebar:
     st.markdown(
         """
         <div class="sidebar-box sidebar-box1">
-            <h2>🩺 <br>Healthcare Predictor <br>Using Machine Learning</h2>            
-            <p>Project Guide <br> <b>MR.E.V.Sharavanan, M.C.A., M.Phil.,<b></p>             
+            <h2>🩺 <br>Healthcare Predictor <br>Using Machine Learning <br>23UPCSC4P01 </h2>            
+            <p>Project Guide <br> <b>MR.E.V.SHARAVANAN, M.C.A., M.Phil.,<b></p>             
         </div>
         """,
         unsafe_allow_html=True

@@ -57,7 +57,8 @@ with st.sidebar:
         """
         <div class="sidebar-box sidebar-box1">
             <h2>🩺 <br>Healthcare Predictor <br>Using Machine Learning</h2>            
-            <p>Project Guide <br> MR.E.V.Sharavanan, M.C.A, M.Phil.,</p>           
+            <p>Project Guide <br> MR.E.V.Sharavanan, M.C.A, M.Phil.,</p> 
+            <p>PERIYAR UNIVERSITY <br> SALEM - 11</p>
         </div>
         """,
         unsafe_allow_html=True

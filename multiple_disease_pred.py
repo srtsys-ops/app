@@ -57,8 +57,7 @@ with st.sidebar:
         """
         <div class="sidebar-box sidebar-box1">
             <h2>🩺 <br>Healthcare Predictor <br>Using Machine Learning</h2>            
-            <p>Project Guide <br> MR.E.V.Sharavanan, M.C.A, M.Phil.,</p> 
-            <p>PERIYAR UNIVERSITY <br> SALEM - 11</p>
+            <p>Project Guide <br> MR.E.V.Sharavanan, M.C.A, M.Phil.,</p>             
         </div>
         """,
         unsafe_allow_html=True
@@ -87,6 +86,8 @@ with st.sidebar:
             <h3>THILAK S</h3>
             <p>U25PG507DTS041</p>
             <p>1<sup>st</sup> Year MSc Data Science</p>
+            <p>Department of  Computer Science</p>
+            <p>Periyar University <br>Salem - 11</p>
         </div>
         """,
         unsafe_allow_html=True

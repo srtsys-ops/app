@@ -107,7 +107,7 @@ st.markdown(f"""
         <div class="fixed-header-inner">
             <img src="data:image/png;base64,{logo_base64}">
             <div>
-                <h1>PERIYAR UNIVERSITY</h1>
+                <h1>Healthcare Predictor <br>Using Machine Learning</h1>
                 <div class="scrolling-text">
                     <h5>
                         Name: THILAK S, 1st Year MSc Data Science | 

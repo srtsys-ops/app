@@ -113,6 +113,7 @@ section[data-testid="stSidebar"] hr { border-color: rgba(255,255,255,0.3); }
     color: #000 !important;
 }
 .fixed-header-inner h1 {padding: 0;}
+.fixed-header-inner h2 {color: #000 !important;font-size: 30px;padding: 0;}
 /* Right to Left Animation */
 @keyframes scroll-right-left {
     0% {transform: translateX(100%);}

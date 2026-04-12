@@ -65,8 +65,8 @@ with st.sidebar:
     st.divider() 
     #---------- Sidebar Menu Section ----------
     selected = option_menu(
-        "Select Prediction",
-        [
+        menu_title= "Select Prediction",
+        options= [
          "Diabetes Prediction", 
          "Heart Disease Prediction", 
          "Parkinsons Prediction"

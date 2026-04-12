@@ -76,7 +76,7 @@ with st.sidebar:
             "heart-fill",
             "person-lines-fill"
         ],
-        default_index=0,
+        default_index=0
     )
     st.divider() 
     #---------- Sidebar Footer Section ----------

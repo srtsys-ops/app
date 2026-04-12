@@ -62,6 +62,10 @@ with st.sidebar:
         """,
         unsafe_allow_html=True
     )
+    <div class="sidebar-box sidebar-box1">
+        <h2>🩺 <br>Healthcare Predictor <br>Using Machine Learning <br><small>23UPCSC4P01</small></h2>            
+        <p>Project Guide <br> <b>MR.E.V.SHARAVANAN, M.C.A., M.Phil.,<b></p>             
+    </div>
     st.divider() 
     #---------- Sidebar Menu Section ----------
     selected = option_menu(

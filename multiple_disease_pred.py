@@ -123,6 +123,21 @@ st.markdown(f"""
  )
 #------------ Mmain Content Section  Start--------------------
 st.markdown('<div class="main-content">', unsafe_allow_html=True)
+selected = option_menu(
+    menu_title= "Select Prediction",
+    options= [
+     "Diabetes Prediction", 
+     "Heart Disease Prediction", 
+     "Parkinsons Prediction"
+    ],
+    icons=[
+        "droplet-half",
+        "heart-fill",
+        "person-lines-fill"
+    ],
+    default_index=0,
+    orientation="horizontal"
+)
 # =========================================================
 # 🎯 PAGE BACKGROUND PER MODULE
 # =========================================================
